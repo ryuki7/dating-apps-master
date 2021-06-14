@@ -29,4 +29,4 @@
 https://xd.adobe.com/view/ce7f700b-05d8-4316-8a0f-fdc8f4261687-9b2c/
 
 # ER図
-https://gyazo.com/c64ec8f63e99d44786f6821ae261ea7f
+https://gyazo.com/5606c16a0f3f2500d65e9b38a34abdde
