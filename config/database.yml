@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: dating_apps_master_production
-  username: dating_apps_master
-  password: <%= ENV['DATING_APPS_MASTER_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATING_APPS_MASTER_DATABASE_PRODUCTION_PASSWORD'] %>
