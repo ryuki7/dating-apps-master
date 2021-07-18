@@ -20,6 +20,8 @@ default: &default
 development:
   <<: *default
   database: dating_apps_master_development
+  username: root
+  password: <%= ENV['DATING_APPS_MASTER_DATABASE_DEVELOPMENT_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
