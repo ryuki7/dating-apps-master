@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery with: :null_session  # APIの場合、：null_sessionを使用することが推奨されている。
 
   def test;end
 
