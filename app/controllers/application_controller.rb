@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
   private
 
   def signature_verify
-    channel_secret = 'cd3b244b56648c6ae54b3552238c41a3' # Channel secret string
     http_request_body = request.raw_post # Request body string
-    hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, channel_secret, http_request_body)
+    hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, ENV['CHANNEL_SECRET'], http_request_body)
     signature = Base64.strict_encode64(hash)
     # Compare x-line-signature request header string and the signature
   end
