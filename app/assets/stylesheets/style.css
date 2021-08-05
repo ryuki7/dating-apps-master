@@ -1,69 +1,57 @@
-html {
-    font-size: 11px;
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #080808;
 }
 
-table {
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
     width: 100%;
-    table-layout: fixed;
-    word-break: break-all;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
 }
 
-div {
-    max-width: 100%;
-    text-align: center;
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
 }
 
-th {
-    text-align: center;
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
 }
 
-table, th, td {
-    border: 1px solid black;
-}
-
-img { 
-    max-width: 25%; 
-    height: auto; 
-}
-
-button {
-    margin: 4px;
-}
-
-#code-block {
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 20px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-#profilePictureDiv {
-    text-align: center;
-}
-
-#profileImageDiv {
-    height: 100px;
-    width: 100px;
-}
-
-#statusMessage {
-    position: relative;
-    top: 40px;
-}
-
-.textLeft {
-    text-align: left;
-}
-
-.buttonGroup {
-    padding-top: 20px;
-}
-
-.hidden {
-    display: none;
+footer.page-footer {
+  margin: 0;
 }

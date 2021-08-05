@@ -1,0 +1,2 @@
+module AppDiagnosticsHelper
+end

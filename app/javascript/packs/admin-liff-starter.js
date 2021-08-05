@@ -1,1 +1,0 @@
-import '../channels/liff-starter.js'
