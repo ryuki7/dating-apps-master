@@ -1,23 +1,13 @@
 {
-  "admin-liff-starter.js": "/packs/js/admin-liff-starter-a6a21453ffb574bc538d.js",
-  "admin-liff-starter.js.map": "/packs/js/admin-liff-starter-a6a21453ffb574bc538d.js.map",
-  "application.js": "/packs/js/application-a860ea931ce4c057e219.js",
-  "application.js.map": "/packs/js/application-a860ea931ce4c057e219.js.map",
+  "application.js": "/packs/js/application-401ca8dd8334c99ca3b0.js",
+  "application.js.map": "/packs/js/application-401ca8dd8334c99ca3b0.js.map",
   "entrypoints": {
-    "admin-liff-starter": {
-      "js": [
-        "/packs/js/admin-liff-starter-a6a21453ffb574bc538d.js"
-      ],
-      "js.map": [
-        "/packs/js/admin-liff-starter-a6a21453ffb574bc538d.js.map"
-      ]
-    },
     "application": {
       "js": [
-        "/packs/js/application-a860ea931ce4c057e219.js"
+        "/packs/js/application-401ca8dd8334c99ca3b0.js"
       ],
       "js.map": [
-        "/packs/js/application-a860ea931ce4c057e219.js.map"
+        "/packs/js/application-401ca8dd8334c99ca3b0.js.map"
       ]
     }
   }

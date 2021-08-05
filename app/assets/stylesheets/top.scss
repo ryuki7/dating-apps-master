@@ -1,0 +1,60 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+  .top-container {
+    width: 100vw;
+    height: 100vh;
+    background: #666 image-url('pexels-andrea-piacquadio-3779751.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+  }
+
+  .top-container::before {
+    content: '';
+    position: absolute;
+    /* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+  }
+  
+  .top-title {
+    color: rgb(14, 13, 13);
+    text-align: center;
+    font-size: 60px;
+    padding-top: 80px;
+    text-shadow: 0 0 10px #333
+  }
+
+  .sub-top-title {
+    color: rgb(14, 13, 13);
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0 0 10px #333
+  }
+
+  .top-content {
+    color: rgb(14, 13, 13);
+    text-align: center;
+    text-shadow: 0 0 10px #333
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  nav {
+    color: #fff;
+    background-color: white;
+  }
+
+  div.top-container .btn-large {
+    background-color: rgb(14, 238, 107);
+    left: 680px;
+  }
