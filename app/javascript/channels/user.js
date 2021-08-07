@@ -26,6 +26,10 @@ function initializeLiff(myLiffId) {
         .init({
             liffId: myLiffId
         })
+        .then(() => {
+            const idToken = liff.getIDToken();
+            console.log(idToken); // print raw idToken object
+        })
         .catch((err) => {
             document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
