@@ -31,7 +31,7 @@ function initializeLiff(myLiffId) {
             $.ajax({                         // idトークンをpostリクエストで送る
                 url: '/users/idtoken',  
                 type: 'POST',
-                dataType: 'json',
+                dataType: 'html',
                 async: false,
                 data: {
                   idtoken: idToken

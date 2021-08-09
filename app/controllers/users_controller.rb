@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     uri = URI.parse("https://api.line.me/oauth2/v2.1/verify")
     response_json = Net::HTTP.post_form(uri, params)
     response_ruby = JSON.parse(response_json.body)
-
     if response_ruby["sub"]
       @user = User.find_by(line_id: response_ruby["sub"])
       if @user
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
         redirect_to top_path
       end
     else
-      render "users/idtoken_error"
+      redirect_to app_diagnostics_path
     end
   end
 
