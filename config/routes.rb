@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   post 'webhook' => 'application#webhook'
   get 'top' => 'top#index'
   resources :app_diagnostics
+  resources :users do
+    collection do
+      post 'idtoken'
+    end
+  end
 end
