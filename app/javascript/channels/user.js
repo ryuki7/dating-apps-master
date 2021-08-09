@@ -27,8 +27,16 @@ function initializeLiff(myLiffId) {
             liffId: myLiffId
         })
         .then(() => {
-            const idToken = liff.getIDToken();
-            console.log(idToken); // print raw idToken object
+            var idToken = liff.getIDToken(); // idトークンを取得
+            $.ajax({                         // idトークンをpostリクエストで送る
+                url: '/users/idtoken',  
+                type: 'POST',
+                dataType: 'json',
+                async: false,
+                data: {
+                  idtoken: idToken
+                },
+            });
         })
         .catch((err) => {
             document.getElementById("liffAppContent").classList.add('hidden');
