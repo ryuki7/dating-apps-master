@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'top' => 'top#index'
   resources :app_diagnostics
   resources :users do
+    member do
+      get 'my_page'
+    end
     collection do
       post 'idtoken'
     end
