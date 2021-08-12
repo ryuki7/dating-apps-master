@@ -8,16 +8,10 @@ class UsersController < ApplicationController
     uri = URI.parse("https://api.line.me/oauth2/v2.1/verify")
     response_json = Net::HTTP.post_form(uri, params)
     response_ruby = JSON.parse(response_json.body)
-    if response_ruby["sub"]
+    if response_ruby["sub"]     # IDトークンの対象ユーザーID
       @user = User.find_by(line_id: response_ruby["sub"])
-      if @user
-        redirect_to my_page_user_path(@user.id)
-      else
-        User.create!(line_id: response_ruby["sub"], name: response_ruby["name"], role: 0)
-        redirect_to top_path
-      end
-    else
-      redirect_to app_diagnostics_path
+      @user = User.create!(line_id: response_ruby["sub"], name: response_ruby["name"], role: 0) if @user.nil?
+      session[:id] = @user.id
     end
   end
 
