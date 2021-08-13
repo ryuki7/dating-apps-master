@@ -156,7 +156,7 @@ window.onload = function () {
 function initializeLiffOrDie(myLiffId) {
   if (!myLiffId) {
     document.getElementById("liffAppContent").classList.add('hidden');
-    document.getElementById("liffIdErrorMessage").classList.remove('hidden');
+    document.getElementById("liffErrorMessage").classList.remove('hidden');
   } else {
     initializeLiff(myLiffId);
   }
@@ -174,19 +174,27 @@ function initializeLiff(myLiffId) {
   }).then(function () {
     var idToken = liff.getIDToken(); // idトークンを取得
 
-    $.ajax({
-      // idトークンをpostリクエストで送る
-      url: '/users/idtoken',
-      type: 'POST',
-      dataType: 'html',
-      async: false,
-      data: {
-        idtoken: idToken
+    var body = "idToken=".concat(idToken);
+    var request = new Request('/users', {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      method: 'POST',
+      body: body
+    });
+    fetch(request).then(function (response) {
+      // このブロックの中ではPromiseではなくて、通常の値として扱える
+      if (response.status == 500) {
+        document.getElementById("liffAppContent").classList.add('hidden');
+        document.getElementById("liffErrorMessage").classList.remove('hidden');
       }
+    })["catch"](function (error) {
+      document.getElementById("liffAppContent").classList.add('hidden');
+      document.getElementById("liffErrorMessage").classList.remove('hidden');
     });
   })["catch"](function (err) {
     document.getElementById("liffAppContent").classList.add('hidden');
-    document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+    document.getElementById("liffErrorMessage").classList.remove('hidden');
   });
 }
 
@@ -3323,4 +3331,4 @@ module.exports = function (module) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-2a337f63db6692e75391.js.map
+//# sourceMappingURL=application-236d659411d24ab17e18.js.map
