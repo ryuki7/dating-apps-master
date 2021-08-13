@@ -182,12 +182,11 @@ function initializeLiff(myLiffId) {
       method: 'POST',
       body: body
     });
-    fetch(request).then(function (response) {
-      // このブロックの中ではPromiseではなくて、通常の値として扱える
-      if (response.status == 500) {
-        document.getElementById("liffAppContent").classList.add('hidden');
-        document.getElementById("liffErrorMessage").classList.remove('hidden');
-      }
+    fetch(request).then(function (response) {// このブロックの中ではPromiseではなくて、通常の値として扱える
+      //if (response.status == 500) {
+      //  document.getElementById("liffAppContent").classList.add('hidden');
+      // document.getElementById("liffErrorMessage").classList.remove('hidden');
+      //}
     })["catch"](function (error) {
       document.getElementById("liffAppContent").classList.add('hidden');
       document.getElementById("liffErrorMessage").classList.remove('hidden');
@@ -3331,4 +3330,4 @@ module.exports = function (module) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-236d659411d24ab17e18.js.map
+//# sourceMappingURL=application-c9b228e74cc6ae247e03.js.map
