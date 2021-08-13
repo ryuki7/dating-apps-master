@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./app/javascript/packs/application.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app/javascript/packs/top.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -117,22 +117,6 @@ webpackEmptyContext.id = "./app/javascript/channels sync recursive _channel\\.js
 var channels = __webpack_require__("./app/javascript/channels sync recursive _channel\\.js$");
 
 channels.keys().forEach(channels);
-
-/***/ }),
-
-/***/ "./app/javascript/channels/init.js":
-/*!*****************************************!*\
-  !*** ./app/javascript/channels/init.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-window.onload = function ($) {
-  $(function () {
-    $('.sidenav').sidenav();
-    $('.parallax').parallax();
-  }); // end of document ready
-}(jQuery); // end of jQuery name space
 
 /***/ }),
 
@@ -201,19 +185,17 @@ function initializeLiff(myLiffId) {
 
 /***/ }),
 
-/***/ "./app/javascript/packs/application.js":
-/*!*********************************************!*\
-  !*** ./app/javascript/packs/application.js ***!
-  \*********************************************/
+/***/ "./app/javascript/packs/top.js":
+/*!*************************************!*\
+  !*** ./app/javascript/packs/top.js ***!
+  \*************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _channels_init_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../channels/init.js */ "./app/javascript/channels/init.js");
-/* harmony import */ var _channels_init_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_channels_init_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _channels_user_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../channels/user.js */ "./app/javascript/channels/user.js");
-/* harmony import */ var _channels_user_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_channels_user_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _channels_user_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../channels/user.js */ "./app/javascript/channels/user.js");
+/* harmony import */ var _channels_user_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_channels_user_js__WEBPACK_IMPORTED_MODULE_0__);
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -225,7 +207,6 @@ __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks
 __webpack_require__(/*! @rails/activestorage */ "./node_modules/@rails/activestorage/app/assets/javascripts/activestorage.js").start();
 
 __webpack_require__(/*! channels */ "./app/javascript/channels/index.js");
-
 
  // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -3330,4 +3311,4 @@ module.exports = function (module) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-c9b228e74cc6ae247e03.js.map
+//# sourceMappingURL=top-e5ef062fddd64ef12578.js.map
