@@ -8,8 +8,5 @@ Rails.application.routes.draw do
     member do
       get 'my_page'
     end
-    collection do
-      post 'idtoken'
-    end
   end
 end

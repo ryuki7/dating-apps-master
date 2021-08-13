@@ -10,7 +10,7 @@ window.onload = function() {
 function initializeLiffOrDie(myLiffId) {
     if (!myLiffId) {
         document.getElementById("liffAppContent").classList.add('hidden');
-        document.getElementById("liffIdErrorMessage").classList.remove('hidden');
+        document.getElementById("liffErrorMessage").classList.remove('hidden');
     } else {
         initializeLiff(myLiffId);
     }
@@ -27,19 +27,30 @@ function initializeLiff(myLiffId) {
             liffId: myLiffId
         })
         .then(() => {
-            var idToken = liff.getIDToken(); // idトークンを取得
-            $.ajax({                         // idトークンをpostリクエストで送る
-                url: '/users/idtoken',  
-                type: 'POST',
-                dataType: 'html',
-                async: false,
-                data: {
-                  idtoken: idToken
-                },
+            const idToken = liff.getIDToken()   // idトークンを取得
+            const body =`idToken=${idToken}`
+            const request = new Request('/users', {
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+              },
+              method: 'POST',
+              body: body
+            });
+            fetch(request)
+            .then(response => {
+                // このブロックの中ではPromiseではなくて、通常の値として扱える
+                if (response.status == 500) {
+                    document.getElementById("liffAppContent").classList.add('hidden');
+                    document.getElementById("liffErrorMessage").classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                document.getElementById("liffAppContent").classList.add('hidden');
+                document.getElementById("liffErrorMessage").classList.remove('hidden');
             });
         })
         .catch((err) => {
             document.getElementById("liffAppContent").classList.add('hidden');
-            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+            document.getElementById("liffErrorMessage").classList.remove('hidden');
         });
 };
