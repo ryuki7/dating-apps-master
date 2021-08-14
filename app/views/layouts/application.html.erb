@@ -16,6 +16,7 @@
   <body>
     <div id="liffAppContent">
       <%= yield %>
+    <% if @user %>
       <!-- bottom navigation -->
       <ul class="bottom-menu">
         <li>
@@ -45,6 +46,7 @@
           <a href="https://twitter.com/intent/follow?screen_name=自分のツイッターID"><i class="fa fa-home"></i><br><span class="mini-text">マイページ</span></a>
         </li>
       </ul>
+    <% end %>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
