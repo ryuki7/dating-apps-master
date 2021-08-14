@@ -18,33 +18,42 @@
     display: none;
  }
 
- .menu {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	background: white;
-	width: 100%;
-}
-
-/*メニューを横並びにする*/
-.menu ul{
-   display: flex;
+ .bottom-sticky-nav {
+   height: 50px;
+   position: fixed;
+   display: block;
+   background: #ffffff;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 100;
+ }
+ .bottom-sticky-nav ul {
    list-style: none;
-   padding:0;
-   margin:0;
-   width:100%;
-}
-
-.menu li {
-	display: table;
-	table-layout: fixed;
-	width: 100%;
-	padding: 5px;
-	list-style: none;
-	text-align: center;
-}
-
-.menu a span {
-	display: block;
-	font-size: 4px;
-}
+   padding: 0;
+   margin: 0;
+   display: flex;
+   justify-content: space-evenly;
+ }
+ .bottom-sticky-nav ul li {
+   flex: 1;
+ }
+ .bottom-sticky-nav ul li a {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 10px;
+   height: 50px;
+   color: #00587a;
+ }
+ .bottom-sticky-nav ul li a:hover,
+   .bottom-sticky-nav ul li a:focus {
+   text-decoration: none;
+ }
+ .bottom-sticky-nav ul li a i {
+   font-size: 18px;
+ }
+ .bottom-sticky-nav ul li a span {
+   font-size: 12px;
+   line-height: 1.2;
+ } 

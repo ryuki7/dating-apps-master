@@ -16,22 +16,15 @@
   <body>
     <div id="liffAppContent">
       <%= yield %>
-      <div class="menu">
-        <ul>
-	        <li>
-		        <a href="ホーム画面URL"><i class="fas fa-home"></i><br>
-	        	<span class="iconname">ホーム</span></a>
-	        </li>
-      	  <li>
-	          <a href="飛ばしたいページのURL"><i class="fas fa-home"></i><br>
-		        <span class="iconname">表示させたい名前</span></a>
-      	  </li>
-	        <li>
-		       <a href="飛ばしたいページのURL"><i class="fas fa-home"></i><br>
-		        <span class="iconname">表示させたい名前</span></a>
-	        </li>
-        </ul>
-      </div>
+      <nav class="bottom-sticky-nav">
+    　  <ul>
+         <li><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+         <li><a href="#"><i class="fa fa-user"></i><span>Profile</span></a></li>
+         <li><a href="#"><i class="fa fa-briefcase"></i><span>Service</span></a></li>
+         <li><a href="#" ><i class="fa fa-laptop"></i><span>Portfolio</span></a></li>
+         <li><a href="#" ><i class="fa fa-envelope"></i><span>Mail</span></a></li>
+   　　  </ul>
+　　　　</nav>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
