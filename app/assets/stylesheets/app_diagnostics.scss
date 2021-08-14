@@ -2,23 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.teal-text.text-lighten-2 {
+.app-diagnostics-logo {
+    text-align: center;
+}
+
+#app-diagnostics-title{
     color: #121a19 !important;
 }
 
-#download-button-app-diagnostics {
+#app-diagnostics-button {
     margin-top: 80px;
-    color: #f3f5f5;
-    // background: linear-gradient(#c2f2f8, #f5dbf1) !important;
-    background: black;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1) !important;
     font-size: 30px;
     padding: 0 50px;
     border-radius:30px;
     
 }
 
-h3 {color: #ACB6E5;//非対応のブラウザでの文字色を設定
-  background: -webkit-linear-gradient(#c2f2f8, #f5dbf1);//背景色にグラデーションを指定
-  -webkit-background-clip: text;//テキストでくり抜く
-  -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+.app-diagnostics-text {
+    color: black
 }
