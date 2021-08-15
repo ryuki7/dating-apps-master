@@ -22,3 +22,46 @@
     color: black;
     text-align: center;
 }
+
+#app-diagnostics-select-button {
+    margin-top: 80px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 20px;
+    padding: 0 20px;
+    border-radius:30px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 32.4px;
+    line-height: 32.4px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#app-diagnostics-page {
+    color: #121a19;
+    text-align: right;
+}
+
+#app-diagnostics-description-select-button {
+    color: black;
+}
+
+.buttonwhite {
+    background: white !important;
+}
+
+.buttongreen {
+    background: green !important;
+}
