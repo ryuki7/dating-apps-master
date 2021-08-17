@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get 'test' => 'application#test'
   post 'webhook' => 'application#webhook'
   get 'top' => 'top#index'
-  resources :app_diagnostics
+  resources :app_diagnostics do
+    member do
+      post 'original_create'
+    end
+  end
   resources :users do
     member do
       get 'my_page'

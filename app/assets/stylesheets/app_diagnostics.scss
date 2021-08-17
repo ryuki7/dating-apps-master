@@ -6,6 +6,7 @@
 #app-diagnostics-title{
     color: #121a19;
     font-weight: bold;
+    margin-top: 50px;
 }
 
 #app-diagnostics-button {
@@ -21,10 +22,15 @@
 .app-diagnostics-text {
     color: black;
     text-align: center;
+    margin-top: 20px;
 }
 
-#app-diagnostics-select-button {
-    margin-top: 80px;
+#app-diagnostics-error-message {
+    color: red;
+}
+
+#app-diagnostics-select-submit-button {
+    margin-top: 15px;
     color: white;
     background: linear-gradient(#c2f2f8, #f5dbf1);
     font-size: 20px;
@@ -54,14 +60,77 @@
     text-align: right;
 }
 
-#app-diagnostics-description-select-button {
+.app-diagnostics-answer-btn {
     color: black;
+    height: 38px;
+    padding: 0px 14px;
+    font-size: 14px;
+    letter-spacing: 3.5px;
+    border-radius: 30px;
+    margin: 15px;
+}
+
+.app-diagnostics-select-submit-button-3 {
+    margin-top: 1px !important;
+}
+
+.description-long {
+    font-size: 11px !important;
+    padding: 0px 7px !important;
+    letter-spacing: 0.5px !important;
 }
 
 .buttonwhite {
     background: white !important;
 }
 
+.buttonred {
+    background: rgb(248, 132, 132) !important;
+    color: white !important;
+}
+
+.buttonblue {
+    background: rgb(132, 196, 248) !important;
+    color: white !important;
+}
+
 .buttongreen {
-    background: green !important;
+    background: rgb(132, 248, 184) !important;
+    color: white !important;
+}
+
+.app-diagnostics-answer-box-1 {
+    padding: 15px 1em;
+    margin: 20px 0;
+    font-weight: bold;
+    background: -webkit-repeating-linear-gradient(-45deg, #fff0f0, #fff0f0 3px,#ffe9e9 3px, #ffe9e9 7px);
+    background: repeating-linear-gradient(-45deg, #fff0f0, #fff0f0 3px,#ffe9e9 3px, #ffe9e9 7px);
+    border: solid 0.5px #fac4c4;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    display:flex;
+    flex-flow: column;
+}
+
+.app-diagnostics-answer-box-2 {
+    padding: 15px 1em;
+    margin: 20px 0;
+    font-weight: bold;
+    background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+    background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+    border: solid 0.5px #c4e0fa;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    display:flex;
+    flex-flow: column;
+}
+
+.app-diagnostics-answer-box-3 {
+    padding: 15px 1em;
+    margin: 20px 0;
+    font-weight: bold;
+    background: -webkit-repeating-linear-gradient(-45deg, rgb(240, 255, 247), #f0fff7 3px,#e9fff3 3px, #e9fff3 7px);
+    background: repeating-linear-gradient(-45deg, #f0fff7, #f0fff7 3px,#e9fff2 3px, #e9fff2 7px);
+    border: solid 0.5px #c4fadc;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    display:flex;
+    flex-flow: column;
 }

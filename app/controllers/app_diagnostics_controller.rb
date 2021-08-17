@@ -6,4 +6,7 @@ class AppDiagnosticsController < ApplicationController
   def show
   end
 
+  def original_create
+    binding.pry
+  end
 end

@@ -1,0 +1,44 @@
+<div class="container">
+    <h5 id="app-diagnostics-page">3/3</h5>
+    <p class="app-diagnostics-text" id="app-diagnostics-text">『内面』<br>どのような女性が好きですか？<br>また、どんな女性と出会いたいですか？<br>※複数選択可</p>
+    <div class="row center">
+      <form action="user_id/original_create" method="post" name="app_diagnostics_form_3">
+        <div class="app-diagnostics-answer-box-3">
+          <!-- question1の選択されたパラメータを渡す -->
+          <% if params[:allocation_1_1] %>
+            <input name="allocation_1_1" id="question_1_answer_1_2" type="hidden" value="<%= params[:allocation_1_1] %>">
+          <% end %>
+          <% if params[:allocation_1_2] %>
+            <input name="allocation_1_2" id="question_1_answer_2_2" type="hidden" value="<%= params[:allocation_1_2] %>">
+          <% end %>
+          <!-- question2の選択されたパラメータを渡す -->
+          <% if params[:allocation_2_1] %>
+            <input name="allocation_2_1" id="question_2_answer_1" type="hidden" value="<%= params[:allocation_2_1] %>">
+          <% end %>
+          <% if params[:allocation_2_2] %>
+            <input name="allocation_2_2" id="question_2_answer_2" type="hidden" value="<%= params[:allocation_2_2] %>">
+          <% end %>
+          <% if params[:allocation_2_3] %>
+            <input name="allocation_2_3" id="question_2_answer_3" type="hidden" value="<%= params[:allocation_2_3] %>">
+          <% end %>
+          <% if params[:allocation_2_4] %>
+            <input name="allocation_2_4" id="question_2_answer_4" type="hidden" value="<%= params[:allocation_2_4] %>">
+          <% end %>
+          <!-- question3 -->
+          <button type="button" id="app-diagnostics-description-select-button-3-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">真面目で貞操観念が強く、男性経験が少ない女性</button>
+          <input name="allocation_3_1" type="hidden" value="aaabbbcc" id="allocation-3-1">
+          <button type="button" id="app-diagnostics-description-select-button-3-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">真面目だが、貞操観念が弱い女性(押しに弱い女性)</button>
+          <input name="allocation_3_2" type="hidden" value="abccddd" id="allocation-3-2">
+          <button type="button" id="app-diagnostics-description-select-button-3-3" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">ある程度男性経験はあるが、貞操観念が強い女性</button>
+          <input name="allocation_3_3" type="hidden" value="aabbc" id="allocation-3-3">
+          <button type="button" id="app-diagnostics-description-select-button-3-4" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">ある程度男性経験があり、程よく貞操観念がある</button>
+          <input name="allocation_3_4" type="hidden" value="abcc" id="allocation-3-4">
+          <button type="button" id="app-diagnostics-description-select-button-3-5" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">男絡みが多く、貞操観念が弱い女性</button>
+          <input name="allocation_3_5" type="hidden" value="ccdddd" id="allocation-3-5">
+        </div>
+        <br>
+        <!-- question3のsubmitボタン -->
+        <button name="app_diagnostics_submit_3" type="button" id="app-diagnostics-select-submit-button" class="app-diagnostics-select-submit-button-3">選択</button>   
+      </form>
+    </div>
+</div>
