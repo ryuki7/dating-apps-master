@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   post 'webhook' => 'application#webhook'
   get 'top' => 'top#index'
   resources :app_diagnostics do
-    member do
+    collection do
       post 'original_create'
+    end
+    collection do
+      get 'result'
     end
   end
   resources :users do

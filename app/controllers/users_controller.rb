@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if line_id    # IDトークンの対象ユーザーID
       @user = User.find_by(line_id: line_id)
       @user = User.create!(line_id: line_id, name: line_name, role: 0) if @user.nil?
-      session[:id] = @user.id
+      session[:user_id] = @user.id
     else 
       render status: 500
     end
@@ -27,5 +27,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-  
+
 end

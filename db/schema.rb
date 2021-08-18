@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_142142) do
+ActiveRecord::Schema.define(version: 2021_08_18_061429) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description", null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.string "allocation", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "app_diagnostics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "app_id", null: false
+    t.integer "ranking"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["app_id"], name: "index_app_diagnostics_on_app_id"
+    t.index ["user_id"], name: "index_app_diagnostics_on_user_id"
+  end
+
+  create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "strategy_description", null: false
+    t.string "icon", null: false
+    t.string "diagnostic_allocation", null: false
+    t.text "diagnostic_description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,12 +48,15 @@ ActiveRecord::Schema.define(version: 2021_08_17_142142) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "line_id"
-    t.integer "role", default: 0
+    t.string "name"
+    t.string "line_id", null: false
+    t.integer "role", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_users_on_name"
+    t.index ["line_id"], name: "index_users_on_line_id", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "app_diagnostics", "apps"
+  add_foreign_key "app_diagnostics", "users"
 end

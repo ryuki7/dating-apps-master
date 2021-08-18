@@ -4,6 +4,9 @@
     <h1 class="center">診断結果</h1>
     <h3><%= current_user.name %>に向いているアプリ</h3>
     <div class="row center">
+      <%= @app_diagnostic_results.each do |result| %>
+        <% result.name %>
+      <% end %>
     </div>
 </div>
   </div>
