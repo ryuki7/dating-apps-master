@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_061429) do
   create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "strategy_description", null: false
-    t.string "icon", null: false
+    t.string "icon_image", null: false
     t.string "diagnostic_allocation", null: false
     t.text "diagnostic_description", null: false
     t.datetime "created_at", precision: 6, null: false

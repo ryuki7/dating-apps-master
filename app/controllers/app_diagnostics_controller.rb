@@ -7,9 +7,9 @@ class AppDiagnosticsController < ApplicationController
   end
 
   def original_create
+    AppDiagnostic.where(user_id: session[:user_id]).destroy_all
     allocation_all_values_array = params.permit(:allocation_1_1, :allocation_1_2, :allocation_2_1, :allocation_2_2, :allocation_2_3, :allocation_2_4, :allocation_3_1, :allocation_3_2, :allocation_3_3, :allocation_3_4, :allocation_3_5).values
     allocation_all_string = allocation_all_values_array.inject(:+)
-    @app_diagnostics = []
     allocation_count_array_sort(allocation_all_string).each.with_index(1) do |a,i|
       case a
       when @c_count # tapple
@@ -25,7 +25,6 @@ class AppDiagnosticsController < ApplicationController
         @d_count = '済み'
         next
       when @a_count # Pairs
-        binding.pry
         AppDiagnostic.create(app_id: 1, ranking: i, user_id: session[:user_id])
         @a_count = '済み'
         next
@@ -35,7 +34,8 @@ class AppDiagnosticsController < ApplicationController
   end
 
   def result
-    @app_diagnostic_results = AppDiagnostic.where(user_id: session[:user_id])
+    # idが若い順に取得する。(ランキング(順位)が高い順。)
+    @app_diagnostics = AppDiagnostic.where(user_id: session[:user_id])
   end
 
   private

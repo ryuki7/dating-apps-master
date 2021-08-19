@@ -1,13 +1,15 @@
 <div id="index-banner" class="parallax-container layout-app-diagnostics">
   <div class="section no-pad-bot">
-    <div class="container">
-    <h1 class="center">診断結果</h1>
-    <h3><%= current_user.name %>に向いているアプリ</h3>
-    <div class="row center">
-      <%= @app_diagnostic_results.each do |result| %>
-        <% result.name %>
-      <% end %>
+    <div class="container" id="app-diagnostics-result">
+      <h3 class="center" id="app-diagnostics-result-title">診断結果</h3>
+      <h5><%= current_user.name %>さんに向いているアプリ</h5>
+      <div class="row center">
+        <!-- 「idが若い = ランキング(順位)が高い」 為、ランキング順に自動で並ぶ。(1位 => 2位 => 3位 => 4位) -->
+        <% @app_diagnostics.each do |result| %>
+          <%= result.app.name %>
+          <img src="<%= "/app_icon_images/#{result.app.icon_image}" %>">
+        <% end %>
+      </div>
     </div>
-</div>
   </div>
 </div>

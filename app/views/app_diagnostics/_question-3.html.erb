@@ -4,6 +4,8 @@
     <div class="row center">
       <form action="original_create" method="post" name="app_diagnostics_form_3">
         <div class="app-diagnostics-answer-box-3">
+          <!-- CSRFトークンを渡す -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
           <!-- question1の選択されたパラメータを渡す -->
           <% if params[:allocation_1_1] %>
             <input name="allocation_1_1" id="question_1_answer_1_2" type="hidden" value="<%= params[:allocation_1_1] %>">
