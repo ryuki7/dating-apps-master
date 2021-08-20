@@ -10,10 +10,10 @@
 User.create!(name: 'テスト', line_id: 'test-line-id', role: 0)
 
 # テスト用のアプリ
-app_1 = App.create!(name: 'ペアーズ', strategy_description: 'ペアーズ攻略説明', icon_image: 'Pairs40R.png', diagnostic_allocation: 'a', diagnostic_description: 'ペアーズ診断説明')
-app_2 = App.create!(name: 'ウィズ', strategy_description: 'ウィズ攻略説明', icon_image: 'with50R.png', diagnostic_allocation: 'b', diagnostic_description: 'ウィズ診断説明')
-app_3 = App.create!(name: 'タップル', strategy_description: 'タップル攻略説明', icon_image: 'tapple70R.png', diagnostic_allocation: 'c', diagnostic_description: 'タップル診断説明')
-app_4 = App.create!(name: 'ティンダー', strategy_description: 'ティンダー攻略説明', icon_image: 'Tinder60R.png', diagnostic_allocation: 'd', diagnostic_description: 'ティンダー診断説明')
+app_1 = App.create!(name: 'Pairs（ペアーズ）', strategy_description: 'ペアーズ攻略説明', icon_image: 'Pairs60R.png', diagnostic_allocation: 'a', diagnostic_description: '真面目な女性が多い。彼女を作りたい人に向いている。')
+app_2 = App.create!(name: 'with（ウィズ）', strategy_description: 'ウィズ攻略説明', icon_image: 'with60R.png', diagnostic_allocation: 'b', diagnostic_description: '清楚な女性が多い。彼女を作りたい人に向いている。')
+app_3 = App.create!(name: 'tapple（タップル）', strategy_description: 'タップル攻略説明', icon_image: 'tapple60R.png', diagnostic_allocation: 'c', diagnostic_description: '可愛い子が多い。色々なタイプの女性がいる。')
+app_4 = App.create!(name: 'Tinder（ティンダー）', strategy_description: 'ティンダー攻略説明', icon_image: 'Tinder60R.png', diagnostic_allocation: 'd', diagnostic_description: '可愛い子が多い。彼女作りたい人には向いていない。')
 
 
 # 保管用
