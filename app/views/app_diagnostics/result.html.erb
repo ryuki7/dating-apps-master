@@ -1,9 +1,9 @@
-<div id="index-banner" class="parallax-container layout-app-diagnostics background-yellow">
+<div id="index-banner" class="parallax-container layout-app-diagnostics background-gray">
   <div class="section no-pad-bot">
     <div class="container" id="app-diagnostics-result">
       <h3 class="center" id="app-diagnostics-result-title">診断結果</h3>
-      <h5><%= current_user.name %>さんに向いているアプリ</h5>
-      <h6 style="text-align: left;">向いている</h6>
+      <h5 class="app-diagnostics-result-person"><%= current_user.name %>さんに向いているアプリ</h5>
+      <h6 class="app-diagnostics-result-strong" style="text-align: left;">向いている</h6>
       <div id="app-diagnostic-result-arrow">
         <ul>
           <li class="arrow-clippath-top"></li>
@@ -30,7 +30,7 @@
           </ul>
         </div>
       <% end %>
-      <h6 class="float-left-lift" style="text-align: left;">向いていない</h6>
+      <h6 class="float-left-lift app-diagnostics-result-weak" style="text-align: left;">向いていない</h6>
     </div>
   </div>
 </div>
