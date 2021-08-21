@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[my_page]
   require "net/http"
     
+　# ユーザー作成・ログイン
   def create
     idToken = params[:idToken]
     channelId = ENV['CHANNEL_ID']
@@ -13,19 +14,18 @@ class UsersController < ApplicationController
     if line_id    # IDトークンの対象ユーザーID
       @user = User.find_by(line_id: line_id)
       @user = User.create!(line_id: line_id, name: line_name, role: 0) if @user.nil?
-      session[:id] = @user.id
+      session[:user_id] = @user.id
     else 
       render status: 500
     end
   end
 
-  def my_page
-  end
+  def my_page; end
   
   private
 
   def set_user
     @user = User.find(params[:id])
   end
-  
+
 end

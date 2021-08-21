@@ -1,6 +1,5 @@
 class TopController < ApplicationController
   layout 'top'
 
-  def index
-  end
+  def index; end
 end

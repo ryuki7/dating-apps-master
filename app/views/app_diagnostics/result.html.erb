@@ -1,0 +1,37 @@
+<div id="index-banner" class="parallax-container layout-app-diagnostics background-gray">
+  <div class="section no-pad-bot">
+    <div class="container" id="app-diagnostics-result">
+      <h3 class="center" id="app-diagnostics-result-title">診断結果</h3>
+      <h5 class="app-diagnostics-result-person"><%= current_user.name %>さんに向いているアプリ</h5>
+      <h6 class="app-diagnostics-result-strong" style="text-align: left;">向いている</h6>
+      <div id="app-diagnostic-result-arrow">
+        <ul>
+          <li class="arrow-clippath-top"></li>
+          <li>
+            <div class="progress app-diagnostic-result-bar rotate-top">
+              <div class="indeterminate app-diagnostic-result-bar-move-top">----</div>
+            </div>
+          </li>
+          <li>
+            <div class="progress app-diagnostic-result-bar rotate-bottom">
+              <div class="indeterminate app-diagnostic-result-bar-move-bottom">----</div>
+            </div>
+          </li>
+          <li class="arrow-clippath-bottom"></li>
+        </ul>
+      </div>
+      <!-- 「idが若い = ランキング(順位)が高い」 為、ランキング順に自動で並ぶ。(1位 => 2位 => 3位 => 4位) -->
+      <% @app_diagnostics.each do |result| %>
+        <div class="app-diagnostic-result-app">
+          <p class="app-diagnostic-result-app-name"><%= result.app.name %></p>
+          <ul class="app-diagnostic-result-icon-and-description">
+            <li><img src="<%= "/app_icon_images/#{result.app.icon_image}" %>"></li>
+            <li><p><%= result.app.diagnostic_description %></p></li>
+          </ul>
+        </div>
+      <% end %>
+      <h6 class="float-left-lift app-diagnostics-result-weak" style="text-align: left;">向いていない</h6>
+      <%= link_to '攻略するアプリを選択', app_strategies_path, class: "app-diagnostic-result-app-select-button" %>
+    </div>
+  </div>
+</div>

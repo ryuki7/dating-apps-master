@@ -1,0 +1,12 @@
+<div id="index-banner" class="parallax-container layout-app-diagnostics">
+  <div class="section no-pad-bot">
+    <% case params[:id] %>
+    <% when '1' %>
+      <%= render 'question-1' %>
+    <% when '2' %>
+      <%= render 'question-2' %>
+    <% when '3' %>
+      <%= render 'question-3' %>
+    <% end %>
+  </div>
+</div>

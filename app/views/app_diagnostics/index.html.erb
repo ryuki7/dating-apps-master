@@ -1,15 +1,10 @@
-<nav class="white" role="navigation">
-  <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo">Logo</a>
-  </div>
-</nav>
 <div id="index-banner" class="parallax-container">
   <div class="section no-pad-bot">
     <div class="container">
       <h3 class="header center" id="app-diagnostics-title">適正アプリ診断</h3>
       <p class="app-diagnostics-text">4つのアプリ(Pairs・with・tapple・Tinder)の内、どのアプリが向いているのか診断しましょう！</p>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="app-diagnostics-button" class="btn-large waves-effect waves-light">診断する</a>
+        <%= link_to '診断する', app_diagnostic_path(1), id: "app-diagnostics-button", class: "btn-large waves-effect waves-light" %>
       </div>
     </div>
   </div>

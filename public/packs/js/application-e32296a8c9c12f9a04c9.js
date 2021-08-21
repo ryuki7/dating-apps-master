@@ -105,6 +105,294 @@ webpackEmptyContext.id = "./app/javascript/channels sync recursive _channel\\.js
 
 /***/ }),
 
+/***/ "./app/javascript/channels/app-diagnostic.js":
+/*!***************************************************!*\
+  !*** ./app/javascript/channels/app-diagnostic.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// アプリ診断
+var app_diagnostics_text = document.getElementById("app-diagnostics-text");
+var error_message = document.createElement('p');
+error_message.textContent = 'どれか1つは選択して下さい';
+error_message.id = 'app-diagnostics-error-message'; // question-1 answer-1
+
+var button_1_1 = document.getElementById("app-diagnostics-description-select-button-1-1");
+var hidden_field_1_1 = document.getElementById("allocation-1-1");
+
+if (button_1_1) {
+  button_1_1.addEventListener('click', function () {
+    if (button_1_1.classList.contains("buttonwhite")) {
+      button_1_1.classList.add('buttonred');
+      button_1_1.classList.remove('buttonwhite');
+    } else {
+      button_1_1.classList.add('buttonwhite');
+      button_1_1.classList.remove('buttonred');
+    }
+  });
+} // question-1 answer-2
+
+
+var button_1_2 = document.getElementById("app-diagnostics-description-select-button-1-2");
+var hidden_field_1_2 = document.getElementById("allocation-1-2");
+
+if (button_1_2) {
+  button_1_2.addEventListener('click', function () {
+    if (button_1_2.classList.contains("buttonwhite")) {
+      button_1_2.classList.add('buttonred');
+      button_1_2.classList.remove('buttonwhite');
+    } else {
+      button_1_2.classList.add('buttonwhite');
+      button_1_2.classList.remove('buttonred');
+    }
+  });
+} // question-1 submit
+
+
+if (document.app_diagnostics_form_1) {
+  document.app_diagnostics_form_1.app_diagnostics_submit_1.addEventListener('click', function () {
+    beforesubmit_1_select_check();
+  });
+}
+
+function beforesubmit_1_select_check() {
+  if (button_1_1.classList.contains("buttonwhite") && button_1_2.classList.contains("buttonwhite")) {
+    app_diagnostics_text.appendChild(error_message);
+  } else {
+    beforesubmit_1();
+    document.app_diagnostics_form_1.submit();
+  }
+}
+
+function beforesubmit_1() {
+  if (button_1_1.classList.contains("buttonwhite")) {
+    hidden_field_1_1.remove();
+  }
+
+  if (button_1_2.classList.contains("buttonwhite")) {
+    hidden_field_1_2.remove();
+  }
+} // question-2 answer-1
+
+
+var button_2_1 = document.getElementById("app-diagnostics-description-select-button-2-1");
+var hidden_field_2_1 = document.getElementById("allocation-2-1");
+
+if (button_2_1) {
+  button_2_1.addEventListener('click', function () {
+    if (button_2_1.classList.contains("buttonwhite")) {
+      button_2_1.classList.add('buttonblue');
+      button_2_1.classList.remove('buttonwhite');
+    } else {
+      button_2_1.classList.add('buttonwhite');
+      button_2_1.classList.remove('buttonblue');
+    }
+  });
+} // question-2 answer-2
+
+
+var button_2_2 = document.getElementById("app-diagnostics-description-select-button-2-2");
+var hidden_field_2_2 = document.getElementById("allocation-2-2");
+
+if (button_2_2) {
+  button_2_2.addEventListener('click', function () {
+    if (button_2_2.classList.contains("buttonwhite")) {
+      button_2_2.classList.add('buttonblue');
+      button_2_2.classList.remove('buttonwhite');
+    } else {
+      button_2_2.classList.add('buttonwhite');
+      button_2_2.classList.remove('buttonblue');
+    }
+  });
+} // question-2 answer-3
+
+
+var button_2_3 = document.getElementById("app-diagnostics-description-select-button-2-3");
+var hidden_field_2_3 = document.getElementById("allocation-2-3");
+
+if (button_2_3) {
+  button_2_3.addEventListener('click', function () {
+    if (button_2_3.classList.contains("buttonwhite")) {
+      button_2_3.classList.add('buttonblue');
+      button_2_3.classList.remove('buttonwhite');
+    } else {
+      button_2_3.classList.add('buttonwhite');
+      button_2_3.classList.remove('buttonblue');
+    }
+  });
+} // question-2 answer-4
+
+
+var button_2_4 = document.getElementById("app-diagnostics-description-select-button-2-4");
+var hidden_field_2_4 = document.getElementById("allocation-2-4");
+
+if (button_2_4) {
+  button_2_4.addEventListener('click', function () {
+    if (button_2_4.classList.contains("buttonwhite")) {
+      button_2_4.classList.add('buttonblue');
+      button_2_4.classList.remove('buttonwhite');
+    } else {
+      button_2_4.classList.add('buttonwhite');
+      button_2_4.classList.remove('buttonblue');
+    }
+  });
+} // question-2 submit
+
+
+if (document.app_diagnostics_form_2) {
+  document.app_diagnostics_form_2.app_diagnostics_submit_2.addEventListener('click', function () {
+    beforesubmit_2_select_check();
+  });
+}
+
+function beforesubmit_2_select_check() {
+  if (button_2_1.classList.contains("buttonwhite") && button_2_2.classList.contains("buttonwhite") && button_2_3.classList.contains("buttonwhite") && button_2_4.classList.contains("buttonwhite")) {
+    app_diagnostics_text.appendChild(error_message);
+  } else {
+    beforesubmit_2();
+    document.app_diagnostics_form_2.submit();
+  }
+}
+
+function beforesubmit_2() {
+  if (button_2_1.classList.contains("buttonwhite")) {
+    hidden_field_2_1.remove();
+  }
+
+  if (button_2_2.classList.contains("buttonwhite")) {
+    hidden_field_2_2.remove();
+  }
+
+  if (button_2_3.classList.contains("buttonwhite")) {
+    hidden_field_2_3.remove();
+  }
+
+  if (button_2_4.classList.contains("buttonwhite")) {
+    hidden_field_2_4.remove();
+  }
+} // question-3 answer-1
+
+
+var button_3_1 = document.getElementById("app-diagnostics-description-select-button-3-1");
+var hidden_field_3_1 = document.getElementById("allocation-3-1");
+
+if (button_3_1) {
+  button_3_1.addEventListener('click', function () {
+    if (button_3_1.classList.contains("buttonwhite")) {
+      button_3_1.classList.add('buttongreen');
+      button_3_1.classList.remove('buttonwhite');
+    } else {
+      button_3_1.classList.add('buttonwhite');
+      button_3_1.classList.remove('buttongreen');
+    }
+  });
+} // question-3 answer-2
+
+
+var button_3_2 = document.getElementById("app-diagnostics-description-select-button-3-2");
+var hidden_field_3_2 = document.getElementById("allocation-3-2");
+
+if (button_3_2) {
+  button_3_2.addEventListener('click', function () {
+    if (button_3_2.classList.contains("buttonwhite")) {
+      button_3_2.classList.add('buttongreen');
+      button_3_2.classList.remove('buttonwhite');
+    } else {
+      button_3_2.classList.add('buttonwhite');
+      button_3_2.classList.remove('buttongreen');
+    }
+  });
+} // question-3 answer-3
+
+
+var button_3_3 = document.getElementById("app-diagnostics-description-select-button-3-3");
+var hidden_field_3_3 = document.getElementById("allocation-3-3");
+
+if (button_3_3) {
+  button_3_3.addEventListener('click', function () {
+    if (button_3_3.classList.contains("buttonwhite")) {
+      button_3_3.classList.add('buttongreen');
+      button_3_3.classList.remove('buttonwhite');
+    } else {
+      button_3_3.classList.add('buttonwhite');
+      button_3_3.classList.remove('buttongreen');
+    }
+  });
+} // question-3 answer-4
+
+
+var button_3_4 = document.getElementById("app-diagnostics-description-select-button-3-4");
+var hidden_field_3_4 = document.getElementById("allocation-3-4");
+
+if (button_3_4) {
+  button_3_4.addEventListener('click', function () {
+    if (button_3_4.classList.contains("buttonwhite")) {
+      button_3_4.classList.add('buttongreen');
+      button_3_4.classList.remove('buttonwhite');
+    } else {
+      button_3_4.classList.add('buttonwhite');
+      button_3_4.classList.remove('buttongreen');
+    }
+  });
+} // question-3 answer-5
+
+
+var button_3_5 = document.getElementById("app-diagnostics-description-select-button-3-5");
+var hidden_field_3_5 = document.getElementById("allocation-3-5");
+
+if (button_3_5) {
+  button_3_5.addEventListener('click', function () {
+    if (button_3_5.classList.contains("buttonwhite")) {
+      button_3_5.classList.add('buttongreen');
+      button_3_5.classList.remove('buttonwhite');
+    } else {
+      button_3_5.classList.add('buttonwhite');
+      button_3_5.classList.remove('buttongreen');
+    }
+  });
+} // question-3 submit
+
+
+if (document.app_diagnostics_form_3) {
+  document.app_diagnostics_form_3.app_diagnostics_submit_3.addEventListener('click', function () {
+    beforesubmit_3_select_check();
+  });
+}
+
+function beforesubmit_3_select_check() {
+  if (button_3_1.classList.contains("buttonwhite") && button_3_2.classList.contains("buttonwhite") && button_3_3.classList.contains("buttonwhite") && button_3_4.classList.contains("buttonwhite") && button_3_5.classList.contains("buttonwhite")) {
+    app_diagnostics_text.appendChild(error_message);
+  } else {
+    beforesubmit_3();
+    document.app_diagnostics_form_3.submit();
+  }
+}
+
+function beforesubmit_3() {
+  if (button_3_1.classList.contains("buttonwhite")) {
+    hidden_field_3_1.remove();
+  }
+
+  if (button_3_2.classList.contains("buttonwhite")) {
+    hidden_field_3_2.remove();
+  }
+
+  if (button_3_3.classList.contains("buttonwhite")) {
+    hidden_field_3_3.remove();
+  }
+
+  if (button_3_4.classList.contains("buttonwhite")) {
+    hidden_field_3_4.remove();
+  }
+
+  if (button_3_5.classList.contains("buttonwhite")) {
+    hidden_field_3_5.remove();
+  }
+}
+
+/***/ }),
+
 /***/ "./app/javascript/channels/index.js":
 /*!******************************************!*\
   !*** ./app/javascript/channels/index.js ***!
@@ -147,6 +435,8 @@ window.onload = function ($) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channels_init_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../channels/init.js */ "./app/javascript/channels/init.js");
 /* harmony import */ var _channels_init_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_channels_init_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _channels_app_diagnostic_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../channels/app-diagnostic.js */ "./app/javascript/channels/app-diagnostic.js");
+/* harmony import */ var _channels_app_diagnostic_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_channels_app_diagnostic_js__WEBPACK_IMPORTED_MODULE_1__);
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -158,6 +448,7 @@ __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks
 __webpack_require__(/*! @rails/activestorage */ "./node_modules/@rails/activestorage/app/assets/javascripts/activestorage.js").start();
 
 __webpack_require__(/*! channels */ "./app/javascript/channels/index.js");
+
 
  // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -3262,4 +3553,4 @@ module.exports = function (module) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-401ca8dd8334c99ca3b0.js.map
+//# sourceMappingURL=application-e32296a8c9c12f9a04c9.js.map
