@@ -1,10 +1,8 @@
 class AppDiagnosticsController < ApplicationController
 
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
   def original_create
     AppDiagnostic.where(user_id: session[:user_id]).destroy_all

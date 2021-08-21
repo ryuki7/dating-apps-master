@@ -20,8 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def my_page
-  end
+  def my_page; end
   
   private
 

@@ -159,12 +159,14 @@
     position: relative;
     right: 13px;
     color: #ff00d9;
+    font-size: 21px;
 }
 
 .app-diagnostics-result-weak {
     position: relative;
     right: 13px;
     color: #00e1ff;
+    font-size: 21px;
 }
 
 #app-diagnostic-result-arrow {
@@ -201,8 +203,8 @@
 }
 
 .app-diagnostic-result-app {
-    margin-bottom: -29px;
-    margin-top: 20px;
+    margin-bottom: -25px;
+    margin-top: 8px;
 }
 
 .app-diagnostic-result-app-name {
@@ -273,4 +275,30 @@
     background-color: #c2f2f8;
     clip-path: polygon(50% 14%, 0% 100%, 100% 100%);
     transform: rotate(180deg);
+}
+
+.app-diagnostic-result-app-select-button {
+    margin-top: 5px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 20px;
+    padding: 0 20px;
+    border-radius:30px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }

@@ -1,0 +1,39 @@
+// Place all the styles related to the app_strategys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#app-strategies-select {
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#app-strategies-select-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.app-strategies-select-button {
+    margin-top: 5px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 20px;
+    padding: 0 20px;
+    border-radius:30px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}

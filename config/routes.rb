@@ -16,4 +16,5 @@ Rails.application.routes.draw do
       get 'my_page'
     end
   end
+  resources :app_strategies, only: %i[index show]
 end
