@@ -29,7 +29,7 @@ gem 'dotenv-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '6.0.0'
 end
 
 group :development, :test do
