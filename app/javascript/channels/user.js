@@ -26,28 +26,59 @@ function initializeLiff(myLiffId) {
         .init({
             liffId: myLiffId
         })
-        .then(() => {
-            const idToken = liff.getIDToken();
-            const body =`idToken=${idToken}`
-            const request = new Request('/users', {
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-              },
-              method: 'POST',
-              body: body
-            });
-            fetch(request)
-            .then(response => {
-                // このブロックの中ではPromiseではなくて、通常の値として扱える
-                //if (response.status == 500) {
-                  //  document.getElementById("liffAppContent").classList.add('hidden');
-                   // document.getElementById("liffErrorMessage").classList.remove('hidden');
-                //}
-            })
-            .catch(error => {
-                document.getElementById("liffAppContent").classList.add('hidden');
-                document.getElementById("liffErrorMessage").classList.remove('hidden');
-            });
+        .then(async() => {
+            if (liff.isInClient()) {
+                // LIFFブラウザ内で動作
+                const idToken = liff.getIDToken();
+                const body =`idToken=${idToken}`
+                const request = new Request('/users', {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+                },
+                method: 'POST',
+                body: body
+                });
+                fetch(request)
+                .then(response => {
+                    // このブロックの中ではPromiseではなくて、通常の値として扱える
+                    //if (response.status == 500) {
+                    //  document.getElementById("liffAppContent").classList.add('hidden');
+                    // document.getElementById("liffErrorMessage").classList.remove('hidden');
+                    //}
+                })
+                .catch(error => {
+                    document.getElementById("liffAppContent").classList.add('hidden');
+                    document.getElementById("liffErrorMessage").classList.remove('hidden');
+                });
+            }else {
+                // 外部ブラウザ内で動作
+                if (liff.isLoggedIn()) {
+                    console.log('Logged in.');
+                    const idToken = liff.getIDToken();
+                    const body =`idToken=${idToken}`
+                    const request = new Request('/users', {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+                    },
+                    method: 'POST',
+                    body: body
+                    });
+                    fetch(request)
+                    .then(response => {
+                        // このブロックの中ではPromiseではなくて、通常の値として扱える
+                        //if (response.status == 500) {
+                        //  document.getElementById("liffAppContent").classList.add('hidden');
+                        // document.getElementById("liffErrorMessage").classList.remove('hidden');
+                        //}
+                    })
+                    .catch(error => {
+                        document.getElementById("liffAppContent").classList.add('hidden');
+                        document.getElementById("liffErrorMessage").classList.remove('hidden');
+                    });
+                }else {
+                    liff.login();
+                }
+            }
         })
         .catch((err) => {
             document.getElementById("liffAppContent").classList.add('hidden');
