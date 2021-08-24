@@ -29,7 +29,7 @@ function initializeLiff(myLiffId) {
         .then(async() => {
             if (liff.isInClient()) {
                 // LIFFブラウザ内で動作
-                const idToken = liff.getIDToken();
+                const idToken = liff.getIDToken();  // lineのユーザーIDトークンを取得する
                 const body =`idToken=${idToken}`
                 const request = new Request('/users', {
                 headers: {
@@ -54,15 +54,16 @@ function initializeLiff(myLiffId) {
                 // 外部ブラウザ内で動作
                 if (liff.isLoggedIn()) {
                     console.log('Logged in.');
-                    const idToken = liff.getIDToken();
+                    const idToken = liff.getIDToken();  // lineのユーザーIDトークンを取得する
                     const body =`idToken=${idToken}`
                     const request = new Request('/users', {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-                    },
-                    method: 'POST',
-                    body: body
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+                        },
+                        method: 'POST',
+                        body: body
                     });
+                    // lineのユーザーIDトークンをcontrollerに送る
                     fetch(request)
                         .then(response => {
                             // このブロックの中ではPromiseではなくて、通常の値として扱える
