@@ -14,37 +14,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* LIFFを初期化する。 */
   function initializeLiff(myLiffId) {
-      liff
-          .init({
-              liffId: myLiffId
-          })
-          .then(async() => {
-              if (liff.isInClient()) {
-                  // LIFFブラウザ内で動作
-                  idTokenSendToController();
-                }else {
-                    // 外部ブラウザ内で動作
-                    if (liff.isLoggedIn()) {
-                        console.log('Logged in.');
-                        idTokenSendToController();
-                  }else {
-                      liff.login();
-                  }
-              }
-          })
-          .catch((err) => {
-              document.getElementById("liffAppContent").classList.add('hidden');
-              document.getElementById("liffErrorMessage").classList.remove('hidden');
-          });
+      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+      liff.init({
+        liffId: myLiffId
+      })
+      .then(async() => {
+        if (liff.isInClient()) {
+          // LIFFブラウザ内で動作
+          idTokenSendToController(csrfToken);
+        }else {
+          // 外部ブラウザ内で動作
+          if (liff.isLoggedIn()) {
+            console.log('Logged in.');
+            idTokenSendToController(csrfToken);
+          }else {
+            liff.login();
+          }
+        }
+      })
+      .catch((err) => {
+        document.getElementById("liffAppContent").classList.add('hidden');
+        document.getElementById("liffErrorMessage").classList.remove('hidden');
+      });
   };
 
   // lineのユーザーIDトークンをcontrollerに送る
-  function idTokenSendToController() {
+  function idTokenSendToController(csrfToken) {
     const idToken = liff.getIDToken();  // lineのユーザーIDトークンを取得する
     const body =`idToken=${idToken}`
     const request = new Request('/users', {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+            'X-CSRF-Token': csrfToken
         },
         method: 'POST',
         body: body
