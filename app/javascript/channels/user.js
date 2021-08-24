@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* LIFFを初期化する。 */
   function initializeLiff(myLiffId) {
+      // CSRFトークンを取得
       const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
       liff.init({
         liffId: myLiffId
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // lineのユーザーIDトークンをcontrollerに送る
   function idTokenSendToController(csrfToken) {
-    const idToken = liff.getIDToken();  // lineのユーザーIDトークンを取得する
+    const idToken = liff.getIDToken();  // lineのユーザーIDトークンを取得
     const body =`idToken=${idToken}`
     const request = new Request('/users', {
         headers: {
