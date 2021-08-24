@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[my_page]
   require "net/http"
-
+  
   def create
     # ユーザーの作成・ログイン
     idToken = params[:idToken]
