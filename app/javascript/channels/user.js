@@ -64,17 +64,17 @@ function initializeLiff(myLiffId) {
                     body: body
                     });
                     fetch(request)
-                    .then(response => {
-                        // このブロックの中ではPromiseではなくて、通常の値として扱える
-                        //if (response.status == 500) {
-                        //  document.getElementById("liffAppContent").classList.add('hidden');
-                        // document.getElementById("liffErrorMessage").classList.remove('hidden');
-                        //}
-                    })
-                    .catch(error => {
-                        document.getElementById("liffAppContent").classList.add('hidden');
-                        document.getElementById("liffErrorMessage").classList.remove('hidden');
-                    });
+                        .then(response => {
+                            // このブロックの中ではPromiseではなくて、通常の値として扱える
+                            //if (response.status == 500) {
+                            //  document.getElementById("liffAppContent").classList.add('hidden');
+                            // document.getElementById("liffErrorMessage").classList.remove('hidden');
+                            //}
+                        })
+                        .catch(error => {
+                            document.getElementById("liffAppContent").classList.add('hidden');
+                            document.getElementById("liffErrorMessage").classList.remove('hidden');
+                        });
                 }else {
                     liff.login();
                 }
