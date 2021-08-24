@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   require "net/http"
 
   def create
-    # ユーザーを作成・ログインする
+    # ユーザーの作成・ログイン
     idToken = params[:idToken]
     channelId = ENV['CHANNEL_ID']
     params = { id_token: idToken, client_id: channelId }
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @user = User.create!(line_id: line_id, name: line_name, role: 0) if @user.nil?
       session[:user_id] = @user.id
     else 
-      JSON.parse(response_json.body)
+      render status: 500
     end
   end
 
