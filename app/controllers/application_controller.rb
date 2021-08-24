@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  layout 'before', only: %i[before_my_page]
 
   def test;end
 
@@ -9,6 +10,10 @@ class ApplicationController < ActionController::Base
     else
       render html: '<p>invalid</p>'.html_safe, status: 403
     end
+  end
+
+  def before_my_page
+    @url = 'users/my_page'
   end
 
   private

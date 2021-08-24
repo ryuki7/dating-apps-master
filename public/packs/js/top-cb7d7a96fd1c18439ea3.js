@@ -156,8 +156,7 @@ function initializeLiff(myLiffId) {
   liff.init({
     liffId: myLiffId
   }).then(function () {
-    var idToken = liff.getIDToken(); // idトークンを取得
-
+    var idToken = liff.getIDToken();
     var body = "idToken=".concat(idToken);
     var request = new Request('/users', {
       headers: {
@@ -3311,4 +3310,4 @@ module.exports = function (module) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=top-e5ef062fddd64ef12578.js.map
+//# sourceMappingURL=top-cb7d7a96fd1c18439ea3.js.map

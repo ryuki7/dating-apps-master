@@ -27,7 +27,7 @@ function initializeLiff(myLiffId) {
             liffId: myLiffId
         })
         .then(() => {
-            const idToken = liff.getIDToken()   // idトークンを取得
+            const idToken = liff.getIDToken();
             const body =`idToken=${idToken}`
             const request = new Request('/users', {
               headers: {
