@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   require "net/http"
   
   def create
+    # ユーザーの作成・ログイン
     idToken = params[:idToken]
     channelId = ENV['CHANNEL_ID']
     params = { id_token: idToken, client_id: channelId }
