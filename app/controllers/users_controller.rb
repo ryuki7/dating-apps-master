@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[my_page]
   require "net/http"
-  
+
   def create
+    # ユーザーを作成・ログインする
     idToken = params[:idToken]
     channelId = ENV['CHANNEL_ID']
     params = { id_token: idToken, client_id: channelId }
