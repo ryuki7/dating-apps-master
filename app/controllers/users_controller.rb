@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @user = User.create!(line_id: line_id, name: line_name, role: 0) if @user.nil?
       session[:user_id] = @user.id
     else 
-      render status: 500
+      JSON.parse(response_json.body)
     end
   end
 

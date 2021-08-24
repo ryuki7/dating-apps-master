@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     fetch(request)
     .then(response => {
+        console.log(response);
         // このブロックの中ではPromiseではなくて、通常の値として扱える
         //if (response.status == 500) {
         //  document.getElementById("liffAppContent").classList.add('hidden');
