@@ -18,13 +18,13 @@ class AppDiagnosticsController < ApplicationController
         AppDiagnostic.create(app_id: 2, ranking: i, user_id: session[:user_id])
         @b_count = '済み'
         next
-      when @d_count # Tinder
-        AppDiagnostic.create(app_id: 4, ranking: i, user_id: session[:user_id])
-        @d_count = '済み'
-        next
       when @a_count # Pairs
         AppDiagnostic.create(app_id: 1, ranking: i, user_id: session[:user_id])
         @a_count = '済み'
+        next
+      when @d_count # Tinder
+        AppDiagnostic.create(app_id: 4, ranking: i, user_id: session[:user_id])
+        @d_count = '済み'
         next
       end
     end
