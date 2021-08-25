@@ -2,10 +2,13 @@
   <div class="section no-pad-bot">
     <div class="container" id="app-strategies-select">
       <h4 class="center" id="app-strategies-select-title">攻略するアプリを選択</h4>
-      <%= link_to @pairs.name, app_strategies_path, class: "app-strategies-select-button" %>
-      <%= link_to @with.name, app_strategies_path, class: "app-strategies-select-button" %>
-      <%= link_to @tapple.name, app_strategies_path, class: "app-strategies-select-button" %>
-      <%= link_to @tinder.name, app_strategies_path, class: "app-strategies-select-button" %>
+      <%= link_to '診断結果', result_app_diagnostics_path, class: "app-strategies-diagnostic-result-button" %>
+      <% @apps.each.with_index(1) do |app, i| %>
+        <%= link_to app_strategy_path(i), class: "app-strategies-select-button", id: "app-strategies-select-button-#{i}" do %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>">
+          <span><%= app.name %></span>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

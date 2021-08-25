@@ -14,12 +14,85 @@
 }
 
 .app-strategies-select-button {
-    margin-top: 5px;
+    margin-bottom: 30px;
     color: white;
     background: linear-gradient(#c2f2f8, #f5dbf1);
-    font-size: 20px;
     padding: 0 20px;
-    border-radius:30px;
+    font-size: 25px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 90px;
+    line-height: 90px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-strategies-select-button img {
+    position: relative;
+    top: 15px;
+}
+
+.app-strategies-select-button span {
+    position: relative;
+    bottom: 9px;
+}
+
+#app-strategies-select-button-1 {
+    margin-top: 40px;
+    padding-right: 30px;
+}
+
+#app-strategies-select-button-1 img {
+    margin-left: 5px;
+}
+
+#app-strategies-select-button-1 span {
+    position: relative;
+    left: 10px;
+}
+
+#app-strategies-select-button-2 {
+    padding-left: 25px;
+    padding-right: 61px;
+}
+
+#app-strategies-select-button-2 span {
+    position: relative;
+    left: 20px;
+}
+
+#app-strategies-select-button-3 {
+    padding-left: 25px;
+    padding-right: 46px;
+}
+
+#app-strategies-select-button-3 span {
+    position: relative;
+    left: 10px;
+}
+
+#app-strategies-select-button-4 img {
+    margin-left: 5px;
+}
+
+.app-strategies-diagnostic-result-button {
+    margin-top: 13px;
+    color: white;
+    background: rgb(72, 129, 252);
+    padding: 0 20px;
+    font-size: 20px;
+    border-radius: 60px;
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -36,4 +109,40 @@
     outline: 0;
     border: none;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#app-strategies-show {
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#app-strategies-show-title {
+    margin-top: 15px;
+}
+
+#app-strategies-show-description {
+    text-align: left;
+}
+
+.app-strategies-show-box-pairs {
+    margin: 2em 0;
+    background: #f7fdfd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #86E4EA;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.app-strategies-show-box-pairs-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to bottom right, #86E4EA, #03D7DE);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.app-strategies-show-box-pairs p {
+    padding: 15px 20px;
+    margin: 0;
 }

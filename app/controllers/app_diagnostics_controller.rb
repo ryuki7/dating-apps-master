@@ -8,8 +8,8 @@ class AppDiagnosticsController < ApplicationController
     AppDiagnostic.where(user_id: session[:user_id]).destroy_all
     allocation_all_values_array = params.permit(:allocation_1_1, :allocation_1_2, :allocation_2_1, :allocation_2_2, :allocation_2_3, :allocation_2_4, :allocation_3_1, :allocation_3_2, :allocation_3_3, :allocation_3_4, :allocation_3_5).values
     allocation_all_string = allocation_all_values_array.inject(:+)
-    allocation_count_array_sort(allocation_all_string).each.with_index(1) do |a,i|
-      case a
+    allocation_count_array_sort(allocation_all_string).each.with_index(1) do |app_count,i|
+      case app_count
       when @c_count # tapple
         AppDiagnostic.create(app_id: 3, ranking: i, user_id: session[:user_id])
         @c_count = '済み'

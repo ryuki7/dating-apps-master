@@ -3,10 +3,20 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-#app-diagnostics-title{
+#app-diagnostics-title {
     color: #121a19;
     font-weight: bold;
     margin-top: 50px;
+    position: relative;
+    padding: 6px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+}
+
+#app-diagnostics-title span {
+    display: block;
+    padding: 1rem 1rem;
+    background: white;
 }
 
 #app-diagnostics-button {
@@ -138,13 +148,22 @@
 #app-diagnostics-result {
     color: black;
     text-align: center;
-    margin-top: 30px;
 }
 
 #app-diagnostics-result-title {
+    position: relative;
+    padding: 6px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
     font-weight: bold;
     margin-bottom: 20px;
     color: rgb(72, 129, 252);
+}
+  
+#app-diagnostics-result-title span {
+    display: block;
+    padding: 1rem 2rem;
+    background: white;
 }
 
 .app-diagnostics-result-person {
@@ -275,12 +294,12 @@
 }
 
 .app-diagnostic-result-app-select-button {
-    margin-top: 20px;
+    margin-top: 25px;
     color: white;
     background: linear-gradient(#c2f2f8, #f5dbf1);
     font-size: 22px;
     padding: 0 20px;
-    border-radius:30px;
+    border-radius: 60px;
     position: relative;
     cursor: pointer;
     display: inline-block;
