@@ -1,23 +1,26 @@
-<div class="container">
-   
-   <input id="switch" type="checkbox" hidden>
-   <label for="switch" class="switch">
-      <h1 class="female">✝</h1>
-      <h1 class="male">➜</h1>
+   <div class="app-strategies-flow">
+  <p class="app-strategies-show-arrow-title">攻略の流れ</p>
+  <input id="switch" type="checkbox" hidden>
+   <label for="switch" class="switch" id="toggle_switch">
+      <p class="make_girlfriend" id="make_girlfriend_character">彼女作り</p>
+      <p class="play" id="play_character">遊び</p>
    </label>
-   
-</div>
-
-<div class="app-strategies-flow">
-  <h6 class="app-strategies-show-arrow-title">攻略の流れ</h6>
-      <div>
-        <ul>
-          <li>
-            <div class="progress app-diagnostic-result-bar rotate-bottom" id="app-strategies-show-bar">
-              <div class="indeterminate app-diagnostic-result-bar-move-bottom">----</div>
-            </div>
-          </li>
-          <li class="arrow-clippath-bottom" id="app-strategies-show-arrow"></li>
-        </ul>
-      </div>
+    <ul>
+      <li>
+        <div class="progress app-diagnostic-result-bar rotate-bottom" id="app-strategies-show-bar">
+          <div class="indeterminate app-diagnostic-result-bar-move-bottom">----</div>
+        </div>
+      </li>
+      <li class="arrow-clippath-bottom" id="app-strategies-show-arrow"></li>
+    </ul>
+  <div class="app-strategies-step-button-wrapper">
+    <%= link_to '1.プロフィール設定', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '2.女性にいいねする', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '3.ファーストメッセージ', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '4.メッセージのやりとり', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '5.アポの取り方・コツ', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '6.デートプラン・スポットを探す', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '7.アポを取ってからデート当日まで', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+    <%= link_to '8.デート当日(デート別)', app_strategies_path, class: "app-strategies-step-button", style: "background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);", id: "app-strategies-step-button"%>
+  </div>
 </div>

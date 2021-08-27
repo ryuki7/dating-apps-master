@@ -325,54 +325,66 @@ table td .app-strategies-show-star-high-right {
 }
 
 .app-strategies-flow {
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .app-strategies-show-arrow-title {
-    position: relative;
-    left: 10px;
+    text-align: center;
     color: black;
-    font-size: 18px;
+    font-size: 22px;
+    position: relative;
+    padding: 1rem .5rem;
 }
+
+.app-strategies-show-arrow-title:after {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 80%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+  }
 
 #app-strategies-show-bar {
     position: relative;
-    top: 200px;
-    right: 95px;
-    height: 15px;
-    width: 300px;
+    top: 240px;
+    right: 245px;
+    height: 8px;
+    width: 520px;
 }
 
 #app-strategies-show-arrow {
     position: relative;
-    top: 327px;
-    left: 35px;
-    width: 40px;
-    height: 40px;
+    top: 470px;
+    width: 30px;
+    height: 30px;
 }
 
  .switch{
     background-color:white;
-    width: 80px;
-    height:10vw;
+    width: 65px;
+    height: 8vw;
     position: relative;
     border-radius:30vw;
-    border:1vw solid #ccc;
+    border:1vw solid rgb(228, 228, 228);
     cursor: pointer;
     user-select: none;
     display:inline-block;
-    top: 70px;
+    top: 30px;
     left: 50%;
     transform:translate(-50%, -50%);
  }
  .switch::before, .switch::after{
     content:'';
-    width:10vw;
-    height:10vw;
+    width:8vw;
+    height:8vw;
     background-color:white;
     position:absolute;
     border-radius:50%;
-    top:-10%;
+    top:-18%;
     left:-3%;
     transition: all 350ms cubic-bezier(0, 0.95, 0.38, 0.98), background 150ms ease;
     transform-origin: right center;
@@ -382,24 +394,25 @@ table td .app-strategies-show-star-high-right {
     border:1vw solid lightblue;
  }
  .switch::after{
-    background:#FBD3E1;
-    border:1vw solid pink;
+    background: #639cff;
+    border:1vw solid #4481eb;
  }
  input:checked + .switch:before {
     background: #D3F0FB;
     transform: translateX(108%);
-    border:1vw solid pink;
+    border:1vw solid #4481eb;
  }
- input + .switch .female{
-    color:pink;
+ input + .switch .make_girlfriend{
+    color:#4481eb;
+    font-weight: bold;
  }
- input:checked + .switch .male{
+ input:checked + .switch .play{
     color:lightblue;
  }
- input + .switch .male{
+ input + .switch .play{
     color:#ccc;
  }
- input:checked + .switch .female{
+ input:checked + .switch .make_girlfriend{
     color:#ccc;
  }
  input:checked + .switch:after {
@@ -407,20 +420,56 @@ table td .app-strategies-show-star-high-right {
     transform: translateX(108%);
     border:1vw solid lightblue;
  }
- .female, .male{
+ .make_girlfriend, .play{
     position:absolute;
     font-weight:lighter;
     color:#ccc;
  }
- .female{
+ .make_girlfriend{
     position: relative;
-    top: -20px;
-    right: 50px;
-    font-size:10vw;
+    bottom: 20px;
+    right: 120px;
+    font-size: 20px;
+    width: 100px;
  }
- .male{
-    left:87%;
-    top:-145%;
-    font-size:10vw;
+ .play{
+    position: relative;
+    left: 100px;
+    bottom: 67px;
+    font-size: 20px;
  }
 
+ .app-strategies-step-button {
+    margin-bottom: 20px;
+    color: white;
+    padding: 0 20px;
+    font-size: 17px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+ }
+
+ .app-strategies-step-button.play-button {
+    background: linear-gradient(to top right, red 0%, red 100%);
+ }
+
+ .app-strategies-step-button-wrapper {
+    position: relative;
+    bottom: 85px;
+    text-align: center;
+ }
