@@ -7,6 +7,12 @@ class AppStrategiesController < ApplicationController
 
   def show; end
 
+  def make_girlfriend; end
+
+  def play; end
+
+  def super_play; end
+
   private
 
   def set_app

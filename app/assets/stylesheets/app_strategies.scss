@@ -350,7 +350,7 @@ table td .app-strategies-show-star-high-right {
 
 #app-strategies-show-bar {
     position: relative;
-    top: 240px;
+    top: 220px;
     right: 245px;
     height: 8px;
     width: 520px;
@@ -358,7 +358,7 @@ table td .app-strategies-show-star-high-right {
 
 #app-strategies-show-arrow {
     position: relative;
-    top: 470px;
+    top: 450px;
     width: 30px;
     height: 30px;
 }
@@ -370,7 +370,7 @@ table td .app-strategies-show-star-high-right {
     position: relative;
     border-radius:30vw;
     border:1vw solid;
-    border-color: rgb(228, 228, 228);
+    border-color: rgb(194, 194, 194);
     cursor: pointer;
     user-select: none;
     display:inline-block;
@@ -379,6 +379,7 @@ table td .app-strategies-show-star-high-right {
     transform:translate(-50%, -50%);
     z-index: 0;
  }
+
  .switch::before, .switch::after{
     content:'';
     width:8vw;
@@ -392,54 +393,84 @@ table td .app-strategies-show-star-high-right {
     transform-origin: right center;
  
  }
- .switch::before{
-    border:1vw solid lightblue;
- }
+
  .switch::after{
     background: #639cff;
     border:1vw solid #4481eb;
  }
+
  input:checked + .switch:before {
-    background: #D3F0FB;
     transform: translateX(38%);
     border:1vw solid #4481eb;
  }
- input + .switch .make_girlfriend{
-    color:#4481eb;
-    font-weight: bold;
- }
- input:checked + .switch .play{
-    color:lightblue;
- }
- input + .switch .play{
-    color:rgb(228, 228, 228);
- }
- input:checked + .switch .make_girlfriend{
-    color:rgb(228, 228, 228);
- }
+
  input:checked + .switch:after {
-    background: #D3F0FB;
+    background: #639cff;
     transform: translateX(38%);
-    border:1vw solid lightblue;
+    border:1vw solid #4481eb;
  }
- .make_girlfriend, .play{
-    position:absolute;
-    font-weight:lighter;
-    color:#ccc;
- }
- .make_girlfriend{
+
+ #toggle-radius-button {
     position: relative;
-    bottom: 20px;
-    right: 120px;
-    font-size: 20px;
-    width: 100px;
- }
- .play{
+    top: 10px;
+    left: 130px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #ff5757;
+    border:1vw solid #ff0844;
+    border-radius: 50%;
+    text-align: center;
+    z-index: -1;
+  }
+
+  #make_girlfriend_character_only {
+    color: #4481eb;
+      position: relative;
+      left: 152px;
+      top: 17px;
+      margin-bottom: 115px;
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  .make-girlfriend-character {
+      color: rgb(194, 194, 194);
+      position: relative;
+      bottom: 36px;
+      left: 65px;
+      width: 120px;
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  .make-girlfriend-character.on {
+      color: #4481eb;
+  }
+
+  .play-character {
+      color: rgb(194, 194, 194);
+      position: relative;
+      bottom: 81.5px;
+      left: 255px;
+      width: 60px;
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  .play-character.on {
+      color: #ff0844;
+  }
+
+  #super-play-character {
+    color: #f55799d7;
     position: relative;
-    left: 100px;
-    bottom: 67px;
-    font-size: 20px;
- }
+    left: 160px;
+    top: 17px;
+    margin-bottom: 115px;
+    font-weight: bold;
+    font-size: 18px;
+}
 
  .app-strategies-step-button {
     margin-bottom: 20px;
@@ -471,27 +502,21 @@ table td .app-strategies-show-star-high-right {
  }
 
  .app-strategies-step-button.play-button {
-    background: linear-gradient(to top right, red 0%, red 100%);
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+ }
+
+ .app-strategies-step-button.super-play-button {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
  }
 
  .app-strategies-step-button-wrapper {
     position: relative;
-    bottom: 85px;
+    bottom: 110px;
     text-align: center;
  }
 
- #toggle-radius-button {
+#test {
     position: relative;
-    bottom: 81px;
-    left: 130px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    margin-bottom: 30px;
-    background: #D3F0FB;
-    border:1vw solid lightblue;
-    border-radius: 50%;
-    color: #fff;
-    text-align: center;
-    z-index: -1;
-  }
+    top: 1000px; 
+    color: black;
+}

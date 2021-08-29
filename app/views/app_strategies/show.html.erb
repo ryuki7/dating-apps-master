@@ -3,13 +3,16 @@
     <% case params[:id] %>
     <% when '1' %>
       <%= render 'pairs' %>
-      <%= render 'make_girlfriend' %>
+      <%= render 'make_girlfriend_flow' %>
     <% when '2' %>
       <%= render 'with' %>
+      <%= render 'make_girlfriend&play_flow' %>
     <% when '3' %>
       <%= render 'tapple' %>
+      <%= render 'make_girlfriend&play_flow' %>
     <% when '4' %>
       <%= render 'tinder' %>
+      <%= render 'super_play_flow' %>
     <% end %>
   </div>
 </div>
