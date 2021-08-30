@@ -243,16 +243,16 @@ $(document).ready(function(){
             newValue = $(this).val();
             newHTML = $(this).html();
             if (newHTML == 'ペアーズ攻略') {
-                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://localhost:3000/app_strategies/1">'+newHTML+'</p></a></div>');
+                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://dating-apps-master.com/app_strategies/1">'+newHTML+'</p></a></div>');
             }
             if (newHTML == 'ウィズ攻略') {
-                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://localhost:3000/app_strategies/2">'+newHTML+'</p></a></div>');
+                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://dating-apps-master.com/app_strategies/2">'+newHTML+'</p></a></div>');
             }
             if (newHTML == 'タップル攻略') {
-                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://localhost:3000/app_strategies/3">'+newHTML+'</p></a></div>');
+                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://dating-apps-master.com/app_strategies/3">'+newHTML+'</p></a></div>');
             }
             if (newHTML == 'ティンダー攻略') {
-                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://localhost:3000/app_strategies/4">'+newHTML+'</p></a></div>');
+                $('.new-select').append('<div class="new-option" data-value="'+newValue+'"><p><a id="app-strategies-app-select-pulldown" href="https://dating-apps-master.com/app_strategies/4">'+newHTML+'</p></a></div>');
             }
         });
     }
