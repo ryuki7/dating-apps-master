@@ -1,2 +1,26 @@
-<h1>AppStrategys#show</h1>
-<p>Find me in app/views/app_strategys/show.html.erb</p>
+<div id="index-banner" class="parallax-container layout-app-strategies-show">
+  <div class="section no-pad-bot">
+    <!-- Design tiré du site flatuicolors.com -->
+    <!-- Bouton Select de base -->
+    <select class="old-select">
+      <option value="pairs" selected>ペアーズ攻略</option>
+      <option value="with">ウィズ攻略</option>
+      <option value="tapple">タップル攻略</option>
+      <option value="tinder">ティンダー攻略</option>
+    </select>
+    <% case params[:id] %>
+    <% when '1' %>
+      <%= render 'pairs' %>
+      <%= render 'make_girlfriend_flow' %>
+    <% when '2' %>
+      <%= render 'with' %>
+      <%= render 'make_girlfriend&play_flow' %>
+    <% when '3' %>
+      <%= render 'tapple' %>
+      <%= render 'make_girlfriend&play_flow' %>
+    <% when '4' %>
+      <%= render 'tinder' %>
+      <%= render 'super_play_flow' %>
+    <% end %>
+  </div>
+</div>

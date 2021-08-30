@@ -15,7 +15,8 @@ class UsersController < ApplicationController
       @user = User.find_by(line_id: line_id)
       @user = User.create!(line_id: line_id, name: line_name, role: 0) if @user.nil?
       session[:user_id] = @user.id
-    else 
+    else
+      # render しなくてもステータスコードを返す
       render status: 500
     end
   end

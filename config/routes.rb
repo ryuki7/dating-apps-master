@@ -17,5 +17,14 @@ Rails.application.routes.draw do
       get 'my_page'
     end
   end
-  resources :app_strategies, only: %i[index show]
+  resources :app_strategies, only: %i[index show] do
+    collection do
+      get 'make_girlfriend'
+      get 'play'
+      get 'super_play'
+    end
+    member do
+      get 'load'
+    end
+  end
 end
