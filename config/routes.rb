@@ -23,5 +23,8 @@ Rails.application.routes.draw do
       get 'play'
       get 'super_play'
     end
+    member do
+      get 'load'
+    end
   end
 end

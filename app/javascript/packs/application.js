@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import '../channels/init.js'
 import '../channels/app-diagnostic.js'
 import '../channels/app-strategies.js'
 

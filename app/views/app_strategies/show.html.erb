@@ -1,5 +1,13 @@
 <div id="index-banner" class="parallax-container layout-app-strategies-show">
   <div class="section no-pad-bot">
+    <!-- Design tiré du site flatuicolors.com -->
+    <!-- Bouton Select de base -->
+    <select class="old-select">
+      <option value="pairs" selected>ペアーズ攻略</option>
+      <option value="with">ウィズ攻略</option>
+      <option value="tapple">タップル攻略</option>
+      <option value="tinder">ティンダー攻略</option>
+    </select>
     <% case params[:id] %>
     <% when '1' %>
       <%= render 'pairs' %>

@@ -520,3 +520,196 @@ table td .app-strategies-show-star-high-right {
     top: 1000px; 
     color: black;
 }
+
+/* Old-Select */
+
+.old-select{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* New-Select */
+
+.new-select{
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+    position: relative;
+    bottom: 11px;
+}
+
+.new-select .selection:active{
+    transform:         rotateX(42deg);
+    -o-transform:      rotateX(42deg);
+    -ms-transform:     rotateX(42deg);
+    -moz-transform:    rotateX(42deg);
+    -webkit-transform: rotateX(42deg);
+    transform-style:         preserve-3d;
+    -o-transform-style:      preserve-3d;
+    -ms-transform-style:     preserve-3d;
+    -moz-transform-style:    preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin:         top;
+    -o-transform-origin:      top;
+    -ms-transform-origin:     top;
+    -moz-transform-origin:    top;
+    -webkit-transform-origin: top;
+    transition:         transform         200ms ease-in-out;
+    -o-transition:      -o-transform      200ms ease-in-out;
+    -ms-transition:     -ms-transform     200ms ease-in-out;
+    -moz-transition:    -moz-transform    200ms ease-in-out;
+    -webkit-transition: -webkit-transform 200ms ease-in-out;
+}
+
+.new-select .selection{
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    
+    cursor: pointer;
+    position: relative;
+    z-index: 20; /* Doit être supérieur au nombre d'option */
+    
+    transform:         rotateX(0deg);
+    -o-transform:      rotateX(0deg);
+    -ms-transform:     rotateX(0deg);
+    -moz-transform:    rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transform-style:         preserve-3d;
+    -o-transform-style:      preserve-3d;
+    -ms-transform-style:     preserve-3d;
+    -moz-transform-style:    preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin:         top;
+    -o-transform-origin:      top;
+    -ms-transform-origin:     top;
+    -moz-transform-origin:    top;
+    -webkit-transform-origin: top;
+    transition:         transform         200ms ease-in-out;
+    -o-transition:      -o-transform      200ms ease-in-out;
+    -ms-transition:     -ms-transform     200ms ease-in-out;
+    -moz-transition:    -moz-transform    200ms ease-in-out;
+    -webkit-transition: -webkit-transform 200ms ease-in-out;
+}
+
+.new-select .selection.pairs {
+    background: linear-gradient(to right, #86E4EA, #03D7DE);
+}
+
+.new-select .selection.with {
+    background: linear-gradient(to right, #FD656C, #FD656B);
+}
+
+.new-select .selection.tapple {
+    background: linear-gradient(to right, #F54C98, #218FF3);
+}
+
+.new-select .selection.tinder {
+    background: linear-gradient(to right, #FD267D, #FF7158);
+}
+
+.new-select .selection p{
+    width: calc(100% - 60px);
+    position: relative;
+    top: 9px;
+    
+    transition:         all 200ms ease-in-out;
+    -o-transition:      all 200ms ease-in-out;
+    -ms-transition:     all 200ms ease-in-out;
+    -moz-transition:    all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+}
+
+.new-select .selection:hover p, .new-select .selection.open p{
+    color: white;
+}
+
+.new-select .selection i{
+    display: block;
+    width: 1px;
+    height: 110%;
+    position: absolute;
+    right: -1px; top: 5%; bottom: 30%;
+    border: none;
+    background-color: white;
+}
+
+.new-select .selection > span{
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 8px 0 8px; /* Height: 14px / Width: 16px */
+    border-color: white transparent transparent transparent;
+    
+    position: absolute;
+    top: 18px; /* 50 / 2 - 14 / 2 */
+    right: 22px; /* 60 / 2 - 16 / 2 */
+}
+
+.new-select .selection.open > span{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 14px 8px;
+    border-color: transparent transparent white transparent;
+}
+
+.new-option{
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    margin-top: 1px;
+    
+    position: absolute;
+    left: 0; right: 0;
+    
+    transition:         all 300ms ease-in-out;
+    -o-transition:      all 300ms ease-in-out;
+    -ms-transition:     all 300ms ease-in-out;
+    -moz-transition:    all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+}
+
+.new-option p{
+    width: calc(100% - 60px);
+}
+
+.new-option.reveal:hover{
+    background-color: rgb(140, 224, 255);
+}
+
+#app-strategies-error-message {
+    color: red;
+    position: relative;
+    text-align: center;
+    bottom: 16px;
+    font-size: 15px;
+}
+
+#app-strategies-app-select-pulldown {
+    color: black;
+    position: relative;
+    left: 2.5px;
+    top: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    user-select: none;
+    z-index: 1;
+    transition: .3s ease-out;
+    width: 195px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    word-break: break-all;
+}
