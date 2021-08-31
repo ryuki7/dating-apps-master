@@ -8,6 +8,15 @@ const step_button_6 = document.getElementById("app-strategies-step-button-6");
 const step_button_7 = document.getElementById("app-strategies-step-button-7");
 const step_button_8 = document.getElementById("app-strategies-step-button-8");
 
+// ステップボタンラッパー
+const app_strategies_step_button_wrapper = document.getElementById("app-strategies-step-button-wrapper");
+
+// 矢印バー
+const show_bar = document.getElementById("app-strategies-show-bar");
+
+//
+const show_arrow = document.getElementById("app-strategies-show-arrow");
+
 // トグルスイッチ
 const toggle_switch = document.getElementById("toggle_switch");
 
@@ -44,8 +53,11 @@ if (toggle_switch) {
         step_button_6.classList.remove('make_girlfriend-button');
         step_button_7.classList.remove('make_girlfriend-button');
         step_button_8.classList.remove('make_girlfriend-button');
+        app_strategies_step_button_wrapper.classList.add('step-play-button');
         make_girlfriend_character.classList.remove('on');
         toggle_radius_button.classList.remove('hidden');
+        show_bar.classList.add('step-play-button-bar');
+        show_arrow.classList.add('step-play-button-arrow');
         // ステップボタンのhref(url)を変更
         // ステップボタン1
         let step_button_1_red = document.getElementById('app-strategies-step-button-1');
@@ -116,7 +128,10 @@ if (toggle_radius_button) {
         step_button_6.classList.remove('play-button');
         step_button_7.classList.remove('play-button');
         step_button_8.classList.remove('play-button');
+        app_strategies_step_button_wrapper.classList.remove('step-play-button');
         play_character.classList.remove('on');
+        show_bar.classList.remove('step-play-button-bar');
+        show_arrow.classList.remove('step-play-button-arrow');
         // ステップボタンのhref(url)を変更
         // ステップボタン1
         let step_button_1_red = document.getElementById('app-strategies-step-button-1');

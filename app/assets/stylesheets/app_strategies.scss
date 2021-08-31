@@ -356,11 +356,21 @@ table td .app-strategies-show-star-high-right {
     width: 520px;
 }
 
+#app-strategies-show-bar.step-play-button-bar {
+    position: relative;
+    top: 185.5px;
+}
+
 #app-strategies-show-arrow {
     position: relative;
     top: 450px;
     width: 30px;
     height: 30px;
+}
+
+#app-strategies-show-arrow.step-play-button-arrow {
+    position: relative;
+    top: 415.5px;
 }
 
  .switch{
@@ -475,34 +485,78 @@ table td .app-strategies-show-star-high-right {
    }
 }
   #make_girlfriend_character_only {
-    color: #4481eb;
+      color: #4481eb;
       position: relative;
-      left: 152px;
       top: 17px;
       margin-bottom: 115px;
       font-weight: bold;
       font-size: 18px;
+      text-align: center;
   }
 
   .make-girlfriend-character {
       color: rgb(194, 194, 194);
       position: relative;
-      bottom: 36px;
-      left: 65px;
+      bottom: 70px;
+      left: 81px;
       width: 100px;
       font-weight: bold;
       font-size: 18px;
   }
 
+  @media screen and (min-width: 386px) and ( max-width: 400px) {
+    .make-girlfriend-character {
+        position: relative;
+        left: 68px;
+    }
+  }
+
+  @media screen and (min-width: 386px) and ( max-width: 400px) {
+    .play-character {
+        position: relative;
+        left: 270px !important;
+    }
+  }
+
+  @media screen and (min-width: 375px) and ( max-width: 385px) {
+    .make-girlfriend-character {
+        position: relative;
+        left: 63px;
+    }
+  }
+
+  @media screen and (min-width: 375px) and ( max-width: 385px) {
+    .play-character {
+        position: relative;
+        left: 260px !important;
+    }
+  }
+
+  @media screen and (min-width: 401px) and ( max-width: 425px) {
+    .make-girlfriend-character {
+        position: relative;
+        left: 75px;
+    }
+  }
+
+  @media screen and (min-width: 401px) and ( max-width: 425px) {
+    .play-character {
+        position: relative;
+        left: 285px !important;
+    }
+  }
+
   .make-girlfriend-character.on {
       color: #4481eb;
+      position: relative;
+      bottom: 36px;
   }
 
   .play-character {
       color: rgb(194, 194, 194);
       position: relative;
       bottom: 81.5px;
-      left: 255px;
+      left: 293px;
       width: 60px;
       font-weight: bold;
       font-size: 18px;
@@ -510,16 +564,18 @@ table td .app-strategies-show-star-high-right {
 
   .play-character.on {
       color: #ff0844;
+      position: relative;
+      bottom: 115px;
   }
 
   #super-play-character {
     color: #f55799d7;
     position: relative;
-    left: 160px;
     top: 17px;
     margin-bottom: 115px;
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
 }
 
  .app-strategies-step-button {
@@ -567,6 +623,10 @@ table td .app-strategies-show-star-high-right {
     text-align: center;
  }
 
+ .app-strategies-step-button-wrapper.step-play-button {
+    position: relative;
+    bottom: 144px;
+ }
 #test {
     position: relative;
     top: 1000px; 
