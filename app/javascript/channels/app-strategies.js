@@ -46,7 +46,6 @@ if (toggle_switch) {
         step_button_8.classList.remove('make_girlfriend-button');
         make_girlfriend_character.classList.remove('on');
         toggle_radius_button.classList.remove('hidden');
-        toggle_switch.classList.add('hidden');
         // ステップボタンのhref(url)を変更
         // ステップボタン1
         let step_button_1_red = document.getElementById('app-strategies-step-button-1');
@@ -96,7 +95,6 @@ if (toggle_switch) {
 if (toggle_radius_button) {
     toggle_radius_button.addEventListener('click', function () {
         toggle_switch.click();
-        toggle_switch.classList.remove('hidden');
         toggle_radius_button.classList.add('hidden');
         // classをadd (ステップボタンを青色にする)
         step_button_1.classList.add('make_girlfriend-button');

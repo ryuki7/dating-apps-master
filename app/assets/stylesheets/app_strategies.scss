@@ -413,7 +413,8 @@ table td .app-strategies-show-star-high-right {
  #toggle-radius-button {
     position: relative;
     top: 9px;
-    left: 137px;
+    margin: 0 auto;
+    
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -422,6 +423,13 @@ table td .app-strategies-show-star-high-right {
     border-radius: 50%;
     text-align: center;
     z-index: 1;
+  }
+
+  .app-strategies-toggle-radius-button-center {
+    position: relative;
+    bottom: 27px;
+    left: 8px;
+    text-align: center;
   }
 
   #make_girlfriend_character_only {
