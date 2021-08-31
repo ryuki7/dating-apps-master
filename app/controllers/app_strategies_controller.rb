@@ -5,7 +5,19 @@ class AppStrategiesController < ApplicationController
     @apps = App.all
   end
 
-  def show; end
+  def show
+    @app_strategy_description_split_array = @app.strategy_description.split('。')
+    case @app.id
+    when 1
+      @app_class_name = 'pairs'
+    when 2
+      @app_class_name = 'with'
+    when 3
+      @app_class_name = 'tapple'
+    when 4
+      @app_class_name = 'tinder'
+    end
+  end
 
   def make_girlfriend; end
 

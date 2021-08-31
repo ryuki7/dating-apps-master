@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_061429) do
+ActiveRecord::Schema.define(version: 2021_08_31_131809) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2021_08_18_061429) do
     t.index ["user_id"], name: "index_app_diagnostics_on_user_id"
   end
 
+  create_table "app_purposes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "app_id", null: false
+    t.bigint "purpose_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["app_id"], name: "index_app_purposes_on_app_id"
+    t.index ["purpose_id"], name: "index_app_purposes_on_purpose_id"
+  end
+
   create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "strategy_description", null: false
@@ -41,10 +50,25 @@ ActiveRecord::Schema.define(version: 2021_08_18_061429) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "purposes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "steps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.bigint "purpose_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purpose_id"], name: "index_steps_on_purpose_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -59,4 +83,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_061429) do
   add_foreign_key "answers", "questions"
   add_foreign_key "app_diagnostics", "apps"
   add_foreign_key "app_diagnostics", "users"
+  add_foreign_key "app_purposes", "apps"
+  add_foreign_key "app_purposes", "purposes"
+  add_foreign_key "steps", "purposes"
 end

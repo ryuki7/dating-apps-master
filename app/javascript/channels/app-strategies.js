@@ -1,3 +1,13 @@
+// アプリアイコン画像
+const app_icon_image = document.getElementById("app_icon_image");
+
+// アプリ攻略タイトル
+const app_strategies_show_title = document.getElementById("app-strategies-show-title");
+
+if (app_strategies_show_title.textContent == 'tapple(タップル)攻略') {
+    app_icon_image.classList.add('app-image-tapple');
+}
+
 // ステップボタン
 const step_button_1 = document.getElementById("app-strategies-step-button-1");
 const step_button_2 = document.getElementById("app-strategies-step-button-2");

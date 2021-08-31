@@ -8,18 +8,36 @@
       <option value="tapple">タップル攻略</option>
       <option value="tinder">ティンダー攻略</option>
     </select>
+      <!-- Bouton Select reconstruit -->
+      <div class="new-select">
+        <div class="<%= "selection #{@app_class_name}" %>" id="selection">
+          <p>
+            <span></span>
+            <i></i>
+          </p>
+          <span></span>
+        </div>
+      </div>
     <% case params[:id] %>
     <% when '1' %>
-      <%= render 'pairs' %>
+      <div class="container" id="app-strategies-show">
+        <%= render 'pairs' %>
+      </div>
       <%= render 'make_girlfriend_flow' %>
     <% when '2' %>
-      <%= render 'with' %>
+      <div class="container" id="app-strategies-show">
+        <%= render 'with' %>
+      </div>
       <%= render 'make_girlfriend&play_flow' %>
     <% when '3' %>
-      <%= render 'tapple' %>
+      <div class="container" id="app-strategies-show">
+        <%= render 'tapple' %>
+      </div>
       <%= render 'make_girlfriend&play_flow' %>
     <% when '4' %>
-      <%= render 'tinder' %>
+      <div class="container" id="app-strategies-show">
+        <%= render 'tinder' %>
+      </div>
       <%= render 'super_play_flow' %>
     <% end %>
   </div>
