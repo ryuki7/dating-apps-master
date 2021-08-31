@@ -410,28 +410,74 @@ table td .app-strategies-show-star-high-right {
     border:1vw solid rgb(194, 194, 194);
  }
 
- #toggle-radius-button {
+.app-strategies-toggle-radius-button-center {
     position: relative;
-    top: 9px;
-    margin: 0 auto;
-    
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    background: #ff5757;
-    border:1vw solid #ff0844;
-    border-radius: 50%;
     text-align: center;
-    z-index: 1;
-  }
+    bottom: 15px;
+    left: 5px;
+}
 
-  .app-strategies-toggle-radius-button-center {
-    position: relative;
-    bottom: 26px;
-    left: 8px;
-    text-align: center;
-  }
+ @media screen and (min-width: 375px) and ( max-width: 385px) {
+    #toggle-radius-button {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background: #ff5757;
+        border:1vw solid #ff0844;
+        border-radius: 50%;
+        text-align: center;
+        z-index: 1;
+    }
+ }
 
+ @media screen and (min-width: 386px) and ( max-width: 400px) {
+    #toggle-radius-button {
+       position: relative;
+       bottom: 1px;
+       left: 1px;
+       width: 30px;
+       height: 30px;
+       line-height: 30px;
+       background: #ff5757;
+       border:1vw solid #ff0844;
+       border-radius: 50%;
+       text-align: center;
+       z-index: 1;
+    }
+ }
+
+ @media screen and (min-width: 401px) and ( max-width: 425px) {
+     #toggle-radius-button {
+        position: relative;
+        bottom: 3px;
+        left: 3px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background: #ff5757;
+        border:1vw solid #ff0844;
+        border-radius: 50%;
+        text-align: center;
+        z-index: 1;
+    }
+ }
+
+ @media screen and (min-width: 426px) and ( max-width: 440px) {
+    #toggle-radius-button {
+       position: relative;
+       bottom: 4px;
+       left: 4px;
+       width: 30px;
+       height: 30px;
+       line-height: 30px;
+       background: #ff5757;
+       border:1vw solid #ff0844;
+       border-radius: 50%;
+       text-align: center;
+       z-index: 1;
+   }
+}
   #make_girlfriend_character_only {
     color: #4481eb;
       position: relative;
@@ -447,7 +493,7 @@ table td .app-strategies-show-star-high-right {
       position: relative;
       bottom: 36px;
       left: 65px;
-      width: 125px;
+      width: 100px;
       font-weight: bold;
       font-size: 18px;
   }
