@@ -1,14 +1,14 @@
 <div class="container">
     <h5 id="app-diagnostics-page">1/3</h5>
-    <p class="app-diagnostics-text" id="app-diagnostics-text">どんな目的でマッチングアプリを利用しますか？<br>また、女性とどのような関係になりたいですか？<br>※複数選択可</p>
+    <p class="app-diagnostics-text" id="app-diagnostics-text"><%= @question_description_split_array[0] %><br><%= @question_description_split_array[1] %><br><%= @question_description_split_array[2] %></p>
     <div class="row center">
       <form action="2" name="app_diagnostics_form_1">
         <div class="app-diagnostics-answer-box-1">
         <!-- question1 -->
-          <button type="button" id="app-diagnostics-description-select-button-1-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">彼女が欲しい</button>
-          <input name="allocation_1_1" type="hidden" value="aaaabbbbcccd" id="allocation-1-1">
-          <button type="button" id="app-diagnostics-description-select-button-1-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">都合の良い女性が欲しい</button>
-          <input name="allocation_1_2" type="hidden" value="abcccddd" id="allocation-1-2">
+          <button type="button" id="app-diagnostics-description-select-button-1-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[0].description %></button>
+          <input name="allocation_1_1" type="hidden" value="<%= @answers[0].allocation %>" id="allocation-1-1">
+          <button type="button" id="app-diagnostics-description-select-button-1-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[1].description %></button>
+          <input name="allocation_1_2" type="hidden" value="<%= @answers[1].allocation %>" id="allocation-1-2">
         </div>
         <br>
         <!-- question1のsubmitボタン -->  

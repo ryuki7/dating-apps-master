@@ -114,7 +114,7 @@
 #app-strategies-show {
     color: black;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #app-strategies-show-title {
@@ -147,6 +147,7 @@
     border: solid 0.5px #86E4EA;/*線*/
     border-radius: 10px;/*角の丸み*/
 }
+
 .app-strategies-show-box-pairs-title {
     border-radius: 10px;/*角の丸み*/
     font-size: 1.2em;
@@ -627,11 +628,6 @@ table td .app-strategies-show-star-high-right {
     position: relative;
     bottom: 144px;
  }
-#test {
-    position: relative;
-    top: 1000px; 
-    color: black;
-}
 
 /* Old-Select */
 
@@ -724,6 +720,18 @@ table td .app-strategies-show-star-high-right {
 
 .new-select .selection.tinder {
     background: linear-gradient(to right, #FD267D, #FF7158);
+}
+
+.new-select .selection.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+.new-select .selection.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+}
+
+.new-select .selection.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
 }
 
 .new-select .selection p{
@@ -824,4 +832,145 @@ table td .app-strategies-show-star-high-right {
     outline: 0;
     border: none;
     word-break: break-all;
+}
+
+#app-strategies-step {
+    color: black;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#app-icon-image {
+    margin-left: 5px;
+}
+
+#app_strategies_step_purpose {
+    color: white;
+    margin: 20px auto;
+    height: 50px;
+    line-height: 50px;
+    width: 250px;
+    font-size: 30px;
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+    border-radius: 40px;/*角の丸み*/
+}
+
+#app_strategies_step_purpose.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+#app_strategies_step_purpose.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+}
+
+#app_strategies_step_purpose.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+}
+
+#app-strategies-step-description {
+    text-align: left;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+#app-strategies-step-description-point-make_girlfriend {
+    text-align: center;
+    margin: 0;
+    color: #4481eb;
+    font-weight: bold;
+}
+
+#app-strategies-step-description-point-make_girlfriend-li {
+    text-align: left;
+    padding: 0 20px 15px 20px;
+    margin: 0;
+    color: #4481eb;
+    font-weight: bold;
+}
+
+#app-strategies-step-description-point-play {
+    text-align: center;
+    margin: 0;
+    color: #ff0844;
+    font-weight: bold;
+}
+
+#app-strategies-step-description-point-play-li {
+    text-align: left;
+    padding: 0 20px 15px 20px;
+    margin: 0;
+    color: #ff0844;
+    font-weight: bold;
+}
+
+#app-strategies-step-description-point-super_play {
+    text-align: center;
+    margin: 0;
+    color: #f5576c;
+    font-weight: bold;
+}
+
+#app-strategies-step-description-point-super_play-li {
+    text-align: left;
+    padding: 0 20px 15px 20px;
+    margin: 0;
+    color: #f5576c;
+    font-weight: bold;
+}
+
+.app-strategies-step-box-make_girlfriend {
+    margin: 2em 0;
+    background: #f9fbff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #4481eb;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.app-strategies-step-box-make_girlfriend-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.app-strategies-step-box-play {
+    margin: 2em 0;
+    background: #fffafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #ff0844;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.app-strategies-step-box-play-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.app-strategies-step-box-super_play {
+    margin: 2em 0;
+    background: #fffafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #f5576c;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.app-strategies-step-box-super_play-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
 }

@@ -6,8 +6,8 @@
   <div class="app-strategies-toggle-radius-button-center">
     <button type="button" class="hidden" id="toggle-radius-button"></button>
   </div>
-  <p class="make-girlfriend-character on" id="make_girlfriend_character">彼女作り</p>
-  <p class="play-character" id="play_character">遊び</p>
+  <p class="make-girlfriend-character on" id="make_girlfriend_character"><%= @app_purposes[0].purpose.name %></p>
+  <p class="play-character" id="play_character"><%= @app_purposes[1].purpose.name %></p>
   <ul>
     <li>
       <div class="progress app-diagnostic-result-bar rotate-bottom" id="app-strategies-show-bar">
@@ -17,13 +17,13 @@
     <li class="arrow-clippath-bottom" id="app-strategies-show-arrow"></li>
   </ul>
   <div class="app-strategies-step-button-wrapper" id="app-strategies-step-button-wrapper">
-    <%= link_to '1.プロフィール設定', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-1" %>
-    <%= link_to '2.女性にいいねする', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-2" %>
-    <%= link_to '3.ファーストメッセージ', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-3" %>
-    <%= link_to '4.メッセージのやりとり', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-4" %>
-    <%= link_to '5.アポの取り方・コツ', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-5" %>
-    <%= link_to '6.デートプラン・スポットを探す', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-6" %>
-    <%= link_to '7.アポを取ってからデート当日まで', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-7" %>
-    <%= link_to '8.デート当日(デート別)', 'make_girlfriend#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-8" %>
+    <%= link_to @steps[0].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-1" %>
+    <%= link_to @steps[1].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-2" %>
+    <%= link_to @steps[2].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-3" %>
+    <%= link_to @steps[3].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-4" %>
+    <%= link_to @steps[4].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-5" %>
+    <%= link_to @steps[5].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-6" %>
+    <%= link_to @steps[6].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-7" %>
+    <%= link_to @steps[7].name, '1/step#test', class: "app-strategies-step-button make_girlfriend-button", id: "app-strategies-step-button-8" %>
   </div>
 </div>

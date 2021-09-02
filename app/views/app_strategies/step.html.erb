@@ -1,0 +1,43 @@
+<div id="index-banner" class="parallax-container layout-app-strategies-step-description">
+  <div class="section no-pad-bot">
+    <!-- Design tiré du site flatuicolors.com -->
+    <!-- Bouton Select de base -->
+    <select class="old-select">
+      <option value="make_girlfriend" selected>彼女作り</option>
+      <option value="play">遊び</option>
+      <option value="super_play">超遊び</option>
+    </select>
+      <!-- Bouton Select reconstruit -->
+      <div class="new-select">
+        <div class="<%= "selection #{@purpose_class_name}" %>" id="selection">
+          <p>
+            <span></span>
+            <i></i>
+          </p>
+          <span></span>
+        </div>
+      </div>
+    <div class="container" id="app-strategies-step">
+      <% @apps.each do |app| %>
+        <% if app.id == 3 %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple" id="app-icon-image">
+        <% else %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
+        <% end %>
+      <% end %>
+      <p id="app_strategies_step_purpose"><%= @purpose.name %></p>
+      <% @steps.each do |step| %>
+        <div class="<%= "app-strategies-step-box-#{@purpose_class_name}" %>">
+          <div class="<%= "app-strategies-step-box-#{@purpose_class_name}-title" %>"><%= step.name %></div>
+          <p id="app-strategies-step-description">アポを取れたからと言って油断していると、急に連絡が来なくなる可能性は十分にありますので、油断は禁物です。デートの日程がすぐならば、さほど問題はないと思いますが、デートの日程が結構先の場合は、会話が無くならないよう「適度な頻度」を意識し、「適当な返信をしない」ようにしましょう。また、デートに向けて自分磨きは怠らないようにしましょう。</p> <!-- <%= step.description %> -->
+          <% if step.name == '6.デートプラン・スポットを探す' %>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">下記のボタンからおすすめのデートプラン一覧へ遷移します。</p>
+          <% else %>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}" %>"><%= '<ポイント>' %></p>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= '• 「デートの日程がすぐ」の場合は、相手のペースに合わせつつ、なるべく「マメ」に連絡を取ることを意識することが大事です。' %><br><%= '• 「デートの日程が結構先」の場合は、マメに連絡をしすぎてしまうと話すことが無くなってしまう可能性があるので、相手のペースに合わせつつ、遅すぎず、早すぎない「適度な頻度」で連絡を返すようにしましょう。' %><br><%= '※ メッセージだけの会話で日付が経ってくると、段々とお互いの「会いたいという気持ち」が冷めてきちゃう為、電話などをしてお互いの仲を深めておくのが有効である。' %><br><%= '• デート当日、最高のコンディションで迎えられるよう「スキンケア」を念入りにしたり、「美容院」に行き、髪型を整えておくと良い。' %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
