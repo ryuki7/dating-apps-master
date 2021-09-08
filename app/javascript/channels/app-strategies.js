@@ -73,42 +73,42 @@ if (toggle_switch) {
         // ステップボタンのhref(url)を変更
         // ステップボタン1
         let step_button_1_red = document.getElementById('app-strategies-step-button-1');
-        let step_button_1_red_href = '2/step';
+        let step_button_1_red_href = '2/step#1';
         //href属性の値を書き換える
         step_button_1_red.setAttribute('href', step_button_1_red_href);
         // ステップボタン2
         let step_button_2_red = document.getElementById('app-strategies-step-button-2');
-        let step_button_2_red_href = '2/step';
+        let step_button_2_red_href = '2/step#2';
         //href属性の値を書き換える
         step_button_2_red.setAttribute('href', step_button_2_red_href);
         // ステップボタン3
         let step_button_3_red = document.getElementById('app-strategies-step-button-3');
-        let step_button_3_red_href = '2/step';
+        let step_button_3_red_href = '2/step#3';
         //href属性の値を書き換える
         step_button_3_red.setAttribute('href', step_button_3_red_href);
         // ステップボタン4
         let step_button_4_red = document.getElementById('app-strategies-step-button-4');
-        let step_button_4_red_href = '2/step';
+        let step_button_4_red_href = '2/step#4';
         //href属性の値を書き換える
         step_button_4_red.setAttribute('href', step_button_4_red_href);
         // ステップボタン5
         let step_button_5_red = document.getElementById('app-strategies-step-button-5');
-        let step_button_5_red_href = '2/step';
+        let step_button_5_red_href = '2/step#5';
         //href属性の値を書き換える
         step_button_5_red.setAttribute('href', step_button_5_red_href);
         //ステップボタン6
         let step_button_6_red = document.getElementById('app-strategies-step-button-6');
-        let step_button_6_red_href = '2/step';
+        let step_button_6_red_href = '2/step#6';
         //href属性の値を書き換える
         step_button_6_red.setAttribute('href', step_button_6_red_href);
         // ステップボタン7
         let step_button_7_red = document.getElementById('app-strategies-step-button-7');
-        let step_button_7_red_href = '2/step';
+        let step_button_7_red_href = '2/step#7';
         //href属性の値を書き換える
         step_button_7_red.setAttribute('href', step_button_7_red_href);
         // ステップボタン8
         let step_button_8_red = document.getElementById('app-strategies-step-button-8');
-        let step_button_8_red_href = '2/step';
+        let step_button_8_red_href = '2/step#8';
         //href属性の値を書き換える
         step_button_8_red.setAttribute('href', step_button_8_red_href); 
     });
@@ -147,42 +147,42 @@ if (toggle_radius_button) {
         // ステップボタンのhref(url)を変更
         // ステップボタン1
         let step_button_1_red = document.getElementById('app-strategies-step-button-1');
-        let step_button_1_red_href = '1/step#test';
+        let step_button_1_red_href = '1/step#1';
         //href属性の値を書き換える
         step_button_1_red.setAttribute('href', step_button_1_red_href);
         // ステップボタン2
         let step_button_2_red = document.getElementById('app-strategies-step-button-2');
-        let step_button_2_red_href = '1/step#test';
+        let step_button_2_red_href = '1/step#2';
         //href属性の値を書き換える
         step_button_2_red.setAttribute('href', step_button_2_red_href);
         // ステップボタン3
         let step_button_3_red = document.getElementById('app-strategies-step-button-3');
-        let step_button_3_red_href = '1/step#test';
+        let step_button_3_red_href = '1/step#3';
         //href属性の値を書き換える
         step_button_3_red.setAttribute('href', step_button_3_red_href);
         // ステップボタン4
         let step_button_4_red = document.getElementById('app-strategies-step-button-4');
-        let step_button_4_red_href = '1/step#test';
+        let step_button_4_red_href = '1/step#4';
         //href属性の値を書き換える
         step_button_4_red.setAttribute('href', step_button_4_red_href);
         // ステップボタン5
         let step_button_5_red = document.getElementById('app-strategies-step-button-5');
-        let step_button_5_red_href = '1/step#test';
+        let step_button_5_red_href = '1/step#5';
         //href属性の値を書き換える
         step_button_5_red.setAttribute('href', step_button_5_red_href);
         //ステップボタン6
         let step_button_6_red = document.getElementById('app-strategies-step-button-6');
-        let step_button_6_red_href = '1/step#test';
+        let step_button_6_red_href = '1/step#6';
         //href属性の値を書き換える
         step_button_6_red.setAttribute('href', step_button_6_red_href);
         // ステップボタン7
         let step_button_7_red = document.getElementById('app-strategies-step-button-7');
-        let step_button_7_red_href = '1/step#test';
+        let step_button_7_red_href = '1/step#7';
         //href属性の値を書き換える
         step_button_7_red.setAttribute('href', step_button_7_red_href);
         // ステップボタン8
         let step_button_8_red = document.getElementById('app-strategies-step-button-8');
-        let step_button_8_red_href = '1/step#test';
+        let step_button_8_red_href = '1/step#8';
         //href属性の値を書き換える
         step_button_8_red.setAttribute('href', step_button_8_red_href);
     });

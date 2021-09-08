@@ -27,15 +27,48 @@
       <% end %>
       <p id="app_strategies_step_purpose"><%= @purpose.name %></p>
       <% @steps.each do |step| %>
+        <% @step_description_split_array = step.description.split('.') %> <!-- 黒字の説明文(step.description) -->
+        <% @step_description_point_split_array = step.description_point.split('.') %> <!-- 色付きの説明文(step.description_point) -->
         <div class="<%= "app-strategies-step-box-#{@purpose_class_name}" %>">
-          <div class="<%= "app-strategies-step-box-#{@purpose_class_name}-title" %>"><%= step.name %></div>
-          <p id="app-strategies-step-description">アポを取れたからと言って油断していると、急に連絡が来なくなる可能性は十分にありますので、油断は禁物です。デートの日程がすぐならば、さほど問題はないと思いますが、デートの日程が結構先の場合は、会話が無くならないよう「適度な頻度」を意識し、「適当な返信をしない」ようにしましょう。また、デートに向けて自分磨きは怠らないようにしましょう。</p> <!-- <%= step.description %> -->
+          <div class="<%= "app-strategies-step-box-#{@purpose_class_name}-title" %>" id="<%= step.name.gsub(/[^0-9]/,"") %>"><%= step.name %></div>
+
           <% if step.name == '6.デートプラン・スポットを探す' %>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">下記のボタンからおすすめのデートプラン一覧へ遷移します。</p>
-          <% else %>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}" %>"><%= '<ポイント>' %></p>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= '• 「デートの日程がすぐ」の場合は、相手のペースに合わせつつ、なるべく「マメ」に連絡を取ることを意識することが大事です。' %><br><%= '• 「デートの日程が結構先」の場合は、マメに連絡をしすぎてしまうと話すことが無くなってしまう可能性があるので、相手のペースに合わせつつ、遅すぎず、早すぎない「適度な頻度」で連絡を返すようにしましょう。' %><br><%= '※ メッセージだけの会話で日付が経ってくると、段々とお互いの「会いたいという気持ち」が冷めてきちゃう為、電話などをしてお互いの仲を深めておくのが有効である。' %><br><%= '• デート当日、最高のコンディションで迎えられるよう「スキンケア」を念入りにしたり、「美容院」に行き、髪型を整えておくと良い。' %></p>
+            <p id="app-strategies-step-description"><%= @step_description_split_array[0] %></p>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
+          <% elsif step.name == '8.デート当日(デート別)' %>
+            <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %><br><%= @step_description_split_array[3] %><br><%= @step_description_split_array[4] %></p>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
+          <% else %> <!-- 「6.デートプラン・スポットを探す」と「8.デート当日(デート別)」以外のステップ -->
+ 
+            <!-- 黒字の説明文(step.description) -->
+            <% if @step_description_split_array.size == 1 %>
+              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %></p>
+            <% elsif @step_description_split_array.size == 2 %>
+              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %></p>
+            <% elsif @step_description_split_array.size == 3 %>
+              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %></p>
+            <% elsif @step_description_split_array.size == 4 %>
+              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %><br><%= @step_description_split_array[3] %></p>
+            <% end %>
+
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}" %>"><%= '<ポイント>' %></p> <!-- 変えない。 -->
+
+            <!-- 色付きの説明文(step.description_point) -->
+            <% if @step_description_point_split_array.size == 1 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
+            <% elsif @step_description_point_split_array.size == 2 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %></p>
+            <% elsif @step_description_point_split_array.size == 3 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %></p>
+            <% elsif @step_description_point_split_array.size == 4 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %></p>
+            <% elsif @step_description_point_split_array.size == 5 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %><br><%= @step_description_point_split_array[4] %></p>
+            <% elsif @step_description_point_split_array.size == 6 %>
+              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %><br><%= @step_description_point_split_array[4] %><br><%= @step_description_point_split_array[5] %></p>
+            <% end %>
           <% end %>
+
         </div>
       <% end %>
     </div>

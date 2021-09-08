@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_131809) do
   create_table "steps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
+    t.text "description_point", null: false
     t.bigint "purpose_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
