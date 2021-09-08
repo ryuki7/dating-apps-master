@@ -1,20 +1,8 @@
-<!-- Bouton Select reconstruit -->
-<div class="new-select">
-  <div class="selection with" id="selection">
-    <p>
-      <span></span>
-      <i></i>
-    </p>
-    <span></span>
-  </div>
-</div>
-<div class="container" id="app-strategies-show">
-  <img src="<%= "/app_icon_images/#{@app.icon_image}" %>">
+  <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" id="app_icon_image">
   <h4 class="center" id="app-strategies-show-title"><%= @app.name %>攻略</h4>
-  <div class="app-strategies-show-box-with">
-    <div class="app-strategies-show-box-with-title">特徴</div>
-    <p id="app-strategies-show-description">ウィズは真面目に恋活・婚活している女性が多い為、彼女を作りたい・いずれ結婚したい男性に向いているアプリです。<br>遊びたい男性には不向きですが、ペアーズほど真面目ではない為、遊ぶことも可能です。
-<br>また、他のアプリに比べてイケメン・ハイスペックな男性が少なく、競争率はあまり高くない為、マッチング率・アポ確定率高め。清楚な女性が多いです。</p>
+  <div class="<%= "app-strategies-show-box-#{@app_class_name}" %>">
+    <div class="<%= "app-strategies-show-box-#{@app_class_name}-title" %>">特徴</div>
+    <p id="app-strategies-show-description"><%= @app_strategy_description_split_array[0] %><br><%= @app_strategy_description_split_array[1] %><br><%= @app_strategy_description_split_array[2] %></p>
   </div>
   <table class="table-with">
     <tr>
@@ -39,7 +27,6 @@
     </tr>
     <tr>
       <th>競争率</th>
-      <td><span class="app-strategies-show-star-low-left">低い</span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span class="app-strategies-show-star-high-right">高い</span></td>
+      <td><span class="app-strategies-show-star-low-left">低い</span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span class="app-strategies-show-star-high-right">高い</span></td>
     </tr>
   </table>
-</div>

@@ -1,6 +1,6 @@
 <div class="container">
     <h5 id="app-diagnostics-page">2/3</h5>
-    <p class="app-diagnostics-text" id="app-diagnostics-text">『外見』<br>どのような女性が好きですか？<br>また、どんな女性と出会いたいですか？<br>近いと思うものを選択してください。<br>※複数選択可</p>
+    <p class="app-diagnostics-text" id="app-diagnostics-text"><%= @question_description_split_array[0] %><br><%= @question_description_split_array[1] %><br><%= @question_description_split_array[2] %><br><%= @question_description_split_array[3] %><br><%= @question_description_split_array[4] %></p>
     <div class="row center">
       <form action="3" name="app_diagnostics_form_2">
         <div class="app-diagnostics-answer-box-2">
@@ -12,14 +12,14 @@
             <input name="allocation_1_2" id="question_1_answer_2" type="hidden" value="<%= params[:allocation_1_2] %>">
           <% end %>
           <!-- question2 -->
-          <button type="button" id="app-diagnostics-description-select-button-2-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">清楚で可愛い女性</button>
-          <input name="allocation_2_1" type="hidden" value="abbccd" id="allocation-2-1">
-          <button type="button" id="app-diagnostics-description-select-button-2-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">ギャルで可愛い女性</button>
-          <input name="allocation_2_2" type="hidden" value="abccdd" id="allocation-2-2">
-          <button type="button" id="app-diagnostics-description-select-button-2-3" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">清楚で綺麗な女性</button>
-          <input name="allocation_2_3" type="hidden" value="abbccd" id="allocation-2-3">
-          <button type="button" id="app-diagnostics-description-select-button-2-4" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn">ギャルで綺麗な女性</button>
-          <input name="allocation_2_4" type="hidden" value="abccdd" id="allocation-2-4">
+          <button type="button" id="app-diagnostics-description-select-button-2-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[0].description %></button>
+          <input name="allocation_2_1" type="hidden" value="<%= @answers[0].allocation %>" id="allocation-2-1">
+          <button type="button" id="app-diagnostics-description-select-button-2-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[1].description %></button>
+          <input name="allocation_2_2" type="hidden" value="<%= @answers[1].allocation %>" id="allocation-2-2">
+          <button type="button" id="app-diagnostics-description-select-button-2-3" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[2].description %></button>
+          <input name="allocation_2_3" type="hidden" value="<%= @answers[2].allocation %>" id="allocation-2-3">
+          <button type="button" id="app-diagnostics-description-select-button-2-4" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn"><%= @answers[3].description %></button>
+          <input name="allocation_2_4" type="hidden" value="<%= @answers[3].allocation %>" id="allocation-2-4">
         </div>
         <br>
         <!-- question2のsubmitボタン -->  

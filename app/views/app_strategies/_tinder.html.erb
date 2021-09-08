@@ -1,20 +1,8 @@
-<!-- Bouton Select reconstruit -->
-<div class="new-select">
-  <div class="selection tinder" id="selection">
-    <p>
-      <span></span>
-      <i></i>
-    </p>
-    <span></span>
-  </div>
-</div>
-<div class="container" id="app-strategies-show">
-  <img src="<%= "/app_icon_images/#{@app.icon_image}" %>">
+  <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" id="app_icon_image">
   <h4 class="center" id="app-strategies-show-title"><%= @app.name %>攻略</h4>
-  <div class="app-strategies-show-box-tinder">
-    <div class="app-strategies-show-box-tinder-title">特徴</div>
-    <p id="app-strategies-show-description">ティンダーは真面目に恋活している女性が少数いるが、遊び・遊び気質の女性が多い為、遊びたい男性に向いているアプリです。<br>彼女を作りたい人には向いていないです。<br>
-また、ペアーズ、ウィズ、タップルに比べ、断トツにイケメン・ハイスペックな男性が多く、競争率がかなり高い為、マッチング率・アポ確定率は低いです。<br>清楚な女性、ギャルな女性などの色々な種類の女性が登録しており、酒好きでフッ軽な可愛い女性が多いです。</p>
+  <div class="<%= "app-strategies-show-box-#{@app_class_name}" %>">
+    <div class="<%= "app-strategies-show-box-#{@app_class_name}-title" %>">特徴</div>
+    <p id="app-strategies-show-description"><%= @app_strategy_description_split_array[0] %><br><%= @app_strategy_description_split_array[1] %><br><%= @app_strategy_description_split_array[2] %><br><%= @app_strategy_description_split_array[3] %></p>
   </div>
   <table class="table-tinder">
     <tr>
@@ -42,4 +30,3 @@
       <td><span class="app-strategies-show-star-low-left">低い</span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
     </tr>
   </table>
-</div>

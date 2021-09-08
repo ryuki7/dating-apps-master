@@ -1,19 +1,8 @@
-<!-- Bouton Select reconstruit -->
-<div class="new-select">
-  <div class="selection tapple" id="selection">
-    <p>
-      <span></span>
-      <i></i>
-    </p>
-    <span></span>
-  </div>
-</div>
-<div class="container" id="app-strategies-show">
-  <img src="<%= "/app_icon_images/#{@app.icon_image}"%>" class="app-image-tapple">
+  <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" id="app_icon_image">
   <h4 class="center" id="app-strategies-show-title"><%= @app.name %>攻略</h4>
-  <div class="app-strategies-show-box-tapple">
-    <div class="app-strategies-show-box-tapple-title">特徴</div>
-    <p id="app-strategies-show-description">タップルは真面目に恋活・婚活している女性と遊びの女性が半々くらい存在する為、彼女が欲しいけど遊びたい気持ちもある男性に向いているアプリです。<br>また、ペアーズやウィズに比べてイケメン・ハイスペックな男性が多い傾向にあり、競争率がそこそこ高い為、マッチング率・アポ確定率はやや低め。<br>清楚な女性・ギャルな女性などの色々な種類の女性が登録しており、可愛い女性が多いです。</p>
+  <div class="<%= "app-strategies-show-box-#{@app_class_name}" %>">
+    <div class="<%= "app-strategies-show-box-#{@app_class_name}-title" %>">特徴</div>
+    <p id="app-strategies-show-description"><%= @app_strategy_description_split_array[0] %><br><%= @app_strategy_description_split_array[1] %><br><%= @app_strategy_description_split_array[2] %></p>
   </div>
   <table class="table-tapple">
     <tr>
@@ -41,4 +30,3 @@
       <td><span class="app-strategies-show-star-low-left">低い</span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span class="app-strategies-show-star-high-right">高い</span></td>
     </tr>
   </table>
-</div>

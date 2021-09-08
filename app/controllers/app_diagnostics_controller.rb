@@ -1,8 +1,12 @@
 class AppDiagnosticsController < ApplicationController
+  before_action :set_question, only: %i[show]
+  before_action :set_answer, only: %i[show]
 
   def index; end
 
-  def show; end
+  def show
+    @question_description_split_array = @question.description.split('.')
+  end
 
   def original_create
     AppDiagnostic.where(user_id: session[:user_id]).destroy_all
@@ -37,6 +41,14 @@ class AppDiagnosticsController < ApplicationController
   end
 
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
+
+  def set_answer
+    @answers = Answer.where(question_id: params[:id])
+  end
 
   # allocationの値(a,b,c,d)をそれぞれカウントして、配列で大きい数字(カウント数)順に並べる。
   def allocation_count_array_sort(allocation_all_string)

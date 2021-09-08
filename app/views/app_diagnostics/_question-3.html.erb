@@ -1,6 +1,6 @@
 <div class="container">
     <h5 id="app-diagnostics-page">3/3</h5>
-    <p class="app-diagnostics-text" id="app-diagnostics-text">『内面』<br>どのような女性が好きですか？<br>また、どんな女性と出会いたいですか？<br>※複数選択可</p>
+    <p class="app-diagnostics-text" id="app-diagnostics-text"><%= @question_description_split_array[0] %><br><%= @question_description_split_array[1] %><br><%= @question_description_split_array[2] %><br><%= @question_description_split_array[3] %></p>
     <div class="row center">
       <form action="original_create" method="post" name="app_diagnostics_form_3">
         <div class="app-diagnostics-answer-box-3">
@@ -27,16 +27,16 @@
             <input name="allocation_2_4" id="question_2_answer_4" type="hidden" value="<%= params[:allocation_2_4] %>">
           <% end %>
           <!-- question3 -->
-          <button type="button" id="app-diagnostics-description-select-button-3-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">真面目で貞操観念が強く、男性経験が少ない女性</button>
-          <input name="allocation_3_1" type="hidden" value="aaabbbcc" id="allocation-3-1">
-          <button type="button" id="app-diagnostics-description-select-button-3-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">真面目だが、貞操観念が弱い女性(押しに弱い女性)</button>
-          <input name="allocation_3_2" type="hidden" value="abccdd" id="allocation-3-2">
-          <button type="button" id="app-diagnostics-description-select-button-3-3" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">ある程度男性経験はあるが、貞操観念が強い女性</button>
-          <input name="allocation_3_3" type="hidden" value="aaabbc" id="allocation-3-3">
-          <button type="button" id="app-diagnostics-description-select-button-3-4" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">ある程度男性経験があり、程よく貞操観念がある</button>
-          <input name="allocation_3_4" type="hidden" value="abcc" id="allocation-3-4">
-          <button type="button" id="app-diagnostics-description-select-button-3-5" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long">男絡みが多く、貞操観念が弱い女性</button>
-          <input name="allocation_3_5" type="hidden" value="ccdddd" id="allocation-3-5">
+          <button type="button" id="app-diagnostics-description-select-button-3-1" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long"><%= @answers[0].description %></button>
+          <input name="allocation_3_1" type="hidden" value="<%= @answers[0].allocation %>" id="allocation-3-1">
+          <button type="button" id="app-diagnostics-description-select-button-3-2" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long"><%= @answers[1].description %></button>
+          <input name="allocation_3_2" type="hidden" value="<%= @answers[1].allocation %>" id="allocation-3-2">
+          <button type="button" id="app-diagnostics-description-select-button-3-3" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long"><%= @answers[2].description %></button>
+          <input name="allocation_3_3" type="hidden" value="<%= @answers[2].allocation %>" id="allocation-3-3">
+          <button type="button" id="app-diagnostics-description-select-button-3-4" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long"><%= @answers[3].description %></button>
+          <input name="allocation_3_4" type="hidden" value="<%= @answers[3].allocation %>" id="allocation-3-4">
+          <button type="button" id="app-diagnostics-description-select-button-3-5" class="btn waves-effect waves-light buttonwhite app-diagnostics-answer-btn description-long"><%= @answers[4].description %></button>
+          <input name="allocation_3_5" type="hidden" value="<%= @answers[4].allocation %>" id="allocation-3-5">
         </div>
         <br>
         <!-- question3のsubmitボタン -->
