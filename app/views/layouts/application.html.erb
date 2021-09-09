@@ -10,42 +10,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
     <div id="liffAppContent">
       <%= yield %>
-      <!-- bottom navigation -->
-      <ul class="bottom-menu">
-        <li>
-	        <!--　↓↓項目1. ホーム ＃の部分にホームのURLを入れる -->
-          <a href="#"><i class="fa fa-star"></i><br><span class="mini-text">攻略アプリ</span></a>
-        </li>
-        <li class="menu-width-max">
-	        <!-- ↓↓項目2. おすすめ　すぐ下の"＃"はそのまま -->
-          <a href="#"><i class="fa fa-list"></i><br><span class="mini-text">メニュー</span></a>
-		        <ul class="menu-second-level">
-	         	  <!-- 下の"#"の部分におすすめ"記事URL"とタイトル等を入れる -->
-              <li><a href="#">タイトル１</a></li>
-           	  <li><a href="#">タイトル２</a></li>
-           	  <li><a href="#">タイトル３</a></li>
-            	<li><a href="#">タイトル４</a></li>
-            	<li><a href="#">タイトル５</a></li>
-        	  </ul>
-        </li>
-        <li>
-	        <!-- ↓↓項目3.　読者登録 ↓↓の部分の書き換えが必要です -->
-          <!--  ~hatena.ne.jp/自分のはてなID/URL(http://の部分は無し)/subscribe　-->
- 	        <a href="https://blog.hatena.ne.jp/はてなID/自分のURL/subscribe" target="_blank"><i class="fa fa-book"></i><br><span class="mini-text">デートプラン</span></a>
-        </li>
-        <li>
-	        <!-- ↓↓項目4.　ツイッター ↓↓の部分の書き換えが必要です-->
-	        <!-- screen_name=自分のツイッターID" ←＠マーク以降のIDを入れる -->
-          <a href="https://twitter.com/intent/follow?screen_name=自分のツイッターID"><i class="fa fa-home"></i><br><span class="mini-text">マイページ</span></a>
-        </li>
-      </ul>
+      <%= render 'layouts/footer' %>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

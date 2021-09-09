@@ -342,34 +342,35 @@ $(document).ready(function(){
 
     // ステップ詳細div
     const app_strategies_step = document.getElementById('app-strategies-step');
-
-    selection.addEventListener('click', function(){
-        selection.classList.toggle('open');
-        if(selection.classList.contains('open')){
-            openSelect();
-            selection_click_count = selection_click_count + 1;
-        }else{
-            closeSelect();
-            selection_click_count = 0;
-        }
-
-        if (selection_click_count == 2) {
-            // 攻略アプリ
-            if (app_strategies_show) {
-                app_strategies_show.before(error_message);
+    if (selection) {
+        selection.addEventListener('click', function(){
+            selection.classList.toggle('open');
+            if(selection.classList.contains('open')){
+                openSelect();
+                selection_click_count = selection_click_count + 1;
+            }else{
+                closeSelect();
+                selection_click_count = 0;
             }
 
-            // ステップ詳細
-            if (app_strategies_step) {
-                app_strategies_step.before(error_message);
-            }
+            if (selection_click_count == 2) {
+                // 攻略アプリ
+                if (app_strategies_show) {
+                    app_strategies_show.before(error_message);
+                }
 
-            let error_message_text = document.querySelectorAll('#app-strategies-error-message');
-            if (error_message_text.length == 2) {
-                error_message_text[1].remove();
+                // ステップ詳細
+                if (app_strategies_step) {
+                    app_strategies_step.before(error_message);
+                }
+
+                let error_message_text = document.querySelectorAll('#app-strategies-error-message');
+                if (error_message_text.length == 2) {
+                    error_message_text[1].remove();
+                }
             }
-        }
-    });
+        });
+    }
     
     // Selection 
     $('.new-option').click(function(){
