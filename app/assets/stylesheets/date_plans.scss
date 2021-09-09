@@ -1,3 +1,169 @@
 // Place all the styles related to the date_plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#date_plans_index {
+    color: black;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#date_plans_index_title {
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+
+.date_plans_index_select_button {
+    margin-bottom: 40px;
+    color: white;
+    padding: 0 20px;
+    font-size: 25px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 110px;
+    line-height: 110px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.date_plans_index_select_button.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+.date_plans_index_select_button.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+    padding: 0 80px;
+}
+
+.date_plans_index_select_button.play img {
+    position: relative;
+    right: 25px;
+}
+
+.date_plans_index_select_button.play span{
+    position: relative;
+    left: 2px;
+}
+
+.date_plans_index_select_button.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+    padding: 0 100px;
+}
+
+.date_plans_index_select_button.super_play img {
+    position: relative;
+    right: 20px;
+}
+
+.date_plans_index_select_button.super_play span {
+    position: relative;
+    left: 5px;
+}
+
+.date_plans_index_select_button img {
+    position: relative;
+    top: 21.5px;
+    margin-left: 5px;
+}
+
+#date_plans_container {
+    color: black;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.date_plans_purpose {
+    color: white;
+    margin: 20px auto;
+    height: 50px;
+    line-height: 50px;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 40px;/*角の丸み*/
+}
+
+.date_plans_purpose.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+.date_plans_purpose.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+}
+
+.date_plans_purpose.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+}
+
+.date_plans-box-make_girlfriend {
+    margin: 2em 0;
+    background: #f9fbff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #4481eb;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.date_plans-box-make_girlfriend-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.date_plans-box-play {
+    margin: 2em 0;
+    background: #fffafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #ff0844;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.date_plans-box-play-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.date_plans-box-super_play {
+    margin: 2em 0;
+    background: #fffafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #f5576c;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.date_plans-box-super_play-title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 1.2em;
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+    padding: 15px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.date_plans_body {
+    text-align: left;
+    padding: 15px 20px;
+    margin: 0;
+}

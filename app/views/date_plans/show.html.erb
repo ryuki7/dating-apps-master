@@ -1,0 +1,38 @@
+<div id="index-banner" class="parallax-container layout-date_plans">
+  <div class="section no-pad-bot">
+    <!-- Design tiré du site flatuicolors.com -->
+    <!-- Bouton Select de base -->
+    <select class="old-select">
+      <option value="make_girlfriend" selected>彼女作り</option>
+      <option value="play">遊び</option>
+      <option value="super_play">超遊び</option>
+    </select>
+      <!-- Bouton Select reconstruit -->
+      <div class="new-select">
+        <div class="<%= "selection #{@purpose_class_name}" %>" id="selection">
+          <p>
+            <span></span>
+            <i></i>
+          </p>
+          <span></span>
+        </div>
+      </div>
+    <div class="container" id="date_plans_container">
+      <% @apps.each do |app| %>
+        <% if app.id == 3 %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple" id="app-icon-image">
+        <% else %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
+        <% end %>
+      <% end %>
+      <p class="<%= "date_plans_purpose #{@purpose_class_name}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
+      <p>デートプラン一覧</p>
+      <!-- @steps.each do |step| -->
+        <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
+          <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">デートプランA</div>
+          <p class="date_plans_body">テスト</p>
+        </div>
+      <!--  end  -->
+    </div>
+  </div>
+</div>
