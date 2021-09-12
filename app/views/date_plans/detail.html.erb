@@ -1,0 +1,29 @@
+<div id="index-banner" class="parallax-container layout-date_plans_detail">
+  <div class="section no-pad-bot">
+    <div class="container" id="date_plans_container">
+      <% @apps.each do |app| %>
+        <% if app.id == 3 %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple" id="app-icon-image">
+        <% else %>
+          <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
+        <% end %>
+      <% end %>
+      <p class="<%= "date_plans_purpose #{@purpose_class_name}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
+      <h4 class="<%= "center date_plans_each_title #{@purpose_class_name}" %>"><span><%= @date_plan.name %></span></h4>
+      <% @date_plan_places.each.with_index(1) do |date_plan_place, i| %>
+        <p class="date_plans_body-place"><%= date_plan_place.place.name %></p>
+        <% unless @date_plan_places.size == i %>
+          <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-#{@purpose_class_name}" %>"></i>
+        <% end %>
+      <% end %>
+      <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
+        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">おすすめの条件</div>
+        <p class="<%= "date_plans_body-#{@purpose_class_name}" %>"><%= @date_plan.period %></p>
+      </div>
+      <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
+        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">アクション</div>
+        <p class="<%= "date_plans_body-#{@purpose_class_name}" %>"><%= @date_plan.period %></p>
+      </div>
+    </div>
+  </div>
+</div>

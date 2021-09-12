@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_09_08_154852) do
   create_table "date_plan_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "date_plan_id", null: false
     t.bigint "place_id", null: false
-    t.integer "order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date_plan_id"], name: "index_date_plan_places_on_date_plan_id"

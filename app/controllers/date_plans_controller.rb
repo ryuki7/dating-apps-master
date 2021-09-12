@@ -20,10 +20,24 @@ class DatePlansController < ApplicationController
       @apps.push(app_purpose.app)
     end
 
+    @date_plans = DatePlan.where(purpose_id: @purpose.id)
+
     @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
   end
 
-  def detail; end
+  def detail
+    @date_plan = DatePlan.find(params[:id])
+    @date_plan_places = DatePlanPlace.where(date_plan_id: @date_plan.id)
+    @purpose = Purpose.find(@date_plan.purpose_id)
+    app_purposes = AppPurpose.where(purpose_id: @purpose.id)
+    @apps = []
+
+    app_purposes.each do |app_purpose|
+      @apps.push(app_purpose.app)
+    end
+
+    @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
+  end
 
   private
 

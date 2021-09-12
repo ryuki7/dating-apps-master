@@ -46,7 +46,7 @@ step_2_make_girlfriend = Step.create!(name: '2.女性にいいねする', descri
 step_3_make_girlfriend = Step.create!(name: '3.ファーストメッセージ', description: '女性はたくさんの男性からメッセージが来ている為、マッチングしてからの「ファーストコンタクト」の内容で、女性からの返信率が変わってきます。', description_point: '• 相手の女性の「顔」や「雰囲気」を褒めたり、「写真」や「自分との共通点」について触れたメッセージを送ること。.※ 「よろしくお願いします」等のありきたりな文だと「他の男性ユーザー」との「差別化」が図れず、つまらない為、相手の女性のプロフィールをしっかり読んで相手の「気を惹く」文を送る。', purpose_id: 1)
 step_4_make_girlfriend = Step.create!(name: '4.メッセージのやりとり', description: '女性はたくさんの男性のメッセージを返すので忙しい為、返信が疎かになっている場合があります。自分が話の展開を作る気持ちでメッセージをしましょう。.また、アポを取るまではLINE交換等は行わないで、アプリ内で会話をするようにしましょう。', description_point: '• 基本、自分が「質問する形で終わる」のを意識しながらメッセージをすること。.※ 質問をしてあげないと、会話が終了してしまう可能性がある為、質問責めにならないくらいで自然に会話する。.• 相手の女性が興味のありそうな話題で会話をすると、相手の女性も会話をしてて退屈しない為、メッセージが続きやすい。.※ 独りよがりに自分のことばかりを話すことは絶対にNG。.• 一見LINEをすぐに交換した方が良いと考えがちなのですが、LINEは親しい人とのコミュニケーションを取る日常ツールであり、プロフィール写真に顔写真を載せている男性は少ないと思う為、あまりまだ仲良くなかったり、デートの予定などが決まっていないと、印象が薄くなってしまったり、返信するのがめんどくさくなってしまい、相手の女性から連絡が返って来なくなる確率が高い。', purpose_id: 1)
 step_5_make_girlfriend = Step.create!(name: '5.アポの取り方・コツ', description: '女性はたくさんの男性から「デート」に誘われています。他の男性に先を越されないように、なるべく早く「アポ」を取ることがとても重要です。もはや早い者勝ちですね。', description_point: '• 相手の女性の「好きな食べ物・飲み物」や、自分との「共通点」の話題で会話を進めて、自然な流れで「食事」や「お出かけ」に誘う。.※ だらだらメッセージをしてるだけだと、惰性になって会話が退屈になり、返信が来なくなる可能性が高い。.• 相手の女性が興味のありそうな話題で会話をすると、相手の女性も会話をしてて退屈しない為、メッセージが続きやすい。.※ 独りよがりに自分のことばかりを話すことは絶対にNG。', purpose_id: 1)
-step_6_make_girlfriend = Step.create!(name: '6.デートプラン・スポットを探す', description: '自分が楽しむことも大事ですが、相手の女性を楽しませることが一番大切なので、ヒアリングは必ずして下さい。しかし、男の人からデートプランを提案する方が男らしくてかっこいいので、ある程度ヒアリングをしたら自分で判断して決めましょう。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 1)
+step_6_make_girlfriend = Step.create!(name: '6.デートプラン・スポットを探す', description: '自分が楽しむことも大事ですが、相手の女性を楽しませることが一番大切なので、ヒアリングは必ずして下さい。しかし、男の人からデートプランを提案する方が男らしくてかっこいいので、ある程度ヒアリングをしたら自分で判断して決めましょう。.また女性は男性よりも準備に時間がかかってしまうので、デートの開始時間は朝からでは無く、昼からだと嬉しい女性も多いと思います。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 1)
 step_7_make_girlfriend = Step.create!(name: '7.アポを取ってからデート当日まで', description: 'アポを取れたからと言って油断していると、急に連絡が来なくなる可能性は十分にありますので、油断は禁物です。デートの日程がすぐならば、さほど問題はないと思いますが、デートの日程が結構先の場合は、会話が無くならないよう「適度な頻度」を意識し、「適当な返信をしない」ようにしましょう。また、デートに向けて自分磨きは怠らないようにしましょう。', description_point: '• 「デートの日程がすぐ」の場合は、相手のペースに合わせつつ、なるべく「マメ」に連絡を取ることを意識することが大事です。.• 「デートの日程が結構先」の場合は、マメに連絡をしすぎてしまうと話すことが無くなってしまう可能性があるので、相手のペースに合わせつつ、遅すぎず、早すぎない「適度な頻度」で連絡を返すようにしましょう。.※ メッセージだけの会話で日付が経ってくると、段々とお互いの「会いたいという気持ち」が冷めてきちゃう為、電話などをしてお互いの仲を深めておくのが有効である。.• デート当日、最高のコンディションで迎えられるよう「スキンケア」を念入りにしたり、「美容院」に行き、髪型を整えておくと良い。', purpose_id: 1)
 step_8_make_girlfriend = Step.create!(name: '8.デート当日(デート別)', description: '女性は男性が思ってる以上に、ニオイに敏感です。家を出る前に必ずニオイケアを行いましょう。.具体的には、.• シャワーを浴びる・制汗剤を使用するなどの体臭対策。.• 女子受けの良い香りの香水を使用する。(匂いがキツい香水だと逆効果な為、爽やかな匂いの香水を使用する。).上記の2点を必ず行うようにしましょう。', description_point: '下記のボタンから、「デートプラン毎」の「行動パターン攻略説明」ページへ遷移します。', purpose_id: 1)
 
@@ -56,7 +56,7 @@ step_2_play = Step.create!(name: '2.女性にいいねする', description: '会
 step_3_play = Step.create!(name: '3.ファーストメッセージ', description: '「遊び」だからと言って、下心丸出しのメッセージをいきなり送るのは女性受けが悪いので、最初は下心を隠しましょう。', description_point: '• 相手の女性の「顔」や「雰囲気」を褒めたり、「写真」や「自分との共通点」について触れたメッセージを送ること。.※ 「よろしくお願いします」等のありきたりな文だと「他の男性ユーザー」との「差別化」が図れず、つまらない為、相手の女性のプロフィールをしっかり読んで相手の「気を惹く」文を送る。', purpose_id: 2)
 step_4_play = Step.create!(name: '4.メッセージのやりとり', description: '「遊び」の場合、顔がフツメン以上の男性であれば、会う前のメッセージで「遊び」として誘ってもOKをもらえる可能性があります。なのでそのような男性は「数撃てば当たる戦略」で行けば、たくさんの女性と手っ取り早く「遊び」で遊べます。.しかし、顔がフツメン未満の男性の場合は、会う前のメッセージで「遊び」として誘うのは断られる可能性が高いので、アポを取ることに専念しましょう。.また、自分からすぐにLINE交換をしないようにしましょう。', description_point: '• 顔がフツメン以上の男性は、「〜(女性の名前)だからしたい」というような「誰でも良いわけじゃ無い」と「特別感」を出したメッセージをたくさんの女性に送っていれば、何人かはヒットする為、手っ取り早いです。.※ しかし、その誘いに簡単に乗る女性ほど見た目のレベルが低い傾向にあるので、見た目のレベルが高い女性と「遊び」として遊びたい場合は、下心を隠して、「呑み」や「夜のドライブ」等に誘うのが有効的です。.• 顔がフツメン未満の男性の場合は、下心を隠して、「呑み」や「夜のドライブ」等に誘うのが一番成功確率が高いです。.• 一見LINEをすぐに交換した方が良いと考えがちなのですが、自分とすぐにLINE交換をするような女性は、他の多くの男性ユーザーともLINE交換をしているので、混在してしまいフェードアウト率が高い。', purpose_id: 2)
 step_5_play = Step.create!(name: '5.アポの取り方・コツ', description: '女性はたくさんの男性から毎日のように「デート」に誘われています。他の男性に先を越されないように、なるべく早く「アポ」を取ることがとても重要です。もはや早い者勝ちですね。', description_point: '• 相手の女性の「趣味・嗜好」や、自分との「共通点」の話題で会話を進めて、自然な流れで「呑み」や「夜のドライブ」に誘う。.※ だらだらメッセージをしてるだけだと、惰性になって会話が退屈になり、返信が来なくなる可能性が高い。.• 当日や前日にいきなり「遊び」として誘ったり、「呑み」や「夜のドライブ」に誘うこともかなり有効です。.※ その急な誘いにOKする女性は、軽い可能性が高い為。', purpose_id: 2)
-step_6_play = Step.create!(name: '6.デートプラン・スポットを探す', description: '「雰囲気作り」が一番大事ですので、良い雰囲気を作れる場所・スポットを選ぶことが重要です。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 2)
+step_6_play = Step.create!(name: '6.デートプラン・スポットを探す', description: '「雰囲気作り」が一番大事ですので、良い雰囲気を作れる場所・スポットを選ぶことが重要です。.また女性は男性よりも準備に時間がかかってしまうので、デートの開始時間は朝からでは無く、昼からだと嬉しい女性も多いと思います。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 2)
 step_7_play = Step.create!(name: '7.アポを取ってからデート当日まで', description: '「遊び」の場合は、相手の女性がこちら(男性)側の狙いを把握してる場合があるので、相手の女性の気分などでドタキャンされる可能性があります。一人の女性に固執しず、色々な女性と同時進行していきましょう。また、デートに向けて自分磨きは怠らないようにしましょう。', description_point: '• 一人の女性だけに絞るのでは無くて、「今度の日は誰にしようか」など自分が選ぶスタンスになるくらい色々な女性にちょっかいをかけておきましょう。.※ 色々な女性と同時進行することで、ドタキャンされたり、上手く事を進められなかったとしても、すぐに他の女性で対応出来る為、メンタル的にも常に女性をキープしておくことが重要です。', purpose_id: 2)
 step_8_play = Step.create!(name: '8.デート当日(デート別)', description: '女性は男性が思ってる以上に、ニオイに敏感です。家を出る前に必ずニオイケアを行いましょう。.具体的には、.• シャワーを浴びる・制汗剤を使用するなどの体臭対策。.• 女子受けの良い香りの香水を使用する。(匂いがキツい香水だと逆効果な為、爽やかな匂いの香水を使用する。).上記の2点を必ず行うようにしましょう。', description_point: '下記のボタンから、「デートプラン毎」の「行動パターン攻略説明」ページへ遷移します。', purpose_id: 2)
 
@@ -66,7 +66,7 @@ step_2_super_play = Step.create!(name: '2.女性にいいねする', description
 step_3_super_play = Step.create!(name: '3.ファーストメッセージ', description: '「ティンダー」の場合、相手の女性が「遊び」の女性が多いので、いきなり「下心丸出しのメッセージ」を片っ端から送るのもありです。.しかし、同じような考えの男性ユーザーも多く、それだと「差別化が図れない」のと、相手の女性が「遊び」目的でも、「下心丸出しは嫌」な女性もいるので、「下心丸出し」を避けた方がメッセージは続きやすいです。', description_point: '• 「下心丸出しのメッセージ」を送らない場合は、「遊び」と同様に、相手の女性の「顔」や「雰囲気」を褒めたり、「写真」や「自分との共通点」について触れたメッセージを送ること。.※ 「よろしくお願いします」等のありきたりな文だと「他の男性ユーザー」との「差別化」が図れず、つまらない為、相手の女性のプロフィールをしっかり読んで相手の「気を惹く」文を送る。', purpose_id: 3)
 step_4_super_play = Step.create!(name: '4.メッセージのやりとり', description: '「ティンダー」は本当に競争率が高い為、「マッチングはしてもメッセージは返って来ない」ことの方が圧倒的に多いです。ですので「タイミング」と「運」が大きく関係してきます。.また、自分からすぐにLINE交換をしないようにしましょう。', description_point: '• 「下心丸出しのメッセージ」を送らない場合は、「遊び」と同様に、相手の女性の「顔」や「雰囲気」を褒めたり、「写真」や「自分との共通点」について触れたメッセージを送ること。.※ 「よろしくお願いします」等のありきたりな文だと「他の男性ユーザー」との「差別化」が図れず、つまらない為、相手の女性のプロフィールをしっかり読んで相手の「気を惹く」文を送る。.• 一見LINEをすぐに交換した方が良いと考えがちなのですが、「ティンダー」の女性は、他の多くの男性ユーザーともLINE交換をしており、混在してしまいフェードアウト率が高い為、電話等をする場合を除いてはすぐにLINE交換等はしないこと。', purpose_id: 3)
 step_5_super_play = Step.create!(name: '5.アポの取り方・コツ', description: 'まずメッセージがあまり返って来ない為、アポを取るがかなり難しいです。また、もしアポを取れても急に音信普通になることはざらにあるので、遊びに誘う日から7日以内の日付にアポを取ったり、急に前日や当日に遊びに誘うのが良いでしょう。', description_point: '• 相手の女性の「趣味・嗜好」や、自分との「共通点」の話題で会話を進めて、すぐに「呑み」や「夜のドライブ」などに誘う。.※ だらだらメッセージをしてるだけだと、途中からメッセージが返って来なくなる確率がかなり高い。.• 本当に「相手の気分」などの「タイミング」が大きく関係しているので、「今週の週末ドライブ行こー？」や「今から遊ぼ」などの急な誘いを片っ端から送るのをおすすめします。', purpose_id: 3)
-step_6_super_play = Step.create!(name: '6.デートプラン・スポットを探す', description: '「雰囲気作り」が一番大事ですので、良い雰囲気を作れる場所・スポットを選ぶことが重要です。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 3)
+step_6_super_play = Step.create!(name: '6.デートプラン・スポットを探す', description: '「雰囲気作り」が一番大事ですので、良い雰囲気を作れる場所・スポットを選ぶことが重要です。.また女性は男性よりも準備に時間がかかってしまうので、デートの開始時間は朝からでは無く、昼からだと嬉しい女性も多いと思います。', description_point: '下記のボタンから、おすすめの「デートプラン一覧」ページへ遷移します。', purpose_id: 3)
 step_7_super_play = Step.create!(name: '7.アポを取ってからデート当日まで', description: '「ティンダー」の場合は、適当な女性が多い為、相手の女性の気分などでドタキャンされる可能性があります。一人の女性に固執しず、色々な女性と同時進行していきましょう。また、デートに向けて自分磨きは怠らないようにしましょう。', description_point: '• 一人の女性だけに絞るのでは無くて、「今度の日は誰にしようか」など自分が選ぶスタンスになるくらい色々な女性にちょっかいをかけておきましょう。.※ 色々な女性と同時進行することで、ドタキャンされたり、上手く事を進められなかったとしても、すぐに他の女性で対応出来る為、メンタル的にも常に女性をキープしておくことが重要です。', purpose_id: 3)
 step_8_super_play = Step.create!(name: '8.デート当日(デート別)', description: '女性は男性が思ってる以上に、ニオイに敏感です。家を出る前に必ずニオイケアを行いましょう。.具体的には、.• シャワーを浴びる・制汗剤を使用するなどの体臭対策。.• 女子受けの良い香りの香水を使用する。(匂いがキツい香水だと逆効果な為、爽やかな匂いの香水を使用する。).上記の2点を必ず行うようにしましょう。', description_point: '下記のボタンから、「デートプラン毎」の「行動パターン攻略説明」ページへ遷移します。', purpose_id: 3)
 
@@ -94,3 +94,162 @@ answer_3_2 = Answer.create!(description: '真面目だが、貞操観念が弱�
 answer_3_3 = Answer.create!(description: 'ある程度男性経験はあるが、貞操観念が強い女性', question_id: 3, allocation: 'aaabbc')
 answer_3_4 = Answer.create!(description: 'ある程度男性経験があり、程よく貞操観念がある', question_id: 3, allocation: 'abcc')
 answer_3_5 = Answer.create!(description: '男絡みが多く、貞操観念が弱い女性', question_id: 3, allocation: 'ccdddd')
+
+
+### デートプラン(date_plansテーブル)
+
+# 彼女作り
+date_plan_A_make_girlfriend = DatePlan.create!(name: 'デートプランA', period: '1日デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '1', purpose_id: 1)
+date_plan_B_make_girlfriend = DatePlan.create!(name: 'デートプランB', period: '1日デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '2', purpose_id: 1)
+date_plan_C_make_girlfriend = DatePlan.create!(name: 'デートプランC', period: '夕方　or　夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '3', purpose_id: 1)
+date_plan_D_make_girlfriend = DatePlan.create!(name: 'デートプランD', period: '夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '4', purpose_id: 1)
+date_plan_E_make_girlfriend = DatePlan.create!(name: 'デートプランE', period: '1日デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '5', purpose_id: 1)
+date_plan_F_make_girlfriend = DatePlan.create!(name: 'デートプランF', period: '1日デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '6', purpose_id: 1)
+
+# 遊び
+date_plan_A_play = DatePlan.create!(name: 'デートプランA', period: '夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '5', purpose_id: 2)
+date_plan_B_play = DatePlan.create!(name: 'デートプランB', period: '1日デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '6', purpose_id: 2)
+date_plan_C_play = DatePlan.create!(name: 'デートプランC', period: '昼　or　夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '7', purpose_id: 2)
+date_plan_D_play = DatePlan.create!(name: 'デートプランD', period: '夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '8', purpose_id: 2)
+date_plan_E_play = DatePlan.create!(name: 'デートプランE', period: '夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '8', purpose_id: 2)
+date_plan_F_play = DatePlan.create!(name: 'デートプランF', period: '夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '9', purpose_id: 2)
+date_plan_G_play = DatePlan.create!(name: 'デートプランG', period: '宅飲み　or　お家デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '10', purpose_id: 2)
+
+# 超遊び
+date_plan_A_super_play = DatePlan.create!(name: 'デートプランA', period: '夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '5', purpose_id: 3)
+date_plan_B_super_play = DatePlan.create!(name: 'デートプランB', period: '昼　or　夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '6', purpose_id: 3)
+date_plan_C_super_play = DatePlan.create!(name: 'デートプランC', period: '夜デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '7', purpose_id: 3)
+date_plan_D_super_play = DatePlan.create!(name: 'デートプランD', period: '夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '8', purpose_id: 3)
+date_plan_E_super_play = DatePlan.create!(name: 'デートプランE', period: '夜　or　夜中デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '9', purpose_id: 3)
+date_plan_F_super_play = DatePlan.create!(name: 'デートプランF', period: '宅飲み　or　お家デート', recommend_condition: 'おすすめの条件', description: '説明文', level: '10', purpose_id: 3)
+
+
+
+## 場所・スポット(placesテーブル)
+# 飲食系
+place_1 = Place.create!(name: 'カフェ')
+place_2 = Place.create!(name: 'ランチ') # かなり微妙。わざわざランチは行かなくて良い。(ランチよりカフェの方が良いかも？)  # 彼女作り向き。
+place_3 = Place.create!(name: 'ディナー(レストラン・ファミレスなど)')
+place_4 = Place.create!(name: 'ディナー(レストラン・居酒屋・バーなど)')
+
+place_5 = Place.create!(name: '映画館')
+place_6 = Place.create!(name: 'ショッピング') # 微妙。おすすめしない。(深くまで仲良くなっていないと、相手に気を遣ってしまい、自分の回りたいお店を自由に回れないかも？)買い物は一人か、彼女とが良いかも。
+place_7 = Place.create!(name: 'ドライブ') # 目的地が決まっていない昼のドライブは微妙。昼のドライブは目的地(カフェなど)を決める。(初心者には尚更きつい。)(夜デートの場合は、ドライブしながら夜景や海辺に行けばいい。) ※ 目的地が決まっていて、そこまでの運転時間をドライブは良き。
+place_8 = Place.create!(name: '動物園') # 「彼女作り」向き。
+place_9 = Place.create!(name: '水族館') # 「彼女作り」向き。
+place_10 = Place.create!(name: '公園') # 大きい有名な公園ならOKかも？
+place_11 = Place.create!(name: '遊園地(テーマパーク)') # 難しい。(待つ時間がたくさんある為、深くまで仲良くなっていないと、会話が無くなってしまい、気まずくなる。) 3回目以降のデートなら良いかも？
+
+# 映え(雰囲気が良い)
+place_12 = Place.create!(name: '夜景')
+place_13 = Place.create!(name: 'イルミネーション')
+place_14 = Place.create!(name: '海辺(海)')
+place_15 = Place.create!(name: '散歩')
+
+# 個室系
+place_16 = Place.create!(name: 'カラオケ') # 「遊び」・「超遊び」向き。
+place_17 = Place.create!(name: '漫画喫茶') # 「遊び」・「超遊び」向き。
+place_18 = Place.create!(name: '家') # 「遊び」・「超遊び」向き。
+place_19 = Place.create!(name: 'ホテル') # 「遊び」・「超遊び」向き。
+
+# セット
+place_20 = Place.create!(name: 'カフェ　or　動物園　or　水族館　or　公園')
+place_21 = Place.create!(name: '夜景　or　イルミネーション　or　海辺(海)')
+place_22 = Place.create!(name: '家　or　ホテル')
+place_23 = Place.create!(name: 'カフェ　or　映画館')
+place_24 = Place.create!(name: 'カラオケ　or　漫画喫茶')
+place_25 = Place.create!(name: 'ドライブ　or　夜景　or　イルミネーション　or　海辺(海)')
+place_26 = Place.create!(name: '散歩　or　公園')
+
+
+### date_plansテーブルとplacesテーブルの中間テーブル(date_plan_placesテーブル)
+
+## 彼女作り
+# デートプランA
+date_plan_place_make_girlfriend_A_1 = DatePlanPlace.create!(date_plan_id: 1, place_id: 1)
+date_plan_place_make_girlfriend_A_2 = DatePlanPlace.create!(date_plan_id: 1, place_id: 5)
+date_plan_place_make_girlfriend_A_3 = DatePlanPlace.create!(date_plan_id: 1, place_id: 4)
+
+# デートプランB
+date_plan_place_make_girlfriend_B_1 = DatePlanPlace.create!(date_plan_id: 2, place_id: 7)
+date_plan_place_make_girlfriend_B_2 = DatePlanPlace.create!(date_plan_id: 2, place_id: 20)
+date_plan_place_make_girlfriend_B_3 = DatePlanPlace.create!(date_plan_id: 2, place_id: 3)
+
+# デートプランC
+date_plan_place_make_girlfriend_C_1 = DatePlanPlace.create!(date_plan_id: 3, place_id: 5)
+date_plan_place_make_girlfriend_C_2 = DatePlanPlace.create!(date_plan_id: 3, place_id: 4)
+
+# デートプランD
+date_plan_place_make_girlfriend_D_1 = DatePlanPlace.create!(date_plan_id: 4, place_id: 4)
+date_plan_place_make_girlfriend_D_2 = DatePlanPlace.create!(date_plan_id: 4, place_id: 21)
+
+# デートプランE
+date_plan_place_make_girlfriend_E_1 = DatePlanPlace.create!(date_plan_id: 5, place_id: 7)
+date_plan_place_make_girlfriend_E_2 = DatePlanPlace.create!(date_plan_id: 5, place_id: 20)
+date_plan_place_make_girlfriend_E_3 = DatePlanPlace.create!(date_plan_id: 5, place_id: 3)
+date_plan_place_make_girlfriend_E_4 = DatePlanPlace.create!(date_plan_id: 5, place_id: 21)
+
+# デートプランF
+date_plan_place_make_girlfriend_F_1 = DatePlanPlace.create!(date_plan_id: 6, place_id: 11)
+date_plan_place_make_girlfriend_F_2 = DatePlanPlace.create!(date_plan_id: 6, place_id: 4)
+date_plan_place_make_girlfriend_F_3 = DatePlanPlace.create!(date_plan_id: 6, place_id: 21)
+
+
+## 遊び
+# デートプランA
+date_plan_place_play_A_1 = DatePlanPlace.create!(date_plan_id: 7, place_id: 4)
+date_plan_place_play_A_2 = DatePlanPlace.create!(date_plan_id: 7, place_id: 21)
+date_plan_place_play_A_3 = DatePlanPlace.create!(date_plan_id: 7, place_id: 22)
+
+# デートプランB
+date_plan_place_play_B_1 = DatePlanPlace.create!(date_plan_id: 8, place_id: 23)
+date_plan_place_play_B_2 = DatePlanPlace.create!(date_plan_id: 8, place_id: 4)
+date_plan_place_play_B_3 = DatePlanPlace.create!(date_plan_id: 8, place_id: 22)
+
+# デートプランC
+date_plan_place_play_C_1 = DatePlanPlace.create!(date_plan_id: 9, place_id: 24)
+date_plan_place_play_C_2 = DatePlanPlace.create!(date_plan_id: 9, place_id: 22)
+
+# デートプランD
+date_plan_place_play_D_1 = DatePlanPlace.create!(date_plan_id: 10, place_id: 4)
+date_plan_place_play_D_2 = DatePlanPlace.create!(date_plan_id: 10, place_id: 22)
+
+# デートプランE
+date_plan_place_play_E_1 = DatePlanPlace.create!(date_plan_id: 11, place_id: 25)
+date_plan_place_play_E_2 = DatePlanPlace.create!(date_plan_id: 11, place_id: 22)
+
+# デートプランF
+date_plan_place_play_F_1 = DatePlanPlace.create!(date_plan_id: 12, place_id: 26)
+date_plan_place_play_F_2 = DatePlanPlace.create!(date_plan_id: 12, place_id: 22)
+
+# デートプランG
+date_plan_place_play_G_1 = DatePlanPlace.create!(date_plan_id: 13, place_id: 26)
+date_plan_place_play_G_2 = DatePlanPlace.create!(date_plan_id: 13, place_id: 22)
+
+
+## 超遊び
+# デートプランA
+date_plan_place_super_play_A_1 = DatePlanPlace.create!(date_plan_id: 14, place_id: 4)
+date_plan_place_super_play_A_2 = DatePlanPlace.create!(date_plan_id: 14, place_id: 21)
+date_plan_place_super_play_A_3 = DatePlanPlace.create!(date_plan_id: 14, place_id: 22)
+
+# デートプランB
+date_plan_place_super_play_B_1 = DatePlanPlace.create!(date_plan_id: 15, place_id: 24)
+date_plan_place_super_play_B_2 = DatePlanPlace.create!(date_plan_id: 15, place_id: 22)
+
+# デートプランC
+date_plan_place_super_play_C_1 = DatePlanPlace.create!(date_plan_id: 16, place_id: 4)
+date_plan_place_super_play_C_2 = DatePlanPlace.create!(date_plan_id: 16, place_id: 22)
+
+# デートプランD
+date_plan_place_super_play_D_1 = DatePlanPlace.create!(date_plan_id: 17, place_id: 25)
+date_plan_place_super_play_D_2 = DatePlanPlace.create!(date_plan_id: 17, place_id: 22)
+
+# デートプランE
+date_plan_place_super_play_E_1 = DatePlanPlace.create!(date_plan_id: 18, place_id: 26)
+date_plan_place_super_play_E_2 = DatePlanPlace.create!(date_plan_id: 18, place_id: 22)
+
+# デートプランF
+date_plan_place_super_play_F_1 = DatePlanPlace.create!(date_plan_id: 19, place_id: 26)
+date_plan_place_super_play_F_2 = DatePlanPlace.create!(date_plan_id: 19, place_id: 22)
+
