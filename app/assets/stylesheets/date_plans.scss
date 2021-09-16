@@ -302,10 +302,64 @@
     background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
  }
 
- .date_plans_detail_body-make_girlfriend-place {
+ .date_plans_detail_body-place {
     text-align: center;
     padding: 15px 0;
     margin: 0;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 23px;
  }
+
+ .arrow-icon-detail-make_girlfriend {
+    color: #ACB6E5;//非対応のブラウザでの文字色を設定
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);//背景色にグラデーションを指定
+    -webkit-background-clip: text;//テキストでくり抜く
+    -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+    font-size: 38px;
+}
+
+.arrow-icon-detail-play {
+    color: #ACB6E5;//非対応のブラウザでの文字色を設定
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);//背景色にグラデーションを指定
+    -webkit-background-clip: text;//テキストでくり抜く
+    -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+    font-size: 38px;
+}
+
+.arrow-icon-detail-super_play {
+    color: #ACB6E5;//非対応のブラウザでの文字色を設定
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);//背景色にグラデーションを指定
+    -webkit-background-clip: text;//テキストでくり抜く
+    -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+    font-size: 38px;
+}
+
+.date_plans_body-detail {
+    text-align: left;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.date_plans_body-detail-make_girlfriend {
+    text-align: center;
+    margin: 0 0 25px 0;
+    color: #4481eb;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.date_plans_body-detail-play {
+    text-align: center;
+    margin: 0 0 25px 0;
+    color: #ff0844;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.date_plans_body-detail-super_play {
+    text-align: center;
+    margin: 0 0 25px 0;
+    color: #f5576c;
+    font-weight: bold;
+    font-size: 22px;
+}

@@ -10,19 +10,20 @@
       <% end %>
       <p class="<%= "date_plans_purpose #{@purpose_class_name}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
       <h4 class="<%= "center date_plans_each_title #{@purpose_class_name}" %>"><span><%= @date_plan.name %></span></h4>
+      <p class="<%= "date_plans_body-detail-#{@purpose_class_name}" %>"><%= @date_plan.period %></p>
       <% @date_plan_places.each.with_index(1) do |date_plan_place, i| %>
-        <p class="date_plans_body-place"><%= date_plan_place.place.name %></p>
+        <p class="date_plans_detail_body-place"><%= date_plan_place.place.name %></p>
         <% unless @date_plan_places.size == i %>
-          <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-#{@purpose_class_name}" %>"></i>
+          <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-detail-#{@purpose_class_name}" %>"></i>
         <% end %>
       <% end %>
       <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
-        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">おすすめの条件</div>
-        <p class="<%= "date_plans_body-#{@purpose_class_name}" %>"><%= @date_plan.period %></p>
+        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">詳細情報</div>
+        <p class="<%= "date_plans_body-detail" %>">デート自体の誘いには一番OKをもらいやすいデートプランです。<br>しかし、このデートに誘う場合、その気が無い真面目な女性でもデートに来てくれるので、相手が真面目な女性の場合は会ってから苦戦する確率が高い為、難易度高めです。<br>「映画」を見る場合は、事前にインターネットから、見る映画の座席予約をしておきましょう。<br>「ディナー」でも事前に相手の好きな食べ物などをしっかりヒアリングして、男性側がお店を探しておきましょう。<br>お酒を飲んだ方がお互い心を開きやすくなり、話も盛り上がるので、お洒落な居酒屋の「個室のテーブル席」を予約するのがおすすめです。<br>「2回目以降のデート」の場合なら、「個室カップルシート」だと相手の女性との距離がかなり近いのでとてもおすすめです。<br>一人暮らしの男性の場合は、家に近い場所でデートし、一人暮らしでは無い男性の場合は、ホテルの場所を把握しておいた方がスムーズです。</p>
       </div>
       <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
         <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">アクション</div>
-        <p class="<%= "date_plans_body-#{@purpose_class_name}" %>"><%= @date_plan.period %></p>
+        <p class="<%= "date_plans_body-detail" %>">会話では、基本「聞き上手」になることを意識して、相手の女性にたくさん喋らせてあげましょう。また、自慢話や自分のことばかり話さないようにしましょう。<br>「カフェ・映画館」では普通の浅めの会話をして、「ディナー」で少し深めの会話をしましょう。<br>深くまで仲良くなる必要があるので、恋愛トークは必ずするようにしましょう。<br>「居酒屋」などの場合は、自然と良い雰囲気にすることは難しいので、お互い心を開けたら「異性関係の話題」から上手く発展させて徐々に下ネタを挟み、匂わせることが大事です。(唐突な下ネタは引かれるリスクがある為、あくまで自然な流れで下ネタへ持っていく。)<br>また、自分が「遊び人」であることを出来るだけ隠すようにして下さい。(そうすることで「真面目な女性」・「不真面目な女性」どちらにも通用する。)<br>当たり前なのですが、くちゃくちゃ食べながら話したりすると印象が悪いので気をつけましょう。<br>片方椅子・片方ソファ席の場合、ソファ席を相手の女性に譲ってあげられると紳士ですね。<br>店を出たら、直球で「家」か「ホテル」に誘うか、何も行き先を言わずに「家」か「ホテル」の前に「気付いたらいた作戦」がおすすめです。</p>
       </div>
     </div>
   </div>
