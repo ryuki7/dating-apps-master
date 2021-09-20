@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_09_08_154852) do
   create_table "date_plan_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "date_plan_id", null: false
     t.bigint "place_id", null: false
-    t.integer "order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date_plan_id"], name: "index_date_plan_places_on_date_plan_id"
@@ -63,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_154852) do
   create_table "date_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "period", null: false
-    t.text "recommend_condition", null: false
+    t.text "detail_information", null: false
     t.text "description", null: false
     t.integer "level", null: false
     t.bigint "purpose_id", null: false
@@ -76,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_154852) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_places_on_name", unique: true
   end
 
   create_table "purposes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

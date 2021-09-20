@@ -33,40 +33,69 @@
           <div class="<%= "app-strategies-step-box-#{@purpose_class_name}-title" %>" id="<%= step.name.gsub(/[^0-9]/,"") %>"><%= step.name %></div>
 
           <% if step.name == '6.デートプラン・スポットを探す' %>
-            <p id="app-strategies-step-description"><%= @step_description_split_array[0] %></p>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
+            <p id="app-strategies-step-description">
+              <% @step_description_split_array.each.with_index(1) do |description, i| %>
+                <%= description %>
+                <% unless @step_description_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+              <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
+                <%= description_point %>
+                <% unless @step_description_point_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
+            <%= link_to 'デートプラン一覧', date_plan_path(@purpose.id), class: "date_plans_button #{@purpose_class_name}" %>
           <% elsif step.name == '8.デート当日(デート別)' %>
-            <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %><br><%= @step_description_split_array[3] %><br><%= @step_description_split_array[4] %></p>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
+            <p id="app-strategies-step-description">
+              <% @step_description_split_array.each.with_index(1) do |description, i| %>
+                <%= description %>
+                <% unless @step_description_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+              <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
+                <%= description_point %>
+                <% unless @step_description_point_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
+            <select id="date_plans_select_box">
+              <% @date_plans.each do |date_plan| %>
+                <option value="<%= "date_plans/#{date_plan.id}/detail" %>"><%= date_plan.name %></option>
+              <% end %>
+            </select>
+            <%= link_to '行動パターン攻略説明', detail_date_plan_path(1), class: "date_plans_button #{@purpose_class_name}", id: "date_plans_select_box_link" %>
           <% else %> <!-- 「6.デートプラン・スポットを探す」と「8.デート当日(デート別)」以外のステップ -->
  
             <!-- 黒字の説明文(step.description) -->
-            <% if @step_description_split_array.size == 1 %>
-              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %></p>
-            <% elsif @step_description_split_array.size == 2 %>
-              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %></p>
-            <% elsif @step_description_split_array.size == 3 %>
-              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %></p>
-            <% elsif @step_description_split_array.size == 4 %>
-              <p id="app-strategies-step-description"><%= @step_description_split_array[0] %><br><%= @step_description_split_array[1] %><br><%= @step_description_split_array[2] %><br><%= @step_description_split_array[3] %></p>
-            <% end %>
+            <p id="app-strategies-step-description">
+              <% @step_description_split_array.each.with_index(1) do |description, i| %>
+                <%= description %>
+                <% unless @step_description_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
 
             <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}" %>"><%= '<ポイント>' %></p> <!-- 変えない。 -->
 
             <!-- 色付きの説明文(step.description_point) -->
-            <% if @step_description_point_split_array.size == 1 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %></p>
-            <% elsif @step_description_point_split_array.size == 2 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %></p>
-            <% elsif @step_description_point_split_array.size == 3 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %></p>
-            <% elsif @step_description_point_split_array.size == 4 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %></p>
-            <% elsif @step_description_point_split_array.size == 5 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %><br><%= @step_description_point_split_array[4] %></p>
-            <% elsif @step_description_point_split_array.size == 6 %>
-              <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>"><%= @step_description_point_split_array[0] %><br><%= @step_description_point_split_array[1] %><br><%= @step_description_point_split_array[2] %><br><%= @step_description_point_split_array[3] %><br><%= @step_description_point_split_array[4] %><br><%= @step_description_point_split_array[5] %></p>
-            <% end %>
+            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+              <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
+                <%= description_point %>
+                <% unless @step_description_point_split_array.size == i %>
+                  <br>
+                <% end %>
+              <% end %>
+            </p>
           <% end %>
 
         </div>

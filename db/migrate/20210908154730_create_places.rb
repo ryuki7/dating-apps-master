@@ -4,6 +4,8 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.string :name, null: false
 
       t.timestamps
+
+      t.index :name, unique: true
     end
   end
 end

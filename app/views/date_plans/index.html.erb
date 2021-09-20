@@ -1,0 +1,30 @@
+<div id="index-banner" class="parallax-container layout-date_plans-index">
+  <div class="section no-pad-bot">
+    <div class="container" id="date_plans_index">
+      <h4 class="center" id="date_plans_index_title">目的別デートプラン一覧</h4>
+        <!-- 彼女作りボタン -->
+        <%= link_to date_plan_path(1), class: "date_plans_index_select_button make_girlfriend" do %>
+          <% @make_girlfriend_app_purposes.each do |make_girlfriend_app_purpose| %>
+            <% app = make_girlfriend_app_purpose.app %>
+            <img src="<%= "/app_icon_images/#{app.icon_image}" %>">
+          <% end %>
+          <span><%= @make_girlfriend_purpose.name %></span>
+        <% end %>
+
+        <!--  遊びボタン -->
+        <%= link_to date_plan_path(2), class: "date_plans_index_select_button play" do %>
+          <% @play_app_purposes.each do |play_app_purpose| %>
+            <% app = play_app_purpose.app %>
+            <img src="<%= "/app_icon_images/#{app.icon_image}" %>">
+          <% end %>
+          <span><%= @play_purpose.name %></span>
+        <% end %>
+
+        <!--  超遊びボタン -->
+        <%= link_to date_plan_path(3), class: "date_plans_index_select_button super_play" do %>
+          <img src="<%= "/app_icon_images/#{@super_play_app.icon_image}" %>">
+          <span><%= @super_play_purpose.name %></span>
+        <% end %>
+    </div>
+  </div>
+</div>

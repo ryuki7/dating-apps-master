@@ -4,7 +4,7 @@ class DatePlan < ApplicationRecord
 
   validates :name, presence: true
   validates :period, presence: true
-  validates :recommend_condition, presence: true
+  validates :detail_information, presence: true
   validates :description, presence: true
   validates :level, presence: true
 end
