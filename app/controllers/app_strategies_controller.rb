@@ -23,6 +23,7 @@ class AppStrategiesController < ApplicationController
 
     @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
     @steps = Step.where(purpose_id: @purpose.id)
+    @date_plans = DatePlan.where(purpose_id: @purpose.id)
   end
 
   private

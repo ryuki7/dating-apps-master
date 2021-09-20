@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_154852) do
   create_table "date_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "period", null: false
-    t.text "recommend_condition", null: false
+    t.text "detail_information", null: false
     t.text "description", null: false
     t.integer "level", null: false
     t.bigint "purpose_id", null: false

@@ -36,6 +36,9 @@ class DatePlansController < ApplicationController
       @apps.push(app_purpose.app)
     end
 
+    @detail_information_split_array = @date_plan.detail_information.split('.')
+    @description_split_array = @date_plan.description.split('.')
+
     @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
   end
 
