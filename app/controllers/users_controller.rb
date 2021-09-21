@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[my_page]
   require "net/http"
+  layout 'layout_my_page', only: %i[my_page]
 
   def create
     # ユーザーの作成・ログイン
@@ -22,11 +22,4 @@ class UsersController < ApplicationController
   end
 
   def my_page; end
-  
-  private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
 end
