@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-23T11:33:40.103Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="DqniiYk_Gd_I-OExo32W" version="15.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-23T11:34:52.713Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="T2DYO8DfaJuY3bVbMla_" version="15.1.2" type="github">
   <diagram name="Page-1" id="e56a1550-8fbb-45ad-956c-1786394a9013">
     <mxGraphModel dx="2213" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -640,6 +640,9 @@
         </mxCell>
         <mxCell id="yaYVjT-K9ExPg03Pqllh-2" value="固定のデータを作る" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-147" y="777" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="yaYVjT-K9ExPg03Pqllh-6" value="テーブルは作成済" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-252" y="790" width="110" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
