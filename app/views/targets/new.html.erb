@@ -1,0 +1,120 @@
+<div id="index-banner" class="parallax-container layout-targets-registration">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_registration">
+      <h3 class="center" id="targets_registration_title"><span>女性登録</span></h3>
+
+    <form>
+      <!-- アプリセレクト -->
+      <select name="app_select" class="selmodaltest">
+        <option value="0">アプリを選択してください</option>
+        <% @apps.each.with_index(1) do |app, i| %>
+          <option data-image="<%= "/app_icon_images/#{app.icon_image}" %>" value="<%= i %>"><%= app.name %></option>
+        <% end %>
+      </select>
+
+      <!-- 容姿セレクト -->
+      <select name="appearance_select" class="selmodaltest">
+        <option value="0">容姿を選択してください</option>
+        <option data-image="/appearance_images/暗髪ロング.jpeg" value="暗髪ロング">暗髪ロング</option>
+        <option data-image="/appearance_images/暗髪ミディアム.jpeg" value="暗髪ミディアム">暗髪ミディアム</option>
+        <option data-image="/appearance_images/暗髪ボブ・ショート.png" value="暗髪ボブ・ショート">暗髪ボブ・ショート</option>
+        <option data-image="/appearance_images/明髪ロング.jpeg" value="明髪ロング">明髪ロング</option>
+        <option data-image="/appearance_images/明髪ミディアム.jpeg" value="明髪ミディアム">明髪ミディアム</option>
+        <option data-image="/appearance_images/明髪ボブ・ショート.jpeg" value="明髪ボブ・ショート">明髪ボブ・ショート</option>
+        <option data-image="/appearance_images/派手髪ロング.jpeg" value="派手髪ロング">派手髪ロング</option>
+        <option data-image="/appearance_images/派手髪ミディアム.jpeg" value="派手髪ミディアム">派手髪ミディアム</option>
+        <option data-image="/appearance_images/派手髪ボブ・ショート.jpeg" value="派手髪ボブ・ショート">派手髪ボブ・ショート</option>
+      </select>
+
+      <!-- 名前セレクト -->
+      <div class="row" id="row_input_select">
+        <div class="input-field col s12">
+          <input name="name_select" id="input_select" type="text" class="validate">
+          <label for="input_select">名前を入力してください</label>
+        </div>
+      </div>
+
+      <!-- 年齢セレクト -->
+      <select name="age_select" class="selmodaltest">
+        <option value="0">年齢を選択してください</option>
+        <% @ages.each do |age| %>
+          <option value="<%= age %>"><%= age %></option>
+        <% end %>
+      </select>
+
+      <!-- 目的セレクト -->
+      <select name="purpose_select" class="selmodaltest">
+        <option value="0">目的を選択してください</option>
+        <% @purposes.each do |purpose| %>
+          <option value="<%= purpose.name %>"><%= purpose.name %></option>
+        <% end %>
+      </select>
+
+      <!-- 職業セレクト -->
+      <select name="job_select" class="selmodaltest">
+        <option value="0">職業を選択してください</option>
+        <!-- 
+        @jobs.each do |job| 
+        -->
+      </select>
+
+      <!-- 身長セレクト -->
+      <select name="height_select" class="selmodaltest">
+        <option value="0">身長を選択してください</option>
+        <% @heights.each do |height| %>
+          <option value="<%= height %>"><%= height %></option>
+        <% end %>
+      </select>
+
+      <!-- 趣味セレクト -->
+      <div class="row" id="row_input_select">
+        <div class="input-field col s12">
+          <input name="hobby_select" id="input_select" type="text" class="validate">
+          <label for="input_select">趣味を入力してください</label>
+        </div>
+      </div>
+
+      <!-- 住みセレクト -->
+      <select name="address_select" class="selmodaltest">
+        <option value="0">住みを選択してください</option>
+        <option data-image="img/baseball.png" value="1">野球</option>
+        <option data-image="img/soccer.png" value="2">サッカー</option>
+        <option data-image="img/basket.png" value="3">バスケット</option>
+        <option data-image="img/golf.png" value="4">ゴルフ</option>
+        <option data-image="img/tennis.png" value="5">テニス</option>
+      </select>
+
+      <!-- 性格セレクト -->
+      <select name="personality_select" class="selmodaltest">
+        <option value="0">性格を選択してください</option>
+        <!-- 
+        @personalities.each do |personality| 
+        -->
+      </select>
+
+      <!-- 彼氏いない歴セレクト -->
+      <select name="single_history_select" class="selmodaltest">
+        <option value="0">彼氏いない歴を選択してください</option>
+        <option data-image="img/baseball.png" value="1">野球</option>
+        <option data-image="img/soccer.png" value="2">サッカー</option>
+        <option data-image="img/basket.png" value="3">バスケット</option>
+        <option data-image="img/golf.png" value="4">ゴルフ</option>
+        <option data-image="img/tennis.png" value="5">テニス</option>
+      </select>
+
+      <!-- 好きな食べ物セレクト -->
+      <select name="favorite_food_select" class="selmodaltest">
+        <option value="0">好きな食べ物を入力してください</option>
+        <option data-image="img/baseball.png" value="1">野球</option>
+        <option data-image="img/soccer.png" value="2">サッカー</option>
+        <option data-image="img/basket.png" value="3">バスケット</option>
+        <option data-image="img/golf.png" value="4">ゴルフ</option>
+        <option data-image="img/tennis.png" value="5">テニス</option>
+      </select>
+      <input type="submit" value="登録する">
+    </form>
+
+      <%= link_to '登録する', app_strategies_path, class: "app-diagnostic-result-app-select-button" %>
+    </div>
+  </div>
+</div>

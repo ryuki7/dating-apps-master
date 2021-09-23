@@ -56,9 +56,17 @@
         </svg>
       </div>
       <%= link_to '適正アプリ診断結果', result_app_diagnostics_path, class: "my_page_diagnostic_result_button" %>
-      <%= link_to '女性登録', date_plan_path(1), class: "my_page_girl_button" %>
-      <%= link_to '女性一覧', date_plan_path(1), class: "my_page_girl_button" %>
-
+      <%= link_to '女性登録', new_target_path, class: "my_page_girl_button" %>
+      <%= link_to '女性一覧', targets_path, class: "my_page_girl_button" %>
+      <div class="my_page_date_count_wrapper">
+        <p class="my_page_date_count">女性とデートした回数</p>
+        <p class="my_page_date_count"><span>○</span>回</p>
+      </div>
+      <div class="my_page_kiss_count_wrapper">
+        <p class="my_page_kiss_count_title">キスした女性の人数</p>
+        <p class="my_page_kiss_count_number"><span>○</span>人</p>
+      </div>
+      <%= link_to 'デート結果履歴一覧', date_results_path, class: "my_page_date_result_history_button" %>
     </div>
   </div>
 </div>

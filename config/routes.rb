@@ -31,4 +31,7 @@ Rails.application.routes.draw do
       get 'detail'
     end
   end
+
+  resources :targets, only: %i[new create index show]
+  resources :date_results, only: %i[new create index show]
 end

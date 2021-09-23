@@ -115,7 +115,7 @@
 
 
 .my_page_progress_box {
-    margin: 30px 30px;
+    margin: 25px 30px 40px 30px;
     background: #fff8fc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
     border: solid 0.5px #e8198b;/*線*/
@@ -134,12 +134,12 @@
 }
 
 .my_page_diagnostic_result_button {
-    margin: 40px auto 30px auto;
+    margin: 40px auto 20px auto;
     color: white;
     background: rgb(72, 129, 252);
-    width: 250px;
-    padding: 10px 20px;
-    font-size: 23px;
+    width: 210px;
+    padding: 5px 10px;
+    font-size: 20px;
     border-radius: 60px;
     position: relative;
     cursor: pointer;
@@ -160,12 +160,83 @@
 }
 
 .my_page_girl_button {
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     margin-left: 10px;
     margin-right: 10px;
     color: white;
-    padding: 10px 35px;
-    font-size: 23px;
+    padding: 5px 25px;
+    font-size: 21px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+    background: linear-gradient(to bottom right, #e8198b 0%, #fdc7e8 100%);
+ }
+
+
+ .my_page_date_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+ .my_page_date_count {
+     margin: 10px 20px;
+     font-size: 20px;
+     display: inline-block;
+ }
+
+ .my_page_date_count span {
+    color: #e8198b;
+}
+
+ .my_page_kiss_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+ .my_page_kiss_count_title {
+    margin: 10px 10px 10px 5px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.my_page_kiss_count_number {
+    margin: 10px 5px 10px 50px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.my_page_kiss_count_number span {
+    color: #e8198b;
+}
+
+.my_page_date_result_history_button {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 10px 28px;
+    font-size: 24px;
     border-radius: 60px;
     position: relative;
     cursor: pointer;
@@ -185,4 +256,4 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     word-break: break-all;
     background: linear-gradient(#c2f2f8, #f5dbf1);
- }
+}

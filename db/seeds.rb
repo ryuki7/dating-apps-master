@@ -250,3 +250,6 @@ date_plan_place_super_play_E_2 = DatePlanPlace.create!(date_plan_id: 18, place_i
 
 # デートプランF
 date_plan_place_super_play_F_2 = DatePlanPlace.create!(date_plan_id: 19, place_id: 22)
+
+
+## 職業(jobsテーブル)
