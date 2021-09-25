@@ -1,5 +1,9 @@
 .hidden {
-    display: none;
+    display: none !important;
+ }
+
+#hidden {
+    display: none !important;
  }
 
 .mini-text{font-size:10px;}/*文字大きさ*/
@@ -122,5 +126,5 @@ li.menu-width-max ul.menu-second-level li {
 }
 
 .layout-targets-registration {
-    height: 1100px !important;   
+    height: 3100px !important;   
 }

@@ -74,15 +74,24 @@
         </div>
       </div>
 
-      <!-- 住みセレクト -->
-      <select name="address_select" class="selmodaltest">
-        <option value="0">住みを選択してください</option>
-        <option data-image="img/baseball.png" value="1">野球</option>
-        <option data-image="img/soccer.png" value="2">サッカー</option>
-        <option data-image="img/basket.png" value="3">バスケット</option>
-        <option data-image="img/golf.png" value="4">ゴルフ</option>
-        <option data-image="img/tennis.png" value="5">テニス</option>
+      <!-- 都道府県セレクト -->
+      <select name="prefectures_select" class="selmodaltest" id="prefectures_select_element">
+        <option value="0">都道府県を選択してください</option>
+        <% @ken_name_hash_array.each do |ken_name_hash| %>
+          <option value="<%= ken_name_hash["ken_name"] %>"><%= ken_name_hash["ken_name"] %></option>
+        <% end %>
       </select>
+      <button type="button" class="selModalButton" id="prefectures_select_button">都道府県を選択してください</button>
+
+      <!-- 市町村セレクト -->
+      <button type="button" class="selModalButton" id="city_select_start_button">市を入力する</button>
+      <select name="city_select" class="selmodaltest" id="city_select_element">
+        <% @city_name_tokyo_hash_array.each do |city_name_tokyo_hash| %>
+          <option class="hidden" id="東京"><%= city_name_tokyo_hash["city_name"] %></option>
+        <% end %>
+      </select>
+
+      <button type="button" class="selModalButton hidden" id="city_select_button">市を選択してください</button>
 
       <!-- 性格セレクト -->
       <select name="personality_select" class="selmodaltest">
