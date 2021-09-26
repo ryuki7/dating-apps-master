@@ -10,6 +10,7 @@
  *--------------------------------------------------------------------------*/
 
 var city_select_button_create_OK = 0;
+var city_select_tag_create = "unnecessary";
 
 $(function(){
 	//後者のセレクトをプラグインに適用
@@ -23,6 +24,9 @@ const prefectures_select_button = document.getElementById("prefectures_select_bu
 const city_select_start_button = document.getElementById("city_select_start_button");
 var city_select_button = document.getElementById("city_select_button");
 var city_select_button_fake = null;
+const city_select_element = document.getElementById("city_select_element");
+const city_select_element_fake = document.getElementById("city_select_element_fake");
+const city_select_element_children = city_select_element_fake.children;
 
 
 // リセットボタン(「市を入力するボタン」をクリック後、再度「都道府県ボタン」をクリックすると、初期状態に戻す。)
@@ -32,6 +36,7 @@ if (prefectures_select_button) {
 		if (city_select_button_fake_delete) {
 			const selModal = document.getElementsByClassName("selModal")
 			selModal[10].remove();
+			$("#city_select_element").empty();
 			city_select_start_button.classList.remove('hidden');
 			city_select_button.remove();
 			city_select_button = document.createElement('button');
@@ -40,8 +45,11 @@ if (prefectures_select_button) {
 			city_select_button.type = 'button';
 			city_select_button.classList.add('selModalButton');
 			city_select_button.classList.add('hidden');
-			city_select_element_create.after(city_select_button);
+			city_select_element.after(city_select_button);
 			city_select_button_fake_delete.remove();
+
+			// 元のselectタグ生成判別
+			city_select_tag_create = "necessary";
 		}
 	});
 }
@@ -53,7 +61,6 @@ if (prefectures_select_button && city_select_start_button) {
 		if (prefectures_select_button.textContent == '都道府県を選択してください') {
 
 		}else{
-			var city_select_element = document.getElementById("city_select_element");
 			const city_select_button_fake_delete = document.getElementById("hidden");
 			if (!city_select_button_fake_delete) {
 				city_select_start_button.classList.add('hidden');
@@ -66,33 +73,18 @@ if (prefectures_select_button && city_select_start_button) {
 				city_select_button_fake.type = 'button';
 				city_select_start_button.after(city_select_button_fake);
 
-				city_select_element.remove();
-
-				// 「市」selectタグを追加
-				var city_select_element_create = document.createElement('select');
-				city_select_element_create.name= 'city_select';
-				city_select_element_create.id = 'city_select_element';
-				city_select_element_create.classList.add('selmodaltest');
-				city_select_start_button.after(city_select_element_create);
-				
-                // 「市」selectタグのoptionの初めを追加(子要素)
-				const city_select_element_child_option_beginning_create = document.createElement('option');
-				city_select_element_child_option_beginning_create.textContent= '市を選択してください';
-				city_select_element_child_option_beginning_create.value = '0';
-				city_select_element_create.appendChild(city_select_element_child_option_beginning_create);
-
-				// 「市」selectタグのoption選択データを追加(子要素) 
-				const tokyo = document.getElementById(prefectures_select_button.textContent);
-				var tokyo_city_array = [];
-				for(var i = 0; i < tokyo.length; i++) {
-					tokyo_city_array.push(tokyo[i].textContent); 
+				// 「市」selectタグのoption選択データを追加(子要素)
+				const city_select_option_elements_array = document.querySelectorAll(`#${prefectures_select_button.textContent}オプション`);
+				var each_city_name_array = [];
+				for(var i = 0; i < city_select_option_elements_array.length; i++) {
+					each_city_name_array.push(city_select_option_elements_array[i].textContent); 
 				}
 
-				for(var i = 0; i < tokyo_city_array.length; i++) {
+				for(var i = 0; i < each_city_name_array.length; i++) {
 					let city_select_element_child_option_create = document.createElement('option');
-					city_select_element_child_option_create.textContent = tokyo_city_array[i];
-					city_select_element_child_option_create.value = tokyo_city_array[i];
-					city_select_element_create.appendChild(city_select_element_child_option_create);
+					city_select_element_child_option_create.textContent = each_city_name_array[i];
+					city_select_element_child_option_create.value = each_city_name_array[i];
+					city_select_element.appendChild(city_select_element_child_option_create);
 				}
 
 				city_select_button_create_OK = 1;

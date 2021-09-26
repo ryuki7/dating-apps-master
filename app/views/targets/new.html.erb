@@ -86,8 +86,13 @@
       <!-- 市町村セレクト -->
       <button type="button" class="selModalButton" id="city_select_start_button">市を入力する</button>
       <select name="city_select" class="selmodaltest" id="city_select_element">
-        <% @city_name_tokyo_hash_array.each do |city_name_tokyo_hash| %>
-          <option class="hidden" id="東京"><%= city_name_tokyo_hash["city_name"] %></option>
+      </select>
+      <select id="city_select_element_fake">
+        <option value="0">市を選択してください</option>
+        <% (1..47).each do |number| %>
+          <% eval("@each_city_name_array_#{number}").each do |city_name| %>
+            <option class="hidden" id="<%= eval("@prefecture_#{number}") %>オプション"><%= city_name %></option>
+          <% end %>
         <% end %>
       </select>
 
