@@ -10,7 +10,7 @@
  *--------------------------------------------------------------------------*/
 
 var city_select_button_create_OK = 0;
-var city_select_tag_create = "unnecessary";
+var city_input_error_message_create = "not_exist";
 
 $(function(){
 	//後者のセレクトをプラグインに適用
@@ -27,11 +27,20 @@ var city_select_button_fake = null;
 const city_select_element = document.getElementById("city_select_element");
 const city_select_element_fake = document.getElementById("city_select_element_fake");
 const city_select_element_children = city_select_element_fake.children;
+const name_select = document.getElementById("name_select");
 
 
 // リセットボタン(「市を入力するボタン」をクリック後、再度「都道府県ボタン」をクリックすると、初期状態に戻す。)
 if (prefectures_select_button) {
 	prefectures_select_button.addEventListener('mousedown', function () {
+
+		// エラーメッセージ削除(都道府県を選択していない時に、「市区町村を入力する」をクリックしたエラー)
+		var targets_registration_city_input_error_message = document.getElementById("targets_registration_city_input_error_message");
+		if (targets_registration_city_input_error_message) {
+			targets_registration_city_input_error_message.remove();
+			city_input_error_message_create = "not_exist";
+		}
+
 		const city_select_button_fake_delete = document.getElementById("hidden");
 		if (city_select_button_fake_delete) {
 			const selModal = document.getElementsByClassName("selModal")
@@ -47,9 +56,6 @@ if (prefectures_select_button) {
 			city_select_button.classList.add('hidden');
 			city_select_element.after(city_select_button);
 			city_select_button_fake_delete.remove();
-
-			// 元のselectタグ生成判別
-			city_select_tag_create = "necessary";
 		}
 	});
 }
@@ -59,7 +65,16 @@ if (prefectures_select_button) {
 if (prefectures_select_button && city_select_start_button) {
 	city_select_start_button.addEventListener('mouseup', function () {
 		if (prefectures_select_button.textContent == '都道府県を選択してください') {
+			const city_select_start_button = document.getElementById("city_select_start_button");
 
+			// エラーメッセージ生成(都道府県を選択していない時に、「市区町村を入力する」をクリックしたエラー)
+			if (city_input_error_message_create == "not_exist") {
+				const error_message = document.createElement('p');
+				error_message.textContent = '「都道府県」を選択して下さい。';
+				error_message.id = 'targets_registration_city_input_error_message';
+				city_select_start_button.before(error_message);
+				city_input_error_message_create = "exist";
+			}
 		}else{
 			const city_select_button_fake_delete = document.getElementById("hidden");
 			if (!city_select_button_fake_delete) {
@@ -341,6 +356,12 @@ if (prefectures_select_button && city_select_start_button) {
 					prefectures_select_button_create(sel_name_attr);
 				}else if (select_this[0].id == "city_select_element") {
 					city_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "app_select_element") {
+					app_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "appearance_select_element") {
+					appearance_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "purpose_select_element") {
+					purpose_select_button_create(sel_name_attr);
 				}else{
 					$(this).after(button_html);
 				}
@@ -450,4 +471,78 @@ function city_select_button_create(sel_name_attr) {
 	if (city_select_button) {
 		city_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
 	}
+}
+
+function app_select_button_create(sel_name_attr) {
+	var app_select_button = document.getElementById("app_select_button");
+	if (app_select_button) {
+		app_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function appearance_select_button_create(sel_name_attr) {
+	var appearance_select_button = document.getElementById("appearance_select_button");
+	if (appearance_select_button) {
+		appearance_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function purpose_select_button_create(sel_name_attr) {
+	var purpose_select_button = document.getElementById("purpose_select_button");
+	if (purpose_select_button) {
+		purpose_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+
+// 女性登録 submit
+if (document.targets_registration_form) {
+    document.targets_registration_form.targets_registration_submit.addEventListener('click', function() {
+        beforesubmit_select_check();
+    });
+}
+
+function beforesubmit_select_check() {
+	const targets_registration_submit_button = document.getElementById("targets_registration_submit_button");
+
+	// エラーメッセージ生成
+	const app_error_message = document.createElement('p');
+	const appearance_error_message = document.createElement('p');
+	const name_error_message = document.createElement('p');
+	const purpose_error_message = document.createElement('p');
+
+	app_error_message.textContent = '「アプリ」は選択必須です。';
+	appearance_error_message.textContent = '「容姿」は選択必須です。';
+	name_error_message.textContent = '「名前」は入力必須です。';
+	purpose_error_message.textContent = '「目的」は選択必須です。';
+
+	app_error_message.id = 'targets_registration_error_message';
+	appearance_error_message.id = 'targets_registration_error_message';
+	name_error_message.id = 'targets_registration_error_message';
+	purpose_error_message.id = 'targets_registration_error_message';
+
+	// バリデーション成功(全て)
+    if (!app_select_button.textContent == 'アプリを選択してください' && !appearance_select_button.textContent == '容姿を選択してください' && !purpose_select_button.textContent == '目的を選択してください' && name_select.classList.contains("valid")) {
+        document.targets_registration_form.submit();
+    }
+
+	// バリデーション失敗(アプリ)
+	if (app_select_button.textContent == 'アプリを選択してください') {
+		targets_registration_submit_button.before(app_error_message);
+    }
+
+	// バリデーション失敗(容姿)
+	if (appearance_select_button.textContent == '容姿を選択してください') {
+		targets_registration_submit_button.before(appearance_error_message);
+    }
+
+	// バリデーション失敗(名前)
+	if (!name_select.classList.contains("valid")) {
+		targets_registration_submit_button.before(name_error_message);
+    }
+
+	// バリデーション失敗(目的)
+	if (purpose_select_button.textContent == '目的を選択してください') {
+		targets_registration_submit_button.before(purpose_error_message);
+    }
 }

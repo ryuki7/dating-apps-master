@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   def new
     @apps = App.all
+    @appearances = Appearance.all
     @ages = 18..30
     @purposes = Purpose.all
     @jobs = Job.all
@@ -35,6 +36,7 @@ class TargetsController < ApplicationController
   end
 
   def create
+    binding.pry
   end
 
   def index

@@ -38,7 +38,7 @@ input[type=text]:not(.browser-default) {
     margin-bottom: 22px;
 }
 
-.targets_registration_submit_button {
+#targets_registration_submit_button {
     margin-top: 25px;
     color: white;
     background: linear-gradient(#c2f2f8, #f5dbf1);
@@ -62,4 +62,13 @@ input[type=text]:not(.browser-default) {
     border: none;
     text-transform: uppercase;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#targets_registration_error_message {
+    color: red;
+}
+
+#targets_registration_city_input_error_message {
+    color: red;
+    margin-top: -20px;
 }

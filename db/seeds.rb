@@ -252,6 +252,18 @@ date_plan_place_super_play_E_2 = DatePlanPlace.create!(date_plan_id: 18, place_i
 date_plan_place_super_play_F_2 = DatePlanPlace.create!(date_plan_id: 19, place_id: 22)
 
 
+## 容姿(appearancesテーブル)
+appearance_1 = Appearance.create!(name: '暗髪ロング', image: '暗髪ロング.jpeg')
+appearance_2 = Appearance.create!(name: '暗髪ミディアム', image: '暗髪ミディアム.jpeg')
+appearance_3 = Appearance.create!(name: '暗髪ボブ・ショート', image: '暗髪ボブ・ショート.png')
+appearance_4 = Appearance.create!(name: '明髪ロング', image: '明髪ロング.jpeg')
+appearance_5 = Appearance.create!(name: '明髪ミディアム', image: '明髪ミディアム.jpeg')
+appearance_6 = Appearance.create!(name: '明髪ボブ・ショート', image: '明髪ボブ・ショート.jpeg')
+appearance_7 = Appearance.create!(name: '派手髪ロング', image: '派手髪ロング.jpeg')
+appearance_8 = Appearance.create!(name: '派手髪ミディアム', image: '派手髪ミディアム.jpeg')
+appearance_9 = Appearance.create!(name: '派手髪ボブ・ショート', image: '派手髪ボブ・ショート.jpeg')
+
+
 ## 職業(jobsテーブル)
 job_1 = Job.create!(name: '大手企業')
 job_2 = Job.create!(name: '公務員')

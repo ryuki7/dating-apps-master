@@ -1,7 +1,7 @@
 class CreateJobs < ActiveRecord::Migration[6.0]
   def change
     create_table :jobs do |t|
-      t.text :name
+      t.text :name, null: false
 
       t.timestamps
     end
