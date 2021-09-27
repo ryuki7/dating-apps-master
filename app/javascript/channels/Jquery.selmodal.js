@@ -35,12 +35,12 @@ if (prefectures_select_button) {
 		const city_select_button_fake_delete = document.getElementById("hidden");
 		if (city_select_button_fake_delete) {
 			const selModal = document.getElementsByClassName("selModal")
-			selModal[10].remove();
+			selModal[8].remove();
 			$("#city_select_element").empty();
 			city_select_start_button.classList.remove('hidden');
 			city_select_button.remove();
 			city_select_button = document.createElement('button');
-			city_select_button.textContent = '市を選択してください';
+			city_select_button.textContent = '市区町村を選択してください';
 			city_select_button.id = 'city_select_button';
 			city_select_button.type = 'button';
 			city_select_button.classList.add('selModalButton');
@@ -306,7 +306,7 @@ if (prefectures_select_button && city_select_start_button) {
 				for(var i = 0; i < aryChild.length; i++){
 					var img_div = '';
 					if(aryChild.eq(i).attr('data-image')){
-						if (i == 3) {
+						if (select_this[0].id == "app_select_element" && i == 3) {
 							img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '" class="app-image-tapple-select">';
 						} else {
 							img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '">';

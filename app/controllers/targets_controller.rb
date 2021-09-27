@@ -3,8 +3,9 @@ class TargetsController < ApplicationController
     @apps = App.all
     @ages = 18..30
     @purposes = Purpose.all
-    # @jobs = Job.all
+    @jobs = Job.all
     @heights = 130..180
+    @personalities = Personalitie.all
 
     # 都道府県
     sql_ken_name = 'SELECT DISTINCT ken_name FROM ad_address'
