@@ -504,45 +504,57 @@ if (document.targets_registration_form) {
 
 function beforesubmit_select_check() {
 	const targets_registration_submit_button = document.getElementById("targets_registration_submit_button");
-
-	// エラーメッセージ生成
-	const app_error_message = document.createElement('p');
-	const appearance_error_message = document.createElement('p');
-	const name_error_message = document.createElement('p');
-	const purpose_error_message = document.createElement('p');
-
-	app_error_message.textContent = '「アプリ」は選択必須です。';
-	appearance_error_message.textContent = '「容姿」は選択必須です。';
-	name_error_message.textContent = '「名前」は入力必須です。';
-	purpose_error_message.textContent = '「目的」は選択必須です。';
-
-	app_error_message.id = 'targets_registration_error_message';
-	appearance_error_message.id = 'targets_registration_error_message';
-	name_error_message.id = 'targets_registration_error_message';
-	purpose_error_message.id = 'targets_registration_error_message';
-
-	// バリデーション成功(全て)
-    if (!app_select_button.textContent == 'アプリを選択してください' && !appearance_select_button.textContent == '容姿を選択してください' && !purpose_select_button.textContent == '目的を選択してください' && name_select.classList.contains("valid")) {
-        document.targets_registration_form.submit();
-    }
-
+	const targets_registration_app_error_message = document.getElementById("targets_registration_app_error_message");
+	const targets_registration_appearance_error_message = document.getElementById("targets_registration_appearance_error_message");
+	const targets_registration_name_error_message = document.getElementById("targets_registration_name_error_message");
+	const targets_registration_purpose_error_message = document.getElementById("targets_registration_purpose_error_message");
+	
 	// バリデーション失敗(アプリ)
-	if (app_select_button.textContent == 'アプリを選択してください') {
+	if (app_select_button.textContent == 'アプリを選択してください' && targets_registration_app_error_message == null) {
+		// エラーメッセージ生成
+		const app_error_message = document.createElement('p');
+		app_error_message.textContent = '「アプリ」は選択必須です。';
+		app_error_message.id = 'targets_registration_app_error_message';
 		targets_registration_submit_button.before(app_error_message);
-    }
+    }else if (app_select_button.textContent !== 'アプリを選択してください' && targets_registration_app_error_message !== null) {
+		targets_registration_app_error_message.remove();
+	}
 
 	// バリデーション失敗(容姿)
-	if (appearance_select_button.textContent == '容姿を選択してください') {
+	if (appearance_select_button.textContent == '容姿を選択してください' && targets_registration_appearance_error_message == null) {
+		// エラーメッセージ生成
+		const appearance_error_message = document.createElement('p');
+		appearance_error_message.textContent = '「容姿」は選択必須です。';
+		appearance_error_message.id = 'targets_registration_appearance_error_message';
 		targets_registration_submit_button.before(appearance_error_message);
-    }
+    }else if (appearance_select_button.textContent !== '容姿を選択してください' && targets_registration_appearance_error_message !== null) {
+		targets_registration_appearance_error_message.remove();
+	}
 
 	// バリデーション失敗(名前)
-	if (!name_select.classList.contains("valid")) {
+	if (!name_select.classList.contains("valid") && targets_registration_name_error_message == null) {
+		// エラーメッセージ生成
+		const name_error_message = document.createElement('p');
+		name_error_message.textContent = '「名前」は入力必須です。';
+		name_error_message.id = 'targets_registration_name_error_message';
 		targets_registration_submit_button.before(name_error_message);
-    }
+    }else if (name_select.classList.contains("valid") && targets_registration_name_error_message !== null) {
+		targets_registration_name_error_message.remove();
+	}
 
 	// バリデーション失敗(目的)
-	if (purpose_select_button.textContent == '目的を選択してください') {
+	if (purpose_select_button.textContent == '目的を選択してください' && targets_registration_purpose_error_message == null) {
+		// エラーメッセージ生成
+		const purpose_error_message = document.createElement('p');
+		purpose_error_message.textContent = '「目的」は選択必須です。';
+		purpose_error_message.id = 'targets_registration_purpose_error_message';
 		targets_registration_submit_button.before(purpose_error_message);
+    }else if (purpose_select_button.textContent !== '目的を選択してください' && targets_registration_purpose_error_message !== null) {
+		targets_registration_purpose_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (app_select_button.textContent !== 'アプリを選択してください' && appearance_select_button.textContent !== '容姿を選択してください' && purpose_select_button.textContent !== '目的を選択してください' && name_select.classList.contains("valid")) {
+        document.targets_registration_form.submit();
     }
 }

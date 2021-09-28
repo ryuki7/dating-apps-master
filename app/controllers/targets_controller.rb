@@ -1,4 +1,6 @@
 class TargetsController < ApplicationController
+  before_action :set_user, only: %i[create]
+
   def new
     @apps = App.all
     @appearances = Appearance.all
@@ -6,7 +8,7 @@ class TargetsController < ApplicationController
     @purposes = Purpose.all
     @jobs = Job.all
     @heights = 130..180
-    @personalities = Personalitie.all
+    @personalities = Personality.all
 
     # 都道府県
     sql_ken_name = 'SELECT DISTINCT ken_name FROM ad_address'
@@ -36,10 +38,13 @@ class TargetsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @target = Target.create!(target_params)
+    redirect_to targets_path
   end
 
   def index
+    @apps = App.all
+    @targets = Target.all
   end
 
   def show
@@ -56,5 +61,13 @@ class TargetsController < ApplicationController
         "徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県",
         "熊本県","大分県","宮崎県","鹿児島県","沖縄県"
         ]
+  end
+
+  def set_user
+    @user = User.find(session[:user_id])
+  end
+
+  def target_params
+    params.permit(:app_id, :appearance_id, :name, :age, :purpose_id, :job_id, :height, :hobby, :prefecture, :personality_id, :single_history, :favorite_food).merge(user_id: @user.id)
   end
 end

@@ -1,9 +1,9 @@
 <div id="index-banner" class="parallax-container layout-targets-registration">
   <div class="section no-pad-bot">
     <div class="container" id="targets_registration">
-      <h3 class="center" id="targets_registration_title"><span>女性登録</span></h3>
+      <h3 class="center" id="targets_title"><span>女性登録</span></h3>
 
-      <form action="/targets" method="post" name="targets_registration_form">
+      <form action="/targets" method="post" name="targets_registration_form" scope="targets">
         <!-- CSRFトークンを渡す -->
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -52,7 +52,7 @@
 
         <!-- 職業セレクト -->
         <select name="job_id" class="selmodaltest">
-            <option value="0">職業を選択してください</option>
+            <option value="1">職業を選択してください</option>
             <% @jobs.each.with_index(1) do |job, i| %>
               <option value="<%= i %>"><%= job.name %></option>
             <% end %>
@@ -102,7 +102,7 @@
 
         <!-- 性格セレクト -->
         <select name="personality_id" class="selmodaltest">
-            <option value="0">性格を選択してください</option>
+            <option value="1">性格を選択してください</option>
             <% @personalities.each.with_index(1) do |personalitie, i| %>
               <option value="<%= i %>"><%= personalitie.name %></option>
             <% end %>

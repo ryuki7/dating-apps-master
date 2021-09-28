@@ -8,7 +8,7 @@
     text-align: center;
 }
 
-#targets_registration_title {
+#targets_title {
     position: relative;
     padding: 6px;
     background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
@@ -17,7 +17,7 @@
     margin-bottom: 40px;
 }
   
-#targets_registration_title span {
+#targets_title span {
     display: block;
     padding: 1rem 2rem;
     background: white;
@@ -64,7 +64,19 @@ input[type=text]:not(.browser-default) {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-#targets_registration_error_message {
+#targets_registration_app_error_message {
+    color: red;
+}
+
+#targets_registration_appearance_error_message {
+    color: red;
+}
+
+#targets_registration_name_error_message {
+    color: red;
+}
+
+#targets_registration_purpose_error_message {
     color: red;
 }
 
@@ -72,3 +84,192 @@ input[type=text]:not(.browser-default) {
     color: red;
     margin-top: -20px;
 }
+
+#targets_index {
+    color: black;
+    text-align: center;
+}
+
+.targets_index_count {
+    margin-bottom: 70px;
+}
+
+.targets_index_total_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_index_total_count_title {
+    margin: 10px 80px 10px 5px;
+    font-size: 21px;
+    display: inline-block;
+}
+
+.targets_index_total_count_number {
+    margin: 10px 5px 10px 20px;
+    font-size: 21px;
+    display: inline-block;
+}
+
+.targets_index_total_count_number span {
+   color: #e8198b;
+}
+
+
+.targets_index_each_app_count_wrapper {
+    margin: 15px auto;
+    width: 270px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_app_icon_image {
+    position: relative;
+    top: 4px;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.targets_index_each_app_count_title_1 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 18px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_2 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 38px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_3 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 26px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_4 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 10px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_number {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 5px 0px 20px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_number span {
+    color: #e8198b;
+}
+
+
+.targets_index_each_target_button {
+    color: black;
+    padding: 0 20px;
+    font-size: 15px;
+    position: relative;
+    right: 6px;
+    cursor: pointer;
+    display: inline-block;
+    width: 92vw;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border-bottom: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+#targets_index_each_target_th {
+    height: 50px;
+    line-height: 50px;
+    border-top: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+#targets_index_each_target_th span {
+    position: relative;
+    right: 3.5px;
+    margin: 0 2px;
+}
+
+#targets_index_each_target_th span:nth-child(1) {
+    margin: 0 2px 0 0;
+}
+
+#targets_index_each_target_th span:nth-child(2) {
+    margin: 0 37px 0 25px;
+}
+
+#targets_index_each_target_th span:nth-child(3) {
+    margin-right: 37px;
+}
+
+#targets_index_each_target_th .targets_name_span {
+    margin: 0 15px;
+}
+
+#targets_index_each_target_button_td img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 9px;
+    right: 32px;
+}
+
+#targets_index_each_target_button_td span:nth-child(2) {
+    display: inline-block;
+    width: 70px;
+    position: relative;
+    right: 13px;
+    bottom: 10px;
+}
+
+#targets_index_each_target_button_td span:nth-child(3) {
+    display: inline-block;
+    width: 70px;
+    position: relative;
+    right: 13px;
+    bottom: 10px;
+}
+
+#targets_index_each_target_button_td span:nth-child(4) {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    left: 5px;
+    bottom: 10px;
+}
+
+#targets_index_each_target_button_td span:nth-child(5) {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+}
+
+/* ▼リンクの上にマウスが載った際の装飾(背景色だけ指定) */
+a:hover { background-color: #fcfcaa; }

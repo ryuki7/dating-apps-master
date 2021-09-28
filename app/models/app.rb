@@ -1,6 +1,7 @@
 class App < ApplicationRecord
   has_many :app_diagnostics, dependent: :destroy
   has_many :app_purposes
+  has_many :targets, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :strategy_description, presence: true

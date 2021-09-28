@@ -12,30 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_09_27_130656) do
 
-  create_table "ad_address", id: :integer, default: 0, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "ken_id"
-    t.integer "city_id"
-    t.integer "town_id"
-    t.string "zip", limit: 8
-    t.boolean "office_flg"
-    t.boolean "delete_flg"
-    t.string "ken_name", limit: 8
-    t.string "ken_furi", limit: 8
-    t.string "city_name", limit: 24
-    t.string "city_furi", limit: 24
-    t.string "town_name", limit: 32
-    t.string "town_furi", limit: 32
-    t.string "town_memo", limit: 16
-    t.string "kyoto_street", limit: 32
-    t.string "block_name", limit: 64
-    t.string "block_furi", limit: 64
-    t.string "memo"
-    t.string "office_name"
-    t.string "office_furi"
-    t.string "office_address"
-    t.text "new_id"
-  end
-
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description", null: false
     t.bigint "question_id", null: false

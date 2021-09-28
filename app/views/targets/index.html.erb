@@ -1,1 +1,47 @@
-女性一覧
+<div id="index-banner" class="parallax-container layout-targets-index">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_index">
+      <h3 class="center" id="targets_title"><span>女性一覧</span></h3>
+      <div class="targets_index_total_count_wrapper">
+        <p class="targets_index_total_count_title">合計登録人数</p>
+        <p class="targets_index_total_count_number"><span><%= @targets.size %></span>人</p>
+      </div>
+      <div class="targets_index_count">
+        <% @apps.each do |app| %>
+            <div class="targets_index_each_app_count_wrapper">
+                <% if app.id == 3 %>
+                <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image app-image-tapple-select">
+                <% else %>
+                <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image">
+                <% end %>
+                <p class="<%= "targets_index_each_app_count_title_#{app.id}" %>"><%= app.name %></p>
+                <p class="targets_index_each_app_count_number"><span><%= app.targets.size %></span>人</p>
+            </div>
+        <% end %>
+      </div>
+
+      <a class="targets_index_each_target_button" id="targets_index_each_target_th">
+        <span>アプリ</span>
+        <span class="targets_name_span">名前</span>
+        <span>目的</span>
+        <span>好感度</span>
+        <span>進展度</span>
+      </a>
+      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
+          <span>ひまわり</span>
+          <span>彼女作り</span>
+          <span>100%</span>
+          <span>40%</span>
+      <% end %>
+      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
+          <span>ペアーズ</span>
+      <% end %>
+      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
+          <span>ペアーズ</span>
+      <% end %>
+    </div>
+  </div>
+</div>
