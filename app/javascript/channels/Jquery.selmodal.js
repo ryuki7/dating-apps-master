@@ -12,6 +12,7 @@
 var city_select_button_create_OK = 0;
 var city_input_error_message_create = "not_exist";
 
+
 $(function(){
 	//後者のセレクトをプラグインに適用
 	$('.selmodaltest').selModal();
@@ -26,7 +27,9 @@ var city_select_button = document.getElementById("city_select_button");
 var city_select_button_fake = null;
 const city_select_element = document.getElementById("city_select_element");
 const city_select_element_fake = document.getElementById("city_select_element_fake");
-const city_select_element_children = city_select_element_fake.children;
+if (city_select_element_fake) {
+	const city_select_element_children = city_select_element_fake.children;
+}
 const name_select = document.getElementById("name_select");
 
 
@@ -507,6 +510,7 @@ function beforesubmit_select_check() {
 	const targets_registration_app_error_message = document.getElementById("targets_registration_app_error_message");
 	const targets_registration_appearance_error_message = document.getElementById("targets_registration_appearance_error_message");
 	const targets_registration_name_error_message = document.getElementById("targets_registration_name_error_message");
+	const targets_registration_name_word_count_error_message = document.getElementById("targets_registration_name_word_count_error_message");
 	const targets_registration_purpose_error_message = document.getElementById("targets_registration_purpose_error_message");
 	
 	// バリデーション失敗(アプリ)
@@ -531,8 +535,8 @@ function beforesubmit_select_check() {
 		targets_registration_appearance_error_message.remove();
 	}
 
-	// バリデーション失敗(名前)
-	if (!name_select.classList.contains("valid") && targets_registration_name_error_message == null) {
+	// バリデーション失敗(名前未入力)
+	if (!name_select.classList.contains("valid") && !name_select.classList.contains("invalid") && targets_registration_name_error_message == null) {
 		// エラーメッセージ生成
 		const name_error_message = document.createElement('p');
 		name_error_message.textContent = '「名前」は入力必須です。';
@@ -540,6 +544,19 @@ function beforesubmit_select_check() {
 		targets_registration_submit_button.before(name_error_message);
     }else if (name_select.classList.contains("valid") && targets_registration_name_error_message !== null) {
 		targets_registration_name_error_message.remove();
+	}else if (name_select.classList.contains("invalid") && targets_registration_name_error_message !== null) {
+		targets_registration_name_error_message.remove();
+	}
+
+	// バリデーション失敗(名前文字数制限) # 4文字まで
+	if (name_select.classList.contains("invalid") && targets_registration_name_word_count_error_message == null) {
+		// エラーメッセージ生成
+		const name_word_count_error_message = document.createElement('p');
+		name_word_count_error_message.textContent = '「名前」は4文字以下にして下さい。';
+		name_word_count_error_message.id = 'targets_registration_name_word_count_error_message';
+		targets_registration_submit_button.before(name_word_count_error_message);
+    }else if (!name_select.classList.contains("invalid") && targets_registration_name_word_count_error_message !== null) {
+		targets_registration_name_word_count_error_message.remove();
 	}
 
 	// バリデーション失敗(目的)

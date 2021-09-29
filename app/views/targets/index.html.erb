@@ -15,7 +15,8 @@
                 <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image">
                 <% end %>
                 <p class="<%= "targets_index_each_app_count_title_#{app.id}" %>"><%= app.name %></p>
-                <p class="targets_index_each_app_count_number"><span><%= app.targets.size %></span>人</p>
+                <%  @targets_each_app = @targets.where(app_id: app.id) %>
+                <p class="targets_index_each_app_count_number"><span><%= @targets_each_app.size %></span>人</p>
             </div>
         <% end %>
       </div>
@@ -27,21 +28,20 @@
         <span>好感度</span>
         <span>進展度</span>
       </a>
-      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
-          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
-          <span>ひまわり</span>
-          <span>彼女作り</span>
-          <span>100%</span>
-          <span>40%</span>
+      <% @targets_pagination.each do |target| %>
+        <%= link_to target_path(target.id), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+            <% if target.app.id == 3 %>
+              <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>" class="app-image-tapple">
+            <% else %>
+              <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>">
+            <% end %>
+            <span><%= target.name %></span>
+            <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
+            <span><%= target.favorability_rating %>%</span>
+            <span><%= target.progress_rating %>%</span>
+        <% end %>
       <% end %>
-      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
-          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
-          <span>ペアーズ</span>
-      <% end %>
-      <%= link_to target_path(1), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
-          <img src="<%= "/app_icon_images/Pairs60R.png" %>">
-          <span>ペアーズ</span>
-      <% end %>
+      <%= paginate @targets_pagination %>
     </div>
   </div>
 </div>

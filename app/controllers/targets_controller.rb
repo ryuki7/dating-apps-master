@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :set_user, only: %i[create]
+  before_action :set_user, only: %i[create index]
 
   def new
     @apps = App.all
@@ -44,7 +44,8 @@ class TargetsController < ApplicationController
 
   def index
     @apps = App.all
-    @targets = Target.all
+    @targets = Target.where(user_id: @user.id)
+    @targets_pagination = Target.where(user_id: @user.id).page(params[:page]).per(7)
   end
 
   def show
@@ -68,6 +69,6 @@ class TargetsController < ApplicationController
   end
 
   def target_params
-    params.permit(:app_id, :appearance_id, :name, :age, :purpose_id, :job_id, :height, :hobby, :prefecture, :personality_id, :single_history, :favorite_food).merge(user_id: @user.id)
+    params.permit(:app_id, :appearance_id, :name, :age, :purpose_id, :job_id, :height, :hobby, :prefecture, :city, :personality_id, :single_history, :favorite_food).merge(user_id: @user.id)
   end
 end
