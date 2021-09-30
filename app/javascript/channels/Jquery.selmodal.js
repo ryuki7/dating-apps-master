@@ -288,6 +288,12 @@ if (prefectures_select_button && city_select_start_button) {
 									prefectures_select_button_create(sel_name_attr);
 								}else if (select_this[0].id == "city_select_element") {
 									city_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "app_select_element") {
+									app_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "appearance_select_element") {
+									appearance_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "purpose_select_element") {
+									purpose_select_button_create(sel_name_attr);
 								}else{
 									$(this).after(button_html);
 								}
@@ -653,7 +659,7 @@ if (prefectures_select_button && city_select_start_button) {
 })(jQuery);
 
 if (targets_edit_sign_input && city_select_start_button_click_discrimination == "ok") {
-	const city_select_start_button_click = document.getElementById("city_select_start_button");
+	city_select_start_button_click = document.getElementById("city_select_start_button");
 	city_select_start_button_click.click();
 	city_select_start_button_click_discrimination = "no";
 }

@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :set_user, only: %i[create index show edit destroy]
+  before_action :set_user, only: %i[create index show edit original_update destroy]
 
   def new
     @apps = App.all
@@ -93,6 +93,13 @@ class TargetsController < ApplicationController
     end
   end
 
+  def original_update
+    @target = Target.find(params[:id])
+    update_params_discrimination
+    @target.save!
+    redirect_to targets_path
+  end
+
   def destroy
     @target = Target.find_by(id: params[:id], user_id: @user.id)
     @target.destroy!
@@ -118,5 +125,71 @@ class TargetsController < ApplicationController
 
   def target_params
     params.permit(:app_id, :appearance_id, :name, :age, :purpose_id, :job_id, :height, :hobby, :prefecture, :city, :personality_id, :single_history, :favorite_food).merge(user_id: @user.id)
+  end
+
+  def target_params_update
+    params.permit(:name, :hobby, :single_history, :favorite_food).merge(user_id: @user.id)
+  end
+
+  def update_params_discrimination
+    case "0"
+    when params[:app_id]
+      @target.app_id = params[:app_id_before_edit]
+    when params[:appearance_id]
+      @target.appearance_id = params[:appearance_id_before_edit]
+    when params[:age]
+      @target.age = params[:age_before_edit]
+    when params[:purpose_id]
+      @target.purpose_id = params[:purpose_id_before_edit]
+    when params[:height]
+      @target.height = params[:height_before_edit]
+    when params[:prefecture]
+      @target.prefecture = params[:prefecture_before_edit]
+    when params[:city]
+      @target.city = params[:city_before_edit]
+    end
+
+    unless params[:app_id] == "0"
+      @target.app_id = params[:app_id]
+    end
+    unless params[:appearance_id] == "0"
+      @target.appearance_id = params[:appearance_id]
+    end
+    unless params[:age] == "0"
+      @target.age = params[:age]
+    end
+    unless params[:purpose_id] == "0"
+      @target.purpose_id = params[:purpose_id]
+    end
+    unless params[:height] == "0"
+      @target.height = params[:height]
+    end
+    unless params[:prefecture] == "0"
+      @target.prefecture = params[:prefecture]
+    end
+    unless params[:city] == "0"
+      @target.city = params[:city]
+    end
+
+    case "1"
+    when params[:job_id]
+      @target.job_id = params[:job_id_before_edit]
+    when params[:personality_id]
+      @target.personality_id = params[:personality_id_before_edit]
+    end
+
+    unless params[:job_id] == "1"
+      @target.job_id = params[:job_id]
+    end
+    unless params[:personality_id] == "1"
+      @target.personality_id = params[:personality_id]
+    end
+
+    @target.name = params[:name]
+    @target.hobby = params[:hobby]
+    @target.single_history = params[:single_history]
+    @target.favorite_food = params[:favorite_food]
+    @target.user_id = @user.id
+    binding.pry
   end
 end

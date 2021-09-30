@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :targets, only: %i[new create index show edit destroy]
+  resources :targets, only: %i[new create index show edit destroy] do
+    member do
+      post 'original_update'
+    end
+  end
   resources :date_results, only: %i[new create index show]
 end
