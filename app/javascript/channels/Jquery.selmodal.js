@@ -12,6 +12,23 @@
 var city_select_button_create_OK = 0;
 var city_input_error_message_create = "not_exist";
 
+// edit用
+var targets_edit_sign_input = document.getElementById("targets_edit_sign_input");
+var targets_edit_discrimination = "start";
+var app_start = "ok";
+var appearance_start = "ok";
+var purpose_start = "ok";
+var age_start = "ok";
+var job_start = "ok";
+var height_start = "ok";
+var prefecture_start = "ok";
+var city_start = "ok";
+var personality_start = "ok";
+
+var city_select_start_button_click_discrimination = "ok";
+
+//
+
 
 $(function(){
 	//後者のセレクトをプラグインに適用
@@ -28,14 +45,15 @@ var city_select_button_fake = null;
 const city_select_element = document.getElementById("city_select_element");
 const city_select_element_fake = document.getElementById("city_select_element_fake");
 if (city_select_element_fake) {
-	const city_select_element_children = city_select_element_fake.children;
+	var city_select_element_children = city_select_element_fake.children;
+	var city_select_element_option_value_0 = city_select_element_fake.firstElementChild;
 }
 const name_select = document.getElementById("name_select");
 
 
 // リセットボタン(「市を入力するボタン」をクリック後、再度「都道府県ボタン」をクリックすると、初期状態に戻す。)
 if (prefectures_select_button) {
-	prefectures_select_button.addEventListener('mousedown', function () {
+	prefectures_select_button.addEventListener('click', function () {
 
 		// エラーメッセージ削除(都道府県を選択していない時に、「市区町村を入力する」をクリックしたエラー)
 		var targets_registration_city_input_error_message = document.getElementById("targets_registration_city_input_error_message");
@@ -49,6 +67,7 @@ if (prefectures_select_button) {
 			const selModal = document.getElementsByClassName("selModal")
 			selModal[8].remove();
 			$("#city_select_element").empty();
+			city_select_element.appendChild(city_select_element_option_value_0);
 			city_select_start_button.classList.remove('hidden');
 			city_select_button.remove();
 			city_select_button = document.createElement('button');
@@ -66,7 +85,7 @@ if (prefectures_select_button) {
 
 // 「市を入力するボタン」のクリック(都道府県を選択してから「市を入力するボタン」をクリックすると、市を選択出来るようになる。)
 if (prefectures_select_button && city_select_start_button) {
-	city_select_start_button.addEventListener('mouseup', function () {
+	city_select_start_button.addEventListener('click', function () {
 		if (prefectures_select_button.textContent == '都道府県を選択してください') {
 			const city_select_start_button = document.getElementById("city_select_start_button");
 
@@ -155,6 +174,88 @@ if (prefectures_select_button && city_select_start_button) {
 											img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '">';
 										}
 									}
+
+									// app
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && app_start == "ok" && select_this[0].name == "app_id") {
+										const targets_edit_app = document.getElementById("targets_edit_app");
+										selected = targets_edit_app.textContent;
+										app_start = "no";
+									}
+
+									// appearance
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && appearance_start == "ok" && select_this[0].name == "appearance_id") {
+										const targets_edit_appearance = document.getElementById("targets_edit_appearance");
+										selected = targets_edit_appearance.textContent;
+										appearance_start = "no";
+									}
+
+									// age
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && age_start == "ok" && select_this[0].name == "age") {
+										const targets_edit_age = document.getElementById("targets_edit_age");
+										selected = targets_edit_age.textContent;
+										age_start = "no";
+									}
+
+									// purpose
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && purpose_start == "ok" && select_this[0].name == "purpose_id") {
+										const targets_edit_purpose = document.getElementById("targets_edit_purpose");
+										selected = targets_edit_purpose.textContent;
+										purpose_start = "no";
+									}
+
+									// job
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && job_start == "ok" && select_this[0].name == "job_id") {
+										const targets_edit_job = document.getElementById("targets_edit_job");
+										selected = targets_edit_job.textContent;
+										job_start = "no";
+									}
+
+									// height
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && height_start == "ok" && select_this[0].name == "height") {
+										const targets_edit_height = document.getElementById("targets_edit_height");
+										selected = targets_edit_height.textContent;
+										height_start = "no";
+									}
+
+									// prefecture
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && prefecture_start == "ok" && select_this[0].name == "prefecture") {
+										const targets_edit_prefecture = document.getElementById("targets_edit_prefecture");
+										prefecture_name = targets_edit_prefecture.textContent;
+										const prefectures_select_element = document.getElementById("prefectures_select_element");
+										const prefecture_option_array = prefectures_select_element.children;
+										for(let i = 0; i < prefecture_option_array.length; i++) {
+											if (prefecture_name == prefecture_option_array[i].textContent) {
+												selected = i;
+											}
+										}
+										prefecture_start = "no";
+									}
+
+									// city
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && city_start == "ok" && select_this[0].name == "city") {
+										const targets_edit_city = document.getElementById("targets_edit_city");
+										city_name = targets_edit_city.textContent;
+
+										// "{県名}オプション"
+										const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
+										prefecture_name_option_name = targets_edit_prefecture_city.textContent;
+
+										const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+										for(let i = 0; i < city_option_array.length; i++) {
+											if (city_name == city_option_array[i].textContent) {
+												selected = i + 1;
+											}
+										}
+										city_start = "no";
+									}
+
+									// personality
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && personality_start == "ok" && select_this[0].name == "personality_id") {
+										const targets_edit_personality = document.getElementById("targets_edit_personality");
+										selected = targets_edit_personality.textContent;
+										personality_start = "no";
+									}
+
 									if(selected != i){
 										modal_html += '<li class="selModalClose" id="' + aryChild.eq(i).attr('value') + '" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';	
 									}else{
@@ -162,6 +263,9 @@ if (prefectures_select_button && city_select_start_button) {
 										selected_name = aryChild.eq(i).text();
 									}
 								}
+
+								targets_edit_discrimination == "end"
+
 								modal_html += '</ul>';
 								modal_html += '</div>';
 								modal_html += '</div>';	
@@ -277,9 +381,11 @@ if (prefectures_select_button && city_select_start_button) {
 							sel_btn.text(sel_text);
 						}
 					}
-				
+
 				})(jQuery);
 				city_select_button_create_OK = 0;
+
+				
 			}
 		}
 	});
@@ -330,6 +436,88 @@ if (prefectures_select_button && city_select_start_button) {
 							img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '">';
 						}
 					}
+                    
+					// app
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && app_start == "ok" && select_this[0].name == "app_id") {
+						const targets_edit_app = document.getElementById("targets_edit_app");
+						selected = targets_edit_app.textContent;
+						app_start = "no";
+					}
+
+					// appearance
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && appearance_start == "ok" && select_this[0].name == "appearance_id") {
+						const targets_edit_appearance = document.getElementById("targets_edit_appearance");
+						selected = targets_edit_appearance.textContent;
+						appearance_start = "no";
+					}
+
+					// age
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && age_start == "ok" && select_this[0].name == "age") {
+						const targets_edit_age = document.getElementById("targets_edit_age");
+						selected = targets_edit_age.textContent;
+						age_start = "no";
+					}
+
+					// purpose
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && purpose_start == "ok" && select_this[0].name == "purpose_id") {
+						const targets_edit_purpose = document.getElementById("targets_edit_purpose");
+						selected = targets_edit_purpose.textContent;
+						purpose_start = "no";
+					}
+
+					// job
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && job_start == "ok" && select_this[0].name == "job_id") {
+						const targets_edit_job = document.getElementById("targets_edit_job");
+						selected = targets_edit_job.textContent;
+						job_start = "no";
+					}
+
+					// height
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && height_start == "ok" && select_this[0].name == "height") {
+						const targets_edit_height = document.getElementById("targets_edit_height");
+						selected = targets_edit_height.textContent;
+						height_start = "no";
+					}
+
+					// prefecture
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && prefecture_start == "ok" && select_this[0].name == "prefecture") {
+						const targets_edit_prefecture = document.getElementById("targets_edit_prefecture");
+						prefecture_name = targets_edit_prefecture.textContent;
+						const prefectures_select_element = document.getElementById("prefectures_select_element");
+						const prefecture_option_array = prefectures_select_element.children;
+						for(let i = 0; i < prefecture_option_array.length; i++) {
+							if (prefecture_name == prefecture_option_array[i].textContent) {
+								selected = i;
+							}
+						}
+						prefecture_start = "no";
+					}
+
+					// city
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && city_start == "ok" && select_this[0].name == "city") {
+						const targets_edit_city = document.getElementById("targets_edit_city");
+						city_name = targets_edit_city.textContent;
+
+						// "{県名}オプション"
+						const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
+						prefecture_name_option_name = targets_edit_prefecture_city.textContent;
+
+						const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+						for(let i = 0; i < city_option_array.length; i++) {
+							if (city_name == city_option_array[i].textContent) {
+								selected = i + 1;
+							}
+						}
+						city_start = "no";
+					}
+
+					// personality
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && personality_start == "ok" && select_this[0].name == "personality_id") {
+						const targets_edit_personality = document.getElementById("targets_edit_personality");
+						selected = targets_edit_personality.textContent;
+						personality_start = "no";
+					}
+
 					if(selected != i){
 						modal_html += '<li class="selModalClose" id="' + aryChild.eq(i).attr('value') + '" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';	
 					}else{
@@ -337,6 +525,9 @@ if (prefectures_select_button && city_select_start_button) {
 						selected_name = aryChild.eq(i).text();
 					}
 				}
+
+				targets_edit_discrimination == "end"
+
 				modal_html += '</ul>';
 				modal_html += '</div>';
 				modal_html += '</div>';	
@@ -460,6 +651,12 @@ if (prefectures_select_button && city_select_start_button) {
 	}
 
 })(jQuery);
+
+if (targets_edit_sign_input && city_select_start_button_click_discrimination == "ok") {
+	const city_select_start_button_click = document.getElementById("city_select_start_button");
+	city_select_start_button_click.click();
+	city_select_start_button_click_discrimination = "no";
+}
 
 
 

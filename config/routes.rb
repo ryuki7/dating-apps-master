@@ -32,6 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :targets, only: %i[new create index show]
+  resources :targets, only: %i[new create index show edit destroy]
   resources :date_results, only: %i[new create index show]
 end

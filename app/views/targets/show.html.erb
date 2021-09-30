@@ -1,7 +1,93 @@
 <div id="index-banner" class="parallax-container layout-targets-show">
   <div class="section no-pad-bot">
     <div class="container" id="targets_show">
-      <h3 class="center" id="targets_title">女性登録</h3>
+      <%= link_to '編集', edit_target_path(@target.id), class: "targets_show_edit_and_delete_button edit" %>
+
+      <% if @app.id == 3 %>
+        <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="targets_show_app_icon_image app-image-tapple">
+      <% else %>
+        <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="targets_show_app_icon_image">
+      <% end %>
+
+      <%= button_to '削除', target_path(@target.id), method: :delete, class: "targets_show_edit_and_delete_button delete" %>
+
+      <% if @target.age == 0 %>
+        <div class="targets_show_one_line_age_none">
+          <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+          <span class="targets_show_name"><%= @target.name %></span>
+          <span class="targets_show_age">年齢なし</span>
+        </div>
+      <% else %>
+        <div class="targets_show_one_line_age_present">
+          <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+          <span class="targets_show_name"><%= @target.name %></span>
+          <span class="targets_show_age"><%= @target.age %>歳</span>
+        </div>
+      <% end %>
+
+      <div class="targets_show_2_word_wrapper">
+        <p class="targets_show_2_word_title">職業</p>
+        <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @job.name %></p>
+      </div>
+
+      <div class="targets_show_2_word_wrapper">
+        <p class="targets_show_2_word_title">身長</p>
+        <% if @target.height == 0 %>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>">未選択</p>
+        <% else %>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @target.height %>cm</p>
+        <% end %>
+      </div>
+
+      <div class="targets_show_2_word_wrapper">
+        <p class="targets_show_2_word_title">性格</p>
+        <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @personality.name %></p>
+      </div>
+
+      <div class="targets_show_2_word_wrapper">
+        <p class="targets_show_2_word_title">趣味</p>
+        <% if @target.hobby == "" %>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>">未入力</p>
+        <% else %>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @target.hobby %></p>
+        <% end %>
+      </div>
+
+      <div class="targets_show_4_word_wrapper">
+        <p class="targets_show_4_word_title">都道府県</p>
+        <% if @target.prefecture == "0" %>
+          <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>">未選択</p>
+        <% else %>
+          <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>"><%= @target.prefecture %></p>
+        <% end %>
+      </div>
+
+      <div class="targets_show_4_word_wrapper">
+        <p class="targets_show_4_word_title">市区町村</p>
+        <% if @target.city == "0" %>
+          <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>">未選択</p>
+        <% else %>
+          <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>"><%= @target.city %></p>
+        <% end %>
+      </div>
+
+      <div class="targets_show_6_word_wrapper">
+        <p class="targets_show_6_word_title">彼氏いない歴</p>
+        <% if @target.single_history == "" %>
+          <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>">未入力</p>
+        <% else %>
+          <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= @target.single_history %>(○月○日時点)</p>
+        <% end %>
+      </div>
+
+      <div class="targets_show_6_word_wrapper">
+        <p class="targets_show_6_word_title">好きな食べ物</p>
+        <% if @target.favorite_food == "" %>
+          <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>">未入力</p>
+        <% else %>
+          <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= @target.favorite_food %></p>
+        <% end %>
+      </div>
 
     </div>
   </div>

@@ -1,14 +1,14 @@
 class TargetsController < ApplicationController
-  before_action :set_user, only: %i[create index]
+  before_action :set_user, only: %i[create index show edit destroy]
 
   def new
     @apps = App.all
     @appearances = Appearance.all
     @ages = 18..30
     @purposes = Purpose.all
-    @jobs = Job.all
+    @jobs = Job.where.not(name: '未選択')
     @heights = 130..180
-    @personalities = Personality.all
+    @personalities = Personality.where.not(name: '未選択')
 
     # 都道府県
     sql_ken_name = 'SELECT DISTINCT ken_name FROM ad_address'
@@ -49,6 +49,54 @@ class TargetsController < ApplicationController
   end
 
   def show
+    @target = Target.find_by(id: params[:id], user_id: @user.id)
+    @app = @target.app
+    @appearance = @target.appearance
+    @job = @target.job
+    @personality = @target.personality
+  end
+
+  def edit
+    @target = Target.find_by(id: params[:id], user_id: @user.id)
+    @apps = App.all
+    @appearances = Appearance.all
+    @ages = 18..30
+    @purposes = Purpose.all
+    @jobs = Job.where.not(name: '未選択')
+    @heights = 130..180
+    @personalities = Personality.where.not(name: '未選択')
+
+    # 都道府県
+    sql_ken_name = 'SELECT DISTINCT ken_name FROM ad_address'
+    active_record_ken_name = ActiveRecord::Base.connection.select_all(sql_ken_name)
+    @ken_name_hash_array = active_record_ken_name.to_a
+
+    # 市町村
+    sql_ken_and_city_name = 'SELECT DISTINCT ken_name,city_name FROM ad_address'
+    active_record_ken_and_city_name = ActiveRecord::Base.connection.select_all(sql_ken_and_city_name)
+    @ken_and_city_name_hash_array = active_record_ken_and_city_name.to_a
+    prefectures_array.each.with_index(1) do |prefecture, i|
+      array = []
+      @ken_and_city_name_hash_array.each.with_index(1) do |ken_and_city_name_hash, count|
+        # @prefecture_1 => "北海道"
+        # @each_city_name_array_1 => 「北海道」の市町村の配列
+
+        # 都道府県の文字列
+        instance_variable_set('@prefecture_' + i.to_s, prefecture)
+  
+        # 市町村の配列
+        array.push(ken_and_city_name_hash["city_name"]) if ken_and_city_name_hash["ken_name"] == prefecture
+        if @ken_and_city_name_hash_array.size == count
+          instance_variable_set('@each_city_name_array_' + i.to_s, array)
+        end
+      end
+    end
+  end
+
+  def destroy
+    @target = Target.find_by(id: params[:id], user_id: @user.id)
+    @target.destroy!
+    redirect_to targets_path
   end
 
   private
