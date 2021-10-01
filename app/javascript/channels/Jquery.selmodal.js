@@ -64,8 +64,6 @@ if (prefectures_select_button) {
 
 		const city_select_button_fake_delete = document.getElementById("hidden");
 		if (city_select_button_fake_delete) {
-			const selModal = document.getElementsByClassName("selModal")
-			selModal[8].remove();
 			$("#city_select_element").empty();
 			city_select_element.appendChild(city_select_element_option_value_0);
 			city_select_start_button.classList.remove('hidden');
@@ -240,10 +238,12 @@ if (prefectures_select_button && city_select_start_button) {
 										const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
 										prefecture_name_option_name = targets_edit_prefecture_city.textContent;
 
-										const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
-										for(let i = 0; i < city_option_array.length; i++) {
-											if (city_name == city_option_array[i].textContent) {
-												selected = i + 1;
+										if (prefecture_name_option_name !== "0オプション") {
+											const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+											for(let i = 0; i < city_option_array.length; i++) {
+												if (city_name == city_option_array[i].textContent) {
+													selected = i + 1;
+												}
 											}
 										}
 										city_start = "no";
@@ -508,10 +508,12 @@ if (prefectures_select_button && city_select_start_button) {
 						const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
 						prefecture_name_option_name = targets_edit_prefecture_city.textContent;
 
-						const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
-						for(let i = 0; i < city_option_array.length; i++) {
-							if (city_name == city_option_array[i].textContent) {
-								selected = i + 1;
+						if (prefecture_name_option_name !== "0オプション") {
+							const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+							for(let i = 0; i < city_option_array.length; i++) {
+								if (city_name == city_option_array[i].textContent) {
+									selected = i + 1;
+								}
 							}
 						}
 						city_start = "no";
@@ -658,7 +660,7 @@ if (prefectures_select_button && city_select_start_button) {
 
 })(jQuery);
 
-if (targets_edit_sign_input && city_select_start_button_click_discrimination == "ok") {
+if (targets_edit_sign_input && city_select_start_button_click_discrimination == "ok" && prefectures_select_button.textContent !== "都道府県を選択してください") {
 	city_select_start_button_click = document.getElementById("city_select_start_button");
 	city_select_start_button_click.click();
 	city_select_start_button_click_discrimination = "no";

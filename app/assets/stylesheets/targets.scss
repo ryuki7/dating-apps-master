@@ -322,9 +322,13 @@ input[type=text]:not(.browser-default) {
     text-align: center;
 }
 
+.targets_show_profile {
+    margin-bottom: 50px;
+}
+
 .targets_show_app_icon_image {
     position: relative;
-    right: 60px;
+    right: 62px;
     margin-top: 10px;
 }
 
@@ -337,7 +341,7 @@ input[type=text]:not(.browser-default) {
     font-size: 17px;
     border-radius: 60px;
     position: relative;
-    right: 60px;
+    right: 62px;
     bottom: 24px;
     cursor: pointer;
     display: inline-block;
@@ -363,7 +367,7 @@ input[type=text]:not(.browser-default) {
 
 .targets_show_edit_and_delete_button.delete {
     position: relative;
-    left: 90px;
+    left: 88px;
     bottom: 54px;
     background: red;
 }
@@ -515,3 +519,239 @@ input[type=text]:not(.browser-default) {
 .targets_show_6_word_value.tinder {
     color: #FD267D;
 }
+
+.targets_show_box_calculate_description {
+    text-align: center;
+    padding: 7px 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.targets_show_box_calculate_description.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_box_calculate_description.play {
+    color: #ff0844;
+}
+
+.targets_show_box_calculate_description.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_calculate_description.recommend {
+    font-size: 25px;
+}
+
+.targets_show_box_div_description span:nth-child(1) {
+    display: inline-block;
+    width: 115px;
+    height: 30px;
+    position: relative;
+    right: 21px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.targets_show_box_div_description span:nth-child(2) {
+    display: inline-block;
+    width: 45px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.targets_show_box_div_description span:nth-child(3) {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    position: relative;
+    left: 18px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.targets_show_date_count_span.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_date_count_span.play {
+    color: #ff0844;
+}
+
+.targets_show_date_count_span.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_span_date_body_large {
+    font-size: 19px !important;
+    position: relative;
+    left: 1px;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_large {
+    font-size: 19px !important;
+    position: relative;
+    right: 12px !important;
+    margin-left: 29px !important;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_plan_large {
+    font-size: 19px !important;
+    width: 125px !important;
+    position: relative;
+    left: 3px !important;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_plan_large.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_box_span_date_plan_large.play {
+    color: #ff0844;
+}
+
+.targets_show_box_span_date_plan_large.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_date_calculate {
+    margin: 25px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border-radius: 10px;/*角の丸み*/
+}
+
+.targets_show_box_date_calculate.make_girlfriend {
+    border: solid 0.5px #4481eb;/*線*/
+    background: #f9fbff;
+}
+
+.targets_show_box_date_calculate.play {
+    border: solid 0.5px #ff0844;/*線*/
+    background: #fff9fb;
+}
+
+.targets_show_box_date_calculate.super_play {
+    border: solid 0.5px #f5576c;/*線*/
+    background: #fff9f9;
+}
+
+.targets_show_box_date_calculate.pairs {
+    border: solid 0.5px #86E4EA;/*線*/
+    background: #f9ffff;
+}
+
+.targets_show_box_date_calculate.with {
+    border: solid 0.5px #FD656C;/*線*/
+    background: #fff9f9;
+}
+
+.targets_show_box_date_calculate.tapple {
+    border: solid 0.5px #F54C98;/*線*/
+    background: #fff9fc;
+}
+
+.targets_show_box_date_calculate.tinder {
+    border: solid 0.5px #FD267D;/*線*/
+    background: #fff9fc;
+}
+
+.targets_show_box_date_calculate.favorability_rating {
+    border: solid 0.5px #ffbd66;/*線*/
+    color: #ffbd66;
+    background: #fffcf9;
+}
+
+.targets_show_box_date_calculate.progress_rating {
+    border: solid 0.5px #21d4fd;/*線*/
+    color: #21d4fd;
+    background: #f9feff;
+}
+
+.targets_show_box_date_calculate.recommend {
+    border: solid 0.5px #fdcbf1;/*線*/
+    background: #fff9fe;
+}
+
+.targets_show_box_calculate_title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 20px;
+    padding: 17px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.targets_show_box_calculate_title.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+.targets_show_box_calculate_title.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+}
+
+.targets_show_box_calculate_title.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+}
+
+.targets_show_box_calculate_title.pairs {
+    background: linear-gradient(to right, #86E4EA, #03D7DE);
+}
+
+.targets_show_box_calculate_title.with {
+    background: linear-gradient(to right, #FD656C, #FD656B);
+}
+
+.targets_show_box_calculate_title.tapple {
+    background: linear-gradient(to right, #F54C98, #218FF3);
+}
+
+.targets_show_box_calculate_title.tinder {
+    background: linear-gradient(to bottom, #FD267D, #FF7158);
+}
+
+.targets_show_box_calculate_title.favorability_rating {
+    background: linear-gradient(-20deg, #fe5196 0%, #ffbd66 100%);
+}
+
+.targets_show_box_calculate_title.progress_rating {
+    background: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+}
+
+.targets_show_box_calculate_title.recommend {
+    font-size: 22px;
+    background: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+}
+
+.targets_show_date_plan_registration {
+    margin-top: 65px;
+}
+
+.targets_show_date_plan_registration_title {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    position: relative;
+    padding: 1.5rem .5rem;
+}
+
+.targets_show_date_plan_registration_title:after {
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+  }

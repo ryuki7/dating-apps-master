@@ -127,7 +127,11 @@
             <% end %>
         </select>
         <input name="prefecture_before_edit" value="<%= @target.prefecture %>" class="hidden">
-        <button type="button" class="selModalButton" id="prefectures_select_button"><%= @target.prefecture %></button>
+        <% if @target.prefecture == "0" %>
+          <button type="button" class="selModalButton" id="prefectures_select_button">都道府県を選択してください</button>
+        <% else %>
+          <button type="button" class="selModalButton" id="prefectures_select_button"><%= @target.prefecture %></button>
+        <% end %>
 
         <!-- 市区町村セレクト -->
         <button type="button" class="selModalButton" id="city_select_start_button">市区町村を入力する</button>
@@ -145,7 +149,11 @@
         <input name="city_before_edit" value="<%= @target.city %>" class="hidden">
 
         <!-- 市区町村セレクトボタン(button)を予め作成 -->
-        <button type="button" class="selModalButton hidden" id="city_select_button"><%= @target.city %></button>
+        <% if @target.city == "0" %>
+          <button type="button" class="selModalButton hidden" id="city_select_button">市区町村を選択してください</button>
+        <% else %>
+          <button type="button" class="selModalButton hidden" id="city_select_button"><%= @target.city %></button>
+        <% end %>
 
 
         <!-- 性格セレクト -->

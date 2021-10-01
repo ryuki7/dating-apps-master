@@ -54,6 +54,7 @@ class TargetsController < ApplicationController
     @appearance = @target.appearance
     @job = @target.job
     @personality = @target.personality
+    @purpose = @target.purpose
   end
 
   def edit
@@ -190,6 +191,5 @@ class TargetsController < ApplicationController
     @target.single_history = params[:single_history]
     @target.favorite_food = params[:favorite_food]
     @target.user_id = @user.id
-    binding.pry
   end
 end
