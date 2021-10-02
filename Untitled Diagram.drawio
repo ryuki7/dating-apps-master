@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-29T12:34:24.697Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36" etag="5rmQghqoY-CODbtKPd-E" version="15.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-02T15:50:13.019Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36" etag="gVXJES2R-oXh5868tBi6" version="15.3.7" type="github">
   <diagram name="Page-1" id="e56a1550-8fbb-45ad-956c-1786394a9013">
     <mxGraphModel dx="2046" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -131,7 +131,7 @@
             <mxPoint x="569.6666666666667" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="P4efQdWENx2VInSaUyuK-12" value="dates" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=14" parent="1" vertex="1">
+        <mxCell id="P4efQdWENx2VInSaUyuK-12" value="date_schedules" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=14" parent="1" vertex="1">
           <mxGeometry x="490" y="526" width="160" height="164" as="geometry" />
         </mxCell>
         <mxCell id="P4efQdWENx2VInSaUyuK-15" value="appointment" style="shape=partialRectangle;top=0;left=0;right=0;bottom=0;html=1;align=left;verticalAlign=top;fillColor=none;spacingLeft=34;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;dropTarget=0;" parent="P4efQdWENx2VInSaUyuK-12" vertex="1">
@@ -769,11 +769,14 @@
         <mxCell id="yaYVjT-K9ExPg03Pqllh-59" value="作成済" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-148" y="664.5" width="110" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="yaYVjT-K9ExPg03Pqllh-60" value="テーブルは作成" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="326" y="482" width="88" height="20" as="geometry" />
+        <mxCell id="yaYVjT-K9ExPg03Pqllh-60" value="テーブルは作成済" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="319" y="482" width="101" height="20" as="geometry" />
         </mxCell>
         <mxCell id="yaYVjT-K9ExPg03Pqllh-61" value="作成中？" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="327" y="500" width="88" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="z_wjn44Lw6yGIV3Tia1t-2" value="作成中？" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="598" y="503" width="60" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
