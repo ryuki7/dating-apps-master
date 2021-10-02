@@ -333,12 +333,11 @@ input[type=text]:not(.browser-default) {
 }
 
 .targets_show_edit_and_delete_button {
-    font-size: 14px !important;
+    font-size: 14px;
     margin-left: 30px;
     margin-right: 30px;
     color: white;
     padding: 0 15px;
-    font-size: 17px;
     border-radius: 60px;
     position: relative;
     right: 62px;
@@ -755,3 +754,151 @@ input[type=text]:not(.browser-default) {
     background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
     background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
   }
+
+  .targets_date_registration {
+    background: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 20%, #c2f2f8 67%, #f5dbf1 100%);
+    border-radius: 80px;
+    padding: 0px 3px 3px 3px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .targets_date_registration_border {
+    background-color: #fff;
+    border-top: 3px solid #c2f2f8;
+    border-radius: 80px;
+    padding: 35px 20px 20px 20px;
+    margin-top: 30px;
+  }
+
+  .datepicker_wrapper {
+    margin-top: 0px;
+  }
+
+  .targets_date_registration_submit_button {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 22px;
+    padding: 0 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.targets_date_schedule {
+    background: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 20%, #c2f2f8 67%, #f5dbf1 100%);
+    border-radius: 80px;
+    padding: 0px 3px 3px 3px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .targets_date_schedule_border {
+    background-color: #fff;
+    border-top: 3px solid #c2f2f8;
+    border-radius: 80px;
+    padding:  21px 20px 20px 20px;
+    margin-top: 30px;
+  }
+
+.targets_date_schedule p {
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.targets_date_schedule_appointment {
+    position: relative;
+    bottom: 23px;
+    right: 2px;
+    font-size: 29px;
+}
+
+.targets_date_schedule_date_plan {
+    position: relative;
+    bottom: 23px;
+    left: 25px;
+    font-size: 29px;
+}
+
+.targets_date_schedule_date_plan.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_date_schedule_date_plan.play {
+    color: #ff0844;
+}
+
+.targets_date_schedule_date_plan.super_play {
+    color: #f5576c;
+}
+
+.targets_date_schedule_delete_button {
+    color: white;
+    padding: 0 10px;
+    font-size: 13px;
+    border-radius: 60px;
+    position: relative;
+    bottom: 56px;
+    left: 128px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 25px;
+    line-height: 25px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+    background: red;
+}
+
+.targets_show_date_report_button {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 22px;
+    padding: 0 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}

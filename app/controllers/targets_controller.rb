@@ -55,6 +55,7 @@ class TargetsController < ApplicationController
     @job = @target.job
     @personality = @target.personality
     @purpose = @target.purpose
+    @date_plans = @purpose.date_plans
   end
 
   def edit

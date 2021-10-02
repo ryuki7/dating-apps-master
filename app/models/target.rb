@@ -6,5 +6,7 @@ class Target < ApplicationRecord
   belongs_to :personality
   belongs_to :user
 
+  has_many :date_schedules
+
   validates :name, presence: true
 end

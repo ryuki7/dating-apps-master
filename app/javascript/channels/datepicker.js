@@ -20,6 +20,48 @@ var options = {
   showDaysInNextAndPreviousMonths: true,
   i18n: inter_en,
   showClearBtn: true,
+  onDraw: function button_text_color_change_Saturday_and_Sunday() {
+            var datepicker_row_array = document.querySelectorAll(".datepicker-row");
+            for(let i = 0; i < datepicker_row_array.length; i++) {
+
+              // 日曜日 ボタンカラー変更 (ピンク色)
+              Sunday_td = datepicker_row_array[i].firstElementChild;
+              if (!Sunday_td.classList.contains("is-selected")) {
+                Sunday_button = Sunday_td.firstElementChild;
+                Sunday_button.style = "background-color: rgb(255, 225, 225);"
+              }
+
+              // 土曜日 ボタンカラー変更 (水色)
+              Saturday_td = datepicker_row_array[i].lastElementChild;
+              if (!Saturday_td.classList.contains("is-selected")) {
+                Saturday_button = Saturday_td.firstElementChild;
+                Saturday_button.style = "background-color: rgb(225, 233, 255);"
+              }
+
+              // 今日(today) ボタンカラー変更 (赤色)
+              one_row_of_all_td_array = datepicker_row_array[i].children;
+              for(let i = 0; i < one_row_of_all_td_array.length; i++) {
+                if (one_row_of_all_td_array[i].classList.contains("is-today")) {
+                  today_button = one_row_of_all_td_array[i].firstElementChild;
+                  today_button.style = "background-color: rgb(255, 118, 118);"
+                }
+              }
+            }
+
+            var weekdaysAbbrev_array = document.getElementsByTagName("abbr");
+            for(let i = 0; i < weekdaysAbbrev_array.length; i++) {
+              // 日曜日 abbrev(アブリーヴ)カラー変更 (赤色)
+              if (weekdaysAbbrev_array[i].title == "日曜日") {
+                weekdaysAbbrev_array[i].style = "color: rgb(255, 225, 225);"
+              }
+
+              // 土曜日 abbrev(アブリーヴ)カラー変更 (青色)
+              if (weekdaysAbbrev_array[i].title == "土曜日") {
+                weekdaysAbbrev_array[i].style = "color: rgb(225, 233, 255);"
+              }
+            }
+            
+          }
 };
 
 document.addEventListener('DOMContentLoaded', function() {

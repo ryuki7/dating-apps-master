@@ -141,7 +141,38 @@
           <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)} recommend" %>">デートプランB</span></p>
         </div>
         
-        <input type="text" class="datepicker" placeholder="日付を選択して下さい">
+        <form action="/targets" method="post">
+          <!-- CSRFトークンを渡す -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <div class="targets_date_registration">
+            <div class="targets_date_registration_border">
+              <div class="datepicker_wrapper">
+                <!-- 日付セレクト -->
+                <input name="" type="text" class="datepicker" placeholder="日付を選択して下さい">
+              </div>
+
+              <!-- デートプランセレクト -->
+              <select name="date_plan_id" class="selmodaltest">
+                  <option value="0">デートプランを選択してください</option>
+                  <% @date_plans.each do |date_plan| %>
+                    <option value="<%= date_plan.id %>"><%= date_plan.name %></option>
+                  <% end %>
+              </select>
+              <button name="targets_registration_submit" type="button" class="targets_date_registration_submit_button">デート登録</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="targets_date_schedule">
+          <div class="targets_date_schedule_border">
+            <p>デート予定日</p>
+            <%= button_to '削除', target_path(@target.id), method: :delete, class: "targets_date_schedule_delete_button" %>
+            <span class="targets_date_schedule_appointment">5/13</span>
+            <span class="<%= "targets_date_schedule_date_plan #{purpose_color(@purpose.id)}" %>">デートプランB</span>
+            <button type="button" class="targets_show_date_report_button">デート報告</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
