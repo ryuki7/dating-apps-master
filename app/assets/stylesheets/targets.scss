@@ -118,6 +118,14 @@ input[type=text]:not(.browser-default) {
     display: inline-block;
 }
 
+.targets_index_total_count_number.date_results_unreported_passed_count {
+    margin: 10px 5px 10px 20px;
+    font-size: 21px;
+    display: inline-block;
+    position: relative;
+    right: 10px;
+}
+
 .targets_index_total_count_number span {
    color: #e8198b;
 }
@@ -775,7 +783,7 @@ input[type=text]:not(.browser-default) {
     margin-top: 0px;
   }
 
-  .targets_date_registration_submit_button {
+  #date_registration_submit_button {
     margin-top: -5px;
     margin-bottom: 10px;
     color: white;
@@ -826,14 +834,14 @@ input[type=text]:not(.browser-default) {
 .targets_date_schedule_appointment {
     position: relative;
     bottom: 23px;
-    right: 2px;
+    right: 14px;
     font-size: 29px;
 }
 
 .targets_date_schedule_date_plan {
     position: relative;
-    bottom: 23px;
-    left: 25px;
+    bottom: 21px;
+    left: 13px;
     font-size: 29px;
 }
 
@@ -901,4 +909,16 @@ input[type=text]:not(.browser-default) {
     border: none;
     text-transform: uppercase;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#date_registration_date_plan_error_message {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+#date_registration_datepicker_error_message {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: red;
 }

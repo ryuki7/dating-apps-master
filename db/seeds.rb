@@ -379,3 +379,21 @@ personalitie_43 = Personality.create!(name: '裏表がない')
 personalitie_44 = Personality.create!(name: 'マイペース')
 personalitie_45 = Personality.create!(name: '奥手')
 personalitie_46 = Personality.create!(name: '気分屋')
+
+
+## デートタスク(tasksテーブル)
+
+# デート1回目の結果のみ
+task_1 = Task.create!(name: 'デート終了後、相手から返信が来る(能動的)', point: 15)
+task_2 = Task.create!(name: 'デート終了後、相手から連絡が来る(受動的)', point: 25)
+
+# デートn回目の結果
+task_3 = Task.create!(name: '体同士が当たる距離 or 至近距離にいても避けられない(能動的)', point: 10)
+task_4 = Task.create!(name: '体同士が当たる距離 or 至近距離にいても避けられない(受動的)', point: 20)
+task_5 = Task.create!(name: '間接キスをする', point: 5)
+task_6 = Task.create!(name: '頭・髪の毛を触る', point: 7)
+task_7 = Task.create!(name: '手を繋ぐ', point: 10)
+task_8 = Task.create!(name: 'ハグをする', point: 15)
+task_9 = Task.create!(name: 'キスをする', point: 20)
+task_10 = Task.create!(name: 'キスより先をする', point: 30)
+task_11 = Task.create!(name: '告白をする', point: 35)

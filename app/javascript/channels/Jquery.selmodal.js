@@ -294,6 +294,30 @@ if (prefectures_select_button && city_select_start_button) {
 									appearance_select_button_create(sel_name_attr);
 								}else if (select_this[0].id == "purpose_select_element") {
 									purpose_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "date_plan_select_element") {
+									date_plan_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_1") {
+									task_select_button_1_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_2") {
+									task_select_button_2_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_3") {
+									task_select_button_3_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_4") {
+									task_select_button_4_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_5") {
+									task_select_button_5_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_6") {
+									task_select_button_6_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_7") {
+									task_select_button_7_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_8") {
+									task_select_button_8_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_9") {
+									task_select_button_9_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_10") {
+									task_select_button_10_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_11") {
+									task_select_button_11_create(sel_name_attr);
 								}else{
 									$(this).after(button_html);
 								}
@@ -564,6 +588,30 @@ if (prefectures_select_button && city_select_start_button) {
 					appearance_select_button_create(sel_name_attr);
 				}else if (select_this[0].id == "purpose_select_element") {
 					purpose_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "date_plan_select_element") {
+					date_plan_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_1") {
+					task_select_button_1_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_2") {
+					task_select_button_2_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_3") {
+					task_select_button_3_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_4") {
+					task_select_button_4_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_5") {
+					task_select_button_5_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_6") {
+					task_select_button_6_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_7") {
+					task_select_button_7_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_8") {
+					task_select_button_8_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_9") {
+					task_select_button_9_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_10") {
+					task_select_button_10_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_11") {
+					task_select_button_11_create(sel_name_attr);
 				}else{
 					$(this).after(button_html);
 				}
@@ -702,15 +750,114 @@ function purpose_select_button_create(sel_name_attr) {
 	}
 }
 
+function date_plan_select_button_create(sel_name_attr) {
+	var date_plan_select_button = document.getElementById("date_plan_select_button");
+	if (date_plan_select_button) {
+		date_plan_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_1_create(sel_name_attr) {
+	var task_select_button_1 = document.getElementById("task_select_button_1");
+	if (task_select_button_1) {
+		task_select_button_1.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_2_create(sel_name_attr) {
+	var task_select_button_2 = document.getElementById("task_select_button_2");
+	if (task_select_button_2) {
+		task_select_button_2.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_3_create(sel_name_attr) {
+	var task_select_button_3 = document.getElementById("task_select_button_3");
+	if (task_select_button_3) {
+		task_select_button_3.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_4_create(sel_name_attr) {
+	var task_select_button_4 = document.getElementById("task_select_button_4");
+	if (task_select_button_4) {
+		task_select_button_4.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_5_create(sel_name_attr) {
+	var task_select_button_5 = document.getElementById("task_select_button_5");
+	if (task_select_button_5) {
+		task_select_button_5.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_6_create(sel_name_attr) {
+	var task_select_button_6 = document.getElementById("task_select_button_6");
+	if (task_select_button_6) {
+		task_select_button_6.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_7_create(sel_name_attr) {
+	var task_select_button_7 = document.getElementById("task_select_button_7");
+	if (task_select_button_7) {
+		task_select_button_7.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_8_create(sel_name_attr) {
+	var task_select_button_8 = document.getElementById("task_select_button_8");
+	if (task_select_button_8) {
+		task_select_button_8.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_9_create(sel_name_attr) {
+	var task_select_button_9 = document.getElementById("task_select_button_9");
+	if (task_select_button_9) {
+		task_select_button_9.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_10_create(sel_name_attr) {
+	var task_select_button_10 = document.getElementById("task_select_button_10");
+	if (task_select_button_10) {
+		task_select_button_10.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_11_create(sel_name_attr) {
+	var task_select_button_11 = document.getElementById("task_select_button_11");
+	if (task_select_button_11) {
+		task_select_button_11.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
 
 // 女性登録 submit
 if (document.targets_registration_form) {
     document.targets_registration_form.targets_registration_submit.addEventListener('click', function() {
-        beforesubmit_select_check();
+        beforesubmit_targets_select_check();
     });
 }
 
-function beforesubmit_select_check() {
+// デート登録 submit
+if (document.date_registration_form) {
+    document.date_registration_form.date_registration_submit.addEventListener('click', function() {
+        beforesubmit_date_registration_select_check();
+    });
+}
+
+// デート結果報告 submit
+if (document.date_result_form) {
+    document.date_result_form.date_result_submit.addEventListener('click', function() {
+        document.date_result_form.submit();
+    });
+}
+
+
+function beforesubmit_targets_select_check() {
 	const targets_registration_submit_button = document.getElementById("targets_registration_submit_button");
 	const targets_registration_app_error_message = document.getElementById("targets_registration_app_error_message");
 	const targets_registration_appearance_error_message = document.getElementById("targets_registration_appearance_error_message");
@@ -778,5 +925,38 @@ function beforesubmit_select_check() {
 	// バリデーション成功(全て)
     if (app_select_button.textContent !== 'アプリを選択してください' && appearance_select_button.textContent !== '容姿を選択してください' && purpose_select_button.textContent !== '目的を選択してください' && name_select.classList.contains("valid")) {
         document.targets_registration_form.submit();
+    }
+}
+
+function beforesubmit_date_registration_select_check() {
+	const date_registration_submit_button = document.getElementById("date_registration_submit_button");
+	const date_registration_datepicker_error_message = document.getElementById("date_registration_datepicker_error_message");
+	const date_registration_date_plan_error_message = document.getElementById("date_registration_date_plan_error_message");
+
+	// バリデーション失敗(日付)
+	if (!date_registration_selected_check.classList.contains('ok') && date_registration_datepicker_error_message == null) {
+		// エラーメッセージ生成
+		const datepicker_error_message = document.createElement('p');
+		datepicker_error_message.textContent = '「日付」は選択必須です。';
+		datepicker_error_message.id = 'date_registration_datepicker_error_message';
+		date_registration_submit_button.before(datepicker_error_message);
+	}else if (date_registration_selected_check.classList.contains('ok') && date_registration_datepicker_error_message !== null) {
+		date_registration_datepicker_error_message.remove();
+	}
+
+	// バリデーション失敗(デートプラン)
+	if (date_plan_select_button.textContent == 'デートプランを選択してください' && date_registration_date_plan_error_message == null) {
+		// エラーメッセージ生成
+		const date_plan_error_message = document.createElement('p');
+		date_plan_error_message.textContent = '「デートプラン」は選択必須です。';
+		date_plan_error_message.id = 'date_registration_date_plan_error_message';
+		date_registration_submit_button.before(date_plan_error_message);
+    }else if (date_plan_select_button.textContent !== 'デートプランを選択してください' && date_registration_date_plan_error_message !== null) {
+		date_registration_date_plan_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (date_plan_select_button.textContent !== 'デートプランを選択してください' && date_registration_selected_check.classList.contains('ok')) {
+        document.date_registration_form.submit();
     }
 }

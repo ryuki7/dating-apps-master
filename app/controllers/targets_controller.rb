@@ -56,6 +56,13 @@ class TargetsController < ApplicationController
     @personality = @target.personality
     @purpose = @target.purpose
     @date_plans = @purpose.date_plans
+
+    
+    @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, report_confirmation: 1)
+    @date_schedules_reported_last_except = @date_schedules_reported_all.first(@date_schedules_reported_all.size - 1)
+    @date_schedule_reported_last = @date_schedules_reported_all.last
+    @date_schedule_unreported = DateSchedule.find_by(target_id: @target.id, report_confirmation: 0)
+    @date_schedule_unreported_appointment = appointment_date_class_create(@date_schedule_unreported.appointment) if @date_schedule_unreported
   end
 
   def edit
@@ -99,7 +106,7 @@ class TargetsController < ApplicationController
     @target = Target.find(params[:id])
     update_params_discrimination
     @target.save!
-    redirect_to targets_path
+    redirect_to target_path(@target.id)
   end
 
   def destroy
@@ -109,6 +116,13 @@ class TargetsController < ApplicationController
   end
 
   private
+
+  def appointment_date_class_create(date)
+    split_blank_array = date.split
+    split_month_and_day = split_blank_array[1].split("月")
+    appointment_str = "#{split_blank_array[0].gsub(/[^\d]/, "")}-#{split_month_and_day[0]}-#{split_month_and_day[1].gsub(/[^\d]/, "")}"
+    Date.parse(appointment_str)
+  end
 
   def prefectures_array
     prefectures = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",

@@ -38,6 +38,10 @@ class AppDiagnosticsController < ApplicationController
   def result
     # idが若い順に取得する。(ランキング(順位)が高い順。)
     @app_diagnostics = AppDiagnostic.where(user_id: session[:user_id])
+
+    if @app_diagnostics.blank?
+      redirect_to app_diagnostics_path
+    end
   end
 
   private

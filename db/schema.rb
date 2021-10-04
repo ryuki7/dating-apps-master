@@ -10,31 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_155102) do
-
-  create_table "ad_address", id: :integer, default: 0, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "ken_id"
-    t.integer "city_id"
-    t.integer "town_id"
-    t.string "zip", limit: 8
-    t.boolean "office_flg"
-    t.boolean "delete_flg"
-    t.string "ken_name", limit: 8
-    t.string "ken_furi", limit: 8
-    t.string "city_name", limit: 24
-    t.string "city_furi", limit: 24
-    t.string "town_name", limit: 32
-    t.string "town_furi", limit: 32
-    t.string "town_memo", limit: 16
-    t.string "kyoto_street", limit: 32
-    t.string "block_name", limit: 64
-    t.string "block_furi", limit: 64
-    t.string "memo"
-    t.string "office_name"
-    t.string "office_furi"
-    t.string "office_address"
-    t.text "new_id"
-  end
+ActiveRecord::Schema.define(version: 2021_10_03_134121) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description", null: false
@@ -100,6 +76,16 @@ ActiveRecord::Schema.define(version: 2021_10_02_155102) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purpose_id"], name: "index_date_plans_on_purpose_id"
+  end
+
+  create_table "date_schedule_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "date_schedule_id", null: false
+    t.string "result", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date_schedule_id"], name: "index_date_schedule_tasks_on_date_schedule_id"
+    t.index ["task_id"], name: "index_date_schedule_tasks_on_task_id"
   end
 
   create_table "date_schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -183,6 +169,13 @@ ActiveRecord::Schema.define(version: 2021_10_02_155102) do
     t.index ["user_id"], name: "index_targets_on_user_id"
   end
 
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "line_id", null: false
@@ -200,6 +193,8 @@ ActiveRecord::Schema.define(version: 2021_10_02_155102) do
   add_foreign_key "date_plan_places", "date_plans"
   add_foreign_key "date_plan_places", "places"
   add_foreign_key "date_plans", "purposes"
+  add_foreign_key "date_schedule_tasks", "date_schedules"
+  add_foreign_key "date_schedule_tasks", "tasks"
   add_foreign_key "date_schedules", "date_plans"
   add_foreign_key "date_schedules", "targets"
   add_foreign_key "date_schedules", "users"

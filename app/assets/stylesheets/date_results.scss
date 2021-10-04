@@ -1,3 +1,268 @@
 // Place all the styles related to the date_results controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#date_result {
+    color: black;
+    text-align: center;
+}
+
+#date_result_title {
+    position: relative;
+    padding: 6px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+  
+#date_result_title span {
+    display: block;
+    padding: 1rem 2rem;
+    background: white;
+}
+
+.date_result_app_icon_image {
+    margin-bottom: 25px;
+}
+
+.date_result_targets_profile {
+    margin-bottom: 25px;
+}
+
+.date_result_schedule_appointment {
+    position: relative;
+    bottom: 23px;
+    right: 10px;
+    font-size: 33px;
+}
+
+.date_result_schedule_date_plan {
+    position: relative;
+    bottom: 21px;
+    left: 16px;
+    font-size: 33px;
+}
+
+.date_result_schedule_date_plan.make_girlfriend {
+    color: #4481eb;
+}
+
+.date_result_schedule_date_plan.play {
+    color: #ff0844;
+}
+
+.date_result_schedule_date_plan.super_play {
+    color: #f5576c;
+}
+
+#date_result_form {
+    margin-top: 25px;
+}
+
+.date_result_task_wrapper {
+    margin: 15px auto;
+    width: 340px;
+    height: 50px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 50px;
+ }
+
+ .date_result_task_wrapper.wrapper_1 {
+    width: 370px;
+    height: 90px;
+ }
+
+ .date_result_task_wrapper.wrapper_2 {
+    width: 370px;
+    height: 90px;
+ }
+
+ .date_result_task_wrapper.wrapper_3 {
+    width: 380px;
+    height: 110px;
+ }
+
+ .date_result_task_wrapper.wrapper_4 {
+    width: 380px;
+    height: 110px;
+ }
+
+ .date_result_task_name {
+    position: relative;
+    top: 9px;
+    right: 10px;
+    margin: 0px 15px 0px 2px;
+    font-size: 17px;
+}
+
+ .date_result_task_name.task_name_1 {
+    top: 24px;
+    left: 7px;
+}
+
+.date_result_task_name.task_name_2 {
+    top: 24px;
+    left: 7px;
+}
+
+.date_result_task_name.task_name_3 {
+    top: 30px;
+    left: 3px;
+}
+
+.date_result_task_name.task_name_4 {
+    top: 30px;
+    left: 3px;
+}
+
+.date_result_task_button {
+    width: 140px !important;
+    left: 30px;
+    top: 7px;
+    font-size: 13px !important;
+}
+
+#task_select_button_1 {
+    position: absolute;
+    top: 470px;
+    left: 139px;
+}
+
+#task_select_button_2 {
+    
+    top: 45px;
+    left: 2px;
+}
+
+#task_select_button_3 {
+    top: 65px;
+    left: -65px;
+}
+
+#task_select_button_4 {
+    top: 65px;
+    left: -65px;
+}
+
+#task_select_button_5 {
+    left: 13px;
+}
+
+#task_select_button_6 {
+    left: 4px;
+}
+
+#task_select_button_7 {
+    left: 38px;
+}
+
+#task_select_button_10 {
+    left: 5px;
+}
+
+.date_results_unreported_passed {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    border: solid 1px black;/*線*/
+}
+
+.date_results_index_each_button {
+    color: black;
+    padding: 0 20px;
+    font-size: 15px;
+    position: relative;
+    right: 6px;
+    cursor: pointer;
+    display: inline-block;
+    width: 92vw;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border-bottom: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+#date_results_index_each_th {
+    height: 50px;
+    line-height: 50px;
+    border-top: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+#date_results_index_each_th span {
+    position: relative;
+    right: 9px;
+    margin: 0 4px;
+}
+
+#date_results_index_each_th span:nth-child(2) {
+    margin: 0 33px;
+}
+
+#date_results_index_each_th span:nth-child(3) {
+    margin-right: 0px;
+}
+
+#date_results_index_each_th .date_results_target_name_span {
+    margin-left: 33px;
+}
+
+#date_results_index_each_button_td span:nth-child(1) {
+    display: inline-block;
+    position: relative;
+    right: 39px;
+    bottom: 10px;
+    font-size: 16px;
+}
+
+#date_results_index_each_button_td span:nth-child(2) {
+    display: inline-block;
+    width: 130px;
+    position: relative;
+    right: 28.5px;
+    bottom: 10px;
+    font-size: 17px;
+}
+
+#date_results_index_each_button_td img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 9px;
+    right: 10px;
+}
+
+#date_results_index_each_button_td span:nth-child(4) {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+    font-size: 16px;
+}
+
+#date_results_index_each_button_td span:nth-child(3).make_girlfriend {
+    color: #4481eb;
+}
+
+#date_results_index_each_button_td span:nth-child(3).play {
+    color: #ff0844;
+}
+
+#date_results_index_each_button_td span:nth-child(3).super_play {
+    color: #f5576c;
+}
+
+
+/* ▼リンクの上にマウスが載った際の装飾(背景色だけ指定) */
+#date_results_index_each_button_td:hover { 
+    background: #ffbae0; /*背景の色を変える*/
+}

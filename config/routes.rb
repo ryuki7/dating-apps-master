@@ -37,5 +37,11 @@ Rails.application.routes.draw do
       post 'original_update'
     end
   end
+
   resources :date_results, only: %i[new create index show]
+  resources :date_schedules, only: %i[destroy] do
+    member do
+      post 'original_create'
+    end
+  end
 end

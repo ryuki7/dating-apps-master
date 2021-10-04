@@ -101,24 +101,25 @@
         <p class="targets_show_box_calculate_description"><span class="targets_show_date_count_span">○</span>回</p>
       </div>
 
-      <div class="<%= "targets_show_box_date_calculate #{app_color(@app.id)}" %>">
-        <div class="<%= "targets_show_box_calculate_title #{app_color(@app.id)}" %>">デート履歴</div>
-        <div class="targets_show_box_div_description">
-          <span>1回目のデート</span>
-          <span>4/23</span>
-          <span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.id)}" %>">デートプランB</span>
+      <% if @date_schedule_reported_last %>
+        <div class="<%= "targets_show_box_date_calculate #{app_color(@app.id)}" %>">
+          <div class="<%= "targets_show_box_calculate_title #{app_color(@app.id)}" %>">デート履歴</div>
+
+          <% @date_schedules_reported_last_except.each.with_index(1) do |date_schedule, i| %>
+            <div class="targets_show_box_div_description">
+              <span><%= "#{i}回目のデート" %></span>
+              <span><%= date_schedule_appointment_string_operation(date_schedule.appointment) %></span>
+              <span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.id)}" %>"><%= date_schedule.date_plan.name %></span>
+            </div>
+          <% end %>
+          
+          <div class="targets_show_box_div_description">
+            <span class="targets_show_box_span_date_body_large">前回のデート</span>
+            <span class="targets_show_box_span_date_large"><%= date_schedule_appointment_string_operation(@date_schedule_reported_last.appointment) %></span>
+            <span class="<%= "targets_show_box_span_date_plan_large #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_reported_last.date_plan.name %></span>
+          </div>
         </div>
-        <div class="targets_show_box_div_description">
-          <span>2回目のデート</span>
-          <span>5/3</span>
-          <span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.id)}" %>">デートプランA</span>
-        </div>
-        <div class="targets_show_box_div_description">
-          <span class="targets_show_box_span_date_body_large">前回のデート</span>
-          <span class="targets_show_box_span_date_large">5/3</span>
-          <span class="<%= "targets_show_box_span_date_plan_large #{purpose_color(@purpose.id)}" %>">デートプランA</span>
-        </div>
-      </div>
+      <% end %>
 
       <div class="targets_show_box_date_calculate favorability_rating">
         <div class="targets_show_box_calculate_title favorability_rating">好感度</div>
@@ -141,38 +142,47 @@
           <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)} recommend" %>">デートプランB</span></p>
         </div>
         
-        <form action="/targets" method="post">
-          <!-- CSRFトークンを渡す -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-          <div class="targets_date_registration">
-            <div class="targets_date_registration_border">
-              <div class="datepicker_wrapper">
-                <!-- 日付セレクト -->
-                <input name="" type="text" class="datepicker" placeholder="日付を選択して下さい">
-              </div>
-
-              <!-- デートプランセレクト -->
-              <select name="date_plan_id" class="selmodaltest">
-                  <option value="0">デートプランを選択してください</option>
-                  <% @date_plans.each do |date_plan| %>
-                    <option value="<%= date_plan.id %>"><%= date_plan.name %></option>
-                  <% end %>
-              </select>
-              <button name="targets_registration_submit" type="button" class="targets_date_registration_submit_button">デート登録</button>
+        <% if @date_schedule_unreported %>
+          <!-- デート予定日 -->
+          <div class="targets_date_schedule" id="targets_date_schedule_fragment">
+            <div class="targets_date_schedule_border">
+              <p>デート予定日</p>
+              <%= button_to '削除', date_schedule_path(@date_schedule_unreported.id), method: :delete, class: "targets_date_schedule_delete_button" %>
+              <span class="targets_date_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule_unreported.appointment) %></span>
+              <span class="<%= "targets_date_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
+              <% if @date_schedule_unreported_appointment <= Date.today %>
+                <%= link_to  "デート報告", new_date_result_path(target_id: @target.id), class: "targets_show_date_report_button" %>
+              <% end %>
             </div>
           </div>
-        </form>
 
-        <div class="targets_date_schedule">
-          <div class="targets_date_schedule_border">
-            <p>デート予定日</p>
-            <%= button_to '削除', target_path(@target.id), method: :delete, class: "targets_date_schedule_delete_button" %>
-            <span class="targets_date_schedule_appointment">5/13</span>
-            <span class="<%= "targets_date_schedule_date_plan #{purpose_color(@purpose.id)}" %>">デートプランB</span>
-            <button type="button" class="targets_show_date_report_button">デート報告</button>
-          </div>
-        </div>
+        <% else %>
+          <!-- デート登録 -->
+          <form action="<%= "/date_schedules/#{@target.id}/original_create" %>" method="post" name="date_registration_form" id="targets_date_registration_fragment">
+            <!-- CSRFトークンを渡す -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+            <div class="targets_date_registration">
+              <div class="targets_date_registration_border">
+                <div class="datepicker_wrapper">
+                  <!-- 日付セレクト -->
+                  <input name="appointment" type="text" class="datepicker" placeholder="日付を選択して下さい">
+                  <input type="hidden" id="date_registration_selected_check">
+                </div>
+
+                <!-- デートプランセレクト -->
+                <select name="date_plan_id" class="selmodaltest" id="date_plan_select_element">
+                    <option value="0">デートプランを選択してください</option>
+                    <% @date_plans.each do |date_plan| %>
+                      <option value="<%= date_plan.id %>"><%= date_plan.name %></option>
+                    <% end %>
+                </select>
+                <button type="button" class="selModalButton" id="date_plan_select_button">デートプランを選択してください</button>
+                <button name="date_registration_submit" type="button" id="date_registration_submit_button">デート登録</button>
+              </div>
+            </div>
+          </form>
+        <% end %>
       </div>
     </div>
   </div>

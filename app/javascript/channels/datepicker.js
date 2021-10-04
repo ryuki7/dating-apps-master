@@ -46,6 +46,16 @@ var options = {
                   today_button.style = "background-color: rgb(255, 118, 118);"
                 }
               }
+
+
+              // 日付が選択されたかの確認(selected)
+              one_row_of_all_td_array = datepicker_row_array[i].children;
+              var date_registration_selected_check = document.getElementById("date_registration_selected_check");
+              for(let i = 0; i < one_row_of_all_td_array.length; i++) {
+                if (one_row_of_all_td_array[i].classList.contains("is-selected") && !date_registration_selected_check.classList.contains('ok')) {
+                  date_registration_selected_check.classList.add('ok');
+                }
+              }
             }
 
             var weekdaysAbbrev_array = document.getElementsByTagName("abbr");
@@ -76,8 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   document.addEventListener('DOMContentLoaded', () => {
+    // 「OK」ボタンの削除
     const datepicker_ok_button = document.getElementsByClassName("datepicker-done");
-    if (datepicker_ok_button) {
+    if (datepicker_ok_button[0]) {
         datepicker_ok_button[0].remove();
     }
+
+    // 「クリア」ボタンをクリックした際に、選択確認の「ok」classを削除
+    const datepicker_clear = document.querySelector(".datepicker-clear");
+    if (datepicker_clear) {
+      datepicker_clear.addEventListener('click', function () {
+        date_registration_selected_check.classList.remove('ok');
+      });
+    }
+
   });
