@@ -29,4 +29,8 @@ module TargetsHelper
     split_month_and_day = split_blank_array[1].split("月")
     appointment_return_value = "#{split_month_and_day[0]}/#{split_month_and_day[1].gsub(/[^\d]/, "")}"
   end
+
+  def ここから
+
+  end
 end

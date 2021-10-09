@@ -15,8 +15,8 @@ class CreateTargets < ActiveRecord::Migration[6.0]
       t.string :single_history
       t.text :favorite_food
       t.references :user, null: false, foreign_key: true
-      t.integer :favorability_rating
-      t.integer :progress_rating
+      t.integer :favorability_rating, default: 0, null: false
+      t.integer :progress_rating, default: 0, null: false
 
       t.timestamps
     end

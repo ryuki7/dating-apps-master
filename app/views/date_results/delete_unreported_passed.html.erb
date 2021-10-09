@@ -1,0 +1,34 @@
+<div id="index-banner" class="parallax-container layout_date_result_delete_unreported_passed">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_index">
+        <p class="date_schedules_unreported_passed_delete">デート結果未報告は3件までにして下さい。</p>
+        <div class="targets_index_total_count_wrapper">
+            <p class="targets_index_total_count_title">デート結果未報告</p>
+            <p class="targets_index_total_count_number date_results_unreported_passed_count"><span><%= @date_schedules_unreported_passed_array.size %></span>件</p>
+        </div>
+
+        <div class="date_results_unreported_passed">
+            <div class="box26">
+                <span class="box-title">未報告</span>
+                <% @date_schedules_unreported_passed_pagination.each do |date_schedule_unreported_passed| %>
+                    <%= button_to '削除', date_schedule_path(date_schedule_unreported_passed.id, referer: "date_result_unreported_passed"), method: :delete, class: "date_result_delete_button" %>
+                    <%= link_to new_date_result_path(target_id: date_schedule_unreported_passed.target.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
+                        <span><%= date_schedule_appointment_string_operation(date_schedule_unreported_passed.appointment) %></span>
+                        <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.id) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
+                        <% if date_schedule_unreported_passed.target.app.id == 3 %>
+                        <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>" class="app-image-tapple">
+                        <% else %>
+                        <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>">
+                        <% end %>
+                        <span><%= date_schedule_unreported_passed.target.name %></span>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        <%= paginate @date_schedules_unreported_passed_pagination %>
+        <% if @date_schedules_unreported_passed_array.size <= 3 %>
+          <%= link_to 'デート結果履歴一覧', date_results_path, class: "date_result_history_button" %>
+        <% end %>
+    </div>
+  </div>    
+</div>

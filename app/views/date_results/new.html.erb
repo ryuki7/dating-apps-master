@@ -12,41 +12,55 @@
         <% if @target.age == 0 %>
           <div class="targets_show_one_line_age_none">
             <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
-            <span class="targets_show_name"><%= @target.name %></span>
+            <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
             <span class="targets_show_age">年齢なし</span>
           </div>
         <% else %>
           <div class="targets_show_one_line_age_present">
             <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
-            <span class="targets_show_name"><%= @target.name %></span>
+            <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
             <span class="targets_show_age"><%= @target.age %>歳</span>
           </div>
         <% end %>
 
-        <%= button_to '削除', target_path(@target.id), method: :delete, class: "targets_show_edit_and_delete_button delete" %>
+        <span class="date_result_schedule_date_count"><%= "#{@date_count}回目のデート" %></span>
+        <%= button_to '削除', date_schedule_path(@date_schedule_unreported.id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
       </div>
-      <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule.appointment) %></span>
-      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule.date_plan.name %></span>
+      <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule_unreported.appointment) %></span>
+      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
 
       <form action="/date_results" method="post" name="date_result_form" id="date_result_form">
         <!-- CSRFトークンを渡す -->
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
         <!-- date_schedule_id を渡す -->
-        <input name="date_schedule_id" type="hidden" value="<%= @date_schedule.id %>">
+        <input name="date_schedule_id" type="hidden" value="<%= @date_schedule_unreported.id %>">
+
+        <!-- fail_tasks_id_array(失敗しているタスクのidの配列) を渡す -->
+        <input name="fail_tasks_id_array_string" type="hidden" value="<%= @fail_tasks_id_array.join('-') %>">
+
+        <!-- date_count(何回目のデートなのか) を渡す -->
+        <input name="date_count_string" type="hidden" value="<%= @date_count %>">
 
         <!-- タスク(task)セレクト -->
-        <% @tasks.each.with_index(1) do |task, i| %>
-          <select name="<%= "result_#{i}" %>" class="selmodaltest" id="<%= "task_select_element_#{i}" %>">
-            <option value="未実施">選択してください</option>
-            <option value="成功">成功</option>
-            <option value="失敗">失敗</option>
-            <option value="未実施">未実施</option>
-          </select>
-          <div class="<%= "date_result_task_wrapper wrapper_#{i}" %>">
-            <span class="<%= "date_result_task_name task_name_#{i}" %>"><%= task.name %></span>
-            <button type="button" class="selModalButton date_result_task_button" id="<%= "task_select_button_#{i}" %>">選択してください</button>
-          </div>
+        <% @tasks.each do |task, i| %>
+          <% if @fail_tasks_id_array.include?(task.id) || task.id == 1 || task.id == 2 %>
+            <select name="<%= "result_#{task.id}" %>" class="selmodaltest" id="<%= "task_select_element_#{task.id}" %>">
+              <option value="未実施">選択してください</option>
+              <option value="成功">成功</option>
+              <option value="失敗">失敗</option>
+              <option value="未実施">未実施</option>
+            </select>
+            <div class="<%= "date_result_task_wrapper wrapper_#{task.id}" %>">
+              <p class="<%= "date_result_task_name task_name_#{task.id}" %>"><%= task.name %></p>
+              <button type="button" class="selModalButton date_result_task_button" id="<%= "task_select_button_#{task.id}" %>">選択してください</button>
+            </div>
+          <% else %>
+            <div class="<%= "date_result_task_wrapper wrapper_#{task.id} margin" %>" style="opacity: 0.3;">
+              <p class="<%= "date_result_history_task_name task_name_#{task.id}" %>"><%= task.name %></p>
+              <p class="date_result_history_task_result" id="<%= "history_task_result_#{task.id}" %>" style="color: rgb(0, 241, 0);">成功済</p>
+            </div>
+          <% end %>
         <% end %>
 
         <button name="date_result_submit" type="button" id="targets_registration_submit_button">報告する</button>

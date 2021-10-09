@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(version: 2021_10_03_134121) do
     t.string "single_history"
     t.text "favorite_food"
     t.bigint "user_id", null: false
-    t.integer "favorability_rating"
-    t.integer "progress_rating"
+    t.integer "favorability_rating", default: 0, null: false
+    t.integer "progress_rating", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["app_id"], name: "index_targets_on_app_id"

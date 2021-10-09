@@ -38,7 +38,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :date_results, only: %i[new create index show]
+  resources :date_results, only: %i[new create index show] do
+    collection do
+      get 'delete_unreported_passed'
+    end
+  end
+
   resources :date_schedules, only: %i[destroy] do
     member do
       post 'original_create'

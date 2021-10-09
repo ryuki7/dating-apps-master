@@ -130,6 +130,10 @@ input[type=text]:not(.browser-default) {
    color: #e8198b;
 }
 
+.targets_index_total_count_number.date_result_history span {
+    color: rgb(70, 70, 255);
+ }
+
 
 .targets_index_each_app_count_wrapper {
     margin: 15px auto;
@@ -379,6 +383,13 @@ input[type=text]:not(.browser-default) {
     background: red;
 }
 
+.targets_show_edit_and_delete_button.date_result_delete {
+    position: relative;
+    left: 130px;
+    bottom: 20px;
+    background: red;
+}
+
 .targets_show_one_line_age_none {
     position: relative;
     left: 10px;
@@ -405,6 +416,7 @@ input[type=text]:not(.browser-default) {
     position: relative;
     bottom: 28px;
     margin: 0 25px;
+    color: black;
 }
 
 .targets_show_age {
@@ -531,7 +543,19 @@ input[type=text]:not(.browser-default) {
     text-align: center;
     padding: 7px 20px;
     margin: 0;
-    font-size: 20px;
+    font-size: 26px;
+}
+
+.targets_show_box_calculate_description span {
+    font-size: 27px;
+}
+
+.favorability_rating p {
+    font-size: 28px;
+}
+
+.progress_rating p {
+    font-size: 28px;
 }
 
 .targets_show_box_calculate_description.make_girlfriend {
@@ -552,35 +576,37 @@ input[type=text]:not(.browser-default) {
 
 .targets_show_box_div_description span:nth-child(1) {
     display: inline-block;
-    width: 115px;
-    height: 30px;
+    width: 133px;
+    height: 45px;
     position: relative;
-    right: 21px;
+    right: 19px;
     padding-top: 20px;
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
+    color: black
 }
 
 .targets_show_box_div_description span:nth-child(2) {
     display: inline-block;
-    width: 45px;
-    height: 30px;
+    width: 30px;
+    height: 45px;
     position: relative;
-    right: 5px;
+    right: 10px;
     padding-top: 20px;
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
+    color: black;
 }
 
 .targets_show_box_div_description span:nth-child(3) {
     display: inline-block;
-    width: 110px;
-    height: 30px;
+    width: 133px;
+    height: 45px;
     position: relative;
-    left: 18px;
+    left: 14px;
     padding-top: 20px;
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .targets_show_date_count_span.make_girlfriend {
@@ -596,25 +622,26 @@ input[type=text]:not(.browser-default) {
 }
 
 .targets_show_box_span_date_body_large {
-    font-size: 19px !important;
+    width: 138px !important;
+    font-size: 23px !important;
     position: relative;
-    left: 1px;
+    left: 6px;
     padding: 20px 0 !important;
 }
 
 .targets_show_box_span_date_large {
-    font-size: 19px !important;
+    font-size: 23px !important;
     position: relative;
-    right: 12px !important;
+    right: 20px !important;
     margin-left: 29px !important;
     padding: 20px 0 !important;
 }
 
 .targets_show_box_span_date_plan_large {
-    font-size: 19px !important;
-    width: 125px !important;
+    font-size: 23px !important;
+    width: 153px !important;
     position: relative;
-    left: 3px !important;
+    left: 0px !important;
     padding: 20px 0 !important;
 }
 
@@ -692,6 +719,7 @@ input[type=text]:not(.browser-default) {
     border-radius: 10px;/*角の丸み*/
     font-size: 20px;
     padding: 17px;
+    margin-bottom: 5px;
     text-align: center;
     color: #FFF;
     font-weight: bold;
@@ -808,6 +836,17 @@ input[type=text]:not(.browser-default) {
     border: none;
     text-transform: uppercase;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.targets_date_all_success_end {
+    font-size: 27px;
+    margin-top: 40px;
+    color: rgb(0, 241, 0);
+}
+
+.targets_date_end {
+    font-size: 27px;
+    margin-top: 40px;
 }
 
 .targets_date_schedule {

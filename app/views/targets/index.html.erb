@@ -21,27 +21,31 @@
         <% end %>
       </div>
 
-      <a class="targets_index_each_target_button" id="targets_index_each_target_th">
-        <span>アプリ</span>
-        <span class="targets_name_span">名前</span>
-        <span>目的</span>
-        <span>好感度</span>
-        <span>進展度</span>
-      </a>
-      <% @targets_pagination.each do |target| %>
-        <%= link_to target_path(target.id), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
-            <% if target.app.id == 3 %>
-              <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>" class="app-image-tapple">
-            <% else %>
-              <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>">
-            <% end %>
-            <span><%= target.name %></span>
-            <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
-            <span><%= target.favorability_rating %>％</span>
-            <span><%= target.progress_rating %>％</span>
+      <% if @targets.size >= 1 %>
+        <a class="targets_index_each_target_button" id="targets_index_each_target_th">
+          <span>アプリ</span>
+          <span class="targets_name_span">名前</span>
+          <span>目的</span>
+          <span>好感度</span>
+          <span>進展度</span>
+        </a>
+        <% @targets_pagination.each do |target| %>
+          <%= link_to target_path(target.id), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+              <% if target.app.id == 3 %>
+                <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>" class="app-image-tapple">
+              <% else %>
+                <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>">
+              <% end %>
+              <span><%= target.name %></span>
+              <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
+              <span><%= target.favorability_rating %>％</span>
+              <span><%= target.progress_rating %>％</span>
+          <% end %>
         <% end %>
+        <%= paginate @targets_pagination %>
+      <% else %>
+        <h5>登録されている女性はいません。</h5>
       <% end %>
-      <%= paginate @targets_pagination %>
     </div>
   </div>
 </div>

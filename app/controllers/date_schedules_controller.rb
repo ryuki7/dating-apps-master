@@ -10,7 +10,13 @@ class DateSchedulesController < ApplicationController
     @date_schedule = DateSchedule.find_by(id: params[:id], user_id: @user.id)
     @target = @date_schedule.target
     @date_schedule.destroy!
-    redirect_to "/targets/#{@target.id}#targets_date_registration_fragment"
+    if params[:referer] == "date_result"
+      redirect_to date_results_path
+    elsif params[:referer] == "date_result_unreported_passed"
+      redirect_to delete_unreported_passed_date_results_path
+    else
+      redirect_to "/targets/#{@target.id}#targets_date_registration_fragment"
+    end
   end
 
   private

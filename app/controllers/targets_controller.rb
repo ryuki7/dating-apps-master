@@ -58,11 +58,30 @@ class TargetsController < ApplicationController
     @date_plans = @purpose.date_plans
 
     
-    @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, report_confirmation: 1)
+    @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, user_id: @user.id, report_confirmation: 1)
     @date_schedules_reported_last_except = @date_schedules_reported_all.first(@date_schedules_reported_all.size - 1)
     @date_schedule_reported_last = @date_schedules_reported_all.last
-    @date_schedule_unreported = DateSchedule.find_by(target_id: @target.id, report_confirmation: 0)
+    if !@date_schedule_reported_last.blank?
+      @last_date_schedule_tasks_success = DateScheduleTask.where(date_schedule_id: @date_schedule_reported_last.id, result: "成功")
+      @last_success_task_id_array = @last_date_schedule_tasks_success.map {|last_date_schedule_task| last_date_schedule_task.task.id}
+
+      # Dateクラスのフォーマットに変換
+      @date_schedule_reported_last_appointment = appointment_date_class_create(@date_schedule_reported_last.appointment)
+      @recommend_date_schedule_appointment_5days_since = @date_schedule_reported_last_appointment.days_since(5).strftime("%m/%d")
+      @recommend_date_schedule_appointment_14days_since = @date_schedule_reported_last_appointment.days_since(14).strftime("%m/%d")
+    end
+
+    @date_schedule_unreported = DateSchedule.find_by(target_id: @target.id, user_id: @user.id, report_confirmation: 0)
+
+    # Dateクラスのフォーマットに変換
     @date_schedule_unreported_appointment = appointment_date_class_create(@date_schedule_unreported.appointment) if @date_schedule_unreported
+
+    @date_schedule_tasks_success_all = DateScheduleTask.where(date_schedule_id: @date_schedules_reported_all.map(&:id), result: "成功")
+    if !@date_schedule_tasks_success_all.blank?
+      @success_task_id_array = @date_schedule_tasks_success_all.map {|date_schedule_task| date_schedule_task.task.id}
+    else
+      @success_task_id_array = []
+    end
   end
 
   def edit

@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Or with jQuery
 
   $(document).ready(function(){
-    $('.datepicker').datepicker();
+      $('.datepicker').datepicker();
   });
 
   document.addEventListener('DOMContentLoaded', () => {
