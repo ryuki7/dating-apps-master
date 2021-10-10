@@ -5,4 +5,5 @@ class User < ApplicationRecord
 
   validates :line_id, presence: true, uniqueness: true
   validates :role, presence: true
+  validates :popular_rating, presence: true
 end

@@ -7,5 +7,6 @@ class DatePlan < ApplicationRecord
   validates :period, presence: true
   validates :detail_information, presence: true
   validates :description, presence: true
-  validates :level, presence: true
+  validates :date_count_level, presence: true
+  validates :popular_rating_level, presence: true
 end

@@ -71,7 +71,8 @@ ActiveRecord::Schema.define(version: 2021_10_03_134121) do
     t.string "period", null: false
     t.text "detail_information", null: false
     t.text "description", null: false
-    t.integer "level", null: false
+    t.integer "date_count_level", null: false
+    t.integer "popular_rating_level", null: false
     t.bigint "purpose_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -180,6 +181,7 @@ ActiveRecord::Schema.define(version: 2021_10_03_134121) do
     t.string "name"
     t.string "line_id", null: false
     t.integer "role", default: 0, null: false
+    t.integer "popular_rating", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["line_id"], name: "index_users_on_line_id", unique: true

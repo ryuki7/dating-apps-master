@@ -74,6 +74,10 @@ class DateResultsController < ApplicationController
 
       favorability_rating_create(@date_count_integer, @date_task_point_total, @task_1_success, @task_2_success)
       progress_rating_create(@date_count_integer, @date_task_point_total, @task_1_success, @task_2_success)
+
+      @targets = Target.where(user_id: @user.id)
+      date_schedules_reported_all = DateSchedule.where(user_id: @user.id, report_confirmation: 1)
+      popular_rating_create(@targets, date_schedules_reported_all)
     end
     redirect_to date_results_path
   end
@@ -137,6 +141,22 @@ class DateResultsController < ApplicationController
   end
 
   private
+
+  def popular_rating_create(targets_all, date_schedules_reported_all)
+    @targets_all_favorability_rating_and_progress_rating = 0
+    targets_all.each do |target|
+        @targets_all_favorability_rating_and_progress_rating = @targets_all_favorability_rating_and_progress_rating + target.favorability_rating + target.progress_rating
+    end
+    @targets_all_favorability_rating_and_progress_rating_3_division = @targets_all_favorability_rating_and_progress_rating / 3
+
+    # デートした「女性の人数」(同じ女性と複数回デートしても、1回としてカウントする)
+    date_schedule_reported_target_id_array_duplicate = date_schedules_reported_all.map {|date_schedule_reported| date_schedule_reported.target.id}
+    date_schedule_reported_target_id_array_duplicate_none = date_schedule_reported_target_id_array_duplicate.uniq
+
+    popular_rating = @targets_all_favorability_rating_and_progress_rating_3_division / date_schedule_reported_target_id_array_duplicate_none.size + date_schedule_reported_target_id_array_duplicate_none.size
+    @user.popular_rating = popular_rating
+    @user.save!
+  end
 
   def favorability_rating_create(date_count, date_task_point_total, task_1_success, task_2_success)
     @favorability_rating = 0
