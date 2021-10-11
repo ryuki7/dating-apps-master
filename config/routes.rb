@@ -24,11 +24,32 @@ Rails.application.routes.draw do
     member do
       get 'step'
     end
+    collection do
+      get 'date_plan_detail_redirect'
+    end
   end
 
   resources :date_plans, only: %i[index show] do
     member do
       get 'detail'
+    end
+  end
+
+  resources :targets, only: %i[new create index show edit destroy] do
+    member do
+      post 'original_update'
+    end
+  end
+
+  resources :date_results, only: %i[new create index show] do
+    collection do
+      get 'delete_unreported_passed'
+    end
+  end
+
+  resources :date_schedules, only: %i[destroy] do
+    member do
+      post 'original_create'
     end
   end
 end

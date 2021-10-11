@@ -28,6 +28,8 @@ gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+
 group :production, :staging do
   gem 'unicorn', '6.0.0'
 end

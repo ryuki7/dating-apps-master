@@ -67,12 +67,17 @@
                 <% end %>
               <% end %>
             </p>
-            <select id="date_plans_select_box">
-              <% @date_plans.each do |date_plan| %>
-                <option value="<%= "date_plans/#{date_plan.id}/detail" %>"><%= date_plan.name %></option>
-              <% end %>
-            </select>
-            <%= link_to '行動パターン攻略説明', detail_date_plan_path(1), class: "date_plans_button #{@purpose_class_name}", id: "date_plans_select_box_link" %>
+            <form action="/app_strategies/date_plan_detail_redirect" name="date_plan_detail_redirect_form">
+              <select name="date_plan_id" class="selmodaltest" id="date_plan_detail_redirect_select_element">
+                <option value="0">デートプランを選択してください</option>
+                <% @date_plans.each do |date_plan| %>
+                  <option value="<%= date_plan.id %>"><%= date_plan.name %></option>
+                <% end %>
+              </select>
+              <button type="button" class="selModalButton" id="date_plan_detail_redirect_select_button">デートプランを選択してください</button>
+              <!-- submit ボタン -->
+              <button name="date_plan_detail_redirect_submit" type="button" class="<%= "date_plans_button #{@purpose_class_name}" %>" id="date_plan_detail_redirect_submit_button">行動パターン攻略説明</button>
+            </form>
           <% else %> <!-- 「6.デートプラン・スポットを探す」と「8.デート当日(デート別)」以外のステップ -->
  
             <!-- 黒字の説明文(step.description) -->

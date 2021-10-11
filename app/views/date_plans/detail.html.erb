@@ -29,7 +29,7 @@
         </p>
       </div>
       <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
-        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>">アクション</div>
+        <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>" id="date_plans_detail_action_fragment">アクション</div>
         <p class="<%= "date_plans_body-detail" %>">
           <% @description_split_array.each.with_index(1) do |description, i| %>
             <%= description %>

@@ -1,0 +1,132 @@
+<div id="index-banner" class="parallax-container layout-targets-registration">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_registration">
+      <h3 class="center" id="targets_title"><span>女性登録</span></h3>
+
+      <form action="/targets" method="post" name="targets_registration_form">
+        <!-- CSRFトークンを渡す -->
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <!-- アプリセレクト -->
+        <select name="app_id" class="selmodaltest" id="app_select_element">
+            <option value="0">アプリを選択してください</option>
+            <% @apps.each.with_index(1) do |app, i| %>
+              <option data-image="<%= "/app_icon_images/#{app.icon_image}" %>" value="<%= i %>"><%= app.name %></option>
+            <% end %>
+        </select>
+        <button type="button" class="selModalButton" id="app_select_button">アプリを選択してください</button>
+
+        <!-- 容姿セレクト -->
+        <select name="appearance_id" class="selmodaltest" id="appearance_select_element">
+            <option value="0">容姿を選択してください</option>
+            <% @appearances.each.with_index(1) do |appearance, i| %>
+              <option data-image="<%= "/appearance_images/#{appearance.image}" %>" value="<%= i %>"><%= appearance.name %></option>
+            <% end %>
+        </select>
+        <button type="button" class="selModalButton" id="appearance_select_button">容姿を選択してください</button>
+
+        <!-- 名前セレクト -->
+        <div class="row" id="row_input_select">
+            <div class="input-field col s12">
+            <input name="name" id="name_select" type="text" class="validate" data-length="4">
+            <label for="name_select">名前を入力してください(4文字以下)</label>
+            </div>
+        </div>
+
+        <!-- 年齢セレクト -->
+        <select name="age" class="selmodaltest">
+            <option value="0">年齢を選択してください</option>
+            <% @ages.each do |age| %>
+              <option value="<%= age %>"><%= age %></option>
+            <% end %>
+        </select>
+
+        <!-- 目的セレクト -->
+        <select name="purpose_id" class="selmodaltest" id="purpose_select_element">
+            <option value="0">目的を選択してください</option>
+            <% @purposes.each.with_index(1) do |purpose, i| %>
+              <option value="<%= i %>"><%= purpose.name %></option>
+            <% end %>
+        </select>
+        <button type="button" class="selModalButton" id="purpose_select_button">目的を選択してください</button>
+
+        <!-- 職業セレクト -->
+        <select name="job_id" class="selmodaltest">
+            <option value="1">職業を選択してください</option>
+            <% @jobs.each.with_index(2) do |job, i| %>
+              <option value="<%= i %>"><%= job.name %></option>
+            <% end %>
+        </select>
+
+        <!-- 身長セレクト -->
+        <select name="height" class="selmodaltest">
+            <option value="0">身長を選択してください</option>
+            <% @heights.each do |height| %>
+              <option value="<%= height %>"><%= height %></option>
+            <% end %>
+        </select>
+
+        <!-- 趣味セレクト -->
+        <div class="row" id="row_input_select">
+            <div class="input-field col s12">
+            <input name="hobby" id="hobby_select" type="text" class="validate">
+            <label for="hobby_select">趣味を入力してください</label>
+            </div>
+        </div>
+
+        <!-- 都道府県セレクト -->
+        <select name="prefecture" class="selmodaltest" id="prefectures_select_element">
+            <option value="0">都道府県を選択してください</option>
+            <% @ken_name_hash_array.each do |ken_name_hash| %>
+              <option value="<%= ken_name_hash["ken_name"] %>"><%= ken_name_hash["ken_name"] %></option>
+            <% end %>
+        </select>
+        <button type="button" class="selModalButton" id="prefectures_select_button">都道府県を選択してください</button>
+
+        <!-- 市区町村セレクト -->
+        <button type="button" class="selModalButton" id="city_select_start_button">市区町村を入力する</button>
+        <select name="city" class="selmodaltest" id="city_select_element">
+          <option value="0">市区町村を選択してください</option>
+        </select>
+        <select id="city_select_element_fake">
+            <option value="0">市区町村を選択してください</option>
+            <% (1..47).each do |number| %>
+              <% eval("@each_city_name_array_#{number}").each do |city_name| %>
+                <option class="hidden" id="<%= eval("@prefecture_#{number}") %>オプション"><%= city_name %></option>
+              <% end %>
+            <% end %>
+        </select>
+
+        <!-- 市区町村セレクトボタン(button)を予め作成 -->
+        <button type="button" class="selModalButton hidden" id="city_select_button">市区町村を選択してください</button>
+
+
+        <!-- 性格セレクト -->
+        <select name="personality_id" class="selmodaltest">
+            <option value="1">性格を選択してください</option>
+            <% @personalities.each.with_index(2) do |personalitie, i| %>
+              <option value="<%= i %>"><%= personalitie.name %></option>
+            <% end %>
+        </select>
+
+        <!-- 彼氏いない歴セレクト -->
+        <div class="row" id="row_input_select">
+            <div class="input-field col s12">
+            <input name="single_history" id="single_history_select" type="text" class="validate">
+            <label for="single_history_select">彼氏いない歴を入力してください</label>
+            </div>
+        </div>
+
+        <!-- 好きな食べ物セレクト -->
+        <div class="row" id="row_input_select">
+            <div class="input-field col s12">
+            <input name="favorite_food" id="favorite_food_select" type="text" class="validate">
+            <label for="favorite_food_select">好きな食べ物を入力してください</label>
+            </div>
+        </div>
+        <button name="targets_registration_submit" type="button" id="targets_registration_submit_button">登録する</button>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -2,7 +2,9 @@ class AppDiagnosticsController < ApplicationController
   before_action :set_question, only: %i[show]
   before_action :set_answer, only: %i[show]
 
-  def index; end
+  def index
+    @apps = App.all
+  end
 
   def show
     @question_description_split_array = @question.description.split('.')
@@ -38,6 +40,10 @@ class AppDiagnosticsController < ApplicationController
   def result
     # idが若い順に取得する。(ランキング(順位)が高い順。)
     @app_diagnostics = AppDiagnostic.where(user_id: session[:user_id])
+
+    if @app_diagnostics.blank?
+      redirect_to app_diagnostics_path
+    end
   end
 
   private

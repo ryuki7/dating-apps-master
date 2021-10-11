@@ -1,0 +1,52 @@
+<div id="index-banner" class="parallax-container layout_date_result_report_show">
+  <div class="section no-pad-bot">
+    <div class="container" id="date_result">
+      <h3 class="center" id="date_result_title"><span>デート結果履歴</span></h3>
+      <div class="date_result_targets_profile">
+        <% if @app.id == 3 %>
+          <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="date_result_app_icon_image app-image-tapple">
+        <% else %>
+          <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="date_result_app_icon_image">
+        <% end %>
+
+        <% if @target.age == 0 %>
+          <div class="targets_show_one_line_age_none">
+            <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+            <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
+            <span class="targets_show_age">年齢なし</span>
+          </div>
+        <% else %>
+          <div class="targets_show_one_line_age_present">
+            <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+            <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
+            <span class="targets_show_age"><%= @target.age %>歳</span>
+            <% if @success_task_id_array.sort.uniq  == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] && @date_schedules_reported_all.last.id == @date_schedule.id && @last_success_task_id_array.include?(1) && @last_success_task_id_array.include?(2) %>  
+              <p class="date_schedule_tasks_all_success">コンプリート!</p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <span class="date_result_schedule_date_count"><%= "#{@date_count}回目のデート" %></span>
+        <%= button_to '削除', date_schedule_path(@date_schedule.id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
+      </div>
+      <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule.appointment) %></span>
+      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule.date_plan.name %></span>
+
+        <% @tasks.each do |task| %>
+          <% date_schedule_task = DateScheduleTask.find_by(task_id: task.id, date_schedule_id: @date_schedule.id) %>
+          <% if !date_schedule_task.blank? %>
+            <div class="<%= "date_result_task_wrapper wrapper_#{task.id} margin" %>">
+              <p class="<%= "date_result_history_task_name task_name_#{task.id}" %>"><%= task.name %></p>
+              <p class="date_result_history_task_result" id="<%= "history_task_result_#{task.id}" %>"><%= date_schedule_task.result %></p>
+            </div>
+          <% else %>
+            <div class="<%= "date_result_task_wrapper wrapper_#{task.id} margin" %>" style="opacity: 0.3;">
+              <p class="<%= "date_result_history_task_name task_name_#{task.id}" %>"><%= task.name %></p>
+              <p class="date_result_history_task_result" id="<%= "history_task_result_#{task.id}" %>" style="color: rgb(0, 241, 0);">成功済</p>
+            </div>
+          <% end %>
+        <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.datepicker-day-button {
+    display: inline-block;
+    width: 45px;
+}
+
+.datepicker-date-display {
+    background-color: #ffdff7;
+}
+
+.datepicker-table td.is-today {
+    color: white;
+}
+
+.datepicker-cancel {
+    color: #ffa4e8;
+}
+
+.datepicker-table td.is-selected{
+    background-color: #ffdff7;
+}
+
+.dropdown-content li>span {
+    color: #ffa4e8;
+}
+
+.datepicker_wrapper input[type=text]:not(.browser-default) {
+    height: 3rem !important;
+    border-bottom: 2px solid #ffa4e8 !important;
+}
+
+.datepicker_wrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+

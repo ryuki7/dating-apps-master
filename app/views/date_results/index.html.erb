@@ -1,0 +1,61 @@
+<div id="index-banner" class="parallax-container layout_date_result_history_index">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_index">
+      <h3 class="center" id="targets_title"><span>デート結果履歴一覧</span></h3>
+      <div class="targets_index_total_count_wrapper">
+        <p class="targets_index_total_count_title">デート結果未報告</p>
+        <p class="targets_index_total_count_number date_results_unreported_passed_count"><span><%= @date_schedules_unreported_passed_array.size %></span>件</p>
+      </div>
+      <div class="targets_index_total_count_wrapper">
+        <p class="targets_index_total_count_title">デート結果履歴</p>
+        <p class="targets_index_total_count_number date_result_history"><span><%= @date_schedules_reported_all.size %></span>件</p>
+      </div>
+
+      <!-- デート結果未報告(デート日を過ぎた「未報告なデート」のみ) ※ 最大3件まで表示。 -->
+      <% if !@date_schedules_unreported_passed_array.blank? %>
+        <div class="date_results_unreported_passed">
+          <div class="box26">
+            <span class="box-title">未報告</span>
+            <% @date_schedules_unreported_passed_array.each do |date_schedule_unreported_passed| %>
+                <%= link_to new_date_result_path(target_id: date_schedule_unreported_passed.target.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
+                    <span><%= date_schedule_appointment_string_operation(date_schedule_unreported_passed.appointment) %></span>
+                    <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.id) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
+                    <% if date_schedule_unreported_passed.target.app.id == 3 %>
+                    <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>" class="app-image-tapple">
+                    <% else %>
+                    <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>">
+                    <% end %>
+                    <span><%= date_schedule_unreported_passed.target.name %></span>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- デート結果履歴 -->
+      <% if @date_schedules_reported_all.size >= 1 %>
+      <a class="date_results_index_each_button" id="date_results_index_each_th">
+        <span>日付</span>
+        <span>デートプラン</span>
+        <span>アプリ</span>
+        <span class="date_results_target_name_span">名前</span>
+      </a>
+      <% @date_schedules_reported_pagination.each do |date_schedule_reported| %>
+        <%= link_to date_result_path(date_schedule_reported.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
+            <span><%= date_schedule_appointment_string_operation(date_schedule_reported.appointment) %></span>
+            <span class="<%= purpose_color(date_schedule_reported.date_plan.purpose.id) %>"><%= date_schedule_reported.date_plan.name %></span>
+            <% if date_schedule_reported.target.app.id == 3 %>
+              <img src="<%= "/app_icon_images/#{date_schedule_reported.target.app.icon_image}" %>" class="app-image-tapple">
+            <% else %>
+              <img src="<%= "/app_icon_images/#{date_schedule_reported.target.app.icon_image}" %>">
+            <% end %>
+            <span><%= date_schedule_reported.target.name %></span>
+        <% end %>
+      <% end %>
+      <%= paginate @date_schedules_reported_pagination %>
+      <% else %>
+        <h5 style="margin-top: 40px;">デート結果履歴はありません。</h5>
+      <% end %>
+    </div>
+  </div>
+</div>

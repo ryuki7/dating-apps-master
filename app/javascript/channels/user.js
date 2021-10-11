@@ -1,3 +1,11 @@
+window.onload = function() {
+  // スクロールを禁止にする関数
+  function disableScroll(event) {
+    event.preventDefault();
+  }
+  document.addEventListener('touchmove', disableScroll, { passive: false });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const myLiffId = "1656234930-4MZoRoZd";
   initializeLiffOrDie(myLiffId);

@@ -1,0 +1,1002 @@
+/*--------------------------------------------------------------------------*
+ *  
+ *  selmodal.js
+ *  
+ *  MIT-style license. 
+ *  
+ *  2019 nocho
+ *  http://kinocolog.com
+ *  
+ *--------------------------------------------------------------------------*/
+
+var city_select_button_create_OK = 0;
+var city_input_error_message_create = "not_exist";
+
+// edit用
+var targets_edit_sign_input = document.getElementById("targets_edit_sign_input");
+var targets_edit_discrimination = "start";
+var app_start = "ok";
+var appearance_start = "ok";
+var purpose_start = "ok";
+var age_start = "ok";
+var job_start = "ok";
+var height_start = "ok";
+var prefecture_start = "ok";
+var city_start = "ok";
+var personality_start = "ok";
+
+var city_select_start_button_click_discrimination = "ok";
+
+//
+
+
+$(function(){
+	//後者のセレクトをプラグインに適用
+	$('.selmodaltest').selModal();
+	//すべてのセレクトボックスに同じ処理する場合は下記のように書く
+	//$('select').selModal();
+});
+
+
+const prefectures_select_button = document.getElementById("prefectures_select_button");
+const city_select_start_button = document.getElementById("city_select_start_button");
+var city_select_button = document.getElementById("city_select_button");
+var city_select_button_fake = null;
+const city_select_element = document.getElementById("city_select_element");
+const city_select_element_fake = document.getElementById("city_select_element_fake");
+if (city_select_element_fake) {
+	var city_select_element_children = city_select_element_fake.children;
+	var city_select_element_option_value_0 = city_select_element_fake.firstElementChild;
+}
+const name_select = document.getElementById("name_select");
+
+
+// リセットボタン(「市を入力するボタン」をクリック後、再度「都道府県ボタン」をクリックすると、初期状態に戻す。)
+if (prefectures_select_button) {
+	prefectures_select_button.addEventListener('click', function () {
+
+		// エラーメッセージ削除(都道府県を選択していない時に、「市区町村を入力する」をクリックしたエラー)
+		var targets_registration_city_input_error_message = document.getElementById("targets_registration_city_input_error_message");
+		if (targets_registration_city_input_error_message) {
+			targets_registration_city_input_error_message.remove();
+			city_input_error_message_create = "not_exist";
+		}
+
+		const city_select_button_fake_delete = document.getElementById("hidden");
+		if (city_select_button_fake_delete) {
+			$("#city_select_element").empty();
+			city_select_element.appendChild(city_select_element_option_value_0);
+			city_select_start_button.classList.remove('hidden');
+			city_select_button.remove();
+			city_select_button = document.createElement('button');
+			city_select_button.textContent = '市区町村を選択してください';
+			city_select_button.id = 'city_select_button';
+			city_select_button.type = 'button';
+			city_select_button.classList.add('selModalButton');
+			city_select_button.classList.add('hidden');
+			city_select_element.after(city_select_button);
+			city_select_button_fake_delete.remove();
+		}
+	});
+}
+
+
+// 「市を入力するボタン」のクリック(都道府県を選択してから「市を入力するボタン」をクリックすると、市を選択出来るようになる。)
+if (prefectures_select_button && city_select_start_button) {
+	city_select_start_button.addEventListener('click', function () {
+		if (prefectures_select_button.textContent == '都道府県を選択してください') {
+			const city_select_start_button = document.getElementById("city_select_start_button");
+
+			// エラーメッセージ生成(都道府県を選択していない時に、「市区町村を入力する」をクリックしたエラー)
+			if (city_input_error_message_create == "not_exist") {
+				const error_message = document.createElement('p');
+				error_message.textContent = '「都道府県」を選択して下さい。';
+				error_message.id = 'targets_registration_city_input_error_message';
+				city_select_start_button.before(error_message);
+				city_input_error_message_create = "exist";
+			}
+		}else{
+			const city_select_button_fake_delete = document.getElementById("hidden");
+			if (!city_select_button_fake_delete) {
+				city_select_start_button.classList.add('hidden');
+				city_select_button.classList.remove('hidden');
+
+				// 市のセレクトボタン(button)のフェイク
+				city_select_button_fake = document.createElement('button');
+				city_select_button_fake.textContent = 'フェイク';
+				city_select_button_fake.id = 'hidden';
+				city_select_button_fake.type = 'button';
+				city_select_start_button.after(city_select_button_fake);
+
+				// 「市」selectタグのoption選択データを追加(子要素)
+				const city_select_option_elements_array = document.querySelectorAll(`#${prefectures_select_button.textContent}オプション`);
+				var each_city_name_array = [];
+				for(var i = 0; i < city_select_option_elements_array.length; i++) {
+					each_city_name_array.push(city_select_option_elements_array[i].textContent); 
+				}
+
+				for(var i = 0; i < each_city_name_array.length; i++) {
+					let city_select_element_child_option_create = document.createElement('option');
+					city_select_element_child_option_create.textContent = each_city_name_array[i];
+					city_select_element_child_option_create.value = each_city_name_array[i];
+					city_select_element.appendChild(city_select_element_child_option_create);
+				}
+
+				city_select_button_create_OK = 1;
+
+				//後者のセレクトをプラグインに適用
+				$('#city_select_element').selModal();
+				//すべてのセレクトボックスに同じ処理する場合は下記のように書く
+				//$('select').selModal();
+				(function($){
+			
+					$.fn.selModal = function(){
+				
+						var SEL_PARENT = $(this);
+						
+						SEL_PARENT.each(function(i){
+							
+							var select_this = $(this);
+						
+							var sel_name_attr = $(this).attr('name');
+							var selected = $(this).prop('selectedIndex');
+							var selected_name; 
+							var modal_html = '';
+							var button_html = '';
+							var sel_default_text = '選択してください。';
+				
+							if (select_this[0].id == "city_select_element" && city_select_button_create_OK == 0) {
+				
+							}else{
+							
+								$('[data-selmodal="' + sel_name_attr + '"]').remove();
+								$('[data-selmodalbtn="' + sel_name_attr + '"]').remove();
+								
+								var aryChild = $(this).children();
+								
+								modal_html += '<div class="selModal" data-selmodal="' + sel_name_attr + '">';
+								modal_html += '<div class="selModalOverlay selModalClose"></div>';
+								modal_html += '<div class="selModalInner">';
+								modal_html += '<div class="selModalHeader">';
+								modal_html += '<div class="selModalCloseIcon selModalClose"><span></span></div>';
+								modal_html += '</div>';
+									
+								modal_html += '<div class="selModalList">';
+								modal_html += '<ul>';
+								for(var i = 0; i < aryChild.length; i++){
+									var img_div = '';
+									if(aryChild.eq(i).attr('data-image')){
+										if (i == 3) {
+											img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '" class="app-image-tapple-select">';
+										} else {
+											img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '">';
+										}
+									}
+
+									// app
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && app_start == "ok" && select_this[0].name == "app_id") {
+										const targets_edit_app = document.getElementById("targets_edit_app");
+										selected = targets_edit_app.textContent;
+										app_start = "no";
+									}
+
+									// appearance
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && appearance_start == "ok" && select_this[0].name == "appearance_id") {
+										const targets_edit_appearance = document.getElementById("targets_edit_appearance");
+										selected = targets_edit_appearance.textContent;
+										appearance_start = "no";
+									}
+
+									// age
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && age_start == "ok" && select_this[0].name == "age") {
+										const targets_edit_age = document.getElementById("targets_edit_age");
+										selected = targets_edit_age.textContent;
+										age_start = "no";
+									}
+
+									// purpose
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && purpose_start == "ok" && select_this[0].name == "purpose_id") {
+										const targets_edit_purpose = document.getElementById("targets_edit_purpose");
+										selected = targets_edit_purpose.textContent;
+										purpose_start = "no";
+									}
+
+									// job
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && job_start == "ok" && select_this[0].name == "job_id") {
+										const targets_edit_job = document.getElementById("targets_edit_job");
+										selected = targets_edit_job.textContent;
+										job_start = "no";
+									}
+
+									// height
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && height_start == "ok" && select_this[0].name == "height") {
+										const targets_edit_height = document.getElementById("targets_edit_height");
+										selected = targets_edit_height.textContent;
+										height_start = "no";
+									}
+
+									// prefecture
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && prefecture_start == "ok" && select_this[0].name == "prefecture") {
+										const targets_edit_prefecture = document.getElementById("targets_edit_prefecture");
+										prefecture_name = targets_edit_prefecture.textContent;
+										const prefectures_select_element = document.getElementById("prefectures_select_element");
+										const prefecture_option_array = prefectures_select_element.children;
+										for(let i = 0; i < prefecture_option_array.length; i++) {
+											if (prefecture_name == prefecture_option_array[i].textContent) {
+												selected = i;
+											}
+										}
+										prefecture_start = "no";
+									}
+
+									// city
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && city_start == "ok" && select_this[0].name == "city") {
+										const targets_edit_city = document.getElementById("targets_edit_city");
+										city_name = targets_edit_city.textContent;
+
+										// "{県名}オプション"
+										const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
+										prefecture_name_option_name = targets_edit_prefecture_city.textContent;
+
+										if (prefecture_name_option_name !== "0オプション") {
+											const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+											for(let i = 0; i < city_option_array.length; i++) {
+												if (city_name == city_option_array[i].textContent) {
+													selected = i + 1;
+												}
+											}
+										}
+										city_start = "no";
+									}
+
+									// personality
+									if (targets_edit_sign_input && targets_edit_discrimination == "start" && personality_start == "ok" && select_this[0].name == "personality_id") {
+										const targets_edit_personality = document.getElementById("targets_edit_personality");
+										selected = targets_edit_personality.textContent;
+										personality_start = "no";
+									}
+
+									if(selected != i){
+										modal_html += '<li class="selModalClose" id="' + aryChild.eq(i).attr('value') + '" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';	
+									}else{
+										modal_html += '<li class="selected selModalClose" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';
+										selected_name = aryChild.eq(i).text();
+									}
+								}
+
+								targets_edit_discrimination == "end"
+
+								modal_html += '</ul>';
+								modal_html += '</div>';
+								modal_html += '</div>';	
+								
+								if(selected_name === undefined){
+									button_html = '<button type="button" class="selModalButton" data-selmodalbtn="' + sel_name_attr + '">' + sel_default_text + '</button>';
+								}else{
+									if (select_this[0].id == "prefectures_select_element" || select_this[0].id == "city_select_element") {
+										button_html = ''
+									}else{
+										button_html = '<button type="button" class="selModalButton" data-selmodalbtn="' + sel_name_attr + '">' + selected_name + '</button>';
+									}
+								}
+						
+								// 元のセレクトボックスは非表示
+								$(this).hide();
+				
+								//ボタン生成
+								if (select_this[0].id == "prefectures_select_element") {
+									prefectures_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "city_select_element") {
+									city_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "app_select_element") {
+									app_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "appearance_select_element") {
+									appearance_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "purpose_select_element") {
+									purpose_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "date_plan_select_element") {
+									date_plan_select_button_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_1") {
+									task_select_button_1_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_2") {
+									task_select_button_2_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_3") {
+									task_select_button_3_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_4") {
+									task_select_button_4_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_5") {
+									task_select_button_5_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_6") {
+									task_select_button_6_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_7") {
+									task_select_button_7_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_8") {
+									task_select_button_8_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_9") {
+									task_select_button_9_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_10") {
+									task_select_button_10_create(sel_name_attr);
+								}else if (select_this[0].id == "task_select_element_11") {
+									task_select_button_11_create(sel_name_attr);
+								}else if (select_this[0].id == "date_plan_detail_redirect_select_element") {
+									date_plan_detail_redirect_select_button_create(sel_name_attr);
+								}else{
+									$(this).after(button_html);
+								}
+				
+								//モーダルウインドウ生成
+								$('body').append(modal_html);
+								
+								//ボタンクリック
+								$('[data-selmodalbtn="' + sel_name_attr + '"]').click(function(){
+								
+									href = $('[data-selmodal="' + $(this).data('selmodalbtn') + '"]');
+										
+									$(href).show();
+									$('body').addClass('selModalBody');
+										
+									var par_height = $(href).find('.selModalInner').outerHeight();
+									var c_head = $(href).find('.selModalHeader').outerHeight();
+									$(href).find('.selModalList').css('height', (par_height - c_head) + 'px');
+										
+									var pos = 0;
+									var tr = 0;
+									$(href).find('.selModalList ul li').each(function(key, value){
+										if($(value).hasClass('selected')){
+											tr = $(value).outerHeight(true);
+											return false;
+										}else{
+											pos += $(value).outerHeight(true);
+										}
+									});
+										
+									var sh = $(href).find('.selModalList').height();
+									if(sh > 0) pos -= (sh / 2);
+									if(tr > 0) pos += (tr / 2);
+									$(href).find('.selModalList').scrollTop(pos);
+								});
+									
+								$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList').on('touchstart', function(){
+									if($(this).scrollTop() == 0){
+										$(this).scrollTop(1);
+									}
+									var scrollHeight = $(this)[0].scrollHeight;
+									var scrollPosition = $(this).scrollTop() + $(this).height();
+									if(scrollHeight == scrollPosition){
+										$(this).scrollTop(($(this).scrollTop() - 1));
+									}
+								});
+									
+								$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList li').on('touchstart', function(){
+									$(this).addClass('totch');
+								});
+									
+								$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList li').on('touchend', function(){
+									$(this).closest('ul').find('li').removeClass('totch');
+								});
+									
+								//ボタンクリック
+								$('[data-selmodal="' + sel_name_attr + '"]').find('li').click(function(){
+									$(this).closest('ul').find('li').removeClass('selected');
+									$(this).addClass('selected');
+									var hoge = $(this).closest('.selModal').data('selmodal');
+									var this_no = $(this).closest('ul').find('li').index(this);
+									var before_no = $('select[name="' + hoge + '"]').prop("selectedIndex");
+									$('select[name="' + hoge + '"]').prop("selectedIndex", this_no);
+									$('[data-selmodalbtn="' + hoge + '"]').text($(this).text());
+									if(this_no != before_no){
+										select_this.trigger('change');
+									}
+								});
+									
+								$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalClose').click(function(){
+									$(this).parents(".selModal").hide();
+									$('body').removeClass('selModalBody');
+								});
+							}
+						});
+					}
+					
+						$.fn.selModalSetValue = function(value){
+							var sel_dom = $(this);
+							if (sel_dom[0].id == "city_select_element" && city_select_button_create_OK == 0) {
+				
+							}else{
+							sel_dom.val(value);
+							var sel_text = $(sel_dom).find('option:selected').text();
+							var name = sel_dom.attr('name');
+							var sel_list = $('[data-selmodal="' + name + '"]');
+							var sel_btn = $('[data-selmodalbtn="' + name + '"]');
+							
+							sel_list.find('li').removeClass('selected');
+							sel_list.find('[data-value="' + value + '"]').addClass('selected');
+							sel_btn.text(sel_text);
+						}
+					}
+
+				})(jQuery);
+				city_select_button_create_OK = 0;
+
+				
+			}
+		}
+	});
+}
+
+
+(function($){
+	
+	$.fn.selModal = function(){
+
+		var SEL_PARENT = $(this);
+		
+		SEL_PARENT.each(function(i){
+			
+			var select_this = $(this);
+		 
+			var sel_name_attr = $(this).attr('name');
+			var selected = $(this).prop('selectedIndex');
+			var selected_name; 
+			var modal_html = '';
+			var button_html = '';
+			var sel_default_text = '選択してください。';
+
+			if (select_this[0].id == "city_select_element" && city_select_button_create_OK == 0) {
+
+			}else{
+			
+				$('[data-selmodal="' + sel_name_attr + '"]').remove();
+				$('[data-selmodalbtn="' + sel_name_attr + '"]').remove();
+				
+				var aryChild = $(this).children();
+				
+				modal_html += '<div class="selModal" data-selmodal="' + sel_name_attr + '">';
+				modal_html += '<div class="selModalOverlay selModalClose"></div>';
+				modal_html += '<div class="selModalInner">';
+				modal_html += '<div class="selModalHeader">';
+				modal_html += '<div class="selModalCloseIcon selModalClose"><span></span></div>';
+				modal_html += '</div>';
+					
+				modal_html += '<div class="selModalList">';
+				modal_html += '<ul>';
+				for(var i = 0; i < aryChild.length; i++){
+					var img_div = '';
+					if(aryChild.eq(i).attr('data-image')){
+						if (select_this[0].id == "app_select_element" && i == 3) {
+							img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '" class="app-image-tapple-select">';
+						} else {
+							img_div = '<img src="' + aryChild.eq(i).attr('data-image') + '">';
+						}
+					}
+                    
+					// app
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && app_start == "ok" && select_this[0].name == "app_id") {
+						const targets_edit_app = document.getElementById("targets_edit_app");
+						selected = targets_edit_app.textContent;
+						app_start = "no";
+					}
+
+					// appearance
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && appearance_start == "ok" && select_this[0].name == "appearance_id") {
+						const targets_edit_appearance = document.getElementById("targets_edit_appearance");
+						selected = targets_edit_appearance.textContent;
+						appearance_start = "no";
+					}
+
+					// age
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && age_start == "ok" && select_this[0].name == "age") {
+						const targets_edit_age = document.getElementById("targets_edit_age");
+						selected = targets_edit_age.textContent;
+						age_start = "no";
+					}
+
+					// purpose
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && purpose_start == "ok" && select_this[0].name == "purpose_id") {
+						const targets_edit_purpose = document.getElementById("targets_edit_purpose");
+						selected = targets_edit_purpose.textContent;
+						purpose_start = "no";
+					}
+
+					// job
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && job_start == "ok" && select_this[0].name == "job_id") {
+						const targets_edit_job = document.getElementById("targets_edit_job");
+						selected = targets_edit_job.textContent;
+						job_start = "no";
+					}
+
+					// height
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && height_start == "ok" && select_this[0].name == "height") {
+						const targets_edit_height = document.getElementById("targets_edit_height");
+						selected = targets_edit_height.textContent;
+						height_start = "no";
+					}
+
+					// prefecture
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && prefecture_start == "ok" && select_this[0].name == "prefecture") {
+						const targets_edit_prefecture = document.getElementById("targets_edit_prefecture");
+						prefecture_name = targets_edit_prefecture.textContent;
+						const prefectures_select_element = document.getElementById("prefectures_select_element");
+						const prefecture_option_array = prefectures_select_element.children;
+						for(let i = 0; i < prefecture_option_array.length; i++) {
+							if (prefecture_name == prefecture_option_array[i].textContent) {
+								selected = i;
+							}
+						}
+						prefecture_start = "no";
+					}
+
+					// city
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && city_start == "ok" && select_this[0].name == "city") {
+						const targets_edit_city = document.getElementById("targets_edit_city");
+						city_name = targets_edit_city.textContent;
+
+						// "{県名}オプション"
+						const targets_edit_prefecture_city = document.getElementById("targets_edit_prefecture_city");
+						prefecture_name_option_name = targets_edit_prefecture_city.textContent;
+
+						if (prefecture_name_option_name !== "0オプション") {
+							const city_option_array = document.querySelectorAll(`#${prefecture_name_option_name}`);
+							for(let i = 0; i < city_option_array.length; i++) {
+								if (city_name == city_option_array[i].textContent) {
+									selected = i + 1;
+								}
+							}
+						}
+						city_start = "no";
+					}
+
+					// personality
+					if (targets_edit_sign_input && targets_edit_discrimination == "start" && personality_start == "ok" && select_this[0].name == "personality_id") {
+						const targets_edit_personality = document.getElementById("targets_edit_personality");
+						selected = targets_edit_personality.textContent;
+						personality_start = "no";
+					}
+
+					if(selected != i){
+						modal_html += '<li class="selModalClose" id="' + aryChild.eq(i).attr('value') + '" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';	
+					}else{
+						modal_html += '<li class="selected selModalClose" data-value="' + aryChild.eq(i).attr('value') + '">' + img_div + aryChild.eq(i).text() + '</li>';
+						selected_name = aryChild.eq(i).text();
+					}
+				}
+
+				targets_edit_discrimination == "end"
+
+				modal_html += '</ul>';
+				modal_html += '</div>';
+				modal_html += '</div>';	
+				
+				if(selected_name === undefined){
+					button_html = '<button type="button" class="selModalButton" data-selmodalbtn="' + sel_name_attr + '">' + sel_default_text + '</button>';
+				}else{
+					if (select_this[0].id == "prefectures_select_element" || select_this[0].id == "city_select_element") {
+						button_html = ''
+					}else{
+						button_html = '<button type="button" class="selModalButton" data-selmodalbtn="' + sel_name_attr + '">' + selected_name + '</button>';
+					}
+				}
+		
+				// 元のセレクトボックスは非表示
+				$(this).hide();
+
+				//ボタン生成
+				if (select_this[0].id == "prefectures_select_element") {
+					prefectures_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "city_select_element") {
+					city_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "app_select_element") {
+					app_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "appearance_select_element") {
+					appearance_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "purpose_select_element") {
+					purpose_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "date_plan_select_element") {
+					date_plan_select_button_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_1") {
+					task_select_button_1_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_2") {
+					task_select_button_2_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_3") {
+					task_select_button_3_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_4") {
+					task_select_button_4_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_5") {
+					task_select_button_5_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_6") {
+					task_select_button_6_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_7") {
+					task_select_button_7_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_8") {
+					task_select_button_8_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_9") {
+					task_select_button_9_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_10") {
+					task_select_button_10_create(sel_name_attr);
+				}else if (select_this[0].id == "task_select_element_11") {
+					task_select_button_11_create(sel_name_attr);
+				}else if (select_this[0].id == "date_plan_detail_redirect_select_element") {
+					date_plan_detail_redirect_select_button_create(sel_name_attr);
+				}else{
+					$(this).after(button_html);
+				}
+
+				//モーダルウインドウ生成
+				$('body').append(modal_html);
+				
+				//ボタンクリック
+				$('[data-selmodalbtn="' + sel_name_attr + '"]').click(function(){
+				
+					href = $('[data-selmodal="' + $(this).data('selmodalbtn') + '"]');
+						
+					$(href).show();
+					$('body').addClass('selModalBody');
+						
+					var par_height = $(href).find('.selModalInner').outerHeight();
+					var c_head = $(href).find('.selModalHeader').outerHeight();
+					$(href).find('.selModalList').css('height', (par_height - c_head) + 'px');
+						
+					var pos = 0;
+					var tr = 0;
+					$(href).find('.selModalList ul li').each(function(key, value){
+						if($(value).hasClass('selected')){
+							tr = $(value).outerHeight(true);
+							return false;
+						}else{
+							pos += $(value).outerHeight(true);
+						}
+					});
+						
+					var sh = $(href).find('.selModalList').height();
+					if(sh > 0) pos -= (sh / 2);
+					if(tr > 0) pos += (tr / 2);
+					$(href).find('.selModalList').scrollTop(pos);
+				});
+					
+				$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList').on('touchstart', function(){
+					if($(this).scrollTop() == 0){
+						$(this).scrollTop(1);
+					}
+					var scrollHeight = $(this)[0].scrollHeight;
+					var scrollPosition = $(this).scrollTop() + $(this).height();
+					if(scrollHeight == scrollPosition){
+						$(this).scrollTop(($(this).scrollTop() - 1));
+					}
+				});
+					
+				$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList li').on('touchstart', function(){
+					$(this).addClass('totch');
+				});
+					
+				$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalList li').on('touchend', function(){
+					$(this).closest('ul').find('li').removeClass('totch');
+				});
+					
+				//ボタンクリック
+				$('[data-selmodal="' + sel_name_attr + '"]').find('li').click(function(){
+					$(this).closest('ul').find('li').removeClass('selected');
+					$(this).addClass('selected');
+					var hoge = $(this).closest('.selModal').data('selmodal');
+					var this_no = $(this).closest('ul').find('li').index(this);
+					var before_no = $('select[name="' + hoge + '"]').prop("selectedIndex");
+					$('select[name="' + hoge + '"]').prop("selectedIndex", this_no);
+					$('[data-selmodalbtn="' + hoge + '"]').text($(this).text());
+					if(this_no != before_no){
+						select_this.trigger('change');
+					}
+				});
+					
+				$('[data-selmodal="' + sel_name_attr + '"]').find('.selModalClose').click(function(){
+					$(this).parents(".selModal").hide();
+					$('body').removeClass('selModalBody');
+				});
+			}
+		});
+	}
+	
+		$.fn.selModalSetValue = function(value){
+			var sel_dom = $(this);
+			if (sel_dom[0].id == "city_select_element" && city_select_button_create_OK == 0) {
+
+			}else{
+			sel_dom.val(value);
+			var sel_text = $(sel_dom).find('option:selected').text();
+			var name = sel_dom.attr('name');
+			var sel_list = $('[data-selmodal="' + name + '"]');
+			var sel_btn = $('[data-selmodalbtn="' + name + '"]');
+			
+			sel_list.find('li').removeClass('selected');
+			sel_list.find('[data-value="' + value + '"]').addClass('selected');
+			sel_btn.text(sel_text);
+		}
+	}
+
+})(jQuery);
+
+if (targets_edit_sign_input && city_select_start_button_click_discrimination == "ok" && prefectures_select_button.textContent !== "都道府県を選択してください") {
+	city_select_start_button_click = document.getElementById("city_select_start_button");
+	city_select_start_button_click.click();
+	city_select_start_button_click_discrimination = "no";
+}
+
+
+
+function prefectures_select_button_create(sel_name_attr) {
+		const prefectures_select_button = document.getElementById("prefectures_select_button");
+		if (prefectures_select_button) {
+			prefectures_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+		}
+}
+
+function city_select_button_create(sel_name_attr) {
+	if (city_select_button) {
+		city_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function app_select_button_create(sel_name_attr) {
+	var app_select_button = document.getElementById("app_select_button");
+	if (app_select_button) {
+		app_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function appearance_select_button_create(sel_name_attr) {
+	var appearance_select_button = document.getElementById("appearance_select_button");
+	if (appearance_select_button) {
+		appearance_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function purpose_select_button_create(sel_name_attr) {
+	var purpose_select_button = document.getElementById("purpose_select_button");
+	if (purpose_select_button) {
+		purpose_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function date_plan_select_button_create(sel_name_attr) {
+	var date_plan_select_button = document.getElementById("date_plan_select_button");
+	if (date_plan_select_button) {
+		date_plan_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_1_create(sel_name_attr) {
+	var task_select_button_1 = document.getElementById("task_select_button_1");
+	if (task_select_button_1) {
+		task_select_button_1.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_2_create(sel_name_attr) {
+	var task_select_button_2 = document.getElementById("task_select_button_2");
+	if (task_select_button_2) {
+		task_select_button_2.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_3_create(sel_name_attr) {
+	var task_select_button_3 = document.getElementById("task_select_button_3");
+	if (task_select_button_3) {
+		task_select_button_3.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_4_create(sel_name_attr) {
+	var task_select_button_4 = document.getElementById("task_select_button_4");
+	if (task_select_button_4) {
+		task_select_button_4.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_5_create(sel_name_attr) {
+	var task_select_button_5 = document.getElementById("task_select_button_5");
+	if (task_select_button_5) {
+		task_select_button_5.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_6_create(sel_name_attr) {
+	var task_select_button_6 = document.getElementById("task_select_button_6");
+	if (task_select_button_6) {
+		task_select_button_6.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_7_create(sel_name_attr) {
+	var task_select_button_7 = document.getElementById("task_select_button_7");
+	if (task_select_button_7) {
+		task_select_button_7.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_8_create(sel_name_attr) {
+	var task_select_button_8 = document.getElementById("task_select_button_8");
+	if (task_select_button_8) {
+		task_select_button_8.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_9_create(sel_name_attr) {
+	var task_select_button_9 = document.getElementById("task_select_button_9");
+	if (task_select_button_9) {
+		task_select_button_9.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_10_create(sel_name_attr) {
+	var task_select_button_10 = document.getElementById("task_select_button_10");
+	if (task_select_button_10) {
+		task_select_button_10.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function task_select_button_11_create(sel_name_attr) {
+	var task_select_button_11 = document.getElementById("task_select_button_11");
+	if (task_select_button_11) {
+		task_select_button_11.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+function date_plan_detail_redirect_select_button_create(sel_name_attr) {
+	var date_plan_detail_redirect_select_button = document.getElementById("date_plan_detail_redirect_select_button");
+	if (date_plan_detail_redirect_select_button) {
+		date_plan_detail_redirect_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
+
+// 女性登録 submit
+if (document.targets_registration_form) {
+    document.targets_registration_form.targets_registration_submit.addEventListener('click', function() {
+        beforesubmit_targets_select_check();
+    });
+}
+
+// デート登録 submit
+if (document.date_registration_form) {
+    document.date_registration_form.date_registration_submit.addEventListener('click', function() {
+        beforesubmit_date_registration_select_check();
+    });
+}
+
+// デート結果報告 submit
+if (document.date_result_form) {
+    document.date_result_form.date_result_submit.addEventListener('click', function() {
+        document.date_result_form.submit();
+    });
+}
+
+// デートプラン詳細ページに飛ぶ(遷移元 => ステップページ) submit
+if (document.date_plan_detail_redirect_form) {
+    document.date_plan_detail_redirect_form.date_plan_detail_redirect_submit.addEventListener('click', function() {
+		beforesubmit_date_plan_detail_redirect_select_check();
+    });
+}
+
+
+function beforesubmit_targets_select_check() {
+	const targets_registration_submit_button = document.getElementById("targets_registration_submit_button");
+	const targets_registration_app_error_message = document.getElementById("targets_registration_app_error_message");
+	const targets_registration_appearance_error_message = document.getElementById("targets_registration_appearance_error_message");
+	const targets_registration_name_error_message = document.getElementById("targets_registration_name_error_message");
+	const targets_registration_name_word_count_error_message = document.getElementById("targets_registration_name_word_count_error_message");
+	const targets_registration_purpose_error_message = document.getElementById("targets_registration_purpose_error_message");
+	
+	// バリデーション失敗(アプリ)
+	if (app_select_button.textContent == 'アプリを選択してください' && targets_registration_app_error_message == null) {
+		// エラーメッセージ生成
+		const app_error_message = document.createElement('p');
+		app_error_message.textContent = '「アプリ」は選択必須です。';
+		app_error_message.id = 'targets_registration_app_error_message';
+		targets_registration_submit_button.before(app_error_message);
+    }else if (app_select_button.textContent !== 'アプリを選択してください' && targets_registration_app_error_message !== null) {
+		targets_registration_app_error_message.remove();
+	}
+
+	// バリデーション失敗(容姿)
+	if (appearance_select_button.textContent == '容姿を選択してください' && targets_registration_appearance_error_message == null) {
+		// エラーメッセージ生成
+		const appearance_error_message = document.createElement('p');
+		appearance_error_message.textContent = '「容姿」は選択必須です。';
+		appearance_error_message.id = 'targets_registration_appearance_error_message';
+		targets_registration_submit_button.before(appearance_error_message);
+    }else if (appearance_select_button.textContent !== '容姿を選択してください' && targets_registration_appearance_error_message !== null) {
+		targets_registration_appearance_error_message.remove();
+	}
+
+	// バリデーション失敗(名前未入力)
+	if (!name_select.classList.contains("valid") && !name_select.classList.contains("invalid") && targets_registration_name_error_message == null) {
+		// エラーメッセージ生成
+		const name_error_message = document.createElement('p');
+		name_error_message.textContent = '「名前」は入力必須です。';
+		name_error_message.id = 'targets_registration_name_error_message';
+		targets_registration_submit_button.before(name_error_message);
+    }else if (name_select.classList.contains("valid") && targets_registration_name_error_message !== null) {
+		targets_registration_name_error_message.remove();
+	}else if (name_select.classList.contains("invalid") && targets_registration_name_error_message !== null) {
+		targets_registration_name_error_message.remove();
+	}
+
+	// バリデーション失敗(名前文字数制限) # 4文字まで
+	if (name_select.classList.contains("invalid") && targets_registration_name_word_count_error_message == null) {
+		// エラーメッセージ生成
+		const name_word_count_error_message = document.createElement('p');
+		name_word_count_error_message.textContent = '「名前」は4文字以下にして下さい。';
+		name_word_count_error_message.id = 'targets_registration_name_word_count_error_message';
+		targets_registration_submit_button.before(name_word_count_error_message);
+    }else if (!name_select.classList.contains("invalid") && targets_registration_name_word_count_error_message !== null) {
+		targets_registration_name_word_count_error_message.remove();
+	}
+
+	// バリデーション失敗(目的)
+	if (purpose_select_button.textContent == '目的を選択してください' && targets_registration_purpose_error_message == null) {
+		// エラーメッセージ生成
+		const purpose_error_message = document.createElement('p');
+		purpose_error_message.textContent = '「目的」は選択必須です。';
+		purpose_error_message.id = 'targets_registration_purpose_error_message';
+		targets_registration_submit_button.before(purpose_error_message);
+    }else if (purpose_select_button.textContent !== '目的を選択してください' && targets_registration_purpose_error_message !== null) {
+		targets_registration_purpose_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (app_select_button.textContent !== 'アプリを選択してください' && appearance_select_button.textContent !== '容姿を選択してください' && purpose_select_button.textContent !== '目的を選択してください' && name_select.classList.contains("valid")) {
+        document.targets_registration_form.submit();
+    }
+}
+
+function beforesubmit_date_registration_select_check() {
+	const date_registration_submit_button = document.getElementById("date_registration_submit_button");
+	const date_registration_datepicker_error_message = document.getElementById("date_registration_datepicker_error_message");
+	const date_registration_date_plan_error_message = document.getElementById("date_registration_date_plan_error_message");
+
+	// バリデーション失敗(日付)
+	if (!date_registration_selected_check.classList.contains('ok') && date_registration_datepicker_error_message == null) {
+		// エラーメッセージ生成
+		const datepicker_error_message = document.createElement('p');
+		datepicker_error_message.textContent = '「日付」は選択必須です。';
+		datepicker_error_message.id = 'date_registration_datepicker_error_message';
+		date_registration_submit_button.before(datepicker_error_message);
+	}else if (date_registration_selected_check.classList.contains('ok') && date_registration_datepicker_error_message !== null) {
+		date_registration_datepicker_error_message.remove();
+	}
+
+	// バリデーション失敗(デートプラン)
+	if (date_plan_select_button.textContent == 'デートプランを選択してください' && date_registration_date_plan_error_message == null) {
+		// エラーメッセージ生成
+		const date_plan_error_message = document.createElement('p');
+		date_plan_error_message.textContent = '「デートプラン」は選択必須です。';
+		date_plan_error_message.id = 'date_registration_date_plan_error_message';
+		date_registration_submit_button.before(date_plan_error_message);
+    }else if (date_plan_select_button.textContent !== 'デートプランを選択してください' && date_registration_date_plan_error_message !== null) {
+		date_registration_date_plan_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (date_plan_select_button.textContent !== 'デートプランを選択してください' && date_registration_selected_check.classList.contains('ok')) {
+        document.date_registration_form.submit();
+    }
+}
+
+function beforesubmit_date_plan_detail_redirect_select_check() {
+	const date_plan_detail_redirect_submit_button = document.getElementById("date_plan_detail_redirect_submit_button");
+	const date_plan_detail_redirect_error_message = document.getElementById("date_plan_detail_redirect_error_message");
+	
+	// バリデーション失敗(アプリ)
+	if (date_plan_detail_redirect_select_button.textContent == 'デートプランを選択してください' && date_plan_detail_redirect_error_message == null) {
+		// エラーメッセージ生成
+		const date_plan_detail_redirect_error_message = document.createElement('p');
+		date_plan_detail_redirect_error_message.textContent = '「デートプラン」は選択必須です。';
+		date_plan_detail_redirect_error_message.id = 'date_plan_detail_redirect_error_message';
+		date_plan_detail_redirect_submit_button.before(date_plan_detail_redirect_error_message);
+    }else if (date_plan_detail_redirect_select_button.textContent !== 'デートプランを選択してください' && date_plan_detail_redirect_error_message !== null) {
+		date_plan_detail_redirect_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (date_plan_detail_redirect_select_button.textContent !== 'デートプランを選択してください') {
+        document.date_plan_detail_redirect_form.submit();
+    }
+}
+

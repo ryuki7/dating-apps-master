@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  require 'date'
   layout 'before', only: %i[before_my_page]
 
   def test;end

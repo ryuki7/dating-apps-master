@@ -1,0 +1,51 @@
+<div id="index-banner" class="parallax-container layout-targets-index">
+  <div class="section no-pad-bot">
+    <div class="container" id="targets_index">
+      <h3 class="center" id="targets_title"><span>女性一覧</span></h3>
+      <div class="targets_index_total_count_wrapper">
+        <p class="targets_index_total_count_title">合計登録人数</p>
+        <p class="targets_index_total_count_number"><span><%= @targets.size %></span>人</p>
+      </div>
+      <div class="targets_index_count">
+        <% @apps.each do |app| %>
+            <div class="targets_index_each_app_count_wrapper">
+                <% if app.id == 3 %>
+                <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image app-image-tapple-select">
+                <% else %>
+                <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image">
+                <% end %>
+                <p class="<%= "targets_index_each_app_count_title_#{app.id}" %>"><%= app.name %></p>
+                <%  @targets_each_app = @targets.where(app_id: app.id) %>
+                <p class="targets_index_each_app_count_number"><span><%= @targets_each_app.size %></span>人</p>
+            </div>
+        <% end %>
+      </div>
+
+      <% if @targets.size >= 1 %>
+        <a class="targets_index_each_target_button" id="targets_index_each_target_th">
+          <span>アプリ</span>
+          <span class="targets_name_span">名前</span>
+          <span>目的</span>
+          <span>好感度</span>
+          <span>進展度</span>
+        </a>
+        <% @targets_pagination.each do |target| %>
+          <%= link_to target_path(target.id), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
+              <% if target.app.id == 3 %>
+                <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>" class="app-image-tapple">
+              <% else %>
+                <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>">
+              <% end %>
+              <span><%= target.name %></span>
+              <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
+              <span class="index_favorability_rating"><%= target.favorability_rating %>％</span>
+              <span class="index_progress_rating"><%= target.progress_rating %>％</span>
+          <% end %>
+        <% end %>
+        <%= paginate @targets_pagination %>
+      <% else %>
+        <h5>登録されている女性はいません。</h5>
+      <% end %>
+    </div>
+  </div>
+</div>

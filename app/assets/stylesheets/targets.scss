@@ -1,0 +1,980 @@
+// Place all the styles related to the targets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+#targets_registration {
+    color: black;
+    text-align: center;
+}
+
+#targets_title {
+    position: relative;
+    padding: 6px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+  
+#targets_title span {
+    display: block;
+    padding: 1rem 2rem;
+    background: white;
+}
+
+.input-field>label {
+    color: black;
+}
+
+input[type=text]:not(.browser-default) {
+    height: 2rem;
+    margin: 0px 0 0 0;
+    border-bottom: 1px solid black;
+}
+
+#row_input_select {
+    margin-top: -20px;
+    margin-bottom: 22px;
+}
+
+#targets_registration_submit_button {
+    margin-top: 25px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 22px;
+    padding: 0 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#targets_registration_app_error_message {
+    color: red;
+}
+
+#targets_registration_appearance_error_message {
+    color: red;
+}
+
+#targets_registration_name_error_message {
+    color: red;
+}
+
+#targets_registration_name_word_count_error_message {
+    color: red;
+}
+
+#targets_registration_purpose_error_message {
+    color: red;
+}
+
+#targets_registration_city_input_error_message {
+    color: red;
+    margin-top: -20px;
+}
+
+#targets_index {
+    color: black;
+    text-align: center;
+}
+
+.targets_index_count {
+    margin-bottom: 70px;
+}
+
+.targets_index_total_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_index_total_count_title {
+    margin: 10px 80px 10px 5px;
+    font-size: 21px;
+    display: inline-block;
+}
+
+.targets_index_total_count_number {
+    margin: 10px 5px 10px 20px;
+    font-size: 21px;
+    display: inline-block;
+}
+
+.targets_index_total_count_number.date_results_unreported_passed_count {
+    margin: 10px 5px 10px 20px;
+    font-size: 21px;
+    display: inline-block;
+    position: relative;
+    right: 10px;
+}
+
+.targets_index_total_count_number span {
+   color: #e8198b;
+}
+
+.targets_index_total_count_number.date_result_history span {
+    color: rgb(70, 70, 255);
+ }
+
+
+.targets_index_each_app_count_wrapper {
+    margin: 15px auto;
+    width: 270px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_app_icon_image {
+    position: relative;
+    top: 4px;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.targets_index_each_app_count_title_1 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 18px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_2 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 38px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_3 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 26px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_title_4 {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 10px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_number {
+    position: relative;
+    bottom: 8px;
+    margin: 0px 5px 0px 20px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_index_each_app_count_number span {
+    color: #e8198b;
+}
+
+
+.targets_index_each_target_button {
+    color: black;
+    padding: 0 20px;
+    font-size: 15px;
+    position: relative;
+    right: 6px;
+    cursor: pointer;
+    display: inline-block;
+    width: 92vw;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border-bottom: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+.index_favorability_rating._70_or_over_and_under_80 {
+    color: #ffbd66;
+}
+
+.index_favorability_rating._80_or_over {
+    color: #fe5196;
+}
+
+.index_progress_rating._70_or_over_and_under_80 {
+    color: #21d4fd;
+}
+
+.index_progress_rating._80_or_over {
+    color: #b721ff;
+}
+
+#targets_index_each_target_th {
+    height: 50px;
+    line-height: 50px;
+    border-top: solid 1px rgb(226, 226, 226);/*線*/
+}
+
+#targets_index_each_target_th span {
+    position: relative;
+    right: 3.5px;
+    margin: 0 4px;
+}
+
+#targets_index_each_target_th span:nth-child(1) {
+    margin: 0 2px 0 0;
+}
+
+#targets_index_each_target_th span:nth-child(2) {
+    margin: 0 43px 0 31px;
+}
+
+#targets_index_each_target_th span:nth-child(3) {
+    margin-right: 25px;
+}
+
+#targets_index_each_target_th .targets_name_span {
+    margin: 0 15px;
+}
+
+#targets_index_each_target_button_td img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 9px;
+    right: 32px;
+}
+
+#targets_index_each_target_button_td span:nth-child(2) {
+    display: inline-block;
+    width: 70px;
+    position: relative;
+    right: 20px;
+    bottom: 10px;
+    font-size: 17px;
+}
+
+#targets_index_each_target_button_td span:nth-child(3) {
+    display: inline-block;
+    width: 70px;
+    position: relative;
+    right: 12px;
+    bottom: 10px;
+    font-size: 16px;
+}
+
+#targets_index_each_target_button_td span:nth-child(3).make_girlfriend {
+    color: #4481eb;
+}
+
+#targets_index_each_target_button_td span:nth-child(3).play {
+    color: #ff0844;
+}
+
+#targets_index_each_target_button_td span:nth-child(3).super_play {
+    color: #f5576c;
+}
+
+#targets_index_each_target_button_td span:nth-child(4) {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    left: 1.5px;
+    bottom: 10px;
+    font-size: 16px;
+}
+
+#targets_index_each_target_button_td span:nth-child(5) {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+    font-size: 16px;
+}
+
+/* ▼リンクの上にマウスが載った際の装飾(背景色だけ指定) */
+#targets_index_each_target_button_td:hover { 
+    background: #ffbae0; /*背景の色を変える*/
+}
+
+.pagination {
+    margin-top: 30px;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+    color: #696969; /*文字の色を変える*/
+  }
+  
+/* 表示しているページ番号のデザイン */
+.pagination li.active {
+    background: #ffbae0; /*背景の色を変える*/
+    border-radius: 15px; /*角を丸くする*/
+}
+
+/* ホバー時のデザイン */
+.pagination li:hover {
+    background: #ffbae0; /*背景の色を変える*/
+    border-radius: 15px; /*角を丸くする*/
+}
+
+#targets_show {
+    color: black;
+    text-align: center;
+}
+
+.targets_show_profile {
+    margin-bottom: 50px;
+}
+
+.targets_show_app_icon_image {
+    position: relative;
+    right: 62px;
+    margin-top: 10px;
+}
+
+.targets_show_edit_and_delete_button {
+    font-size: 14px;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: white;
+    padding: 0 15px;
+    border-radius: 60px;
+    position: relative;
+    right: 62px;
+    bottom: 24px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+}
+
+.targets_show_edit_and_delete_button.edit {
+    background: rgb(0, 241, 0);
+}
+
+.targets_show_edit_and_delete_button.delete {
+    position: relative;
+    left: 88px;
+    bottom: 54px;
+    background: red;
+}
+
+.targets_show_edit_and_delete_button.date_result_delete {
+    position: relative;
+    left: 130px;
+    bottom: 20px;
+    background: red;
+}
+
+.targets_show_one_line_age_none {
+    position: relative;
+    left: 10px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+.targets_show_one_line_age_present {
+    position: relative;
+    right: 12px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+#targets_show_appearance_image {
+    width: 75px;
+    height: 75px;
+    border:1px solid #dfdede; 
+    border-radius: 40px;/*角の丸み*/
+}
+
+.targets_show_name {
+    font-size: 30px;
+    position: relative;
+    bottom: 28px;
+    margin: 0 25px;
+    color: black;
+}
+
+.targets_show_age {
+    font-size: 25px;
+    position: relative;
+    bottom: 30px;
+}
+
+.targets_show_2_word_wrapper {
+    margin: 15px auto;
+    width: 270px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_show_2_word_title {
+    position: relative;
+    margin: 0px 18px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_2_word_value {
+    position: relative;
+    margin: 0px 5px 0px 20px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_2_word_value.pairs {
+    color: #03D7DE;
+}
+
+.targets_show_2_word_value.with {
+    color: #FD656C;
+}
+
+.targets_show_2_word_value.tapple {
+    color: #F54C98;
+}
+
+.targets_show_2_word_value.tinder {
+    color: #FD267D;
+}
+
+.targets_show_4_word_wrapper {
+    margin: 15px auto;
+    width: 270px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_show_4_word_title {
+    position: relative;
+    margin: 0px 18px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_4_word_value {
+    position: relative;
+    margin: 0px 5px 0px 20px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_4_word_value.pairs {
+    color: #03D7DE;
+}
+
+.targets_show_4_word_value.with {
+    color: #FD656C;
+}
+
+.targets_show_4_word_value.tapple {
+    color: #F54C98;
+}
+
+.targets_show_4_word_value.tinder {
+    color: #FD267D;
+}
+
+.targets_show_6_word_wrapper {
+    margin: 15px auto;
+    width: 270px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+.targets_show_6_word_title {
+    position: relative;
+    margin: 0px 18px 0px 2px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_6_word_value {
+    position: relative;
+    margin: 0px 5px 0px 20px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.targets_show_6_word_value.pairs {
+    color: #03D7DE;
+}
+
+.targets_show_6_word_value.with {
+    color: #FD656C;
+}
+
+.targets_show_6_word_value.tapple {
+    color: #F54C98;
+}
+
+.targets_show_6_word_value.tinder {
+    color: #FD267D;
+}
+
+.targets_show_box_calculate_description {
+    text-align: center;
+    padding: 7px 20px;
+    margin: 0;
+    font-size: 26px;
+}
+
+.targets_show_box_calculate_description span {
+    font-size: 27px;
+}
+
+.favorability_rating p {
+    font-size: 28px;
+}
+
+.progress_rating p {
+    font-size: 28px;
+}
+
+.targets_show_box_calculate_description.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_box_calculate_description.play {
+    color: #ff0844;
+}
+
+.targets_show_box_calculate_description.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_calculate_description.recommend {
+    font-size: 25px;
+}
+
+.targets_show_box_div_description span:nth-child(1) {
+    display: inline-block;
+    width: 133px;
+    height: 45px;
+    position: relative;
+    right: 19px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 20px;
+    color: black
+}
+
+.targets_show_box_div_description span:nth-child(2) {
+    display: inline-block;
+    width: 30px;
+    height: 45px;
+    position: relative;
+    right: 10px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 20px;
+    color: black;
+}
+
+.targets_show_box_div_description span:nth-child(3) {
+    display: inline-block;
+    width: 133px;
+    height: 45px;
+    position: relative;
+    left: 14px;
+    padding-top: 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.targets_show_date_count_span.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_date_count_span.play {
+    color: #ff0844;
+}
+
+.targets_show_date_count_span.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_span_date_body_large {
+    width: 138px !important;
+    font-size: 23px !important;
+    position: relative;
+    left: 6px;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_large {
+    font-size: 23px !important;
+    position: relative;
+    right: 20px !important;
+    margin-left: 29px !important;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_plan_large {
+    font-size: 23px !important;
+    width: 153px !important;
+    position: relative;
+    left: 0px !important;
+    padding: 20px 0 !important;
+}
+
+.targets_show_box_span_date_plan_large.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_show_box_span_date_plan_large.play {
+    color: #ff0844;
+}
+
+.targets_show_box_span_date_plan_large.super_play {
+    color: #f5576c;
+}
+
+.targets_show_box_date_calculate {
+    margin: 25px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border-radius: 10px;/*角の丸み*/
+}
+
+.targets_show_box_date_calculate.make_girlfriend {
+    border: solid 0.5px #4481eb;/*線*/
+    background: #f9fbff;
+}
+
+.targets_show_box_date_calculate.play {
+    border: solid 0.5px #ff0844;/*線*/
+    background: #fff9fb;
+}
+
+.targets_show_box_date_calculate.super_play {
+    border: solid 0.5px #f5576c;/*線*/
+    background: #fff9f9;
+}
+
+.targets_show_box_date_calculate.pairs {
+    border: solid 0.5px #86E4EA;/*線*/
+    background: #f9ffff;
+}
+
+.targets_show_box_date_calculate.with {
+    border: solid 0.5px #FD656C;/*線*/
+    background: #fff9f9;
+}
+
+.targets_show_box_date_calculate.tapple {
+    border: solid 0.5px #F54C98;/*線*/
+    background: #fff9fc;
+}
+
+.targets_show_box_date_calculate.tinder {
+    border: solid 0.5px #FD267D;/*線*/
+    background: #fff9fc;
+}
+
+.targets_show_box_date_calculate.favorability_rating {
+    border: solid 0.5px #ffbd66;/*線*/
+    color: #ffbd66;
+    background: #fffcf9;
+}
+
+.targets_show_box_date_calculate.progress_rating {
+    border: solid 0.5px #21d4fd;/*線*/
+    color: #21d4fd;
+    background: #f9feff;
+}
+
+.targets_show_box_date_calculate.recommend {
+    border: solid 0.5px #fdcbf1;/*線*/
+    background: #fff9fe;
+}
+
+.targets_show_box_calculate_title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 20px;
+    padding: 17px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.targets_show_box_calculate_title.make_girlfriend {
+    background: linear-gradient(to top right, #4481eb 0%, #04befe 100%);
+}
+
+.targets_show_box_calculate_title.play {
+    background: linear-gradient(to top right, #ff0844 0%, #ff9c99 100%);
+}
+
+.targets_show_box_calculate_title.super_play {
+    background: linear-gradient(to top right, #f5576c 0%, #fb93dc 100%);
+}
+
+.targets_show_box_calculate_title.pairs {
+    background: linear-gradient(to right, #86E4EA, #03D7DE);
+}
+
+.targets_show_box_calculate_title.with {
+    background: linear-gradient(to right, #FD656C, #FD656B);
+}
+
+.targets_show_box_calculate_title.tapple {
+    background: linear-gradient(to right, #F54C98, #218FF3);
+}
+
+.targets_show_box_calculate_title.tinder {
+    background: linear-gradient(to bottom, #FD267D, #FF7158);
+}
+
+.targets_show_box_calculate_title.favorability_rating {
+    background: linear-gradient(-20deg, #fe5196 0%, #ffbd66 100%);
+}
+
+.targets_show_box_calculate_title.progress_rating {
+    background: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+}
+
+.targets_show_box_calculate_title.recommend {
+    font-size: 22px;
+    background: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+}
+
+.targets_show_date_plan_registration {
+    margin-top: 65px;
+}
+
+.targets_show_date_plan_registration_title {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    position: relative;
+    padding: 1.5rem .5rem;
+}
+
+.targets_show_date_plan_registration_title:after {
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+  }
+
+  .targets_date_registration {
+    background: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 20%, #c2f2f8 67%, #f5dbf1 100%);
+    border-radius: 80px;
+    padding: 0px 3px 3px 3px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .targets_date_registration_border {
+    background-color: #fff;
+    border-top: 3px solid #c2f2f8;
+    border-radius: 80px;
+    padding: 35px 20px 20px 20px;
+    margin-top: 30px;
+  }
+
+  .datepicker_wrapper {
+    margin-top: 0px;
+  }
+
+  #date_registration_submit_button {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 22px;
+    padding: 0 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.targets_date_all_success_end {
+    font-size: 27px;
+    margin-top: 40px;
+    color: rgb(0, 241, 0);
+}
+
+.targets_date_end {
+    font-size: 27px;
+    margin-top: 40px;
+}
+
+.targets_date_schedule {
+    background: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 20%, #c2f2f8 67%, #f5dbf1 100%);
+    border-radius: 80px;
+    padding: 0px 3px 3px 3px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .targets_date_schedule_border {
+    background-color: #fff;
+    border-top: 3px solid #c2f2f8;
+    border-radius: 80px;
+    padding:  21px 20px 20px 20px;
+    margin-top: 30px;
+  }
+
+.targets_date_schedule p {
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.targets_date_schedule_appointment {
+    position: relative;
+    bottom: 23px;
+    right: 14px;
+    font-size: 29px;
+}
+
+.targets_date_schedule_date_plan {
+    position: relative;
+    bottom: 21px;
+    left: 13px;
+    font-size: 29px;
+}
+
+.targets_date_schedule_date_plan.make_girlfriend {
+    color: #4481eb;
+}
+
+.targets_date_schedule_date_plan.play {
+    color: #ff0844;
+}
+
+.targets_date_schedule_date_plan.super_play {
+    color: #f5576c;
+}
+
+.targets_date_schedule_delete_button {
+    color: white;
+    padding: 0 10px;
+    font-size: 13px;
+    border-radius: 60px;
+    position: relative;
+    bottom: 56px;
+    left: 128px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 25px;
+    line-height: 25px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+    background: red;
+}
+
+.targets_show_date_report_button {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+    font-size: 22px;
+    padding: 0 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#date_registration_date_plan_error_message {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+#date_registration_datepicker_error_message {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: red;
+}
+

@@ -1,3 +1,297 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ヘッダー
+#my_page_header_nav {
+    position: relative;
+    right: 40px;
+    bottom: 34px;
+    width: 120%; 
+    height: 64px;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+
+#my_page_header_nav {
+  display: block;
+}
+
+#my_page_header_p {
+    text-align: center;
+    position: relative;
+    top: 22px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 540;
+}
+  
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.hamburger_menu_my_page a {
+  height: 75px; 
+  margin-top: 20px;
+  margin-bottom: -3px;
+  font-size: 23px !important;
+}
+
+
+#my_page_container {
+    color: black;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#my_page_title {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    padding: 6px;
+    background-image: -webkit-linear-gradient(315deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+    background-image: linear-gradient(-225deg, #c2f2f8 0%, #f5dbf1 29%, #c2f2f8 67%, #f5dbf1 100%);
+}
+  
+#my_page_title span {
+    display: block;
+    padding: 1rem 1rem;
+    background: white;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.my_page_person {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 27px;
+}
+
+ 
+ // プログレスバー
+
+ @keyframes load {/*アニメーション*/
+    0% {
+      stroke-dashoffset: 0;
+    }
+  }
+  .progress {/*親要素*/
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+  }
+  .progress > li {/*プログレスバーを包括する子要素*/
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #e8198b;
+    font-weight: 100;
+    margin: 1rem;
+  }
+
+  .progress > li:after {/*パーセンテージを表示*/
+    content: attr(data-percent);
+    position: absolute;
+    width: 100%;
+    top: 5rem;
+    left: 0;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .progress svg {/*プログレスバー*/
+    width: 10rem;
+    height: 10rem;
+  }
+  .progress svg:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(-90deg);
+  }
+  .progress svg:nth-child(2) path {
+    fill: none;
+    stroke-width: 25;
+    stroke-dasharray: 629;
+    stroke: #fff;
+    opacity: .9;
+    animation: load 5s;
+  }
+
+
+.my_page_progress_box {
+    margin: 25px 30px 40px 30px;
+    background: #fff8fc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border: solid 0.5px #e8198b;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.my_page_progress_box_title {
+    border-radius: 10px;/*角の丸み*/
+    font-size: 30px;
+    background: linear-gradient(to bottom right, #e8198b 0%, #c7eafd 100%);
+    padding: 25px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.my_page_diagnostic_result_button {
+    margin: 40px auto 20px auto;
+    color: white;
+    background: rgb(72, 129, 252);
+    width: 210px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 0;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.my_page_girl_button {
+    margin-bottom: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 5px 25px;
+    font-size: 21px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 0;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+    background: linear-gradient(to bottom right, #e8198b 0%, #fdc7e8 100%);
+ }
+
+
+ .my_page_date_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+ .my_page_date_count {
+     margin: 10px 20px;
+     font-size: 20px;
+     display: inline-block;
+ }
+
+ .my_page_date_count span {
+    color: #e8198b;
+}
+
+ .my_page_kiss_count_wrapper {
+    margin: 20px auto;
+    width: 330px;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 40px;
+ }
+
+ .my_page_kiss_count_title {
+    margin: 10px 10px 10px 5px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.my_page_kiss_count_number {
+    margin: 10px 5px 10px 50px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.my_page_kiss_count_number span {
+    color: #e8198b;
+}
+
+.my_page_date_result_history_button {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 10px 28px;
+    font-size: 24px;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    word-break: break-all;
+    background: linear-gradient(#c2f2f8, #f5dbf1);
+}
+
+.user_manage span {
+  position: relative;
+  top: 0px;
+  left: -18px;
+}
+
+.user_manage span:nth-child(1) {
+  left: -41px;
+}
+
+.user_manage span:nth-child(3) {
+  left: -10px;
+}
+
+.user_manage span:nth-child(4) {
+  left: 3px !important;
+}
+
+.user_manage span:nth-child(5) {
+  left: 22px !important;
+}
+
+.user_index {
+  font-size: 13px !important;
+  padding: 0 10px;
+  height: 25px;
+  line-height: 25px;
+  left: 170px !important;
+  top: -49px;
+}
