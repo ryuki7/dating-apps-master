@@ -30,7 +30,7 @@ module TargetsHelper
     appointment_return_value = "#{split_month_and_day[0]}/#{split_month_and_day[1].gsub(/[^\d]/, "")}"
   end
 
-  def head_0_remove_date_appointment(date_appointment)
+  def head_0_remove_date_appointment(date_appointment, format)
     if date_appointment == nil
       return
     end
@@ -46,6 +46,12 @@ module TargetsHelper
     if ["01", "02", "03", "04", "05", "06", "07", "08", "09"].include?(month_and_day_string_disconnect_array[1])
       day_revised = month_and_day_string_disconnect_array[1].delete("0")
     end
-    appointment_return_value = "#{month_revised}/#{day_revised}"
+
+    case format
+    when "/"
+      appointment_return_value = "#{month_revised}/#{day_revised}"
+    when "月日"
+      appointment_return_value = "#{month_revised}月#{day_revised}日"
+    end
   end
 end

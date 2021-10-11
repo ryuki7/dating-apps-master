@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     member do
       get 'step'
     end
+    collection do
+      get 'date_plan_detail_redirect'
+    end
   end
 
   resources :date_plans, only: %i[index show] do

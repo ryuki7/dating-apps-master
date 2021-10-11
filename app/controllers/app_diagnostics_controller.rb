@@ -2,7 +2,9 @@ class AppDiagnosticsController < ApplicationController
   before_action :set_question, only: %i[show]
   before_action :set_answer, only: %i[show]
 
-  def index; end
+  def index
+    @apps = App.all
+  end
 
   def show
     @question_description_split_array = @question.description.split('.')

@@ -35,5 +35,6 @@ module DatingAppsMaster
     config.generators do |g|
       g.skip_routes true
     end
+    config.time_zone = 'Tokyo'
   end
 end

@@ -26,6 +26,10 @@ class AppStrategiesController < ApplicationController
     @date_plans = DatePlan.where(purpose_id: @purpose.id)
   end
 
+  def date_plan_detail_redirect
+    redirect_to "/date_plans/#{params[:date_plan_id]}/detail#date_plans_detail_action_fragment"
+  end
+
   private
 
   def set_app

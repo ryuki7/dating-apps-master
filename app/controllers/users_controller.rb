@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   require "net/http"
   layout 'layout_my_page', only: %i[my_page]
-  before_action :set_user, only: %i[my_page]
+  before_action :set_user, only: %i[index destroy my_page]
+  before_action :admin_check, only: %i[index destroy]
 
   def create
     # ユーザーの作成・ログイン
@@ -22,6 +23,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users_all = User.all
+    @users_all_pagination = User.all.page(params[:page]).per(7)
+  end
+
+  def destroy
+    @user.destroy!
+  end
+
   def my_page
     @date_count_all = DateSchedule.where(user_id: @user.id, report_confirmation: 1)
     @task_kiss = Task.find_by(name: "キスをする")
@@ -34,5 +44,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id])
+  end
+
+  def admin_check
+    if @user.role == 1
+      return
+    else
+      redirect_to my_page_users_path
+    end
   end
 end

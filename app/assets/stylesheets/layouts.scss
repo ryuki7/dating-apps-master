@@ -73,6 +73,110 @@ li.menu-width-max ul.menu-second-level li {
     width: 100%;
     border: none;}
 
+    .menu-btn {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        display: flex;
+        height: 56px;
+        width: 55px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background: white;
+    }
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #808080;
+        position: absolute;
+    }
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+    .menu-btn span:after {
+        top: 8px;
+    }
+
+    #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+    }
+    #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    #menu-btn-check {
+        display: none;
+    }
+
+    .menu-content ul {
+        padding: 70px 10px 0;
+    }
+    .menu-content ul li {
+        display: block;
+        width: 100%;
+        border-bottom: solid 1px #808080;
+        list-style: none;
+    }
+
+    .menu-content ul li:nth-child(1) {
+        border-top: solid 1px #808080;
+    }
+
+    .menu-content ul li a {
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        box-sizing: border-box;
+        color: #808080;
+        text-decoration: none;
+        padding: 9px 0px 10px 0;
+        position: relative;
+    }
+    .menu-content ul li a::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-top: solid 2px #808080;
+        border-right: solid 2px #808080;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 11px;
+        top: 16px;
+    }
+
+    .menu-content {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;/*leftの値を変更してメニューを画面外へ*/
+        z-index: 80;
+        background-color: white;
+        transition: all 0.5s;/*アニメーション設定*/
+    }
+
+    #menu-btn-check:checked ~ .menu-content {
+        left: 0;/*メニューを画面内へ*/
+    }
+
+
+.layout_top {
+    height: 900px !important;
+    top: -42px;
+    overflow: hidden
+}
+
 .layout-app-diagnostics {
     height: 800px !important;
 }
@@ -110,7 +214,7 @@ li.menu-width-max ul.menu-second-level li {
 }
 
 .layout-date_plans_detail-make_girlfriend {
-    height: 2400px !important;
+    height: 2500px !important;
 }
 
 .layout-date_plans_detail-play {
@@ -122,7 +226,7 @@ li.menu-width-max ul.menu-second-level li {
 }
 
 .layout-my_page {
-    height: 1100px !important;   
+    height: 950px !important;   
 }
 
 .layout-targets-registration {
@@ -151,4 +255,8 @@ li.menu-width-max ul.menu-second-level li {
 
 .layout_date_result_report_show {
     height: 1530px !important; 
+}
+
+.layout_user_index {
+    height: 1200px !important;   
 }

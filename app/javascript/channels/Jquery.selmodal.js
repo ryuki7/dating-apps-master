@@ -318,6 +318,8 @@ if (prefectures_select_button && city_select_start_button) {
 									task_select_button_10_create(sel_name_attr);
 								}else if (select_this[0].id == "task_select_element_11") {
 									task_select_button_11_create(sel_name_attr);
+								}else if (select_this[0].id == "date_plan_detail_redirect_select_element") {
+									date_plan_detail_redirect_select_button_create(sel_name_attr);
 								}else{
 									$(this).after(button_html);
 								}
@@ -612,6 +614,8 @@ if (prefectures_select_button && city_select_start_button) {
 					task_select_button_10_create(sel_name_attr);
 				}else if (select_this[0].id == "task_select_element_11") {
 					task_select_button_11_create(sel_name_attr);
+				}else if (select_this[0].id == "date_plan_detail_redirect_select_element") {
+					date_plan_detail_redirect_select_button_create(sel_name_attr);
 				}else{
 					$(this).after(button_html);
 				}
@@ -834,6 +838,13 @@ function task_select_button_11_create(sel_name_attr) {
 	}
 }
 
+function date_plan_detail_redirect_select_button_create(sel_name_attr) {
+	var date_plan_detail_redirect_select_button = document.getElementById("date_plan_detail_redirect_select_button");
+	if (date_plan_detail_redirect_select_button) {
+		date_plan_detail_redirect_select_button.setAttribute("data-selmodalbtn", sel_name_attr);
+	}
+}
+
 
 // 女性登録 submit
 if (document.targets_registration_form) {
@@ -853,6 +864,13 @@ if (document.date_registration_form) {
 if (document.date_result_form) {
     document.date_result_form.date_result_submit.addEventListener('click', function() {
         document.date_result_form.submit();
+    });
+}
+
+// デートプラン詳細ページに飛ぶ(遷移元 => ステップページ) submit
+if (document.date_plan_detail_redirect_form) {
+    document.date_plan_detail_redirect_form.date_plan_detail_redirect_submit.addEventListener('click', function() {
+		beforesubmit_date_plan_detail_redirect_select_check();
     });
 }
 
@@ -960,3 +978,25 @@ function beforesubmit_date_registration_select_check() {
         document.date_registration_form.submit();
     }
 }
+
+function beforesubmit_date_plan_detail_redirect_select_check() {
+	const date_plan_detail_redirect_submit_button = document.getElementById("date_plan_detail_redirect_submit_button");
+	const date_plan_detail_redirect_error_message = document.getElementById("date_plan_detail_redirect_error_message");
+	
+	// バリデーション失敗(アプリ)
+	if (date_plan_detail_redirect_select_button.textContent == 'デートプランを選択してください' && date_plan_detail_redirect_error_message == null) {
+		// エラーメッセージ生成
+		const date_plan_detail_redirect_error_message = document.createElement('p');
+		date_plan_detail_redirect_error_message.textContent = '「デートプラン」は選択必須です。';
+		date_plan_detail_redirect_error_message.id = 'date_plan_detail_redirect_error_message';
+		date_plan_detail_redirect_submit_button.before(date_plan_detail_redirect_error_message);
+    }else if (date_plan_detail_redirect_select_button.textContent !== 'デートプランを選択してください' && date_plan_detail_redirect_error_message !== null) {
+		date_plan_detail_redirect_error_message.remove();
+	}
+
+	// バリデーション成功(全て)
+    if (date_plan_detail_redirect_select_button.textContent !== 'デートプランを選択してください') {
+        document.date_plan_detail_redirect_form.submit();
+    }
+}
+

@@ -56,7 +56,6 @@ class TargetsController < ApplicationController
     @personality = @target.personality
     @purpose = @target.purpose
     @date_plans = @purpose.date_plans
-
     
     @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, user_id: @user.id, report_confirmation: 1)
     @date_schedules_reported_last_except = @date_schedules_reported_all.first(@date_schedules_reported_all.size - 1)
@@ -65,6 +64,7 @@ class TargetsController < ApplicationController
       @last_date_schedule_tasks_success = DateScheduleTask.where(date_schedule_id: @date_schedule_reported_last.id, result: "成功")
       @last_success_task_id_array = @last_date_schedule_tasks_success.map {|last_date_schedule_task| last_date_schedule_task.task.id}
 
+      # おすすめのデート予定日
       # Dateクラスのフォーマットに変換
       @date_schedule_reported_last_appointment = appointment_date_class_create(@date_schedule_reported_last.appointment)
       @recommend_date_schedule_appointment_5days_since = @date_schedule_reported_last_appointment.days_since(5).strftime("%m/%d")
@@ -82,6 +82,12 @@ class TargetsController < ApplicationController
     else
       @success_task_id_array = []
     end
+
+    # おすすめのデートプラン
+    @date_schedule_reported_all = DateSchedule.where(target_id: @target.id, report_confirmation: 1)
+    @date_count = @date_schedule_reported_all.size + 1
+    date_plans_recommend_before_revise = DatePlan.where("date_count_level <= ? and popular_rating_level <= ? and purpose_id = ?", @date_count, @user.popular_rating, @purpose.id)
+    @date_plans_recommend = date_plans_recommend_before_revise.min_by{|date_plan| (@user.popular_rating - date_plan.popular_rating_level).abs} if !date_plans_recommend_before_revise.blank?
   end
 
   def edit

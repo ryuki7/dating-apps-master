@@ -77,7 +77,7 @@
           <% if @target.single_history == "" %>
             <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>">未入力</p>
           <% else %>
-            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= @target.single_history %>(○月○日時点)</p>
+            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= "#{@target.single_history} (#{@target.updated_at.strftime("%Y年")}#{head_0_remove_date_appointment(@target.updated_at.strftime("%m/%d"), "月日")}時点から)" %></p>
           <% end %>
         </div>
 
@@ -142,11 +142,11 @@
           <p class="targets_show_date_plan_registration_title">デートの予定を登録する</p>
           <div class="targets_show_box_date_calculate recommend">
             <div class="targets_show_box_calculate_title recommend">おすすめのデート予定日</div>
-            <p class="targets_show_box_calculate_description recommend"><%= head_0_remove_date_appointment(@recommend_date_schedule_appointment_5days_since) %> 〜 <%= head_0_remove_date_appointment(@recommend_date_schedule_appointment_14days_since) %></p>
+            <p class="targets_show_box_calculate_description recommend"><%= head_0_remove_date_appointment(@recommend_date_schedule_appointment_5days_since, "/") %> 〜 <%= head_0_remove_date_appointment(@recommend_date_schedule_appointment_14days_since, "/") %></p>
           </div>
           <div class="targets_show_box_date_calculate recommend">
             <div class="targets_show_box_calculate_title recommend">おすすめのデートプラン</div>
-            <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)} recommend" %>">デートプランB</p>
+            <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)} recommend" %>"><%= @date_plans_recommend.name %></p>
           </div>
           
           <% if @date_schedule_unreported %>

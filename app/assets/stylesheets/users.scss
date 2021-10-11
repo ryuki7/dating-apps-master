@@ -32,6 +32,13 @@
 }
 
 
+.hamburger_menu_my_page a {
+  height: 75px; 
+  margin-top: 20px;
+  margin-bottom: -3px;
+  font-size: 23px !important;
+}
+
 
 #my_page_container {
     color: black;
@@ -147,7 +154,7 @@
     overflow: hidden;
     user-select: none;
     vertical-align: middle;
-    z-index: 1;
+    z-index: 0;
     transition: .3s ease-out;
     height: 40px;
     line-height: 40px;
@@ -173,7 +180,7 @@
     overflow: hidden;
     user-select: none;
     vertical-align: middle;
-    z-index: 1;
+    z-index: 0;
     transition: .3s ease-out;
     height: 40px;
     line-height: 40px;
@@ -256,4 +263,35 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     word-break: break-all;
     background: linear-gradient(#c2f2f8, #f5dbf1);
+}
+
+.user_manage span {
+  position: relative;
+  top: 0px;
+  left: -18px;
+}
+
+.user_manage span:nth-child(1) {
+  left: -41px;
+}
+
+.user_manage span:nth-child(3) {
+  left: -10px;
+}
+
+.user_manage span:nth-child(4) {
+  left: 3px !important;
+}
+
+.user_manage span:nth-child(5) {
+  left: 22px !important;
+}
+
+.user_index {
+  font-size: 13px !important;
+  padding: 0 10px;
+  height: 25px;
+  line-height: 25px;
+  left: 170px !important;
+  top: -49px;
 }

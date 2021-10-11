@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+#app_diagnostics_index {
+    text-align: center;
+    color: black;
+}
 
 #app-diagnostics-title {
     color: #121a19;
@@ -20,7 +24,7 @@
 }
 
 #app-diagnostics-button {
-    margin-top: 80px;
+    margin-top: 40px;
     color: white;
     background: linear-gradient(#c2f2f8, #f5dbf1);
     font-size: 30px;
@@ -30,9 +34,17 @@
 }
 
 .app-diagnostics-text {
-    color: black;
+    margin-top: 30px;
     text-align: center;
-    margin-top: 20px;
+    color: black;
+}
+
+.app_diagnostics_index_apps {
+    margin-top: 17px;
+}
+
+.app_diagnostics_index_apps img {
+    margin-right: 10px;
 }
 
 #app-diagnostics-error-message {

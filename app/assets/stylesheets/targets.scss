@@ -219,6 +219,22 @@ input[type=text]:not(.browser-default) {
     border-bottom: solid 1px rgb(226, 226, 226);/*線*/
 }
 
+.index_favorability_rating._70_or_over_and_under_80 {
+    color: #ffbd66;
+}
+
+.index_favorability_rating._80_or_over {
+    color: #fe5196;
+}
+
+.index_progress_rating._70_or_over_and_under_80 {
+    color: #21d4fd;
+}
+
+.index_progress_rating._80_or_over {
+    color: #b721ff;
+}
+
 #targets_index_each_target_th {
     height: 50px;
     line-height: 50px;
@@ -961,3 +977,4 @@ input[type=text]:not(.browser-default) {
     margin-bottom: 20px;
     color: red;
 }
+

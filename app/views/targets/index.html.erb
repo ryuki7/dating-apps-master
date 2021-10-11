@@ -38,8 +38,8 @@
               <% end %>
               <span><%= target.name %></span>
               <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
-              <span><%= target.favorability_rating %>％</span>
-              <span><%= target.progress_rating %>％</span>
+              <span class="index_favorability_rating"><%= target.favorability_rating %>％</span>
+              <span class="index_progress_rating"><%= target.progress_rating %>％</span>
           <% end %>
         <% end %>
         <%= paginate @targets_pagination %>
