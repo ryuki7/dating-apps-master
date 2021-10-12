@@ -265,6 +265,10 @@
     background: linear-gradient(#c2f2f8, #f5dbf1);
 }
 
+.hamburger_menu_my_page li a::before {
+  top: 23px !important;
+}
+
 .user_manage span {
   position: relative;
   top: 0px;
