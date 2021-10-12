@@ -198,7 +198,7 @@ input[type=text]:not(.browser-default) {
 
 .targets_index_each_target_button {
     color: black;
-    padding: 0 20px;
+    padding: 0 0;
     font-size: 15px;
     position: relative;
     right: 6px;
@@ -240,6 +240,32 @@ input[type=text]:not(.browser-default) {
     line-height: 50px;
     border-top: solid 1px rgb(226, 226, 226);/*線*/
 }
+
+@media screen and (min-width: 375px) and ( max-width: 385px) {
+    #targets_index_each_target_th span {
+        right: -2px !important;
+    }
+
+    #targets_index_each_target_button_td img {
+        right: 28px !important;
+    }
+
+    #targets_index_each_target_button_td span:nth-child(2) {
+        right: 16px !important;
+    }
+
+    #targets_index_each_target_button_td span:nth-child(3) {
+        right: 8px !important;
+    }
+
+    #targets_index_each_target_button_td span:nth-child(4) {
+        left: 5.5px !important;
+    }
+
+    #targets_index_each_target_button_td span:nth-child(5) {
+        left: 19px !important;
+    }
+ }
 
 #targets_index_each_target_th span {
     position: relative;

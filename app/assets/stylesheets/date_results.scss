@@ -292,6 +292,34 @@
     margin: 0 4px;
 }
 
+@media screen and (min-width: 375px) and ( max-width: 385px) {
+    #date_results_index_each_th span:nth-child(1) {
+        right: -1px !important;
+    }
+
+    #date_results_index_each_button_td span:nth-child(1) {
+        right: 13px !important;
+    }
+ }
+
+ @media screen and (min-width: 386px) and ( max-width: 400px) {
+    #date_results_index_each_th span:nth-child(1) {
+        right: 2px !important;
+    }
+
+    #date_results_index_each_button_td span:nth-child(1) {
+        right: 16px !important;
+    }
+ }
+
+ @media screen and (min-width: 401px) and ( max-width: 425px) {
+     
+ }
+
+ @media screen and (min-width: 426px) and ( max-width: 440px) {
+    
+}
+
 #date_results_index_each_th span:nth-child(2) {
     margin: 0 33px;
 }
