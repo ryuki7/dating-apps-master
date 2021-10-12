@@ -52,7 +52,7 @@ class TargetsController < ApplicationController
   end
 
   def show
-    #@meta_url = "targets/#{params[:id]}"
+    @meta_url = "targets/#{params[:id]}"
     @meta_url_count = 0.5
     @target = Target.find_by(id: params[:id], user_id: @user.id)
     @app = @target.app
