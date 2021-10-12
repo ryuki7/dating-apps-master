@@ -288,8 +288,12 @@
 
 #date_results_index_each_th span {
     position: relative;
-    right: 9px;
+    right: 5px;
     margin: 0 4px;
+}
+
+#date_results_index_each_th span:nth-child(1) {
+    right: 9px;
 }
 
 @media screen and (min-width: 375px) and ( max-width: 385px) {
@@ -325,10 +329,12 @@
 }
 
 #date_results_index_each_th span:nth-child(3) {
+    right: 2px !important;
     margin-right: 0px;
 }
 
 #date_results_index_each_th .date_results_target_name_span {
+    right: 2.5px !important;
     margin-left: 33px;
 }
 
