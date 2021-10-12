@@ -1,8 +1,10 @@
 class TargetsController < ApplicationController
-  layout 'redirect_application', only: %i[show]
+  layout 'redirect_application', only: %i[new show]
   before_action :set_user, only: %i[create index show edit original_update destroy]
 
   def new
+    @meta_url = "targets/new"
+    @meta_url_count = 0.5
     @apps = App.all
     @appearances = Appearance.all
     @ages = 18..30
