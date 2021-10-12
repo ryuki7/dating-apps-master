@@ -44,7 +44,7 @@ class AppDiagnosticsController < ApplicationController
 
   def result
     @meta_url = "app_diagnostics/result"
-    @meta_url_count = 0.5
+    @meta_url_count = 0
     # idが若い順に取得する。(ランキング(順位)が高い順。)
     @app_diagnostics = AppDiagnostic.where(user_id: session[:user_id])
 
