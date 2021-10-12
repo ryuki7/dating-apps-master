@@ -1,4 +1,5 @@
 class AppDiagnosticsController < ApplicationController
+  layout 'redirect_application', only: %i[show]
   before_action :set_question, only: %i[show]
   before_action :set_answer, only: %i[show]
 
@@ -7,6 +8,11 @@ class AppDiagnosticsController < ApplicationController
   end
 
   def show
+    if params[:id] == "1"
+      @meta_url = "app_diagnostics/#{params[:id]}"
+      @meta_url_count = 0.5
+      binding.pry
+    end
     @question_description_split_array = @question.description.split('.')
   end
 
