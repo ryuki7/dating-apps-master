@@ -1,4 +1,5 @@
 class TargetsController < ApplicationController
+  layout 'redirect_application', only: %i[show]
   before_action :set_user, only: %i[create index show edit original_update destroy]
 
   def new
@@ -49,6 +50,7 @@ class TargetsController < ApplicationController
   end
 
   def show
+    @meta_url = "targets/#{params[:id]}"
     @target = Target.find_by(id: params[:id], user_id: @user.id)
     @app = @target.app
     @appearance = @target.appearance
