@@ -11,7 +11,6 @@ class AppDiagnosticsController < ApplicationController
     if params[:id] == "1"
       @meta_url = "app_diagnostics/#{params[:id]}"
       @meta_url_count = 0.5
-      binding.pry
     end
     @question_description_split_array = @question.description.split('.')
   end
