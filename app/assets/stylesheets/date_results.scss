@@ -18,7 +18,7 @@
   
 #date_result_title span {
     display: block;
-    padding: 1rem 2rem;
+    padding: 1rem 1.4rem;
     background: white;
 }
 
@@ -73,28 +73,112 @@
     border-radius: 50px;
  }
 
- .date_result_task_wrapper.wrapper_1 {
-    width: 380px;
-    height: 110px;
+ @media screen and (min-width: 375px) and ( max-width: 385px) {
+    .date_result_task_wrapper.wrapper_1 {
+        position: relative;
+        right: 18px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_2 {
+        position: relative;
+        right: 18px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_3 {
+        position: relative;
+        right: 18px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_4 {
+        position: relative;
+        right: 18px;
+        width: 373px;
+        height: 110px;
+     }
  }
+
+ @media screen and (min-width: 386px) and ( max-width: 400px) {
+    .date_result_task_wrapper.wrapper_1 {
+        position: relative;
+        right: 11px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_2 {
+        position: relative;
+        right: 11px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_3 {
+        position: relative;
+        right: 11px;
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_4 {
+        position: relative;
+        right: 11px;
+        width: 373px;
+        height: 110px;
+     }
+ }
+
+ @media screen and (min-width: 401px) and ( max-width: 425px) {
+    .date_result_task_wrapper.wrapper_1 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_2 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_3 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_4 {
+        width: 373px;
+        height: 110px;
+     }
+ }
+
+ @media screen and (min-width: 426px) and ( max-width: 440px) {
+    .date_result_task_wrapper.wrapper_1 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_2 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_3 {
+        width: 373px;
+        height: 110px;
+     }
+
+     .date_result_task_wrapper.wrapper_4 {
+        width: 373px;
+        height: 110px;
+     }
+  }
 
  .date_result_task_wrapper.wrapper_1.margin {
     margin-top: 25px;
- }
-
- .date_result_task_wrapper.wrapper_2 {
-    width: 380px;
-    height: 110px;
- }
-
- .date_result_task_wrapper.wrapper_3 {
-    width: 380px;
-    height: 110px;
- }
-
- .date_result_task_wrapper.wrapper_4 {
-    width: 380px;
-    height: 110px;
  }
 
  .date_result_task_name {
