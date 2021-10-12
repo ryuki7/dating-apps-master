@@ -1,5 +1,5 @@
 class AppDiagnosticsController < ApplicationController
-  layout 'redirect_application', only: %i[show]
+  layout 'redirect_application', only: %i[show result]
   before_action :set_question, only: %i[show]
   before_action :set_answer, only: %i[show]
 
@@ -43,6 +43,8 @@ class AppDiagnosticsController < ApplicationController
   end
 
   def result
+    @meta_url = "app_diagnostics/result"
+    @meta_url_count = 0.5
     # idが若い順に取得する。(ランキング(順位)が高い順。)
     @app_diagnostics = AppDiagnostic.where(user_id: session[:user_id])
 
