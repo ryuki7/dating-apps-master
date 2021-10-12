@@ -292,6 +292,29 @@
   padding: 0 10px;
   height: 25px;
   line-height: 25px;
-  left: 170px !important;
   top: -49px;
+}
+
+@media screen and (min-width: 375px) and ( max-width: 385px) {
+  .user_index {
+    left: 162px !important;
+  }
+}
+
+@media screen and (min-width: 386px) and ( max-width: 400px) {
+  .user_index {
+    left: 166px !important;
+  }
+}
+
+@media screen and (min-width: 401px) and ( max-width: 425px) {
+  .user_index {
+    left: 170px !important;
+  }
+}
+
+@media screen and (min-width: 426px) and ( max-width: 440px) {
+  .user_index {
+    left: 170px !important;
+  }
 }
