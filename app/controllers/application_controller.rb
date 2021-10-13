@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'date'
   layout 'before', only: %i[before_my_page]
+  before_action :login_check
 
   def test;end
 
@@ -18,6 +19,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def login_check
+    if session[:user_id] == nil
+      unless request.referer == "https://dating-apps-master.com/top"
+        redirect_to top_path
+      end
+    end
+  end
 
   def signature_verify
     http_request_body = request.raw_post # Request body string

@@ -172,8 +172,7 @@ li.menu-width-max ul.menu-second-level li {
 
 
 .layout_top {
-    height: 900px !important;
-    top: -42px;
+    height: 2000px !important;
 }
 
 .layout-app-diagnostics {
@@ -258,4 +257,22 @@ li.menu-width-max ul.menu-second-level li {
 
 .layout_user_index {
     height: 1200px !important;   
+}
+
+.brand-logo img {
+    display: block;
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 3px;
+}
+
+#my_page_header_p img {
+    display: block;
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: -11px;
+    left: 11px;
+    margin: 0 auto;
 }
