@@ -167,7 +167,7 @@
 }
 
 .top_guide img {
-  width: 300px;
+  width: 180px;
   height: auto;
   border: 1px solid #d1d1d1;
 }
@@ -183,7 +183,7 @@
 @media screen and (min-width: 375px) and ( max-width: 385px) {
   .top_guide img {
     position: relative;
-    right: 57px;
+    right: -3px;
   }
 
   .slide-content {
@@ -195,7 +195,7 @@
 @media screen and (min-width: 386px) and ( max-width: 400px) {
   .top_guide img {
     position: relative;
-    right: 53.5px;
+    right: -6.5px;
   }
 
   .slide-content {
@@ -207,7 +207,7 @@
 @media screen and (min-width: 401px) and ( max-width: 425px) {
   .top_guide img {
     position: relative;
-    right: 48.5px;
+    right: -11.5px;
   }
 
   .slide-content {
@@ -219,7 +219,7 @@
 @media screen and (min-width: 426px) and ( max-width: 440px) {
   .top_guide img {
     position: relative;
-    right: 44.5px;
+    right: -15.5px;
   }
 
   .slide-content {
@@ -242,6 +242,7 @@
   content: "\f137";
   color: #c2f2f8; /* 色を白に */  
   margin-left: 20px; /* マージンを追加 */
+  z-index: 2;
 }
 .swiper-button-next:after {
   font-family: "Font Awesome 5 Free";
@@ -249,6 +250,7 @@
   content: "\f138";
   color: #f5dbf1;
   margin-right: 20px;
+  z-index: 2;
 }
 
 /* ページネーション */
