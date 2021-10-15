@@ -166,8 +166,64 @@
 	background-color: green;
 }
 
+.top_guide_each.each_4::before {
+	color: lightseagreen;
+}
+
+.top_guide_each.each_4::after {
+	background-color: lightseagreen;
+}
+
+.top_guide_each.each_5::before {
+	color: rgb(255, 136, 0);
+}
+
+.top_guide_each.each_5::after {
+	background-color: rgb(255, 136, 0);
+}
+
+.top_guide_each.each_6::before {
+	color: purple;
+}
+
+.top_guide_each.each_6::after {
+	background-color: purple;
+}
+
+.top_guide_each.each_7::before {
+	color: rgb(255, 131, 193);
+}
+
+.top_guide_each.each_7::after {
+	background-color: rgb(255, 131, 193);
+}
+
+.top_guide_each.each_8::before {
+	color: #e8198b;
+}
+
+.top_guide_each.each_8::after {
+	background-color: #e8198b;
+}
+
+.top_guide_each.each_9::before {
+	color: crimson;
+}
+
+.top_guide_each.each_9::after {
+	background-color: crimson;
+}
+
+.top_guide_each.each_10::before {
+	color: tomato;
+}
+
+.top_guide_each.each_10::after {
+	background-color: tomato;
+}
+
 .top_guide img {
-  width: 150px;
+  width: 130px;
   height: auto;
   border: 1px solid #d1d1d1;
 }
@@ -212,6 +268,38 @@
   text-align: left;
   margin-bottom: 50px;
   width: 190px;
+}
+
+.slide-content .each_1{
+  color: red;
+}
+
+.slide-content .each_2{
+  color: blue;
+}
+
+.slide-content .each_3{
+  color: green;
+}
+
+.slide-content .each_4{
+  color: lightseagreen;
+}
+
+.slide-content .each_5{
+  color: rgb(255, 136, 0);
+}
+
+.slide-content .each_6{
+  color: purple;
+}
+
+.slide-content .each_7{
+  color: rgb(255, 131, 193);
+}
+
+.slide-content .each_8{
+  color: #e8198b;
 }
 
 /* ナビゲーションボタン */
