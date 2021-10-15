@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def login_check
     if session[:user_id] == nil
       unless request.referer == "https://dating-apps-master.com/top"
-        redirect_to top_path
+        # redirect_to top_path
       end
     end
   end
