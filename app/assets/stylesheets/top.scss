@@ -222,6 +222,38 @@
 	background-color: tomato;
 }
 
+.top_guide_each.each_11::before {
+	color: rgb(0, 212, 212);
+}
+
+.top_guide_each.each_11::after {
+	background-color: rgb(0, 212, 212);
+}
+
+.top_guide_each.each_12::before {
+	color: dodgerblue;
+}
+
+.top_guide_each.each_12::after {
+	background-color: dodgerblue;
+}
+
+.top_guide_each.each_13::before {
+	color: limegreen;
+}
+
+.top_guide_each.each_13::after {
+	background-color: limegreen;
+}
+
+.top_guide_each.each_14::before {
+	color: darkolivegreen;
+}
+
+.top_guide_each.each_14::after {
+	background-color: darkolivegreen;
+}
+
 .top_guide img {
   width: 130px;
   height: auto;
@@ -310,6 +342,22 @@
   color: tomato;
 }
 
+.slide-content .each_11{
+  color: rgb(0, 212, 212);
+}
+
+.slide-content .each_12{
+  color: dodgerblue;
+}
+
+.slide-content .each_13{
+  color: limegreen;
+}
+
+.slide-content .each_14{
+  color: darkolivegreen;
+}
+
 /* ナビゲーションボタン */
 .swiper-button-prev:after {
   font-family: "Font Awesome 5 Free";
@@ -341,4 +389,9 @@
 .swiper .swiper-pagination-bullet-active {
   color:#fff;
   background: linear-gradient(to bottom, #1AC8FC, #1BAFF9 45%, #1C8BF5);
+}
+
+.top_guide_end_text {
+  margin-top: 35px;
+  font-size: 24px;
 }
