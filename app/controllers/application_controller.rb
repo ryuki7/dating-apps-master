@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
 
   def privacy; end
 
+  def guide; end
+
   private
 
   def determine_layout
@@ -30,6 +32,8 @@ class ApplicationController < ActionController::Base
       'terms_and_privacy'
     when 'privacy'
       'terms_and_privacy'
+    when 'guide'
+      'layout_guide'
     end
   end
 
