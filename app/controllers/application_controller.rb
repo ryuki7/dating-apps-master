@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'date'
   layout 'before', only: %i[before_my_page]
+  layout 'terms_and_privacy', only: %i[terms privacy]
   before_action :login_check
 
   def test;end
@@ -14,9 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def before_my_page
-    @url = 'users/my_page'
-  end
+  def before_my_page; end
+
+  def terms; end
+
+  def privacy; end
 
   private
 
