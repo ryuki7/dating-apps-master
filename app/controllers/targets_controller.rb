@@ -4,7 +4,7 @@ class TargetsController < ApplicationController
 
   def new
     @meta_url = "targets/new"
-    @meta_url_count = 0.4
+    @meta_url_count = 0
     @apps = App.all
     @appearances = Appearance.all
     @ages = 18..30
