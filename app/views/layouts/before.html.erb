@@ -9,13 +9,7 @@
     <title>マッチングアプリマスター</title>
   </head>
   <body>
-    <div id="liffAppContent">
-      <%= yield %>
-    </div>
-    <!-- LIFF ID ERROR -->
-    <div id="liffErrorMessage" class="hidden">
-      <p>一度アプリを閉じて、もう一度開き直して下さい。</p>
-    </div>
+    <%= yield %>
     <%= javascript_pack_tag 'before', 'data-turbolinks-track': 'reload' %>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   </body>
