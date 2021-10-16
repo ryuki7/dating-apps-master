@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'date'
-  layout 'before', only: %i[before_my_page]
-  layout 'terms_and_privacy', only: %i[terms privacy]
+  layout :determine_layout
   before_action :login_check
 
   def test;end
@@ -22,6 +21,17 @@ class ApplicationController < ActionController::Base
   def privacy; end
 
   private
+
+  def determine_layout
+    case action_name
+    when 'before_my_page' 
+      'before'
+    when 'terms'
+      'terms_and_privacy'
+    when 'privacy'
+      'terms_and_privacy'
+    end
+  end
 
   def login_check
     if session[:user_id] == nil
