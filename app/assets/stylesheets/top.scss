@@ -302,6 +302,13 @@
   width: 190px;
 }
 
+@media screen and (min-width: 980px) {
+  .slide-content {
+    position: relative;
+    left: 265px;
+  }
+}
+
 .slide-content .each_1{
   color: red;
 }
