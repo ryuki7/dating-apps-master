@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   require 'date'
   layout :determine_layout
   before_action :login_check
+  skip_before_action :login_check, only: %i[before_my_page]
 
   def webhook
     if signature_verify
@@ -37,9 +38,7 @@ class ApplicationController < ActionController::Base
 
   def login_check
     if session[:user_id] == nil
-      unless request.url == "https://dating-apps-master.com/before_my_page"
         redirect_to before_my_page_path
-      end
     end
   end
 
