@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'terms' => 'application#terms'
   get 'privacy' => 'application#privacy'
   get 'guide' => 'application#guide'
+  get 'richmenu_guide' => 'application#richmenu_guide'
 
   resources :app_diagnostics do
     collection do

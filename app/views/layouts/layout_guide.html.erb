@@ -18,7 +18,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/guide_header' %>
+    <% if params[:action] == 'guide' %>
+      <%= render 'layouts/guide_header' %>
+    <% elsif params[:action] == 'richmenu_guide' %>
+      <%= render 'layouts/top_header' %>
+    <% end %>
     <div id="liffAppContent">
       <%= yield %>
     </div>
