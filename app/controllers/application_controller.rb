@@ -37,8 +37,8 @@ class ApplicationController < ActionController::Base
 
   def login_check
     if session[:user_id] == nil
-      unless request.referer == "https://dating-apps-master.com/top"
-        
+      unless request.url == "https://dating-apps-master.com/before_my_page"
+        redirect_to before_my_page_path
       end
     end
   end
