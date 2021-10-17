@@ -8,6 +8,11 @@
             <!--ここからメニュー-->
             <div class="menu-content">
                 <ul>
+                    <% if params[:action] == 'richmenu_guide' %>
+                      <li>
+                        <a href="/richmenu_guide">アプリの使い方</a>
+                      </li>
+                    <% end %>
                     <li>
                         <a href="/terms">利用規約</a>
                     </li>
