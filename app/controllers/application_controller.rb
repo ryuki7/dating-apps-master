@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
       'terms_and_privacy'
     when 'guide'
       'layout_guide'
+    when 'richmenu_guide'
+      'layout_guide'
     end
   end
 
