@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   layout 'layout_my_page', only: %i[my_page]
   before_action :set_user, only: %i[index destroy my_page]
   before_action :admin_check, only: %i[index destroy]
+  skip_before_action :login_check, only: %i[create]
 
   def create
     # ユーザーの作成・ログイン
