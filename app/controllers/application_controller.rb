@@ -14,11 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def before_my_page
-    if request.referer == nil
-      @meta_url = "/users/my_page"
-    else
-      @meta_url = request.referer.split('com')[1]
-    end
+    @meta_url = "users/my_page"
   end
 
   def terms; end
