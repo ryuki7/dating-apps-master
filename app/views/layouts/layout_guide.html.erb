@@ -3,8 +3,14 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <% unless request.referer == "https://dating-apps-master.com/guide" %>
-      <meta http-equiv="refresh" content=" 0.5; url=/guide">
+    <% if params[:action] == 'guide' %>
+      <% unless request.referer == "https://dating-apps-master.com/guide" %>
+        <meta http-equiv="refresh" content=" 0.5; url=/guide">
+      <% end %>
+    <% elsif params[:action] == 'richmenu_guide' %>
+      <% unless request.referer == "https://dating-apps-master.com/richmenu_guide" %>
+        <meta http-equiv="refresh" content=" 0.5; url=/richmenu_guide">
+      <% end %>
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
