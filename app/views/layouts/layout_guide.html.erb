@@ -26,8 +26,6 @@
   <body>
     <% if params[:action] == 'guide' %>
       <%= render 'layouts/guide_header' %>
-    <% elsif params[:action] == 'richmenu_guide' %>
-      <%= render 'layouts/top_header' %>
     <% end %>
     <div id="liffAppContent">
       <%= yield %>
