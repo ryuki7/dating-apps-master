@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   require 'date'
   layout :determine_layout
   before_action :login_check
-  skip_before_action :login_check, only: %i[before_my_page terms privacy guide]
+  skip_before_action :login_check, only: %i[before_my_page terms privacy guide richmenu_guide]
 
   def webhook
     if signature_verify
@@ -13,15 +13,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def before_my_page
-    @meta_url = "users/my_page"
-  end
+  def before_my_page; end
 
   def terms; end
 
   def privacy; end
 
   def guide; end
+
+  def richmenu_guide; end
 
   private
 
