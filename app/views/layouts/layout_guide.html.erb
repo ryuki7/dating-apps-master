@@ -26,6 +26,12 @@
   <body>
     <% if params[:action] == 'guide' %>
       <%= render 'layouts/guide_header' %>
+    <% elsif params[:action] == 'richmenu_guide' %>
+      <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" class="brand-logo"><img src="/logos/マッチングアプリマスター.jpg"></a>
+        </div>
+      </nav>
     <% end %>
     <div id="liffAppContent">
       <%= yield %>
