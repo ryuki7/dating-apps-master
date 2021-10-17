@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   layout :determine_layout
   before_action :login_check
 
-  def test;end
-
   def webhook
     if signature_verify
       render html: '<p>success</p>'.html_safe, status: 200
