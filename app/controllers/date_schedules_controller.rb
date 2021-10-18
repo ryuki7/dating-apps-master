@@ -2,10 +2,23 @@ class DateSchedulesController < ApplicationController
   before_action :set_user, only: %i[original_create destroy]
 
   def original_create
-    DateSchedule.create!(date_schedule_params)
+    date_schedule = DateSchedule.create!(date_schedule_params)
+    line_message_text = "デートの予定を登録したよ$ LINE emoji $ \n\n#{date_schedule.target.name}ちゃん \n#{date_schedule.appointment} \n#{date_schedule.date_plan.name}"
     message = {
-      type: 'text',
-      text: 'hello'
+      type: "text",
+      text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
+      emojis: [
+      {
+        index: 12,
+        productId: "5ac1bfd5040ab15980c9b435",
+        emojiId: "001"
+      },
+      {
+        index: 25,
+        productId: "5ac1bfd5040ab15980c9b435",
+        emojiId: "002"
+      }
+    ]
     }
     client = Line::Bot::Client.new { |config|
         config.channel_secret = "cd3b244b56648c6ae54b3552238c41a3"
