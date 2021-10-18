@@ -3,6 +3,15 @@ class DateSchedulesController < ApplicationController
 
   def original_create
     DateSchedule.create!(date_schedule_params)
+    message = {
+      type: 'text',
+      text: 'hello'
+    }
+    client = Line::Bot::Client.new { |config|
+        config.channel_secret = "cd3b244b56648c6ae54b3552238c41a3"
+        config.channel_token = "1bqLcX1ZfBHVuIvl2IS7MnzJd35bokjepCTUaqiOBHz+00S/xR/yh9Ys3DU77rgG4AmeSuFTxuPh+lC99e7Z/T2B3o/yIrmqcDUt58ov57XLMY271NLzVFbfs96aZlONsrO7VPDX4N2pStJiC6u0zwdB04t89/1O/w1cDnyilFU="
+    }
+    response = client.push_message(@user.line_id, message)
     redirect_to "/targets/#{params[:id]}#targets_date_schedule_fragment"
   end
 
