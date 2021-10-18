@@ -6,7 +6,7 @@
     <% if params[:redirect_url] == nil %>
       <meta http-equiv="refresh" content="<%= " 2; url=/users/my_page" %>">
     <% else %>
-      <meta http-equiv="refresh" content="<%= " 2; url=/date_plans/#{params[:redirect_url]}/detail" %>">
+      <meta http-equiv="refresh" content="<%= " 2; url=/#{params[:redirect_url]}" %>">
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
