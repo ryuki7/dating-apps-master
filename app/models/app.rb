@@ -1,4 +1,6 @@
 class App < ApplicationRecord
+  require 'line/bot'
+
   has_many :app_diagnostics, dependent: :destroy
   has_many :app_purposes
   has_many :targets, dependent: :destroy

@@ -120,6 +120,7 @@ GEM
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     kgio (2.11.4)
+    line-bot-api (1.22.0)
     listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -280,6 +281,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   kaminari!
+  line-bot-api
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
   pry-rails
