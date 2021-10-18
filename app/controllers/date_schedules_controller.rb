@@ -3,7 +3,7 @@ class DateSchedulesController < ApplicationController
 
   def original_create
     date_schedule = DateSchedule.create!(date_schedule_params)
-    line_message_text = "デートの予定を登録したよ$ LINE emoji $ \n\n#{date_schedule.target.name}ちゃん \n#{date_schedule.appointment} \n#{date_schedule.date_plan.name}(#{date_schedule.date_plan.purpose.name}) \nhttps://liff.line.me/1656234930-4MZoRoZd/path_A/?redirect_url=date_plans/#{date_schedule.date_plan.id}/detail"
+    line_message_text = "デートの予定を登録したよ$ LINE emoji $ \n\n#{date_schedule.target.name}ちゃん \n#{date_schedule.appointment} \n#{date_schedule.date_plan.name}(#{date_schedule.date_plan.purpose.name}) \nhttps://liff.line.me/1656234930-4MZoRoZd?redirect_url=#{date_schedule.date_plan.id}"
     message = {
       type: "text",
       text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
