@@ -3,7 +3,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="<%= " 2; url=/users/my_page" %>">
+    <% if params[:redirect_url] == nil %>
+      <meta http-equiv="refresh" content="<%= " 2; url=/users/my_page" %>">
+    <% else %>
+      <meta http-equiv="refresh" content="<%= " 2; url=/#{params[:redirect_url]}" %>">
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <title>マッチングアプリマスター</title>
