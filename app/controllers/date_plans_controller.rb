@@ -1,4 +1,5 @@
 class DatePlansController < ApplicationController
+  skip_before_action :login_check
 
   def index
     @make_girlfriend_purpose = Purpose.find(1)
