@@ -16,7 +16,7 @@ class DateSchedulesController < ApplicationController
       {
         index: 16,
         productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "219"
+        emojiId: "215"
       }
     ]
     }
