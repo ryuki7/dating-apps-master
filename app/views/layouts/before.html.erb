@@ -3,10 +3,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <% if params[:redirect_url] == nil %>
+    <% if params[:action] == 'before_my_page' %>
       <meta http-equiv="refresh" content="<%= " 2; url=/users/my_page" %>">
-    <% else %>
-      <meta http-equiv="refresh" content="<%= " 2; url=/#{params[:redirect_url]}" %>">
+    <% elsif params[:action] == 'before_detail' %>
+      <meta http-equiv="refresh" content="<%= " 2; url=/date_plans/#{params[:id]}/detail" %>">
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
