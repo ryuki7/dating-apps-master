@@ -1,5 +1,6 @@
 class AppStrategiesController < ApplicationController
   before_action :set_app, only: %i[show]
+  skip_before_action :login_check
 
   def index
     @apps = App.all
