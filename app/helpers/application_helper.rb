@@ -11,9 +11,6 @@ module ApplicationHelper
       reverse: true,
       separator: '|',
       description: 'マッチングアプリ完全攻略サービス',
-      keywords: 'マッチングアプリマスター',
-      canonical: request.original_url,
-      noindex: ! Rails.env.production?,
       icon: [
         { href: image_url('マッチングアプリマスター.jpg') }
       ],
@@ -22,7 +19,6 @@ module ApplicationHelper
         title: 'マッチングアプリマスター',
         description: 'マッチングアプリ完全攻略サービス', 
         type: 'website',
-        url: request.original_url,
         image: image_url('マッチングアプリマスター.jpg'),
         locale: 'ja_JP',
       }
