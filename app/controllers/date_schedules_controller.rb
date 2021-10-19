@@ -3,7 +3,7 @@ class DateSchedulesController < ApplicationController
 
   def original_create
     date_schedule = DateSchedule.create!(date_schedule_params)
-    line_message_text = "デートの予定を登録したよ$ LINE emoji $ \n\n#{date_schedule.target.name}ちゃん \n#{date_schedule.appointment} \n#{date_schedule.date_plan.name}(#{date_schedule.date_plan.purpose.name}) \n\n下記のリンクから \n#{date_schedule.date_plan.name}(#{date_schedule.date_plan.purpose.name})の「詳細情報」・「アクション」を確認しておきましょう！ \n\nhttps://dating-apps-master.com/date_plans/#{date_schedule.date_plan.id}/detail?openExternalBrowser=1"
+    line_message_text = "デートの予定を登録したよ$ \n\n$#{date_schedule.target.name}ちゃん \n$#{date_schedule.appointment} \n$#{date_schedule.date_plan.name}（#{date_schedule.date_plan.purpose.name}） \n\n$下記のリンクから \n$#{date_schedule.date_plan.name}（#{date_schedule.date_plan.purpose.name}）の「詳細情報」・「アクション」を確認しておきましょう！ \n\nhttps://dating-apps-master.com/date_plans/#{date_schedule.date_plan.id}/detail?openExternalBrowser=1"
     message = {
       type: "text",
       text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
@@ -11,12 +11,32 @@ class DateSchedulesController < ApplicationController
       {
         index: 12,
         productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "001"
+        emojiId: "098"
       },
       {
-        index: 25,
+        index: 29,
         productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "002"
+        emojiId: "219"
+      },
+      {
+        index: 44,
+        productId: "5ac2213e040ab15980c9b447",
+        emojiId: "051"
+      },
+      {
+        index: 59,
+        productId: "5ac2213e040ab15980c9b447",
+        emojiId: "005"
+      },
+      {
+        index: 89,
+        productId: "5ac21a8c040ab15980c9b43f",
+        emojiId: "076"
+      },
+      {
+        index: 104,
+        productId: "5ac2213e040ab15980c9b447",
+        emojiId: "005"
       }
     ]
     }
