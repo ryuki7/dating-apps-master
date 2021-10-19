@@ -1,5 +1,6 @@
 class DatePlansController < ApplicationController
   layout 'before', only: %i[before_detail]
+  skip_before_action :login_check, only: %i[before_detail]
 
   def index
     @make_girlfriend_purpose = Purpose.find(1)
