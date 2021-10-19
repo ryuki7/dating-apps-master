@@ -1,4 +1,5 @@
 class DatePlansController < ApplicationController
+  layout 'before', only: %i[before_detail]
 
   def index
     @make_girlfriend_purpose = Purpose.find(1)
@@ -41,6 +42,8 @@ class DatePlansController < ApplicationController
 
     @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
   end
+
+  def before_detail; end
 
   private
 

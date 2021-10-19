@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :date_plans, only: %i[index show] do
     member do
       get 'detail'
+      get 'before_detail'
     end
   end
 
