@@ -9,6 +9,7 @@ module ApplicationHelper
       title: 'マッチングアプリマスター',
       reverse: true,
       description: 'マッチングアプリ完全攻略サービス',
+      keywords: 'マッチングアプリ, おすすめ, コツ, 攻略, プロフィール, 付き合う, デート, ホテル',
       icon: [
         { href: image_url('マッチングアプリマスター.jpg') }
       ],
