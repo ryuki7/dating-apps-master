@@ -6,16 +6,13 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      site: 'マッチングアプリマスター',
       title: 'マッチングアプリマスター',
       reverse: true,
-      separator: '|',
       description: 'マッチングアプリ完全攻略サービス',
       icon: [
         { href: image_url('マッチングアプリマスター.jpg') }
       ],
       og: {
-        site_name: 'マッチングアプリマスター',
         title: 'マッチングアプリマスター',
         description: 'マッチングアプリ完全攻略サービス', 
         type: 'website',
