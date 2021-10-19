@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% unless !@meta_url %>
       <% unless request.referer == "https://dating-apps-master.com/#{@meta_url}" %>
-        <meta http-equiv="refresh" content="<%= " #{@meta_url_count}; url=/#{@meta_url}" %>">
+        
       <% end %>
     <% end %>
     <%= csrf_meta_tags %>
