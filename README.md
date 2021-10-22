@@ -2,12 +2,12 @@
 モテ男（マッチングアプリマスター）への道標となる マッチングアプリ完全攻略サービスです。<br>
 画像貼る
 
-# アプリURL 対応端末: iPhone X 以降(スマホ)
-LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。
+# アプリURL  対応端末: iPhone X 以降(スマホ)
+LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。<br>
 <br>
-https://dating-apps-master.com/top
+https://dating-apps-master.com/top<br>
 <br>
-🌷 PV数 
+🌷 PV数 <br>
 <br>
 🌷 友だち登録数15人 (2021年10月22日現在)
 
