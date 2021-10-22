@@ -1,6 +1,6 @@
 # マッチングアプリマスター
 モテ男（マッチングアプリマスター）への道標となる マッチングアプリ完全攻略サービスです。<br>
-<img src="https://user-images.githubusercontent.com/72130011/138472942-61ec2390-1326-4197-8dfb-1981fcce3bf9.jpg" height="400px" width="auto">
+<img width="1439" alt="スクリーンショット 2021-10-22 23 47 48" src="https://user-images.githubusercontent.com/72130011/138476213-1ee14469-6e56-4b1c-9c56-628570f17ad8.png">
 
 # アプリURL(対応端末: iPhone X 以降(スマホ))
 LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。<br>
