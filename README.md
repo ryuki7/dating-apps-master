@@ -49,7 +49,7 @@ https://xd.adobe.com/view/ce7f700b-05d8-4316-8a0f-fdc8f4261687-9b2c/
 修正する？
 
 # ER図
-<img width="1436" alt="スクリーンショット 2021-10-22 19 41 55" src="https://user-images.githubusercontent.com/72130011/138480763-16b0347d-7ffe-4882-a1e2-b08050998aa0.png">
+<img width="879" alt="スクリーンショット 2021-10-23 0 23 28" src="https://user-images.githubusercontent.com/72130011/138481436-b58d1470-382e-4bd4-b5e6-aeaa213dd98e.png">
 
 # 使用技術
 - Ruby 3.0.2
