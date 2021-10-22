@@ -4,6 +4,7 @@
 
 # アプリURL  対応端末: iPhone X 以降(スマホ)
 LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。<br>
+※ 二極化<br>
 <br>
 https://dating-apps-master.com/top<br>
 <br>
