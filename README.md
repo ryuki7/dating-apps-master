@@ -1,6 +1,6 @@
 # マッチングアプリマスター
 モテ男（マッチングアプリマスター）への道標となる マッチングアプリ完全攻略サービスです。<br>
-画像貼る
+![IMG_8983](https://user-images.githubusercontent.com/72130011/138472942-61ec2390-1326-4197-8dfb-1981fcce3bf9.jpg)
 
 # アプリURL(対応端末: iPhone X 以降(スマホ))
 LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。<br>
@@ -63,6 +63,7 @@ https://gyazo.com/a2340ea28d60b86fd30443e45c05119f
 - AWS
   - VPC
   - EC2
+  - RDS
   - ALB
   - Route53
   - ACM
