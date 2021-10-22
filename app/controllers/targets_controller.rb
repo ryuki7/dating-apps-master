@@ -65,7 +65,7 @@ class TargetsController < ApplicationController
     @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, user_id: @user.id, report_confirmation: 1)
     @date_schedules_reported_last_except = @date_schedules_reported_all.first(@date_schedules_reported_all.size - 1)
     @date_schedule_reported_last = @date_schedules_reported_all.last
-    if !@date_schedule_reported_last.blank?
+    if @date_schedule_reported_last.present?
       @last_date_schedule_tasks_success = DateScheduleTask.where(date_schedule_id: @date_schedule_reported_last.id, result: "成功")
       @last_success_task_id_array = @last_date_schedule_tasks_success.map {|last_date_schedule_task| last_date_schedule_task.task.id}
 
@@ -82,7 +82,7 @@ class TargetsController < ApplicationController
     @date_schedule_unreported_appointment = appointment_date_class_create(@date_schedule_unreported.appointment) if @date_schedule_unreported
 
     @date_schedule_tasks_success_all = DateScheduleTask.where(date_schedule_id: @date_schedules_reported_all.map(&:id), result: "成功")
-    if !@date_schedule_tasks_success_all.blank?
+    if @date_schedule_tasks_success_all.present?
       @success_task_id_array = @date_schedule_tasks_success_all.map {|date_schedule_task| date_schedule_task.task.id}
     else
       @success_task_id_array = []
@@ -92,7 +92,7 @@ class TargetsController < ApplicationController
     @date_schedule_reported_all = DateSchedule.where(target_id: @target.id, report_confirmation: 1)
     @date_count = @date_schedule_reported_all.size + 1
     date_plans_recommend_before_revise = DatePlan.where("date_count_level <= ? and popular_rating_level <= ? and purpose_id = ?", @date_count, @user.popular_rating, @purpose.id)
-    @date_plans_recommend = date_plans_recommend_before_revise.min_by{|date_plan| (@user.popular_rating - date_plan.popular_rating_level).abs} if !date_plans_recommend_before_revise.blank?
+    @date_plans_recommend = date_plans_recommend_before_revise.min_by{|date_plan| (@user.popular_rating - date_plan.popular_rating_level).abs} if date_plans_recommend_before_revise.present?
   end
 
   def edit
@@ -155,13 +155,13 @@ class TargetsController < ApplicationController
   end
 
   def prefectures_array
-    prefectures = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
-        "茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
-        "新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県",
-        "静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県",
-        "奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県",
-        "徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県",
-        "熊本県","大分県","宮崎県","鹿児島県","沖縄県"
+    prefectures = ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県",
+        "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県",
+        "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県",
+        "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県",
+        "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県",
+        "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県",
+        "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"
         ]
   end
 

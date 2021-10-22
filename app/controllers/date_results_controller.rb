@@ -18,7 +18,7 @@ class DateResultsController < ApplicationController
 
     # 最後の report_confirmation = 1 のみ。(報告済の最後の date_schedules を取得する。)
     @fail_tasks_id_array = []
-    if !@date_schedules_reported.blank?
+    if @date_schedules_reported.present?
       @date_schedules_reported_last = @date_schedules_reported.last
       @date_schedules_reported_last.date_schedule_tasks.each do |date_schedule_task|
         if date_schedule_task.result == "失敗" || date_schedule_task.result == "未実施"
@@ -87,7 +87,7 @@ class DateResultsController < ApplicationController
     @date_schedules_unreported_passed_array = []
     @date_schedules_unreported_all.each do |date_schedule_unreported|
       date_schedule_unreported_appointment = appointment_date_class_create(date_schedule_unreported.appointment)
-      if date_schedule_unreported_appointment <= Date.today
+      if date_schedule_unreported_appointment <= Time.zone.today
         @date_schedules_unreported_passed_array.push(date_schedule_unreported)
       end
     end
@@ -115,7 +115,7 @@ class DateResultsController < ApplicationController
     @last_success_task_id_array = @last_date_schedule_tasks_success.map {|last_date_schedule_task| last_date_schedule_task.task.id}
 
     @date_schedule_tasks_success_all = DateScheduleTask.where(date_schedule_id: @date_schedules_reported_all.map(&:id), result: "成功")
-    if !@date_schedule_tasks_success_all.blank?
+    if @date_schedule_tasks_success_all.present?
       @success_task_id_array = @date_schedule_tasks_success_all.map {|date_schedule_task| date_schedule_task.task.id}
     else
       @success_task_id_array = []
@@ -132,7 +132,7 @@ class DateResultsController < ApplicationController
     @date_schedules_unreported_passed_array = []
     @date_schedules_unreported_all.each do |date_schedule_unreported|
       date_schedule_unreported_appointment = appointment_date_class_create(date_schedule_unreported.appointment)
-      if date_schedule_unreported_appointment <= Date.today
+      if date_schedule_unreported_appointment <= Time.zone.today
         @date_schedules_unreported_passed_array.push(date_schedule_unreported)
       end
     end

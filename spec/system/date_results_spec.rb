@@ -10,7 +10,7 @@ RSpec.describe "DateResults", type: :system do
       # デート結果一覧ページに遷移する
       visit date_results_path
       # 報告予定のデート結果が表示されていないことを確認
-      expect(page).to_not have_content "12/09"
+      expect(page).not_to have_content "12/09"
       # デート結果を報告する(report_confirmation = 1)
       create(:date_schedule, appointment: "2020年 12月09日", report_confirmation: 1, user_id: user.id)
       # デート結果一覧ページに遷移する
