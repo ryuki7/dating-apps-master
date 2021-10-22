@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     collection do
       get 'my_page'
     end
+    member do
+      get 'system_spec_login'
+    end
   end
 
   resources :app_strategies, only: %i[index show] do

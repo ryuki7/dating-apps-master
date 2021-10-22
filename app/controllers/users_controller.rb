@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   layout 'layout_my_page', only: %i[my_page]
   before_action :set_user, only: %i[index destroy my_page]
   before_action :admin_check, only: %i[index destroy]
-  skip_before_action :login_check, only: %i[create]
+  skip_before_action :login_check, only: %i[create system_spec_login]
 
   def create
     # ユーザーの作成・ログイン
@@ -40,6 +40,11 @@ class UsersController < ApplicationController
     @date_schedule_tasks_kiss = []
     @date_schedule_tasks_kiss = DateScheduleTask.where(task_id: @task_kiss.id, date_schedule_id: @date_schedules.map(&:id), result: "成功") if !@date_schedules.blank?
   end
+
+  # def system_spec_login
+    # @user = User.find(params[:id])
+    # session[:user_id] = @user.id
+  # end
 
   private
 

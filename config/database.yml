@@ -29,7 +29,8 @@ development:
 test:
   <<: *default
   database: dating_apps_master_test
-
+  username: root
+  password: <%= ENV['DATING_APPS_MASTER_DATABASE_DEVELOPMENT_PASSWORD'] %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
