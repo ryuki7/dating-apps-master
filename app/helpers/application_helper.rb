@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      title: 'マッチングアプリマスター',
+      title: 'マッチングアプリマスター | 〜モテ男への道〜',
       reverse: true,
       description: 'マッチングアプリ完全攻略サービス',
       keywords: 'マッチングアプリ, おすすめ, コツ, 攻略, プロフィール, 付き合う, デート, ホテル',
@@ -14,7 +14,7 @@ module ApplicationHelper
         { href: image_url('マッチングアプリマスター.jpg') }
       ],
       og: {
-        title: 'マッチングアプリマスター',
+        title: 'マッチングアプリマスター | 〜モテ男への道〜',
         description: 'マッチングアプリ完全攻略サービス', 
         type: 'website',
         image: image_url('マッチングアプリマスター.jpg'),
