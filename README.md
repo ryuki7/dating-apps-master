@@ -1,7 +1,11 @@
 # マッチングアプリマスター
 モテ男（マッチングアプリマスター）への道標となる マッチングアプリ完全攻略サービスです。<br>
 <br>
-<img width="1439" alt="スクリーンショット 2021-10-22 23 47 48" src="https://user-images.githubusercontent.com/72130011/138476213-1ee14469-6e56-4b1c-9c56-628570f17ad8.png" style="border:1px solid #dfdede; border-radius: 9px;">
+<img width="1439" alt="スクリーンショット 2021-10-22 23 47 48" src="https://user-images.githubusercontent.com/72130011/138476213-1ee14469-6e56-4b1c-9c56-628570f17ad8.png" id="application_top_image">
+<script>
+const application_top_image = document.getElementById("application_top_image");
+application_top_image.style = "border:1px solid #dfdede; border-radius: 9px;"
+</script>
 
 # アプリURL(対応端末: iPhone X 以降(スマホ))
 LIFFアプリ(LINEで動くWebアプリ)なのですが、外部ブラウザ(SafariやChrome)からも開くことが出来ます。<br>
@@ -49,8 +53,7 @@ https://xd.adobe.com/view/ce7f700b-05d8-4316-8a0f-fdc8f4261687-9b2c/
 修正する？
 
 # ER図
-https://gyazo.com/a2340ea28d60b86fd30443e45c05119f
-画像貼る(スクリーンショット)
+<img width="1436" alt="スクリーンショット 2021-10-22 19 41 55" src="https://user-images.githubusercontent.com/72130011/138477618-6f4c63ac-8e16-4ff8-925d-687b2bf6496b.png">
 
 # 使用技術
 - Ruby 3.0.2
