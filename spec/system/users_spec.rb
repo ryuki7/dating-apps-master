@@ -5,6 +5,7 @@ RSpec.describe "Users", type: :system do
   
   describe "ページ遷移確認(管理者 or ユーザー)" do
     before { login(user) }
+
     describe "ユーザー一覧ページへアクセスする" do
       context "管理者" do
         it "ユーザー一覧ページへ遷移する" do

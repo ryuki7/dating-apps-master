@@ -1,8 +1,8 @@
 class Purpose < ApplicationRecord
-  has_many :steps
-  has_many :app_purposes
-  has_many :date_plans
-  has_many :targets
+  has_many :steps, dependent: :destroy
+  has_many :app_purposes, dependent: :destroy
+  has_many :date_plans, dependent: :destroy
+  has_many :targets, dependent: :destroy
 
   validates :name, presence: true
 end

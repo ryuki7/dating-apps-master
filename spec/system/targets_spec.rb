@@ -10,7 +10,7 @@ RSpec.describe "Targets", type: :system do
       # 女性一覧ページに遷移する
       visit targets_path
       # 登録予定の女性が表示されていないことを確認
-      expect(page).to_not have_content "system_test_target"
+      expect(page).not_to have_content "system_test_target"
       # 女性登録をする
       create(:target, name: "system_test_target", user_id: user.id)
       # 女性一覧ページに遷移する
