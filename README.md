@@ -83,4 +83,4 @@ https://xd.adobe.com/view/ce7f700b-05d8-4316-8a0f-fdc8f4261687-9b2c/
 <img width="879" alt="スクリーンショット 2021-10-23 0 23 28" src="https://user-images.githubusercontent.com/72130011/138481436-b58d1470-382e-4bd4-b5e6-aeaa213dd98e.png">
 
 # インフラ構成図
-![インフラ構成図](https://user-images.githubusercontent.com/72130011/138585363-58d128e8-ce16-4c11-8c09-912a2b9a8932.png)
+![インフラ構成図](https://user-images.githubusercontent.com/72130011/138589390-e2a56950-b728-42aa-9c5e-47d9541cf544.png)
