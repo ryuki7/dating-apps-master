@@ -97,7 +97,7 @@ class DateResultsController < ApplicationController
     end
 
     @date_schedules_reported_all = DateSchedule.where(user_id: @user.id, report_confirmation: 1)
-    @date_schedules_reported_pagination = DateSchedule.where(user_id: @user.id, report_confirmation: 1).page(params[:page]).per(7)
+    @date_schedules_reported_pagination = DateSchedule.where(user_id: @user.id, report_confirmation: 1).order("updated_at DESC").page(params[:page]).per(7)
   end
 
   def show
