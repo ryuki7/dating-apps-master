@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   def webhook
     if signature_verify
-      render html: '<p>success</p>'.html_safe, status: 200
+      render html: '<p>success</p>'.html_safe, status: :ok
     else
-      render html: '<p>invalid</p>'.html_safe, status: 403
+      render html: '<p>invalid</p>'.html_safe, status: :forbidden
     end
   end
 
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def determine_layout
     case action_name
-    when 'before_my_page' 
+    when 'before_my_page'
       'before'
     when 'terms'
       'terms_and_privacy'
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
   def login_check
     if session[:user_id] == nil
-        redirect_to before_my_page_path
+      redirect_to before_my_page_path
     end
   end
 

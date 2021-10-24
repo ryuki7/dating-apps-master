@@ -1,7 +1,7 @@
 class DatePlan < ApplicationRecord
   belongs_to :purpose
-  has_many :date_plan_places
-  has_many :date_schedules
+  has_many :date_plan_places, dependent: :destroy
+  has_many :date_schedules, dependent: :destroy
 
   validates :name, presence: true
   validates :period, presence: true
