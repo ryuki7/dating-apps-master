@@ -61,6 +61,7 @@ https://dating-apps-master.com/top<br>
 - Ruby 3.0.2
 - Rails 6.0.4
 - JavaScript
+- jQuery
 - LIFF(LINE Front-end Framework)
 - LINE Messaging API
 - MYSQL
