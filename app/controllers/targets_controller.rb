@@ -48,7 +48,7 @@ class TargetsController < ApplicationController
   def index
     @apps = App.all
     @targets = Target.where(user_id: @user.id)
-    @targets_pagination = Target.where(user_id: @user.id).page(params[:page]).per(7)
+    @targets_pagination = Target.where(user_id: @user.id).order("updated_at DESC").page(params[:page]).per(7)
   end
 
   def show
