@@ -23,7 +23,7 @@ class DatePlansController < ApplicationController
 
     @date_plans = DatePlan.where(purpose_id: @purpose.id)
 
-    @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
+    @purpose_class_name = @purpose.pulldown_selection_color
   end
 
   def detail
@@ -40,21 +40,6 @@ class DatePlansController < ApplicationController
     @detail_information_split_array = @date_plan.detail_information.split('.')
     @description_split_array = @date_plan.description.split('.')
 
-    @purpose_class_name = pulldown_selection_color(@purpose.id, '目的')
-  end
-
-  private
-
-  def pulldown_selection_color(value, name)
-    if name == '目的'
-      case value
-      when 1
-        'make_girlfriend'
-      when 2
-        'play'
-      when 3
-        'super_play'
-      end
-    end
+    @purpose_class_name = @purpose.pulldown_selection_color
   end
 end

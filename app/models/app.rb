@@ -8,4 +8,17 @@ class App < ApplicationRecord
   validates :icon_image, presence: true
   validates :diagnostic_allocation, presence: true, uniqueness: true
   validates :diagnostic_description, presence: true
+
+  def pulldown_selection_color
+    case self.id
+    when 1
+      'pairs'
+    when 2
+      'with'
+    when 3
+      'tapple'
+    when 4
+      'tinder'
+    end
+  end
 end
