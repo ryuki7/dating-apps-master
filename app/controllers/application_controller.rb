@@ -5,14 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :login_check
   skip_before_action :login_check, only: %i[before_my_page terms privacy guide richmenu_guide]
 
-  def webhook
-    if signature_verify
-      render html: '<p>success</p>'.html_safe, status: :ok
-    else
-      render html: '<p>invalid</p>'.html_safe, status: :forbidden
-    end
-  end
-
   def before_my_page; end
 
   def terms; end
@@ -44,12 +36,5 @@ class ApplicationController < ActionController::Base
     if session[:user_id] == nil
       redirect_to before_my_page_path
     end
-  end
-
-  def signature_verify
-    http_request_body = request.raw_post # Request body string
-    hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, ENV['CHANNEL_SECRET'], http_request_body)
-    signature = Base64.strict_encode64(hash)
-    # Compare x-line-signature request header string and the signature
   end
 end

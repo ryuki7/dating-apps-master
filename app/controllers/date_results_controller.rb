@@ -86,7 +86,7 @@ class DateResultsController < ApplicationController
     @date_schedules_unreported_all = DateSchedule.where(user_id: @user.id, report_confirmation: 0)
     @date_schedules_unreported_passed_array = []
     @date_schedules_unreported_all.each do |date_schedule_unreported|
-      date_schedule_unreported_appointment = appointment_date_class_create(date_schedule_unreported.appointment)
+      date_schedule_unreported_appointment = date_schedule_unreported.appointment_date_class_create
       if date_schedule_unreported_appointment <= Time.zone.today
         @date_schedules_unreported_passed_array.push(date_schedule_unreported)
       end
@@ -131,7 +131,7 @@ class DateResultsController < ApplicationController
     @date_schedules_unreported_all = DateSchedule.where(user_id: @user.id, report_confirmation: 0)
     @date_schedules_unreported_passed_array = []
     @date_schedules_unreported_all.each do |date_schedule_unreported|
-      date_schedule_unreported_appointment = appointment_date_class_create(date_schedule_unreported.appointment)
+      date_schedule_unreported_appointment = date_schedule_unreported.appointment_date_class_create
       if date_schedule_unreported_appointment <= Time.zone.today
         @date_schedules_unreported_passed_array.push(date_schedule_unreported)
       end
@@ -201,13 +201,6 @@ class DateResultsController < ApplicationController
       @target.progress_rating = 100
     end
     @target.save!
-  end
-
-  def appointment_date_class_create(date)
-    split_blank_array = date.split
-    split_month_and_day = split_blank_array[1].split("月")
-    appointment_str = "#{split_blank_array[0].gsub(/[^\d]/, "")}-#{split_month_and_day[0]}-#{split_month_and_day[1].gsub(/[^\d]/, "")}"
-    Date.parse(appointment_str)
   end
 
   def set_user
