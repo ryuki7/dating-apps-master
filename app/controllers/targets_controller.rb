@@ -71,7 +71,7 @@ class TargetsController < ApplicationController
 
       # おすすめのデート予定日
       # Dateクラスのフォーマットに変換
-      @date_schedule_reported_last_appointment = appointment_date_class_create(@date_schedule_reported_last.appointment)
+      @date_schedule_reported_last_appointment = @date_schedule_reported_last.appointment_date_class_create
       @recommend_date_schedule_appointment_5days_since = @date_schedule_reported_last_appointment.days_since(5).strftime("%m/%d")
       @recommend_date_schedule_appointment_14days_since = @date_schedule_reported_last_appointment.days_since(14).strftime("%m/%d")
     end
@@ -79,7 +79,7 @@ class TargetsController < ApplicationController
     @date_schedule_unreported = DateSchedule.find_by(target_id: @target.id, user_id: @user.id, report_confirmation: 0)
 
     # Dateクラスのフォーマットに変換
-    @date_schedule_unreported_appointment = appointment_date_class_create(@date_schedule_unreported.appointment) if @date_schedule_unreported
+    @date_schedule_unreported_appointment = @date_schedule_unreported.appointment_date_class_create if @date_schedule_unreported
 
     @date_schedule_tasks_success_all = DateScheduleTask.where(date_schedule_id: @date_schedules_reported_all.map(&:id), result: "成功")
     if @date_schedule_tasks_success_all.present?
@@ -146,13 +146,6 @@ class TargetsController < ApplicationController
   end
 
   private
-
-  def appointment_date_class_create(date)
-    split_blank_array = date.split
-    split_month_and_day = split_blank_array[1].split("月")
-    appointment_str = "#{split_blank_array[0].gsub(/[^\d]/, "")}-#{split_month_and_day[0]}-#{split_month_and_day[1].gsub(/[^\d]/, "")}"
-    Date.parse(appointment_str)
-  end
 
   def prefectures_array
     prefectures = ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県",

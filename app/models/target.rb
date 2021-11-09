@@ -8,7 +8,7 @@ class Target < ApplicationRecord
 
   has_many :date_schedules, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 4 }
   validates :favorability_rating, presence: true
   validates :progress_rating, presence: true
 end
