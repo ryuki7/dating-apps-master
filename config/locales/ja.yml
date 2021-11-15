@@ -6,3 +6,9 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+  enums:
+    date_schedule_task:
+      result:
+        not_implement: "未実施"
+        success: "成功"
+        fail: "失敗"

@@ -9,7 +9,7 @@
       <div class="targets_index_count">
         <% @apps.each do |app| %>
             <div class="targets_index_each_app_count_wrapper">
-                <% if app.id == 3 %>
+                <% if app.diagnostic_allocation == 'c' %>
                 <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image app-image-tapple-select">
                 <% else %>
                 <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="targets_app_icon_image">
@@ -31,13 +31,13 @@
         </a>
         <% @targets_pagination.each do |target| %>
           <%= link_to target_path(target.id), class: "targets_index_each_target_button", id: "targets_index_each_target_button_td" do %>
-              <% if target.app.id == 3 %>
+              <% if target.app.diagnostic_allocation == 'c' %>
                 <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>" class="app-image-tapple">
               <% else %>
                 <img src="<%= "/app_icon_images/#{target.app.icon_image}" %>">
               <% end %>
               <span><%= target.name %></span>
-              <span class="<%= purpose_color(target.purpose.id) %>"><%= target.purpose.name %></span>
+              <span class="<%= purpose_color(target.purpose.name) %>"><%= target.purpose.name %></span>
               <span class="index_favorability_rating"><%= target.favorability_rating %>％</span>
               <span class="index_progress_rating"><%= target.progress_rating %>％</span>
           <% end %>

@@ -2,24 +2,24 @@ module TargetsHelper
 
   def purpose_color(value)
       case value
-      when 1
+      when '彼女作り'
         'make_girlfriend'
-      when 2
+      when '遊び'
         'play'
-      when 3
+      when '超遊び'
         'super_play'
       end
   end
 
   def app_color(value)
     case value
-    when 1
+    when 'a'
       'pairs'
-    when 2
+    when 'b'
       'with'
-    when 3
+    when 'c'
       'tapple'
-    when 4
+    when 'd'
       'tinder'
     end
   end

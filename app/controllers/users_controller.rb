@@ -34,11 +34,11 @@ class UsersController < ApplicationController
   end
 
   def my_page
-    @date_count_all = DateSchedule.where(user_id: @user.id, report_confirmation: 1)
+    @date_count_all = DateSchedule.reported.where(user_id: @user.id)
     @task_kiss = Task.find_by(name: "キスをする")
-    @date_schedules = DateSchedule.where(user_id: @user.id, report_confirmation: 1)
+    @date_schedules = DateSchedule.reported.where(user_id: @user.id)
     @date_schedule_tasks_kiss = []
-    @date_schedule_tasks_kiss = DateScheduleTask.where(task_id: @task_kiss.id, date_schedule_id: @date_schedules.map(&:id), result: "成功") if @date_schedules.present?
+    @date_schedule_tasks_kiss = DateScheduleTask.success.where(task_id: @task_kiss.id, date_schedule_id: @date_schedules.map(&:id)) if @date_schedules.present?
   end
 
   # skip_before_action :login_check, only: %i[create system_spec_login] にする。(system_spec_login を追加する。)

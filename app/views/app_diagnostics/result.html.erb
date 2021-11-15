@@ -25,7 +25,7 @@
         <div class="app-diagnostic-result-app">
           <p class="app-diagnostic-result-app-name"><%= result.app.name %></p>
           <ul class="app-diagnostic-result-icon-and-description">
-            <% if result.app.id == 3 %>
+            <% if result.app.diagnostic_allocation == 'c' %>
               <li><img src="<%= "/app_icon_images/#{result.app.icon_image}" %>" class="app-image-tapple"></li>
             <% else %>
               <li><img src="<%= "/app_icon_images/#{result.app.icon_image}" %>"></li>
