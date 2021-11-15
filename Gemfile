@@ -10,6 +10,7 @@ gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 gem 'rails-i18n'
+gem 'enum_help'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem 'line-bot-api'

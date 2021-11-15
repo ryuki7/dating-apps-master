@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_153755) do
+ActiveRecord::Schema.define(version: 2021_11_14_085441) do
 
   create_table "ad_address", id: :integer, default: 0, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "ken_id"
@@ -106,9 +106,9 @@ ActiveRecord::Schema.define(version: 2021_11_08_153755) do
   create_table "date_schedule_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "task_id", null: false
     t.bigint "date_schedule_id", null: false
-    t.string "result", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "result", default: 0, null: false
     t.index ["date_schedule_id"], name: "index_date_schedule_tasks_on_date_schedule_id"
     t.index ["task_id"], name: "index_date_schedule_tasks_on_task_id"
   end

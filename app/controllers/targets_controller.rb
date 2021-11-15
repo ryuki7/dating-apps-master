@@ -62,11 +62,11 @@ class TargetsController < ApplicationController
     @purpose = @target.purpose
     @date_plans = @purpose.date_plans
     
-    @date_schedules_reported_all = DateSchedule.where(target_id: @target.id, user_id: @user.id, report_confirmation: 1)
+    @date_schedules_reported_all = DateSchedule.reported.where(target_id: @target.id, user_id: @user.id)
     @date_schedules_reported_last_except = @date_schedules_reported_all.first(@date_schedules_reported_all.size - 1)
     @date_schedule_reported_last = @date_schedules_reported_all.last
     if @date_schedule_reported_last.present?
-      @last_date_schedule_tasks_success = DateScheduleTask.where(date_schedule_id: @date_schedule_reported_last.id, result: "成功")
+      @last_date_schedule_tasks_success = DateScheduleTask.success.where(date_schedule_id: @date_schedule_reported_last.id)
       @last_success_task_id_array = @last_date_schedule_tasks_success.map {|last_date_schedule_task| last_date_schedule_task.task.id}
 
       # おすすめのデート予定日
@@ -76,12 +76,12 @@ class TargetsController < ApplicationController
       @recommend_date_schedule_appointment_14days_since = @date_schedule_reported_last_appointment.days_since(14).strftime("%m/%d")
     end
 
-    @date_schedule_unreported = DateSchedule.find_by(target_id: @target.id, user_id: @user.id, report_confirmation: 0)
+    @date_schedule_unreported = DateSchedule.unreported.find_by(target_id: @target.id, user_id: @user.id)
 
     # Dateクラスのフォーマットに変換
     @date_schedule_unreported_appointment = @date_schedule_unreported.appointment_date_class_create if @date_schedule_unreported
 
-    @date_schedule_tasks_success_all = DateScheduleTask.where(date_schedule_id: @date_schedules_reported_all.map(&:id), result: "成功")
+    @date_schedule_tasks_success_all = DateScheduleTask.success.where(date_schedule_id: @date_schedules_reported_all.map(&:id))
     if @date_schedule_tasks_success_all.present?
       @success_task_id_array = @date_schedule_tasks_success_all.map {|date_schedule_task| date_schedule_task.task.id}
     else
@@ -89,7 +89,7 @@ class TargetsController < ApplicationController
     end
 
     # おすすめのデートプラン
-    @date_schedule_reported_all = DateSchedule.where(target_id: @target.id, report_confirmation: 1)
+    @date_schedule_reported_all = DateSchedule.reported.where(target_id: @target.id)
     @date_count = @date_schedule_reported_all.size + 1
     date_plans_recommend_before_revise = DatePlan.where("date_count_level <= ? and popular_rating_level <= ? and purpose_id = ?", @date_count, @user.popular_rating, @purpose.id)
     @date_plans_recommend = date_plans_recommend_before_revise.min_by{|date_plan| (@user.popular_rating - date_plan.popular_rating_level).abs} if date_plans_recommend_before_revise.present?

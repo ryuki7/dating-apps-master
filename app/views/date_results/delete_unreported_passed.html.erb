@@ -14,7 +14,7 @@
                     <%= button_to '削除', date_schedule_path(date_schedule_unreported_passed.id, referer: "date_result_unreported_passed"), method: :delete, class: "date_result_delete_button" %>
                     <%= link_to new_date_result_path(target_id: date_schedule_unreported_passed.target.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
                         <span><%= date_schedule_appointment_string_operation(date_schedule_unreported_passed.appointment) %></span>
-                        <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.id) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
+                        <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.name) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
                         <% if date_schedule_unreported_passed.target.app.id == 3 %>
                         <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>" class="app-image-tapple">
                         <% else %>

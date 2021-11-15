@@ -12,14 +12,14 @@
       </div>
 
       <!-- デート結果未報告(デート日を過ぎた「未報告なデート」のみ) ※ 最大3件まで表示。 -->
-      <% if !@date_schedules_unreported_passed_array.blank? %>
+      <% if @date_schedules_unreported_passed_array.present? %>
         <div class="date_results_unreported_passed">
           <div class="box26">
             <span class="box-title">未報告</span>
             <% @date_schedules_unreported_passed_array.each do |date_schedule_unreported_passed| %>
                 <%= link_to new_date_result_path(target_id: date_schedule_unreported_passed.target.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
                     <span><%= date_schedule_appointment_string_operation(date_schedule_unreported_passed.appointment) %></span>
-                    <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.id) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
+                    <span class="<%= purpose_color(date_schedule_unreported_passed.date_plan.purpose.name) %>"><%= date_schedule_unreported_passed.date_plan.name %></span>
                     <% if date_schedule_unreported_passed.target.app.id == 3 %>
                     <img src="<%= "/app_icon_images/#{date_schedule_unreported_passed.target.app.icon_image}" %>" class="app-image-tapple">
                     <% else %>
@@ -43,7 +43,7 @@
       <% @date_schedules_reported_pagination.each do |date_schedule_reported| %>
         <%= link_to date_result_path(date_schedule_reported.id), class: "date_results_index_each_button", id: "date_results_index_each_button_td" do %>
             <span><%= date_schedule_appointment_string_operation(date_schedule_reported.appointment) %></span>
-            <span class="<%= purpose_color(date_schedule_reported.date_plan.purpose.id) %>"><%= date_schedule_reported.date_plan.name %></span>
+            <span class="<%= purpose_color(date_schedule_reported.date_plan.purpose.name) %>"><%= date_schedule_reported.date_plan.name %></span>
             <% if date_schedule_reported.target.app.id == 3 %>
               <img src="<%= "/app_icon_images/#{date_schedule_reported.target.app.icon_image}" %>" class="app-image-tapple">
             <% else %>

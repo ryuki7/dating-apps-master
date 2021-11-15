@@ -24,20 +24,6 @@ Layout/ArgumentAlignment:
     - 'bin/webpack-dev-server'
     - 'config/application.rb'
 
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_element, with_fixed_indentation
-Layout/ArrayAlignment:
-  Exclude:
-    - 'app/controllers/targets_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-
 # Offense count: 16
 # Cop supports --auto-correct.
 Layout/EmptyLines:
@@ -52,69 +38,11 @@ Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines
-Layout/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/targets_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_brackets
-Layout/FirstArrayElementIndentation:
-  Exclude:
-    - 'app/controllers/date_schedules_controller.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/date_schedules_controller.rb'
-    - 'app/helpers/targets_helper.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/InitialIndentation:
   Exclude:
     - 'config/unicorn.conf.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineArrayBraceLayout:
-  Exclude:
-    - 'app/controllers/targets_controller.rb'
-
-# Offense count: 41
-# Cop supports --auto-correct.
-Layout/SpaceAfterComma:
-  Exclude:
-    - 'app/controllers/app_diagnostics_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Exclude:
-    - 'app/controllers/targets_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -125,29 +53,6 @@ Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - 'config/environments/production.rb'
 
-# Offense count: 61
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'spec/factories/answers.rb'
-    - 'spec/factories/appearances.rb'
-    - 'spec/factories/apps.rb'
-    - 'spec/factories/date_plans.rb'
-    - 'spec/factories/date_schedule_tasks.rb'
-    - 'spec/factories/date_schedules.rb'
-    - 'spec/factories/jobs.rb'
-    - 'spec/factories/purposes.rb'
-    - 'spec/factories/questions.rb'
-    - 'spec/factories/steps.rb'
-    - 'spec/factories/targets.rb'
-    - 'spec/factories/tasks.rb'
-    - 'spec/factories/users.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
@@ -156,31 +61,6 @@ Layout/TrailingEmptyLines:
   Exclude:
     - 'spec/support/capybara.rb'
     - 'spec/support/login_module.rb'
-
-# Offense count: 13
-# Cop supports --auto-correct.
-# Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'config/unicorn.conf.rb'
-    - 'spec/models/date_plan_spec.rb'
-    - 'spec/support/capybara.rb'
-    - 'spec/system/users_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/DeprecatedOpenSSLConstant:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
-# Offense count: 2
-Lint/LiteralAsCondition:
-  Exclude:
-    - 'app/controllers/targets_controller.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowComments, AllowNil.
@@ -194,22 +74,6 @@ Lint/SuppressedException:
 Lint/UnusedBlockArgument:
   Exclude:
     - 'config/unicorn.conf.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods, IgnoreNotImplementedMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-
-# Offense count: 269
-Lint/UselessAssignment:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/date_schedules_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/helpers/targets_helper.rb'
-    - 'db/seeds.rb'
 
 # Offense count: 15
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
@@ -242,82 +106,11 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 13
 
-# Offense count: 67
-# Configuration parameters: EnforcedStyle, AllowedIdentifiers.
-# SupportedStyles: snake_case, camelCase
-Naming/VariableName:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-    - 'db/seeds.rb'
-
-# Offense count: 235
-# Configuration parameters: EnforcedStyle, CheckMethodNames, CheckSymbols, AllowedIdentifiers.
-# SupportedStyles: snake_case, normalcase, non_integer
-# AllowedIdentifiers: capture3, iso8601, rfc1123_date, rfc822, rfc2822, rfc3339
-Naming/VariableNumber:
-  Exclude:
-    - 'app/controllers/app_diagnostics_controller.rb'
-    - 'app/controllers/date_results_controller.rb'
-    - 'db/seeds.rb'
-    - 'spec/models/app_spec.rb'
-    - 'spec/models/task_spec.rb'
-    - 'spec/models/user_spec.rb'
-
-# Offense count: 111
-# Configuration parameters: AllowedChars.
-# AllowedChars: ©
-Style/AsciiComments:
-  Exclude:
-    - 'Gemfile'
-    - 'app/controllers/app_diagnostics_controller.rb'
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'db/seeds.rb'
-    - 'spec/rails_helper.rb'
-    - 'spec/support/capybara.rb'
-    - 'spec/support/login_module.rb'
-    - 'spec/system/date_results_spec.rb'
-    - 'spec/system/targets_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ProceduralMethods, FunctionalMethods, IgnoredMethods, AllowBracesOnProceduralOneLiners, BracesRequiredMethods.
-# SupportedStyles: line_count_based, semantic, braces_for_chaining, always_braces
-# ProceduralMethods: benchmark, bm, bmbm, create, each_with_object, measure, new, realtime, tap, with_object
-# FunctionalMethods: let, let!, subject, watch
-# IgnoredMethods: lambda, proc, it
-Style/BlockDelimiters:
-  Exclude:
-    - 'app/controllers/date_schedules_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/CaseLikeIf:
-  Exclude:
-    - 'app/controllers/app_strategies_controller.rb'
-    - 'app/controllers/date_schedules_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ColonMethodCall:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
-# SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
 
 # Offense count: 38
 # Configuration parameters: AllowedConstants.
@@ -349,21 +142,6 @@ Style/GlobalVars:
   Exclude:
     - 'config/unicorn.conf.rb'
 
-# Offense count: 4
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'app/controllers/app_diagnostics_controller.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/date_plans_controller.rb'
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 1
-# Configuration parameters: MinBranchesCount.
-Style/HashLikeCase:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
@@ -371,35 +149,6 @@ Style/HashLikeCase:
 Style/HashSyntax:
   Exclude:
     - 'Gemfile'
-
-# Offense count: 24
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'app/controllers/app_diagnostics_controller.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/helpers/targets_helper.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: both, prefix, postfix
-Style/NegatedIf:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: predicate, comparison
-Style/NilComparison:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/helpers/targets_helper.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -421,31 +170,11 @@ Style/RedundantFetchBlock:
   Exclude:
     - 'config/puma.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 9
-# Cop supports --auto-correct.
-Style/SelfAssignment:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/StderrPuts:
   Exclude:
     - 'bin/yarn'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: Mode.
-Style/StringConcatenation:
-  Exclude:
-    - 'app/controllers/targets_controller.rb'
 
 # Offense count: 574
 # Cop supports --auto-correct.
@@ -454,16 +183,6 @@ Style/StringConcatenation:
 Style/StringLiterals:
   Enabled: false
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'app/controllers/date_results_controller.rb'
-    - 'app/controllers/targets_controller.rb'
-    - 'app/helpers/targets_helper.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, MinSize.
@@ -471,14 +190,6 @@ Style/StringLiteralsInInterpolation:
 Style/SymbolArray:
   Exclude:
     - 'Gemfile'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

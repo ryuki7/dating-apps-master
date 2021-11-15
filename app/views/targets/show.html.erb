@@ -28,89 +28,89 @@
 
         <div class="targets_show_2_word_wrapper">
           <p class="targets_show_2_word_title">職業</p>
-          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @job.name %></p>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @job.name %></p>
         </div>
 
         <div class="targets_show_2_word_wrapper">
           <p class="targets_show_2_word_title">身長</p>
           <% if @target.height == 0 %>
-            <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>">未選択</p>
+            <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>">未選択</p>
           <% else %>
-            <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @target.height %>cm</p>
+            <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @target.height %>cm</p>
           <% end %>
         </div>
 
         <div class="targets_show_2_word_wrapper">
           <p class="targets_show_2_word_title">性格</p>
-          <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @personality.name %></p>
+          <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @personality.name %></p>
         </div>
 
         <div class="targets_show_2_word_wrapper">
           <p class="targets_show_2_word_title">趣味</p>
           <% if @target.hobby == "" %>
-            <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>">未入力</p>
+            <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>">未入力</p>
           <% else %>
-            <p class="<%= "targets_show_2_word_value #{app_color(@app.id)}" %>"><%= @target.hobby %></p>
+            <p class="<%= "targets_show_2_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @target.hobby %></p>
           <% end %>
         </div>
 
         <div class="targets_show_4_word_wrapper">
           <p class="targets_show_4_word_title">都道府県</p>
           <% if @target.prefecture == "0" %>
-            <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>">未選択</p>
+            <p class="<%= "targets_show_4_word_value #{app_color(@app.diagnostic_allocation)}" %>">未選択</p>
           <% else %>
-            <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>"><%= @target.prefecture %></p>
+            <p class="<%= "targets_show_4_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @target.prefecture %></p>
           <% end %>
         </div>
 
         <div class="targets_show_4_word_wrapper">
           <p class="targets_show_4_word_title">市区町村</p>
           <% if @target.city == "0" %>
-            <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>">未選択</p>
+            <p class="<%= "targets_show_4_word_value #{app_color(@app.diagnostic_allocation)}" %>">未選択</p>
           <% else %>
-            <p class="<%= "targets_show_4_word_value #{app_color(@app.id)}" %>"><%= @target.city %></p>
+            <p class="<%= "targets_show_4_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @target.city %></p>
           <% end %>
         </div>
 
         <div class="targets_show_6_word_wrapper">
           <p class="targets_show_6_word_title">彼氏いない歴</p>
           <% if @target.single_history == "" %>
-            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>">未入力</p>
+            <p class="<%= "targets_show_6_word_value #{app_color(@app.diagnostic_allocation)}" %>">未入力</p>
           <% else %>
-            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= "#{@target.single_history} (#{@target.updated_at.strftime("%Y年")}#{head_0_remove_date_appointment(@target.updated_at.strftime("%m/%d"), "月日")}時点から)" %></p>
+            <p class="<%= "targets_show_6_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= "#{@target.single_history} (#{@target.updated_at.strftime("%Y年")}#{head_0_remove_date_appointment(@target.updated_at.strftime("%m/%d"), "月日")}時点から)" %></p>
           <% end %>
         </div>
 
         <div class="targets_show_6_word_wrapper">
           <p class="targets_show_6_word_title">好きな食べ物</p>
           <% if @target.favorite_food == "" %>
-            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>">未入力</p>
+            <p class="<%= "targets_show_6_word_value #{app_color(@app.diagnostic_allocation)}" %>">未入力</p>
           <% else %>
-            <p class="<%= "targets_show_6_word_value #{app_color(@app.id)}" %>"><%= @target.favorite_food %></p>
+            <p class="<%= "targets_show_6_word_value #{app_color(@app.diagnostic_allocation)}" %>"><%= @target.favorite_food %></p>
           <% end %>
         </div>
       </div>
 
-      <div class="<%= "targets_show_box_date_calculate #{purpose_color(@purpose.id)}" %>">
-        <div class="<%= "targets_show_box_calculate_title #{purpose_color(@purpose.id)}" %>">目的</div>
-        <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)}" %> "><%= @purpose.name %></p>
+      <div class="<%= "targets_show_box_date_calculate #{purpose_color(@purpose.name)}" %>">
+        <div class="<%= "targets_show_box_calculate_title #{purpose_color(@purpose.name)}" %>">目的</div>
+        <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.name)}" %> "><%= @purpose.name %></p>
       </div>
 
-      <div class="<%= "targets_show_box_date_calculate #{app_color(@app.id)}" %>">
-        <div class="<%= "targets_show_box_calculate_title #{app_color(@app.id)}" %>">デートした回数</div>
-        <p class="targets_show_box_calculate_description"><span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.id)}" %>"><%= @date_schedules_reported_all.size %></span>回</p>
+      <div class="<%= "targets_show_box_date_calculate #{app_color(@app.diagnostic_allocation)}" %>">
+        <div class="<%= "targets_show_box_calculate_title #{app_color(@app.diagnostic_allocation)}" %>">デートした回数</div>
+        <p class="targets_show_box_calculate_description"><span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.name)}" %>"><%= @date_schedules_reported_all.size %></span>回</p>
       </div>
 
       <% if @date_schedule_reported_last %>
-        <div class="<%= "targets_show_box_date_calculate #{app_color(@app.id)}" %>">
-          <div class="<%= "targets_show_box_calculate_title #{app_color(@app.id)}" %>">デート履歴</div>
+        <div class="<%= "targets_show_box_date_calculate #{app_color(@app.diagnostic_allocation)}" %>">
+          <div class="<%= "targets_show_box_calculate_title #{app_color(@app.diagnostic_allocation)}" %>">デート履歴</div>
 
           <% @date_schedules_reported_last_except.each.with_index(1) do |date_schedule, i| %>
             <a href="<%= "/date_results/#{date_schedule.id}" %>">
               <div class="targets_show_box_div_description">
                 <span><%= "#{i}回目のデート" %></span>
                 <span><%= date_schedule_appointment_string_operation(date_schedule.appointment) %></span>
-                <span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.id)}" %>"><%= date_schedule.date_plan.name %></span>
+                <span class="<%= "targets_show_date_count_span #{purpose_color(@purpose.name)}" %>"><%= date_schedule.date_plan.name %></span>
               </div>
             </a>
           <% end %>
@@ -119,7 +119,7 @@
             <div class="targets_show_box_div_description">
               <span class="targets_show_box_span_date_body_large">前回のデート</span>
               <span class="targets_show_box_span_date_large"><%= date_schedule_appointment_string_operation(@date_schedule_reported_last.appointment) %></span>
-              <span class="<%= "targets_show_box_span_date_plan_large #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_reported_last.date_plan.name %></span>
+              <span class="<%= "targets_show_box_span_date_plan_large #{purpose_color(@purpose.name)}" %>"><%= @date_schedule_reported_last.date_plan.name %></span>
             </div>
           </a>
         </div>
@@ -146,7 +146,7 @@
           </div>
           <div class="targets_show_box_date_calculate recommend">
             <div class="targets_show_box_calculate_title recommend">おすすめのデートプラン</div>
-            <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.id)} recommend" %>"><%= @date_plans_recommend.name %></p>
+            <p class="<%= "targets_show_box_calculate_description #{purpose_color(@purpose.name)} recommend" %>"><%= @date_plans_recommend.name %></p>
           </div>
           
           <% if @date_schedule_unreported %>
@@ -156,7 +156,7 @@
                 <p>デート予定日</p>
                 <%= button_to '削除', date_schedule_path(@date_schedule_unreported.id), method: :delete, class: "targets_date_schedule_delete_button" %>
                 <span class="targets_date_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule_unreported.appointment) %></span>
-                <span class="<%= "targets_date_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
+                <span class="<%= "targets_date_schedule_date_plan #{purpose_color(@purpose.name)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
                 <% if @date_schedule_unreported_appointment <= Date.today %>
                   <%= link_to  "デート報告", new_date_result_path(target_id: @target.id), class: "targets_show_date_report_button" %>
                 <% end %>

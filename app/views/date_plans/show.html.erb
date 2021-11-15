@@ -19,7 +19,7 @@
       </div>
     <div class="container" id="date_plans_container">
       <% @apps.each do |app| %>
-        <% if app.id == 3 %>
+        <% if app.diagnostic_allocation == 'c' %>
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple" id="app-icon-image">
         <% else %>
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">

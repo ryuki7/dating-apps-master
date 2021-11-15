@@ -3,21 +3,21 @@
     <div class="container" id="date_result">
       <h3 class="center" id="date_result_title"><span>デート結果報告</span></h3>
       <div class="date_result_targets_profile">
-        <% if @app.id == 3 %>
-          <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="date_result_app_icon_image app-image-tapple">
+        <% if @target.app.diagnostic_allocation == 'c' %>
+          <img src="<%= "/app_icon_images/#{@target.app.icon_image}" %>" class="date_result_app_icon_image app-image-tapple">
         <% else %>
-          <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" class="date_result_app_icon_image">
+          <img src="<%= "/app_icon_images/#{@target.app.icon_image}" %>" class="date_result_app_icon_image">
         <% end %>
 
         <% if @target.age == 0 %>
           <div class="targets_show_one_line_age_none">
-            <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+            <img src="<%= "/appearance_images/#{@target.appearance.image}" %>" id="targets_show_appearance_image">
             <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
             <span class="targets_show_age">年齢なし</span>
           </div>
         <% else %>
           <div class="targets_show_one_line_age_present">
-            <img src="<%= "/appearance_images/#{@appearance.image}" %>" id="targets_show_appearance_image">
+            <img src="<%= "/appearance_images/#{@target.appearance.image}" %>" id="targets_show_appearance_image">
             <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
             <span class="targets_show_age"><%= @target.age %>歳</span>
           </div>
@@ -27,7 +27,7 @@
         <%= button_to '削除', date_schedule_path(@date_schedule_unreported.id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
       </div>
       <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule_unreported.appointment) %></span>
-      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@purpose.id)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
+      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@target.purpose.name)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
 
       <form action="/date_results" method="post" name="date_result_form" id="date_result_form">
         <!-- CSRFトークンを渡す -->
@@ -46,10 +46,10 @@
         <% @tasks.each do |task, i| %>
           <% if @fail_tasks_id_array.include?(task.id) || task.id == 1 || task.id == 2 %>
             <select name="<%= "result_#{task.id}" %>" class="selmodaltest" id="<%= "task_select_element_#{task.id}" %>">
-              <option value="未実施">選択してください</option>
-              <option value="成功">成功</option>
-              <option value="失敗">失敗</option>
-              <option value="未実施">未実施</option>
+              <option value=0>選択してください</option>
+              <option value=1>成功</option>
+              <option value=2>失敗</option>
+              <option value=0>未実施</option>
             </select>
             <div class="<%= "date_result_task_wrapper wrapper_#{task.id}" %>">
               <p class="<%= "date_result_task_name task_name_#{task.id}" %>"><%= task.name %></p>

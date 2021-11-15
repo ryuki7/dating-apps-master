@@ -5,7 +5,7 @@
       <p class="app-diagnostics-text">4つのアプリ(Pairs・with・tapple・Tinder)の内、どのアプリが向いているのか診断しましょう！</p>
       <div class="app_diagnostics_index_apps">
         <% @apps.each do |app| %>
-          <% if app.id == 3 %>
+          <% if app.diagnostic_allocation == 'c' %>
             <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple">
           <% else %>
             <img src="<%= "/app_icon_images/#{app.icon_image}" %>">
