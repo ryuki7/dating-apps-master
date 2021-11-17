@@ -34,3 +34,6 @@ Style/AndOr:
 ## 日本語コメントを許可する。
 Style/AsciiComments:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 25

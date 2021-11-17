@@ -1,7 +1,7 @@
   <img src="<%= "/app_icon_images/#{@app.icon_image}" %>" id="app_icon_image">
   <h4 class="center" id="app-strategies-show-title"><%= @app.name %>攻略</h4>
-  <div class="<%= "app-strategies-show-box-#{@app_class_name}" %>">
-    <div class="<%= "app-strategies-show-box-#{@app_class_name}-title" %>">特徴</div>
+  <div class="<%= "app-strategies-show-box-#{app_color(@app.diagnostic_allocation)}" %>">
+    <div class="<%= "app-strategies-show-box-#{app_color(@app.diagnostic_allocation)}-title" %>">特徴</div>
     <p id="app-strategies-show-description"><%= @app_strategy_description_split_array[0] %><br><%= @app_strategy_description_split_array[1] %><br><%= @app_strategy_description_split_array[2] %></p>
   </div>
   <table class="table-with">

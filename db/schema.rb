@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2021_11_14_085441) do
     t.text "diagnostic_description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_apps_on_name", unique: true
+    t.index ["diagnostic_allocation"], name: "index_apps_on_diagnostic_allocation", unique: true
   end
 
   create_table "date_plan_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

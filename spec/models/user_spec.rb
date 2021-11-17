@@ -14,10 +14,10 @@ RSpec.describe User, type: :model do
   end
 
   it "重複した line_id の場合、無効である" do
-    user_1 = create(:user)
-    user_2 = build(:user, line_id: user_1.line_id)
-    user_2.valid?
-    expect(user_2.errors[:line_id]).to include("はすでに存在します")
+    user1 = create(:user)
+    user2 = build(:user, line_id: user1.line_id)
+    user2.valid?
+    expect(user2.errors[:line_id]).to include("はすでに存在します")
   end
 
   it "role がない場合、無効である" do

@@ -22,8 +22,6 @@ class DatePlansController < ApplicationController
     end
 
     @date_plans = DatePlan.where(purpose_id: @purpose.id)
-
-    @purpose_class_name = @purpose.pulldown_selection_color
   end
 
   def detail
@@ -39,7 +37,5 @@ class DatePlansController < ApplicationController
 
     @detail_information_split_array = @date_plan.detail_information.split('.')
     @description_split_array = @date_plan.description.split('.')
-
-    @purpose_class_name = @purpose.pulldown_selection_color
   end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :target do
-    sequence(:name) { |n| "target_name_#{n}"}
-    favorability_rating {0}
-    progress_rating {0}
+    sequence(:name) { |n| "target_name_#{n}" }
+    favorability_rating { 0 }
+    progress_rating { 0 }
     app { create(:app) }
     appearance { create(:appearance) }
     purpose { create(:purpose) }

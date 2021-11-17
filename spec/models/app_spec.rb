@@ -14,10 +14,10 @@ RSpec.describe App, type: :model do
   end
 
   it "重複した name の場合、無効である" do
-    app_1 = create(:app)
-    app_2 = build(:app, name: app_1.name)
-    app_2.valid?
-    expect(app_2.errors[:name]).to include("はすでに存在します")
+    app1 = create(:app)
+    app2 = build(:app, name: app1.name)
+    app2.valid?
+    expect(app2.errors[:name]).to include("はすでに存在します")
   end
 
   it "strategy_description がない場合、無効である" do
@@ -39,10 +39,10 @@ RSpec.describe App, type: :model do
   end
 
   it "重複した diagnostic_allocation の場合、無効である" do
-    app_1 = create(:app)
-    app_2 = build(:app, diagnostic_allocation: app_1.diagnostic_allocation)
-    app_2.valid?
-    expect(app_2.errors[:diagnostic_allocation]).to include("はすでに存在します")
+    app1 = create(:app)
+    app2 = build(:app, diagnostic_allocation: app1.diagnostic_allocation)
+    app2.valid?
+    expect(app2.errors[:diagnostic_allocation]).to include("はすでに存在します")
   end
 
   it "diagnostic_description がない場合、無効である" do

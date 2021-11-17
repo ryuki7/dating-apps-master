@@ -8,7 +8,6 @@ class AppStrategiesController < ApplicationController
 
   def show
     @app_strategy_description_split_array = @app.strategy_description.split('.')
-    @app_class_name = @app.pulldown_selection_color
     @app_purposes = AppPurpose.where(app_id: params[:id])
     @steps = Step.all.limit(8)
   end
@@ -22,7 +21,6 @@ class AppStrategiesController < ApplicationController
       @apps.push(app_purpose.app)
     end
 
-    @purpose_class_name = @purpose.pulldown_selection_color
     @steps = Step.where(purpose_id: @purpose.id)
     @date_plans = DatePlan.where(purpose_id: @purpose.id)
   end
