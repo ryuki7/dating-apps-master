@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let(:user) { create(:user) }
-  
+
   describe "ページ遷移確認(管理者 or ユーザー)" do
     before { login(user) }
 

@@ -54,10 +54,6 @@ class UsersController < ApplicationController
   end
 
   def admin_check
-    if @user.role == 1
-      return
-    else
-      redirect_to my_page_users_path
-    end
+    redirect_to my_page_users_path if @user.role == 0
   end
 end

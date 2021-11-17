@@ -24,17 +24,17 @@
         <% end %>
 
         <span class="date_result_schedule_date_count"><%= "#{@date_count}回目のデート" %></span>
-        <%= button_to '削除', date_schedule_path(@date_schedule_unreported.id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
+        <%= button_to '削除', date_schedule_path(@date_schedules_all.unreported[0].id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
       </div>
-      <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule_unreported.appointment) %></span>
-      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@target.purpose.name)}" %>"><%= @date_schedule_unreported.date_plan.name %></span>
+      <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedules_all.unreported[0].appointment) %></span>
+      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@date_schedules_all.unreported[0].date_plan.purpose.name)}" %>"><%= @date_schedules_all.unreported[0].date_plan.name %></span>
 
       <form action="/date_results" method="post" name="date_result_form" id="date_result_form">
         <!-- CSRFトークンを渡す -->
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
         <!-- date_schedule_id を渡す -->
-        <input name="date_schedule_id" type="hidden" value="<%= @date_schedule_unreported.id %>">
+        <input name="date_schedule_id" type="hidden" value="<%= @date_schedules_all.unreported[0].id %>">
 
         <!-- fail_tasks_id_array(失敗しているタスクのidの配列) を渡す -->
         <input name="fail_tasks_id_array_string" type="hidden" value="<%= @fail_tasks_id_array.join('-') %>">

@@ -17,9 +17,9 @@ class DateScheduleTask < ApplicationRecord
     def date_task_point_calculate(date_schedule_tasks_success_array)
       date_task_point_total = 0
       date_schedule_tasks_success_array.each do |date_schedule_task_success|
-        date_task_point_total = date_task_point_total + date_schedule_task_success.task.point
+        date_task_point_total += date_schedule_task_success.task.point
       end
-      return date_task_point_total
+      date_task_point_total
     end
   end
 end

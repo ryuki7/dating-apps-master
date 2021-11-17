@@ -14,10 +14,10 @@ RSpec.describe Task, type: :model do
   end
 
   it "重複した name の場合、無効である" do
-    task_1 = create(:task)
-    task_2 = build(:task, name: task_1.name)
-    task_2.valid?
-    expect(task_2.errors[:name]).to include("はすでに存在します")
+    task1 = create(:task)
+    task2 = build(:task, name: task1.name)
+    task2.valid?
+    expect(task2.errors[:name]).to include("はすでに存在します")
   end
 
   it "point がない場合、無効である" do

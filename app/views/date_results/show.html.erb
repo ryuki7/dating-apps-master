@@ -20,7 +20,7 @@
             <img src="<%= "/appearance_images/#{@target.appearance.image}" %>" id="targets_show_appearance_image">
             <a href="<%= "/targets/#{@target.id}" %>"><span class="targets_show_name"><%= @target.name %></span></a>
             <span class="targets_show_age"><%= @target.age %>歳</span>
-            <% if @success_task_id_array.sort.uniq  == @tasks.map(&:id) && @date_schedules_reported_all.last.id == @date_schedule.id && @last_date_schedule_success_task_id_array.include?(@essential_task_1.id) && @last_date_schedule_success_task_id_array.include?(@essential_task_2.id) %>  
+            <% if @success_task_id_array.sort.uniq  == @tasks.map(&:id) && @date_schedules_reported_all.last.id == @date_schedule.id && @last_date_schedule_success_task_id_array.include?(@essential_task1.id) && @last_date_schedule_success_task_id_array.include?(@essential_task2.id) %>  
               <p class="date_schedule_tasks_all_success">コンプリート!</p>
             <% end %>
           </div>
@@ -30,7 +30,7 @@
         <%= button_to '削除', date_schedule_path(@date_schedule.id, referer: "date_result"), method: :delete, class: "targets_show_edit_and_delete_button date_result_delete" %>
       </div>
       <span class="date_result_schedule_appointment"><%= date_schedule_appointment_string_operation(@date_schedule.appointment) %></span>
-      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@target.purpose.name)}" %>"><%= @date_schedule.date_plan.name %></span>
+      <span class="<%= "date_result_schedule_date_plan #{purpose_color(@date_schedule.date_plan.purpose.name)}" %>"><%= @date_schedule.date_plan.name %></span>
 
         <% @tasks.each do |task| %>
           <% date_schedule_task = DateScheduleTask.find_by(task_id: task.id, date_schedule_id: @date_schedule.id) %>

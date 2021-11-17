@@ -1,4 +1,4 @@
-<div id="index-banner" class="<%= "parallax-container layout-date_plans-#{@purpose_class_name}" %>">
+<div id="index-banner" class="<%= "parallax-container layout-date_plans-#{purpose_color(@purpose.name)}" %>">
   <div class="section no-pad-bot">
     <!-- Design tiré du site flatuicolors.com -->
     <!-- Bouton Select de base -->
@@ -9,7 +9,7 @@
     </select>
       <!-- Bouton Select reconstruit -->
       <div class="new-select">
-        <div class="<%= "selection #{@purpose_class_name}" %>" id="selection">
+        <div class="<%= "selection #{purpose_color(@purpose.name)}" %>" id="selection">
           <p>
             <span></span>
             <i></i>
@@ -25,23 +25,23 @@
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
         <% end %>
       <% end %>
-      <p class="<%= "date_plans_purpose #{@purpose_class_name}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
-      <h4 class="<%= "center date_plans_each_title #{@purpose_class_name}" %>"><span>デートプラン一覧</span></h4>
+      <p class="<%= "date_plans_purpose #{purpose_color(@purpose.name)}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
+      <h4 class="<%= "center date_plans_each_title #{purpose_color(@purpose.name)}" %>"><span>デートプラン一覧</span></h4>
       <% if @purpose.id == 2 %>
         <p class="date_plans_play_special_report">※ まだ遊び慣れていない・初日から誘う勇気がない人だったり、確実性を求める場合、1回目のデートは健全に「彼女作り」のデートをして女性と親しくなってから、2回目のデート以降に下記のデートプランをするのでも良い。</p>
       <% end %>
       <% @date_plans.each do |date_plan| %>
-          <div class="<%= "date_plans-box-#{@purpose_class_name}" %>">
-            <div class="<%= "date_plans-box-#{@purpose_class_name}-title" %>"><%= date_plan.name %></div>
-            <p class="<%= "date_plans_body-#{@purpose_class_name}" %>"><%= date_plan.period %></p>
+          <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}" %>">
+            <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}-title" %>"><%= date_plan.name %></div>
+            <p class="<%= "date_plans_body-#{purpose_color(@purpose.name)}" %>"><%= date_plan.period %></p>
             <% date_plan_places = DatePlanPlace.where(date_plan_id: date_plan.id) %>
             <% date_plan_places.each.with_index(1) do |date_plan_place, i| %>
               <p class="date_plans_body-place"><%= date_plan_place.place.name %></p>
               <% unless date_plan_places.size == i %>
-                <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-#{@purpose_class_name}" %>"></i>
+                <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-#{purpose_color(@purpose.name)}" %>"></i>
               <% end %>
             <% end %>
-            <%= link_to '詳細ページ', detail_date_plan_path(date_plan.id), class: "date_plans_button #{@purpose_class_name}" %>
+            <%= link_to '詳細ページ', detail_date_plan_path(date_plan.id), class: "date_plans_button #{purpose_color(@purpose.name)}" %>
           </div>
       <% end %>
     </div>

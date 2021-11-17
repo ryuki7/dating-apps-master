@@ -6,7 +6,7 @@ RSpec.describe DatePlan, type: :model do
   it "name, period, detail_information, description, date_count_level, popular_rating_level があり、purpose の関連付けが出来ている場合、有効である" do
     expect(date_plan).to be_valid
   end
-  
+
   it "name がない場合、無効である" do
     date_plan.name = nil
     date_plan.valid?

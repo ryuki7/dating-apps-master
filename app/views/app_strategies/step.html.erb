@@ -9,7 +9,7 @@
     </select>
       <!-- Bouton Select reconstruit -->
       <div class="new-select">
-        <div class="<%= "selection #{@purpose_class_name}" %>" id="selection">
+        <div class="<%= "selection #{purpose_color(@purpose.name)}" %>" id="selection">
           <p>
             <span></span>
             <i></i>
@@ -19,7 +19,7 @@
       </div>
     <div class="container" id="app-strategies-step">
       <% @apps.each do |app| %>
-        <% if app.id == 3 %>
+        <% if app.diagnostic_allocation == 'c' %>
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" class="app-image-tapple" id="app-icon-image">
         <% else %>
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
@@ -29,8 +29,8 @@
       <% @steps.each do |step| %>
         <% @step_description_split_array = step.description.split('.') %> <!-- 黒字の説明文(step.description) -->
         <% @step_description_point_split_array = step.description_point.split('.') %> <!-- 色付きの説明文(step.description_point) -->
-        <div class="<%= "app-strategies-step-box-#{@purpose_class_name}" %>">
-          <div class="<%= "app-strategies-step-box-#{@purpose_class_name}-title" %>" id="<%= step.name.gsub(/[^0-9]/,"") %>"><%= step.name %></div>
+        <div class="<%= "app-strategies-step-box-#{purpose_color(@purpose.name)}" %>">
+          <div class="<%= "app-strategies-step-box-#{purpose_color(@purpose.name)}-title" %>" id="<%= step.name.gsub(/[^0-9]/,"") %>"><%= step.name %></div>
 
           <% if step.name == '6.デートプラン・スポットを探す' %>
             <p id="app-strategies-step-description">
@@ -41,7 +41,7 @@
                 <% end %>
               <% end %>
             </p>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+            <p id="<%= "app-strategies-step-description-point-#{purpose_color(@purpose.name)}-li" %>">
               <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
                 <%= description_point %>
                 <% unless @step_description_point_split_array.size == i %>
@@ -49,7 +49,7 @@
                 <% end %>
               <% end %>
             </p>
-            <%= link_to 'デートプラン一覧', date_plan_path(@purpose.id), class: "date_plans_button #{@purpose_class_name}" %>
+            <%= link_to 'デートプラン一覧', date_plan_path(@purpose.id), class: "date_plans_button #{purpose_color(@purpose.name)}" %>
           <% elsif step.name == '8.デート当日(デート別)' %>
             <p id="app-strategies-step-description">
               <% @step_description_split_array.each.with_index(1) do |description, i| %>
@@ -59,7 +59,7 @@
                 <% end %>
               <% end %>
             </p>
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+            <p id="<%= "app-strategies-step-description-point-#{purpose_color(@purpose.name)}-li" %>">
               <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
                 <%= description_point %>
                 <% unless @step_description_point_split_array.size == i %>
@@ -76,7 +76,7 @@
               </select>
               <button type="button" class="selModalButton" id="date_plan_detail_redirect_select_button">デートプランを選択してください</button>
               <!-- submit ボタン -->
-              <button name="date_plan_detail_redirect_submit" type="button" class="<%= "date_plans_button #{@purpose_class_name}" %>" id="date_plan_detail_redirect_submit_button">行動パターン攻略説明</button>
+              <button name="date_plan_detail_redirect_submit" type="button" class="<%= "date_plans_button #{purpose_color(@purpose.name)}" %>" id="date_plan_detail_redirect_submit_button">行動パターン攻略説明</button>
             </form>
           <% else %> <!-- 「6.デートプラン・スポットを探す」と「8.デート当日(デート別)」以外のステップ -->
  
@@ -90,10 +90,10 @@
               <% end %>
             </p>
 
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}" %>"><%= '<ポイント>' %></p> <!-- 変えない。 -->
+            <p id="<%= "app-strategies-step-description-point-#{purpose_color(@purpose.name)}" %>"><%= '<ポイント>' %></p> <!-- 変えない。 -->
 
             <!-- 色付きの説明文(step.description_point) -->
-            <p id="<%= "app-strategies-step-description-point-#{@purpose_class_name}-li" %>">
+            <p id="<%= "app-strategies-step-description-point-#{purpose_color(@purpose.name)}-li" %>">
               <% @step_description_point_split_array.each.with_index(1) do |description_point, i| %>
                 <%= description_point %>
                 <% unless @step_description_point_split_array.size == i %>

@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def current_user
     @current_user ||= User.find(session[:user_id])
   end
@@ -15,10 +14,10 @@ module ApplicationHelper
       ],
       og: {
         title: 'マッチングアプリマスター | 〜モテ男への道〜',
-        description: 'マッチングアプリ完全攻略サービス', 
+        description: 'マッチングアプリ完全攻略サービス',
         type: 'website',
         image: image_url('マッチングアプリマスター.jpg'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       }
     }
   end
