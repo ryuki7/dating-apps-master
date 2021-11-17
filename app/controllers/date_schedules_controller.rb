@@ -5,6 +5,7 @@ class DateSchedulesController < ApplicationController
     date_schedule = DateSchedule.create!(date_schedule_params)
     # LINEメッセージを送る（line-bot）
     date_schedule.line_message_send(@user)
+    binding.pry
     redirect_to "/targets/#{params[:id]}#targets_date_schedule_fragment"
   end
 

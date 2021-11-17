@@ -66,22 +66,22 @@ class DateSchedule < ApplicationRecord
       type: "text",
       text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
       emojis: [
-      {
-        index: 12,
-        productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "098"
-      },
-      {
-        index: 16,
-        productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "219"
-      }
-    ]
+        {
+          index: 12,
+          productId: "5ac1bfd5040ab15980c9b435",
+          emojiId: "098"
+        },
+        {
+          index: 16,
+          productId: "5ac1bfd5040ab15980c9b435",
+          emojiId: "219"
+        }
+      ]
     }
-    client = Line::Bot::Client.new { |config|
+    client = Line::Bot::Client.new do |config|
       config.channel_secret = ENV['CHANNEL_SECRET']
-      config.channel_token = ENV[CHANNEL_TOKEN]
-    }
+      config.channel_token = ENV['CHANNEL_TOKEN']
+    end
     client.push_message(user.line_id, message)
   end
 end
