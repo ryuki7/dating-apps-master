@@ -59,4 +59,29 @@ class DateSchedule < ApplicationRecord
     end
     fail_tasks_id_array
   end
+
+  def line_message_send(user)
+    line_message_text = "デートの予定を登録したよ$ \n\n$#{target.name}ちゃん \n#{appointment} \n#{date_plan.name}（#{date_plan.purpose.name}） \n\n下記のリンクから \n#{date_plan.name}（#{date_plan.purpose.name}）の\n「詳細情報」\n「アクション」\nを確認しておきましょう！ \n\nhttps://dating-apps-master.com/date_plans/#{date_plan.id}/detail?openExternalBrowser=1"
+    message = {
+      type: "text",
+      text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
+      emojis: [
+      {
+        index: 12,
+        productId: "5ac1bfd5040ab15980c9b435",
+        emojiId: "098"
+      },
+      {
+        index: 16,
+        productId: "5ac1bfd5040ab15980c9b435",
+        emojiId: "219"
+      }
+    ]
+    }
+    client = Line::Bot::Client.new { |config|
+      config.channel_secret = ENV['CHANNEL_SECRET']
+      config.channel_token = ENV[CHANNEL_TOKEN]
+    }
+    client.push_message(user.line_id, message)
+  end
 end
