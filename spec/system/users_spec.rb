@@ -12,7 +12,7 @@ RSpec.describe "Users", type: :system do
           user.role = 1
           user.save!
           visit users_path
-          expect(current_path).to eq users_path
+          expect(page).to have_current_path users_path, ignore_query: true
           expect(page).to have_content "ユーザー一覧"
         end
       end
@@ -22,7 +22,7 @@ RSpec.describe "Users", type: :system do
           user.role = 0
           user.save!
           visit users_path
-          expect(current_path).to eq my_page_users_path
+          expect(page).to have_current_path my_page_users_path, ignore_query: true
         end
       end
     end

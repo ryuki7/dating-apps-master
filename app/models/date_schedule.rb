@@ -1,4 +1,5 @@
 class DateSchedule < ApplicationRecord
+  require 'line/bot'
   has_many :date_schedule_tasks, dependent: :destroy
 
   belongs_to :date_plan
