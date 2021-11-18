@@ -18,23 +18,18 @@ class ApplicationController < ActionController::Base
   private
 
   def determine_layout
-    case action_name
-    when 'before_my_page'
-      'before'
-    when 'terms'
-      'terms_and_privacy'
-    when 'privacy'
-      'terms_and_privacy'
-    when 'guide'
-      'layout_guide'
-    when 'richmenu_guide'
-      'layout_guide'
-    end
+    layout_type = {
+      'before_my_page' => 'before',
+      'terms' => 'terms_and_privacy',
+      'privacy' => 'terms_and_privacy',
+      'guide' => 'layout_guide',
+      'richmenu_guide' => 'layout_guide'
+    }
+
+    layout_type[action_name]
   end
 
   def login_check
-    if session[:user_id] == nil
-      redirect_to before_my_page_path
-    end
+    redirect_to before_my_page_path if session[:user_id].nil?
   end
 end

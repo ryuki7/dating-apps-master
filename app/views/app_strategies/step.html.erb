@@ -26,7 +26,7 @@
         <% end %>
       <% end %>
       <p id="app_strategies_step_purpose"><%= @purpose.name %></p>
-      <% @steps.each do |step| %>
+      <% @purpose.steps.each do |step| %>
         <% @step_description_split_array = step.description.split('.') %> <!-- 黒字の説明文(step.description) -->
         <% @step_description_point_split_array = step.description_point.split('.') %> <!-- 色付きの説明文(step.description_point) -->
         <div class="<%= "app-strategies-step-box-#{purpose_color(@purpose.name)}" %>">
@@ -70,7 +70,7 @@
             <form action="/app_strategies/date_plan_detail_redirect" name="date_plan_detail_redirect_form">
               <select name="date_plan_id" class="selmodaltest" id="date_plan_detail_redirect_select_element">
                 <option value="0">デートプランを選択してください</option>
-                <% @date_plans.each do |date_plan| %>
+                <% @purpose.date_plans.each do |date_plan| %>
                   <option value="<%= date_plan.id %>"><%= date_plan.name %></option>
                 <% end %>
               </select>
