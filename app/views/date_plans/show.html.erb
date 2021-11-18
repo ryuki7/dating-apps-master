@@ -30,7 +30,7 @@
       <% if @purpose.id == 2 %>
         <p class="date_plans_play_special_report">※ まだ遊び慣れていない・初日から誘う勇気がない人だったり、確実性を求める場合、1回目のデートは健全に「彼女作り」のデートをして女性と親しくなってから、2回目のデート以降に下記のデートプランをするのでも良い。</p>
       <% end %>
-      <% @date_plans.each do |date_plan| %>
+      <% @purpose.date_plans.each do |date_plan| %>
           <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}" %>">
             <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}-title" %>"><%= date_plan.name %></div>
             <p class="<%= "date_plans_body-#{purpose_color(@purpose.name)}" %>"><%= date_plan.period %></p>
