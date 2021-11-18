@@ -1,41 +1,35 @@
 class DatePlansController < ApplicationController
   skip_before_action :login_check
+  before_action :set_purpose, only: %i[show]
+  before_action :set_date_plan, only: %i[detail]
 
   def index
-    @make_girlfriend_purpose = Purpose.find(1)
-    @make_girlfriend_app_purposes = AppPurpose.where(purpose_id: 1)
-
-    @play_purpose = Purpose.find(2)
-    @play_app_purposes = AppPurpose.where(purpose_id: 2)
-
-    @super_play_purpose = Purpose.find(3)
-    @super_play_app = AppPurpose.find_by(purpose_id: 3).app
+    @make_girlfriend_purpose = Purpose.find_by(name: '彼女作り')
+    @play_purpose = Purpose.find_by(name: '遊び')
+    @super_play_purpose = Purpose.find_by(name: '超遊び')
+    # 「超遊び」は、1つのアプリ(ティンダー)しか存在しない。
+    @super_play_app_purpose = AppPurpose.find_by(purpose_id: @super_play_purpose.id)
   end
 
   def show
-    @purpose = Purpose.find(params[:id])
-    app_purposes = AppPurpose.where(purpose_id: params[:id])
-    @apps = []
-
-    app_purposes.each do |app_purpose|
-      @apps.push(app_purpose.app)
-    end
-
-    @date_plans = DatePlan.where(purpose_id: @purpose.id)
+    app_purposes = AppPurpose.where(purpose_id: @purpose.id)
+    @apps = AppPurpose.apps_get(app_purposes)
   end
 
   def detail
-    @date_plan = DatePlan.find(params[:id])
-    @date_plan_places = DatePlanPlace.where(date_plan_id: @date_plan.id)
-    @purpose = Purpose.find(@date_plan.purpose_id)
-    app_purposes = AppPurpose.where(purpose_id: @purpose.id)
-    @apps = []
-
-    app_purposes.each do |app_purpose|
-      @apps.push(app_purpose.app)
-    end
-
+    app_purposes = AppPurpose.where(purpose_id: @date_plan.purpose.id)
+    @apps = AppPurpose.apps_get(app_purposes)
     @detail_information_split_array = @date_plan.detail_information.split('.')
     @description_split_array = @date_plan.description.split('.')
+  end
+
+  private
+
+  def set_purpose
+    @purpose = Purpose.find(params[:id])
+  end
+
+  def set_date_plan
+    @date_plan = DatePlan.find(params[:id])
   end
 end

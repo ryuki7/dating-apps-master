@@ -9,53 +9,33 @@ Rails.application.routes.draw do
   get 'richmenu_guide' => 'application#richmenu_guide'
 
   resources :app_diagnostics do
-    collection do
-      post 'original_create'
-    end
-    collection do
-      get 'result'
-    end
+    post 'original_create', on: :collection
+    get 'result', on: :collection
   end
 
   resources :users do
-    collection do
-      get 'my_page'
-    end
-    member do
-      get 'system_spec_login'
-    end
+    get 'my_page', on: :collection
+    get 'system_spec_login', on: :member
   end
 
   resources :app_strategies, only: %i[index show] do
-    member do
-      get 'step'
-    end
-    collection do
-      get 'date_plan_detail_redirect'
-    end
+    get 'step', on: :member
+    get 'date_plan_detail_redirect', on: :collection
   end
 
   resources :date_plans, only: %i[index show] do
-    member do
-      get 'detail'
-    end
+    get 'detail', on: :member
   end
 
   resources :targets, only: %i[new create index show edit destroy] do
-    member do
-      post 'original_update'
-    end
+    post 'original_update', on: :member
   end
 
   resources :date_results, only: %i[new create index show] do
-    collection do
-      get 'delete_unreported_passed'
-    end
+    get 'delete_unreported_passed', on: :collection
   end
 
   resources :date_schedules, only: %i[destroy] do
-    member do
-      post 'original_create'
-    end
+    post 'original_create', on: :member
   end
 end

@@ -1,4 +1,4 @@
-<div id="index-banner" class="<%= "parallax-container layout-date_plans_detail-#{purpose_color(@purpose.name)}" %>">
+<div id="index-banner" class="<%= "parallax-container layout-date_plans_detail-#{purpose_color(@date_plan.purpose.name)}" %>">
   <div class="section no-pad-bot">
     <div class="container" id="date_plans_container">
       <% @apps.each do |app| %>
@@ -8,17 +8,17 @@
           <img src="<%= "/app_icon_images/#{app.icon_image}" %>" id="app-icon-image">
         <% end %>
       <% end %>
-      <p class="<%= "date_plans_purpose #{purpose_color(@purpose.name)}" %>" id="date_plans_purpose"><%= @purpose.name %></p>
-      <h4 class="<%= "center date_plans_each_title #{purpose_color(@purpose.name)}" %>"><span><%= @date_plan.name %></span></h4>
-      <p class="<%= "date_plans_body-detail-#{purpose_color(@purpose.name)}" %>"><%= @date_plan.period %></p>
-      <% @date_plan_places.each.with_index(1) do |date_plan_place, i| %>
+      <p class="<%= "date_plans_purpose #{purpose_color(@date_plan.purpose.name)}" %>" id="date_plans_purpose"><%= @date_plan.purpose.name %></p>
+      <h4 class="<%= "center date_plans_each_title #{purpose_color(@date_plan.purpose.name)}" %>"><span><%= @date_plan.name %></span></h4>
+      <p class="<%= "date_plans_body-detail-#{purpose_color(@date_plan.purpose.name)}" %>"><%= @date_plan.period %></p>
+      <% @date_plan.date_plan_places.each.with_index(1) do |date_plan_place, i| %>
         <p class="date_plans_detail_body-place"><%= date_plan_place.place.name %></p>
-        <% unless @date_plan_places.size == i %>
-          <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-detail-#{purpose_color(@purpose.name)}" %>"></i>
+        <% unless @date_plan.date_plan_places.size == i %>
+          <i class="<%= "fas fa-long-arrow-alt-down arrow-icon-detail-#{purpose_color(@date_plan.purpose.name)}" %>"></i>
         <% end %>
       <% end %>
-      <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}" %>">
-        <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}-title" %>">詳細情報</div>
+      <div class="<%= "date_plans-box-#{purpose_color(@date_plan.purpose.name)}" %>">
+        <div class="<%= "date_plans-box-#{purpose_color(@date_plan.purpose.name)}-title" %>">詳細情報</div>
         <p class="<%= "date_plans_body-detail" %>">
           <% @detail_information_split_array.each.with_index(1) do |detail_information, i| %>
             <%= detail_information %>
@@ -28,8 +28,8 @@
           <% end %>
         </p>
       </div>
-      <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}" %>">
-        <div class="<%= "date_plans-box-#{purpose_color(@purpose.name)}-title" %>" id="date_plans_detail_action_fragment">アクション</div>
+      <div class="<%= "date_plans-box-#{purpose_color(@date_plan.purpose.name)}" %>">
+        <div class="<%= "date_plans-box-#{purpose_color(@date_plan.purpose.name)}-title" %>" id="date_plans_detail_action_fragment">アクション</div>
         <p class="<%= "date_plans_body-detail" %>">
           <% @description_split_array.each.with_index(1) do |description, i| %>
             <%= description %>
