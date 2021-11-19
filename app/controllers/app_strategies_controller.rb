@@ -18,10 +18,7 @@ class AppStrategiesController < ApplicationController
 
   def step
     app_purposes = AppPurpose.where(purpose_id: @purpose.id)
-    @apps = []
-    app_purposes.each do |app_purpose|
-      @apps.push(app_purpose.app)
-    end
+    @apps = AppPurpose.apps_get(app_purposes)
   end
 
   def date_plan_detail_redirect
