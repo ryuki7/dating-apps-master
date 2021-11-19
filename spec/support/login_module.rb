@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LoginModule
   # users#system_spec_login のコメントアウトを有効化してからテストする
   def login(user)

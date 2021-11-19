@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DateResultsController < ApplicationController
   before_action :set_user, only: %i[new create index show delete_unreported_passed]
   before_action :set_task_all, only: %i[new show]
@@ -47,14 +49,14 @@ class DateResultsController < ApplicationController
     return redirect_to delete_unreported_passed_date_results_path if @date_schedules_unreported_passed_array.size > 3
 
     @date_schedules_reported_all = @date_schedules_all.reported
-    @date_schedules_reported_pagination = @date_schedules_reported_all.order("updated_at DESC").page(params[:page]).per(7)
+    @date_schedules_reported_pagination = @date_schedules_reported_all.order('updated_at DESC').page(params[:page]).per(7)
   end
 
   def show
     @date_schedule = @date_schedules_all.find(params[:id])
     @target = @date_schedule.target
     # order("created_at ASC") => 古い順(過去のものから順番に取り出す)
-    @date_schedules_reported_all = @target.date_schedules.reported.order("created_at ASC")
+    @date_schedules_reported_all = @target.date_schedules.reported.order('created_at ASC')
 
     # その女性と何回目のデートなのかをカウントする
     @date_count = DateSchedule.date_count(@date_schedules_reported_all, @date_schedule)
@@ -85,8 +87,8 @@ class DateResultsController < ApplicationController
   end
 
   def essential_tasks
-    @essential_task1 = Task.find_by(name: "デート終了後、相手からメッセージが来る or 自分の送ったメッセージに返信が来る")
-    @essential_task2 = Task.find_by(name: "次のデートのお誘いにOKを貰える or 次のデートに誘われる")
+    @essential_task1 = Task.find_by(name: 'デート終了後、相手からメッセージが来る or 自分の送ったメッセージに返信が来る')
+    @essential_task2 = Task.find_by(name: '次のデートのお誘いにOKを貰える or 次のデートに誘われる')
   end
 
   def set_date_schedules_all

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class App < ApplicationRecord
   has_many :app_diagnostics, dependent: :destroy
   has_many :app_purposes, dependent: :destroy

@@ -1,53 +1,55 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe App, type: :model do
   let(:app) { build(:app) }
 
-  it "name, strategy_description, icon_image, diagnostic_allocation, diagnostic_description がある場合、有効である" do
+  it 'name, strategy_description, icon_image, diagnostic_allocation, diagnostic_description がある場合、有効である' do
     expect(app).to be_valid
   end
 
-  it "name がない場合、無効である" do
+  it 'name がない場合、無効である' do
     app.name = nil
     app.valid?
-    expect(app.errors[:name]).to include("を入力してください")
+    expect(app.errors[:name]).to include('を入力してください')
   end
 
-  it "重複した name の場合、無効である" do
+  it '重複した name の場合、無効である' do
     app1 = create(:app)
     app2 = build(:app, name: app1.name)
     app2.valid?
-    expect(app2.errors[:name]).to include("はすでに存在します")
+    expect(app2.errors[:name]).to include('はすでに存在します')
   end
 
-  it "strategy_description がない場合、無効である" do
+  it 'strategy_description がない場合、無効である' do
     app.strategy_description = nil
     app.valid?
-    expect(app.errors[:strategy_description]).to include("を入力してください")
+    expect(app.errors[:strategy_description]).to include('を入力してください')
   end
 
-  it "icon_image がない場合、無効である" do
+  it 'icon_image がない場合、無効である' do
     app.icon_image = nil
     app.valid?
-    expect(app.errors[:icon_image]).to include("を入力してください")
+    expect(app.errors[:icon_image]).to include('を入力してください')
   end
 
-  it "diagnostic_allocation がない場合、無効である" do
+  it 'diagnostic_allocation がない場合、無効である' do
     app.diagnostic_allocation = nil
     app.valid?
-    expect(app.errors[:diagnostic_allocation]).to include("を入力してください")
+    expect(app.errors[:diagnostic_allocation]).to include('を入力してください')
   end
 
-  it "重複した diagnostic_allocation の場合、無効である" do
+  it '重複した diagnostic_allocation の場合、無効である' do
     app1 = create(:app)
     app2 = build(:app, diagnostic_allocation: app1.diagnostic_allocation)
     app2.valid?
-    expect(app2.errors[:diagnostic_allocation]).to include("はすでに存在します")
+    expect(app2.errors[:diagnostic_allocation]).to include('はすでに存在します')
   end
 
-  it "diagnostic_description がない場合、無効である" do
+  it 'diagnostic_description がない場合、無効である' do
     app.diagnostic_description = nil
     app.valid?
-    expect(app.errors[:diagnostic_description]).to include("を入力してください")
+    expect(app.errors[:diagnostic_description]).to include('を入力してください')
   end
 end

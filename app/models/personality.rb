@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Personality < ApplicationRecord
   has_many :targets, dependent: :destroy
 

@@ -12,3 +12,7 @@ ja:
         not_implement: "未実施"
         success: "成功"
         fail: "失敗"
+    user:
+      role:
+        general: "ユーザー"
+        admin: "管理者"

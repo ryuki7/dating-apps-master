@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppDiagnostic < ApplicationRecord
   belongs_to :app
   belongs_to :user
@@ -7,16 +9,16 @@ class AppDiagnostic < ApplicationRecord
       allocation_count_array_sort(allocation_all_string).each.with_index(1) do |app_count, i|
         case app_count
         when @c_count # tapple
-          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: "c").id, ranking: i, user_id: user.id)
+          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: 'c').id, ranking: i, user_id: user.id)
           @c_count = '済み'
         when @b_count # with
-          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: "b").id, ranking: i, user_id: user.id)
+          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: 'b').id, ranking: i, user_id: user.id)
           @b_count = '済み'
         when @a_count # Pairs
-          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: "a").id, ranking: i, user_id: user.id)
+          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: 'a').id, ranking: i, user_id: user.id)
           @a_count = '済み'
         when @d_count # Tinder
-          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: "d").id, ranking: i, user_id: user.id)
+          AppDiagnostic.create!(app_id: apps.find_by(diagnostic_allocation: 'd').id, ranking: i, user_id: user.id)
           @d_count = '済み'
         end
       end

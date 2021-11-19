@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppPurpose < ApplicationRecord
   belongs_to :app
   belongs_to :purpose

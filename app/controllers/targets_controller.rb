@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TargetsController < ApplicationController
   layout 'redirect_application', only: %i[new show]
   before_action :set_user, only: %i[create index show edit original_update destroy]
@@ -17,7 +19,7 @@ class TargetsController < ApplicationController
 
   def index
     @targets = Target.where(user_id: @user.id)
-    @targets_pagination = @targets.order("updated_at DESC").page(params[:page]).per(7)
+    @targets_pagination = @targets.order('updated_at DESC').page(params[:page]).per(7)
   end
 
   def show
@@ -84,18 +86,18 @@ class TargetsController < ApplicationController
 
   def meta_url
     case params[:action]
-    when "new"
-      @meta_url = "targets/new"
+    when 'new'
+      @meta_url = 'targets/new'
       @meta_url_count = 0
-    when "show"
+    when 'show'
       @meta_url = "targets/#{params[:id]}"
       @meta_url_count = 0.7
     end
   end
 
   def essential_tasks
-    @essential_task1 = Task.find_by(name: "デート終了後、相手からメッセージが来る or 自分の送ったメッセージに返信が来る")
-    @essential_task2 = Task.find_by(name: "次のデートのお誘いにOKを貰える or 次のデートに誘われる")
+    @essential_task1 = Task.find_by(name: 'デート終了後、相手からメッセージが来る or 自分の送ったメッセージに返信が来る')
+    @essential_task2 = Task.find_by(name: '次のデートのお誘いにOKを貰える or 次のデートに誘われる')
   end
 
   def select_prefecture_city_get
@@ -115,7 +117,7 @@ class TargetsController < ApplicationController
         instance_variable_set("@prefecture_#{i}", prefecture)
 
         # 市町村の配列
-        city_name_array.push(ken_and_city_name_hash["city_name"]) if ken_and_city_name_hash["ken_name"] == prefecture
+        city_name_array.push(ken_and_city_name_hash['city_name']) if ken_and_city_name_hash['ken_name'] == prefecture
         instance_variable_set("@each_city_name_array_#{i}", city_name_array) if ken_and_city_name_hash_array.size == count
       end
     end

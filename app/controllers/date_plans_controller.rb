@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DatePlansController < ApplicationController
   skip_before_action :login_check
   before_action :set_purpose, only: %i[show]
