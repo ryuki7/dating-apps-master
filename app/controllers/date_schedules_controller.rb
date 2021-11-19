@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DateSchedulesController < ApplicationController
   before_action :set_user, only: %i[original_create destroy]
 
@@ -12,9 +14,9 @@ class DateSchedulesController < ApplicationController
     date_schedule = DateSchedule.find_by(id: params[:id], user_id: @user.id)
     date_schedule.destroy!
     case params[:referer]
-    when "date_result"
+    when 'date_result'
       redirect_to date_results_path
-    when "date_result_unreported_passed"
+    when 'date_result_unreported_passed'
       redirect_to delete_unreported_passed_date_results_path
     else
       redirect_to "/targets/#{date_schedule.target.id}#targets_date_registration_fragment"

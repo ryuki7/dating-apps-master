@@ -18,11 +18,7 @@
           <%= link_to "", class: "targets_index_each_target_button user_manage", id: "targets_index_each_target_button_td" do %>
               <span><%= i %></span>
               <span><%= user.name %></span>
-              <% if user.role == 1 %>
-                <span>管理者</span>
-              <% else %>
-                <span>ユーザー</span>
-              <% end %>
+              <span><%= user.role_i18n %></span>
               <span><%= user.popular_rating %>％</span>
               <span><%= user.targets.size %>人</span>
           <% end %>

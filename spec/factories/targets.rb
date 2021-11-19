@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :target do
     sequence(:name) { |n| "target_name_#{n}" }

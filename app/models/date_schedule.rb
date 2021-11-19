@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DateSchedule < ApplicationRecord
   require 'line/bot'
   has_many :date_schedule_tasks, dependent: :destroy
@@ -31,16 +33,16 @@ class DateSchedule < ApplicationRecord
       # Dateクラスのフォーマットに変換
       date_schedule_reported_last_appointment = date_schedules_reported_last.appointment_date_class_create
       # 5日後
-      recommend_5days_since = date_schedule_reported_last_appointment.days_since(5).strftime("%m/%d")
+      recommend_5days_since = date_schedule_reported_last_appointment.days_since(5).strftime('%m/%d')
       # 14日後
-      recommend_14days_since = date_schedule_reported_last_appointment.days_since(14).strftime("%m/%d")
+      recommend_14days_since = date_schedule_reported_last_appointment.days_since(14).strftime('%m/%d')
       [recommend_5days_since, recommend_14days_since]
     end
 
     def recommend_date_plan(date_schedules_reported_all, user, target)
       date_count = date_schedules_reported_all.size + 1
       # 条件に当てはまりそうな date_plan を複数取得する。
-      date_plans_recommend_before_revise = DatePlan.where("date_count_level <= ? and popular_rating_level <= ? and purpose_id = ?", date_count, user.popular_rating, target.purpose.id)
+      date_plans_recommend_before_revise = DatePlan.where('date_count_level <= ? and popular_rating_level <= ? and purpose_id = ?', date_count, user.popular_rating, target.purpose.id)
       # 計算した値の絶対値が一番小さい場合の date_plan を1つ取得する。
       date_plans_recommend_before_revise.min_by { |date_plan| (user.popular_rating - date_plan.popular_rating_level).abs } if date_plans_recommend_before_revise.present?
     end
@@ -48,7 +50,7 @@ class DateSchedule < ApplicationRecord
 
   def appointment_date_class_create
     split_blank_array = appointment.split
-    split_month_and_day = split_blank_array[1].split("月")
+    split_month_and_day = split_blank_array[1].split('月')
     appointment_str = "#{split_blank_array[0].gsub(/[^\d]/, '')}-#{split_month_and_day[0]}-#{split_month_and_day[1].gsub(/[^\d]/, '')}"
     Date.parse(appointment_str)
   end
@@ -64,18 +66,18 @@ class DateSchedule < ApplicationRecord
   def line_message_send(user)
     line_message_text = "デートの予定を登録したよ$ \n\n$#{target.name}ちゃん \n#{appointment} \n#{date_plan.name}（#{date_plan.purpose.name}） \n\n下記のリンクから \n#{date_plan.name}（#{date_plan.purpose.name}）の\n「詳細情報」\n「アクション」\nを確認しておきましょう！ \n\nhttps://dating-apps-master.com/date_plans/#{date_plan.id}/detail?openExternalBrowser=1"
     message = {
-      type: "text",
+      type: 'text',
       text: line_message_text.gsub(/(\\r\\n|\\r|\\n)/, "\n"),
       emojis: [
         {
           index: 12,
-          productId: "5ac1bfd5040ab15980c9b435",
-          emojiId: "098"
+          productId: '5ac1bfd5040ab15980c9b435',
+          emojiId: '098'
         },
         {
           index: 16,
-          productId: "5ac1bfd5040ab15980c9b435",
-          emojiId: "219"
+          productId: '5ac1bfd5040ab15980c9b435',
+          emojiId: '219'
         }
       ]
     }

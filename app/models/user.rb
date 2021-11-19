@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :app_diagnostics, dependent: :destroy
   has_many :targets, dependent: :destroy
@@ -6,6 +8,8 @@ class User < ApplicationRecord
   validates :line_id, presence: true, uniqueness: true
   validates :role, presence: true
   validates :popular_rating, presence: true
+
+  enum role: { general: 0, admin: 1 }
 
   def create_popular_rating(targets_all, date_schedules_reported_all)
     targets_all_favorability_rating_and_progress_rating = 0

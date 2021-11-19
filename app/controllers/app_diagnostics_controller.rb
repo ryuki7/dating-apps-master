@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppDiagnosticsController < ApplicationController
   layout 'redirect_application', only: %i[show result]
   before_action :set_user, only: %i[original_create result]
@@ -23,7 +25,7 @@ class AppDiagnosticsController < ApplicationController
 
   def result
     # ランキングが高い(若い)順に AppDiagnostic を取得する。
-    @app_diagnostics = AppDiagnostic.where(user_id: @user.id).order("ranking ASC")
+    @app_diagnostics = AppDiagnostic.where(user_id: @user.id).order('ranking ASC')
     # まだ診断をしていない場合は、診断ページに遷移する。
     redirect_to app_diagnostics_path if @app_diagnostics.blank?
   end
@@ -47,11 +49,11 @@ class AppDiagnosticsController < ApplicationController
   end
 
   def meta_url
-    if params[:action] == "show" && params[:id] == "1"
+    if params[:action] == 'show' && params[:id] == '1'
       @meta_url = "app_diagnostics/#{params[:id]}"
       @meta_url_count = 0.5
-    elsif params[:action] == "result"
-      @meta_url = "app_diagnostics/result"
+    elsif params[:action] == 'result'
+      @meta_url = 'app_diagnostics/result'
       @meta_url_count = 0
     end
   end

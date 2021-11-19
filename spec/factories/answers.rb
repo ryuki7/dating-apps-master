@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :answer do
-    description { "answer_description" }
-    allocation { "answer_allocation" }
+    description { 'answer_description' }
+    allocation { 'answer_allocation' }
     question { create(:question) }
   end
 end

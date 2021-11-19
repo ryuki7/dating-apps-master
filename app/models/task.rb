@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Task < ApplicationRecord
   has_many :date_schedule_tasks, dependent: :destroy
 

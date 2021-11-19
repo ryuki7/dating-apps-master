@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Target < ApplicationRecord
   belongs_to :app
   belongs_to :appearance
@@ -26,7 +28,7 @@ class Target < ApplicationRecord
     end
 
     def prefectures_array_get
-      ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]
+      %w[北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県]
     end
 
     def date_count_calculate_favorability_rating(favorability_rating, date_count_integer, date_schedule_essential_task1, date_schedule_essential_task2)
@@ -90,12 +92,12 @@ class Target < ApplicationRecord
 
     # 未選択の値が"0"の項目で未選択の場合、元の情報をそのまま保存されるようにする。(更新しないと元の情報も保存されない為。)
     default_0_column_symbol_array.each do |column_symbol|
-      params[column_symbol] = params["#{column_symbol}_before_edit".to_sym] if params[column_symbol] == "0"
+      params[column_symbol] = params["#{column_symbol}_before_edit".to_sym] if params[column_symbol] == '0'
     end
 
     # 未選択の値が"1"の項目で未選択の場合、元の情報をそのまま保存されるようにする。(更新しないと元の情報も保存されない為。)
     default_1_column_symbol_array.each do |column_symbol|
-      params[column_symbol] = params["#{column_symbol}_before_edit".to_sym] if params[column_symbol] == "1"
+      params[column_symbol] = params["#{column_symbol}_before_edit".to_sym] if params[column_symbol] == '1'
     end
 
     update!(params.permit(update_params_column_all))

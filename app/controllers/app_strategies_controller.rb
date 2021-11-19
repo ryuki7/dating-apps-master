@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppStrategiesController < ApplicationController
   before_action :set_app, only: %i[show]
   before_action :set_purpose, only: %i[step]
@@ -11,7 +13,7 @@ class AppStrategiesController < ApplicationController
     @app_strategy_description_split_array = @app.strategy_description.split('.')
     @app_purposes = AppPurpose.where(app_id: params[:id])
     # 項目1〜8までの、項目名(step のnameカラム)を取得したい。(目的は不問。)
-    @steps = Step.all.order("created_at ASC").limit(8)
+    @steps = Step.all.order('created_at ASC').limit(8)
   end
 
   def step
